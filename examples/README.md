@@ -18,7 +18,10 @@ mapea a un submódulo concreto de [`doc/`](../doc).
   └── tests/<Proyecto>.Tests/
   ```
 - **Tests obligatorios:** xUnit + `WebApplicationFactory<Program>` para las APIs.
-- **Despliegue Azure:** los pasos siempre se documentan por **Portal**, no `az`.
+- **Despliegue Azure:** los pasos del README siempre se documentan por **Portal**.
+  Algunos ejemplos incluyen además scripts `az` opcionales en `scripts/` para
+  escenificar la demo en clase — siempre como complemento, nunca como sustituto
+  de la guía del Portal.
 - **No lanzo apps:** los `dotnet run` los hace el alumno; la verificación automática
   se queda en `dotnet build` + `dotnet test`.
 
@@ -27,6 +30,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | Módulo | Submódulo | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [M02 — App Services](M02-App-Services/README.md) | S2.1 — Creación, configuración y publicación | [AppService.Demo.Api](M02-App-Services/S2.1-creacion-config-publicacion/README.md) | ✅ Disponible |
+| [M02 — App Services](M02-App-Services/README.md) | S2.2 — Slots staging / producción | [AppService.Demo.Slots](M02-App-Services/S2.2-slots-staging-produccion/README.md) | ✅ Disponible |
 
 Los demás submódulos se irán añadiendo siguiendo el mismo patrón.
 

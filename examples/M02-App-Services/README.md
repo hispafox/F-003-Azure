@@ -9,7 +9,7 @@ estilo: Minimal API .NET 10, xUnit, despliegue por Portal de Azure.
 | Submódulo | Tema | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [S2.1](../../doc/M02-App-Services/v4-actual/M02-S2.1-creacion-configuracion-publicacion-v4.md) | Creación, configuración y publicación en App Service | [`S2.1-creacion-config-publicacion/`](S2.1-creacion-config-publicacion/README.md) | ✅ Disponible |
-| S2.2 | Slots de despliegue (staging / producción) | _Pendiente_ | ⏳ |
+| [S2.2](../../doc/M02-App-Services/v4-actual/M02-S2.2-slots-staging-produccion-v4.md) | Slots de despliegue (staging / producción) | [`S2.2-slots-staging-produccion/`](S2.2-slots-staging-produccion/README.md) | ✅ Disponible |
 | S2.3 | Escalado automático y planes | _Pendiente_ | ⏳ |
 | S2.4 | Variables de conexión y configuración segura | _Pendiente_ | ⏳ |
 | S2.5 | Monitorización y diagnóstico | _Pendiente_ | ⏳ |
