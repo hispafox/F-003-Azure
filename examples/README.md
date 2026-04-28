@@ -35,8 +35,9 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M02 — App Services](M02-App-Services/README.md) | S2.4 — Variables y configuración segura | [AppService.Demo.Config](M02-App-Services/S2.4-variables-conexion-config-segura/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.5 — Monitorización y diagnóstico | [AppService.Demo.Monitor](M02-App-Services/S2.5-monitorizacion-diagnostico/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.P — Práctica: slots y swap | [AppService.Practica.Slots](M02-App-Services/S2.P-practica-slots-swap/README.md) | ✅ Disponible |
+| [M02 — App Services](M02-App-Services/README.md) | S2.P2 — Práctica: deploy básico | [MiPrimeraWebApp](M02-App-Services/S2.P2-practica-deploy-basico/README.md) | ✅ Disponible |
 
-Los demás submódulos se irán añadiendo siguiendo el mismo patrón.
+✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 
 ## Cómo usar un ejemplo
 

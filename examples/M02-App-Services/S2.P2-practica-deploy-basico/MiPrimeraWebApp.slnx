@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/MiPrimeraWebApp/MiPrimeraWebApp.csproj" />
+  <Project Path="tests/MiPrimeraWebApp.Tests/MiPrimeraWebApp.Tests.csproj" />
+</Solution>

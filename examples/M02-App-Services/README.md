@@ -14,7 +14,7 @@ estilo: Minimal API .NET 10, xUnit, despliegue por Portal de Azure.
 | [S2.4](../../doc/M02-App-Services/v4-actual/M02-S2.4-variables-conexion-config-segura-v4.md) | Variables de conexión y configuración segura | [`S2.4-variables-conexion-config-segura/`](S2.4-variables-conexion-config-segura/README.md) | ✅ Disponible |
 | [S2.5](../../doc/M02-App-Services/v4-actual/M02-S2.5-monitorizacion-diagnostico-v4.md) | Monitorización y diagnóstico | [`S2.5-monitorizacion-diagnostico/`](S2.5-monitorizacion-diagnostico/README.md) | ✅ Disponible |
 | [S2.P](../../doc/M02-App-Services/v4-actual/M02-S2.P-practica-slots-swap-v4.md) | Práctica — slots y swap | [`S2.P-practica-slots-swap/`](S2.P-practica-slots-swap/README.md) | ✅ Disponible |
-| S2.P2 | Práctica — deploy básico | _Pendiente_ | ⏳ |
+| [S2.P2](../../doc/M02-App-Services/v4-actual/M02-S2.P2-practica-deploy-basico-v1.md) | Práctica — deploy básico | [`S2.P2-practica-deploy-basico/`](S2.P2-practica-deploy-basico/README.md) | ✅ Disponible |
 
 ## Hilo conductor del módulo
 
