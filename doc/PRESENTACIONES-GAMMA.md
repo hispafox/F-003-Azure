@@ -37,11 +37,11 @@ Leyenda: ✅ enlace registrado · ⏳ pendiente de URL.
 | --- | --- | --- | --- | --- |
 | S2.1 | Creación, configuración y publicación | [doc](M02-App-Services/v4-actual/M02-S2.1-creacion-configuracion-publicacion-v4.md) | [ejemplo](../examples/M02-App-Services/S2.1-creacion-config-publicacion/README.md) | ✅ [Gamma](https://gamma.app/docs/M02-S21-creacion-configuracion-publicacion-v4-5agxfm0zw2elcea) |
 | S2.2 | Slots staging / producción | [doc](M02-App-Services/v4-actual/M02-S2.2-slots-staging-produccion-v4.md) | [ejemplo](../examples/M02-App-Services/S2.2-slots-staging-produccion/README.md) | ✅ [Gamma](https://gamma.app/docs/M02-S22-slots-staging-produccion-v4-mtdov7l5xomml5r) |
-| S2.3 | Escalado automático y planes | [doc](M02-App-Services/v4-actual/M02-S2.3-escalado-automatico-planes-v4.md) | [ejemplo](../examples/M02-App-Services/S2.3-escalado-automatico-planes/README.md) | ⏳ |
-| S2.4 | Variables de conexión y configuración segura | [doc](M02-App-Services/v4-actual/M02-S2.4-variables-conexion-config-segura-v4.md) | _Pendiente_ | ⏳ |
-| S2.5 | Monitorización y diagnóstico | [doc](M02-App-Services/v4-actual/M02-S2.5-monitorizacion-diagnostico-v4.md) | _Pendiente_ | ⏳ |
-| S2.P | Práctica — slots y swap | [doc](M02-App-Services/v4-actual/M02-S2.P-practica-slots-swap-v4.md) | _Pendiente_ | ⏳ |
-| S2.P2 | Práctica — deploy básico | [doc](M02-App-Services/v4-actual/M02-S2.P2-practica-deploy-basico-v1.md) | _Pendiente_ | ⏳ |
+| S2.3 | Escalado automático y planes | [doc](M02-App-Services/v4-actual/M02-S2.3-escalado-automatico-planes-v4.md) | [ejemplo](../examples/M02-App-Services/S2.3-escalado-automatico-planes/README.md) | ✅ [Gamma](https://gamma.app/docs/M02-S23-escalado-automatico-planes-v4-4sl35nk4ua4zelk) |
+| S2.4 | Variables de conexión y configuración segura | [doc](M02-App-Services/v4-actual/M02-S2.4-variables-conexion-config-segura-v4.md) | _Pendiente_ | ✅ [Gamma](https://gamma.app/docs/M02-S24-variables-conexion-config-segura-v4-1c3foflz4lunlqq) |
+| S2.5 | Monitorización y diagnóstico | [doc](M02-App-Services/v4-actual/M02-S2.5-monitorizacion-diagnostico-v4.md) | _Pendiente_ | ✅ [Gamma](https://gamma.app/docs/M02-S25-monitorizacion-diagnostico-v4-phxokefb4pou6ph) |
+| S2.P | Práctica — slots y swap | [doc](M02-App-Services/v4-actual/M02-S2.P-practica-slots-swap-v4.md) | _Pendiente_ | ✅ [Gamma](https://gamma.app/docs/M02-S2P-practica-slots-swap-v4-wcqckma6lp90clf) |
+| S2.P2 | Práctica — deploy básico | [doc](M02-App-Services/v4-actual/M02-S2.P2-practica-deploy-basico-v1.md) | _Pendiente_ | ✅ [Gamma](https://gamma.app/docs/M02-S2P2-practica-deploy-basico-v1-tvsz5lbyy37e7z1) |
 
 ### M03 — Azure Functions I (v4)
 
