@@ -1,0 +1,30 @@
+# M02 — App Services · ejemplos
+
+Ejemplos de código que acompañan al [Módulo 2 — App Services](../../doc/M02-App-Services).
+Cada uno se centra en los conceptos de un submódulo concreto y reutiliza el mismo
+estilo: Minimal API .NET 10, xUnit, despliegue por Portal de Azure.
+
+## Submódulos cubiertos
+
+| Submódulo | Tema | Ejemplo | Estado |
+| --- | --- | --- | --- |
+| [S2.1](../../doc/M02-App-Services/v4-actual/M02-S2.1-creacion-configuracion-publicacion-v4.md) | Creación, configuración y publicación en App Service | [`S2.1-creacion-config-publicacion/`](S2.1-creacion-config-publicacion/README.md) | ✅ Disponible |
+| S2.2 | Slots de despliegue (staging / producción) | _Pendiente_ | ⏳ |
+| S2.3 | Escalado automático y planes | _Pendiente_ | ⏳ |
+| S2.4 | Variables de conexión y configuración segura | _Pendiente_ | ⏳ |
+| S2.5 | Monitorización y diagnóstico | _Pendiente_ | ⏳ |
+| S2.P | Práctica — slots y swap | _Pendiente_ | ⏳ |
+| S2.P2 | Práctica — deploy básico | _Pendiente_ | ⏳ |
+
+## Hilo conductor del módulo
+
+A medida que avanzan los submódulos, los ejemplos se construyen sobre el del
+anterior cuando tiene sentido (S2.2 reaprovecha la API de S2.1 y le añade slots,
+S2.3 añade escalado, etc.). Cada ejemplo es ejecutable de forma aislada, pero
+leídos en orden cuentan una progresión real "de cero a producción".
+
+## Requisitos comunes
+
+- .NET SDK 10
+- Suscripción de Azure
+- VS Code + extensión **Azure App Service** (recomendada para el deploy)
