@@ -12,7 +12,7 @@ estilo: Minimal API .NET 10, xUnit, despliegue por Portal de Azure.
 | [S2.2](../../doc/M02-App-Services/v4-actual/M02-S2.2-slots-staging-produccion-v4.md) | Slots de despliegue (staging / producción) | [`S2.2-slots-staging-produccion/`](S2.2-slots-staging-produccion/README.md) | ✅ Disponible |
 | [S2.3](../../doc/M02-App-Services/v4-actual/M02-S2.3-escalado-automatico-planes-v4.md) | Escalado automático y planes | [`S2.3-escalado-automatico-planes/`](S2.3-escalado-automatico-planes/README.md) | ✅ Disponible |
 | [S2.4](../../doc/M02-App-Services/v4-actual/M02-S2.4-variables-conexion-config-segura-v4.md) | Variables de conexión y configuración segura | [`S2.4-variables-conexion-config-segura/`](S2.4-variables-conexion-config-segura/README.md) | ✅ Disponible |
-| S2.5 | Monitorización y diagnóstico | _Pendiente_ | ⏳ |
+| [S2.5](../../doc/M02-App-Services/v4-actual/M02-S2.5-monitorizacion-diagnostico-v4.md) | Monitorización y diagnóstico | [`S2.5-monitorizacion-diagnostico/`](S2.5-monitorizacion-diagnostico/README.md) | ✅ Disponible |
 | S2.P | Práctica — slots y swap | _Pendiente_ | ⏳ |
 | S2.P2 | Práctica — deploy básico | _Pendiente_ | ⏳ |
 

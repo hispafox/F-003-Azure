@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <!-- NU1902: OpenTelemetry.Api 1.13.x tiene una advisory abierta sin patch
+         upstream; es la versión que arrastra Azure.Monitor.OpenTelemetry.AspNetCore
+         1.4.0 (la última estable). Suprimimos solo aquí. -->
+    <NoWarn>$(NoWarn);NU1902</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="10.0.0" />
+    <PackageReference Include="Microsoft.FeatureManagement" Version="4.3.0" />
+    <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.4.0" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Runtime" Version="1.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="AppService.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
