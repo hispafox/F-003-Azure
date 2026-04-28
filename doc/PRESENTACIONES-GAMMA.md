@@ -47,7 +47,7 @@ Leyenda: ✅ enlace registrado · ⏳ pendiente de URL.
 
 | Submódulo | Título | Doc | Presentación |
 | --- | --- | --- | --- |
-| S3.1 | Principios de cómputo sin servidor | [doc](M03-Azure-Functions-I/v4-actual/M03-S3.1-principios-computo-sin-servidor-v4.md) | ⏳ |
+| S3.1 | Principios de cómputo sin servidor | [doc](M03-Azure-Functions-I/v4-actual/M03-S3.1-principios-computo-sin-servidor-v4.md) | ✅ [Gamma](https://gamma.app/docs/M03-S31-principios-computo-sin-servidor-v4-z0ool9h55cli1k1) |
 | S3.2 | Trigger HTTP | [doc](M03-Azure-Functions-I/v4-actual/M03-S3.2-trigger-http-v4.md) | ⏳ |
 | S3.3 | Trigger Timer | [doc](M03-Azure-Functions-I/v4-actual/M03-S3.3-trigger-timer-v4.md) | ⏳ |
 | S3.4 | Trigger Blob Storage | [doc](M03-Azure-Functions-I/v4-actual/M03-S3.4-trigger-blob-storage-v4.md) | ⏳ |
