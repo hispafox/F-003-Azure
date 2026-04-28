@@ -14,7 +14,7 @@ conceptuales y no llevan ejemplo de código asociado.
 | S1.4 | VS Code, SDK y extensiones | _conceptual_ | — |
 | S1.5 | Conexión a App Service | _conceptual_ | — |
 | [S1.P](../../doc/M01-Intro-Azure/v5-actual/M01-S1.P-practica-helloworld-v5.md) | **Práctica:** Hello World end-to-end | [`S1.P-practica-helloworld/`](S1.P-practica-helloworld/README.md) | ✅ Disponible |
-| S1.P2 | Práctica — Cloud Shell | _Pendiente_ | ⏳ |
+| [S1.P2](../../doc/M01-Intro-Azure/v5-actual/M01-S1.P2-practica-cloud-shell-v1.md) | **Práctica:** explorar Azure desde Cloud Shell (solo CLI, sin .NET) | [`S1.P2-practica-cloud-shell/`](S1.P2-practica-cloud-shell/README.md) | ✅ Disponible |
 
 ## Hilo conductor
 
