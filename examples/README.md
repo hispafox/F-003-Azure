@@ -34,6 +34,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M02 — App Services](M02-App-Services/README.md) | S2.3 — Escalado automático | [AppService.Demo.Scale](M02-App-Services/S2.3-escalado-automatico-planes/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.4 — Variables y configuración segura | [AppService.Demo.Config](M02-App-Services/S2.4-variables-conexion-config-segura/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.5 — Monitorización y diagnóstico | [AppService.Demo.Monitor](M02-App-Services/S2.5-monitorizacion-diagnostico/README.md) | ✅ Disponible |
+| [M02 — App Services](M02-App-Services/README.md) | S2.P — Práctica: slots y swap | [AppService.Practica.Slots](M02-App-Services/S2.P-practica-slots-swap/README.md) | ✅ Disponible |
 
 Los demás submódulos se irán añadiendo siguiendo el mismo patrón.
 
