@@ -18,6 +18,9 @@ Si quieres llegar al primer día con todo listo, instala estos elementos:
 | **Functions** | Azure Functions Core Tools v4 | ✅ Sí | Gratis |
 | **Editor** | Visual Studio Code (con extensiones) | ✅ Sí | Gratis |
 | **Editor (Windows)** | Visual Studio 2022 Community | ⚠️ Solo M07 (MSIX) | Gratis |
+| **BBDD client** | VS Code + MSSQL extension | ⚠️ Solo si usas Azure SQL | Gratis |
+| **BBDD admin (Win)** | SQL Server Management Studio (SSMS) | ⚠️ Solo si admin SQL Server | Gratis |
+| **Storage GUI** | Azure Storage Explorer | ⚠️ Recomendado | Gratis |
 | **Control de versiones** | Git | ✅ Sí | Gratis |
 | **Cliente HTTP** | curl + jq | ✅ Sí | Gratis |
 | **Containers** | Docker Desktop | ⚠️ Recomendado (Azurite, Cosmos local) | Gratis para uso personal |
@@ -25,6 +28,8 @@ Si quieres llegar al primer día con todo listo, instala estos elementos:
 | **Cuenta cloud** | Suscripción Azure (Free Trial vale) | ✅ Sí | Gratis los primeros 200$ |
 | **Cuenta GitHub** | GitHub Free | ✅ Sí | Gratis |
 | **IA Coding** | Claude Code CLI | ⚠️ Solo M09, M11 | Plan Pro €20/mes o API |
+
+> ⚠️ **NOTA: Azure Data Studio retirado (28 feb 2026).** No instalar. Reemplazo: VS Code + MSSQL extension. Ver sección 2.6 para detalles.
 
 **Tiempo estimado de setup completo:** 2-3 horas (descarga + instalación + verificación).
 
@@ -272,6 +277,479 @@ Aplicación desktop con UI para inspeccionar Storage Accounts (Tables, Blobs, Qu
 - Ver datos de Table Storage (M05)
 - Inspeccionar blobs subidos por Functions (M03)
 - Debug de queues con problemas
+
+---
+
+## 2.6 Herramientas de Bases de Datos y Datos
+
+> ⚠️ **AVISO IMPORTANTE — Azure Data Studio retirado**  
+> **Azure Data Studio se retiró oficialmente el 28 de febrero de 2026.** Microsoft lo anunció en febrero 2025 y consolidó las capacidades en VS Code. Si tenías Azure Data Studio instalado, **migra a las alternativas de abajo**. Esta sección explica qué usar en su lugar.
+
+### 2.6.1 La situación actual de las herramientas SQL/BBDD (abril 2026)
+
+```
+🪦 Azure Data Studio (ADS)
+   ├── Anuncio retirement:   6 febrero 2025
+   ├── Retired oficial:      28 febrero 2026
+   ├── Estado actual:        Sin soporte, sin parches de seguridad
+   └── Recomendación:        NO instalar, migrar a VS Code + MSSQL extension
+
+⚠️ Polyglot Notebooks (ADS extension)
+   ├── Deprecated:           27 marzo 2026
+   └── Alternativa:          .NET Interactive en VS Code
+
+✅ Tools recomendadas (estado 2026):
+   ├── VS Code + MSSQL extension     → Reemplazo oficial de ADS
+   ├── SQL Server Management Studio  → Admin clásica + SQL Server Agent
+   ├── Storage Explorer              → Para Storage Tables/Blobs/Queues
+   ├── DBeaver                       → Multi-BBDD universal (free)
+   └── JetBrains DataGrip            → Premium multi-BBDD (~€100/año)
+```
+
+**¿Por qué Microsoft retiró Azure Data Studio?**
+
+- Fuente oficial: Microsoft consolidó esfuerzos en VS Code para SQL development
+- Strategic: VS Code es el editor #1 con uso masivo en la comunidad, mientras que ADS estaba basado en Electron y compartía código con VS Code, lo que llevaba a duplicación de esfuerzos
+- Tras retirement: no más security patches, bug fixes, ni actualizaciones de extensiones de terceros
+
+**Si todavía tienes ADS instalado:**
+
+```bash
+# Mac
+brew uninstall --cask azure-data-studio
+
+# Windows
+winget uninstall "Azure Data Studio"
+
+# Linux
+sudo dpkg -r azuredatastudio
+```
+
+### 2.6.2 VS Code + MSSQL extension — RECOMENDADA (reemplazo oficial de ADS)
+
+**El reemplazo oficial de Azure Data Studio según Microsoft.**
+
+```bash
+# Instalación (necesitas VS Code instalado primero)
+code --install-extension ms-mssql.mssql
+
+# Verificar
+code --list-extensions | grep mssql
+```
+
+**Qué incluye:**
+
+- ✅ Connection a SQL Server, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse, SQL en Fabric
+- ✅ IntelliSense T-SQL completo
+- ✅ Query execution con results pane mejorado
+- ✅ Table Designer visual
+- ✅ Object Explorer
+- ✅ SQL Database Projects (para CI/CD)
+- ✅ Integración Git nativa
+- ✅ AI-powered assistance (con GitHub Copilot)
+- ✅ Cross-platform: Windows, macOS, Linux
+
+**Limitaciones vs Azure Data Studio:**
+
+- ❌ No tiene Schema Compare nativo (extensión separada disponible)
+- ❌ No tiene Data Compare nativo
+- ❌ No tiene SQL Notebooks built-in (usar .NET Interactive)
+- ❌ No tiene SQL Server Agent UI (eso queda en SSMS)
+
+**Para qué usarla en el curso:**
+
+- M05: queries a Azure SQL Database (si lo usas en lugar de Cosmos)
+- M10: proyecto integrador con Azure SQL
+- General: cualquier query SQL durante el curso
+
+### 2.6.3 SQL Server Management Studio (SSMS) — RECOMENDADA para admin
+
+**El tool oficial de Microsoft para administración SQL Server. Sigue siendo el estándar.**
+
+**Plataforma:** Windows-only
+
+**Cuándo usarlo:**
+
+```
+✅ SQL Server Agent (job scheduling)
+✅ Administración clásica de SQL Server
+✅ Profiler / Extended Events (debugging avanzado)
+✅ Replication management
+✅ Linked Servers
+✅ Importar/exportar wizards completos
+✅ Maintenance Plans
+```
+
+**Cuándo NO usarlo (mejor VS Code MSSQL):**
+
+```
+❌ Desarrollo diario de queries
+❌ SQL Database Projects con CI/CD
+❌ Si trabajas en Mac/Linux
+❌ Source control (Git)
+```
+
+**Instalación:**
+
+```bash
+# Windows con winget
+winget install Microsoft.SQLServerManagementStudio
+
+# O descargar desde:
+# https://aka.ms/ssmsfullsetup
+```
+
+**Coste:** Gratis siempre (Microsoft).
+
+**Tamaño:** ~700 MB.
+
+**Para el curso:** opcional. Solo si trabajas con SQL Server clásico en Windows.
+
+### 2.6.4 Azure Storage Explorer — RECOMENDADA para M03/M04/M05
+
+Ya cubierto arriba (sección 2.5) pero refuerzo aquí porque es **clave para varias prácticas:**
+
+```bash
+# Mac
+brew install --cask microsoft-azure-storage-explorer
+
+# Windows
+winget install Microsoft.AzureStorageExplorer
+
+# Linux: descargar AppImage de
+# https://azure.microsoft.com/products/storage/storage-explorer/
+```
+
+**Para qué en el curso:**
+
+- M03-S3.P / S3.P2: ver blobs procesados por Functions
+- M04: inspeccionar queues de Service Bus
+- M05-S5.P2: editar manualmente Table Storage para tests
+- M10: validar que datos persisten correctamente
+
+**Alternativa web:** Portal Azure → Storage Account → Storage Browser (lo mismo en navegador).
+
+### 2.6.5 Azure Cosmos DB Explorer
+
+**Dos opciones según contexto:**
+
+**Opción A: web (incluida en Portal Azure)**
+
+```
+Portal Azure → Cosmos DB account → Data Explorer
+```
+
+- ✅ Sin instalación
+- ✅ Funciona en cualquier OS
+- ✅ Suficiente para queries simples
+- ❌ Lento para datasets grandes
+- ❌ Menos features que herramientas dedicadas
+
+**Opción B: VS Code Azure Databases extension**
+
+```bash
+# Ya incluida en el Azure Pack (sección 3.1)
+code --install-extension ms-azuretools.vscode-cosmosdb
+```
+
+- ✅ Integrada en VS Code
+- ✅ Cross-platform
+- ✅ MongoDB, Cassandra, Gremlin APIs
+- ✅ Queries con autocompletado
+
+**Opción C: Cosmos DB Emulator local (para dev)**
+
+Ya cubierto en sección 2.4. Útil para desarrollar sin gastar RUs en Azure.
+
+### 2.6.6 PostgreSQL Extension para VS Code
+
+**Si vais a usar Azure Database for PostgreSQL en algún proyecto:**
+
+```bash
+code --install-extension ms-ossdata.vscode-postgresql
+
+# Esta es la extensión oficial de Microsoft, sucesora directa de la de ADS
+```
+
+**Features:**
+
+- ✅ Connection a Azure Database for PostgreSQL
+- ✅ Connection a PostgreSQL on-premises o Docker
+- ✅ Query execution
+- ✅ pgSQL IntelliSense
+- ✅ Schema browsing
+
+**Para el curso:** opcional. No usamos PostgreSQL en las prácticas, pero es la herramienta canónica si la necesitáis.
+
+### 2.6.7 DBeaver — Alternativa multi-BBDD universal (free)
+
+**Cliente universal de BBDD. Open source, multiplataforma, gratis.**
+
+```bash
+# Mac
+brew install --cask dbeaver-community
+
+# Windows
+winget install dbeaver.dbeaver
+
+# Linux
+sudo snap install dbeaver-ce
+# o descargar de https://dbeaver.io/download/
+```
+
+**Por qué considerarla:**
+
+- ✅ **Soporta TODO**: SQL Server, Azure SQL, MySQL, PostgreSQL, Oracle, MariaDB, Cosmos (Mongo API), Cassandra, Redis, MongoDB, SQLite, etc.
+- ✅ **Cross-platform** (Win/Mac/Linux)
+- ✅ **Gratis** (Community Edition)
+- ✅ **Más rápido** que herramientas web
+- ✅ **Schema designer** visual
+- ✅ **ER Diagrams** built-in
+- ✅ **Data export** a múltiples formatos
+- ✅ **SSH tunnels** para conexiones a través de bastion
+
+**Para el curso:** muy útil si trabajáis con varias BBDD distintas. Si solo usáis Azure SQL, VS Code + MSSQL es suficiente.
+
+**Versión Pro (de pago, ~€20/mes):** añade más BBDD enterprise (Snowflake, BigQuery), AI assistant, schema compare avanzado.
+
+### 2.6.8 JetBrains DataGrip — Alternativa premium
+
+**El "Cadillac" de los clientes de BBDD. Pago.**
+
+```
+URL: https://www.jetbrains.com/datagrip/
+Coste:
+  - Personal: ~€100/año
+  - Business: ~€220/año
+  - Free para estudiantes y open source
+```
+
+**Cuándo elegirlo:**
+
+- ✅ Trabajáis con múltiples BBDD diariamente
+- ✅ Refactoring SQL avanzado
+- ✅ Necesitáis IntelliSense premium
+- ✅ Ya pagáis JetBrains All Products Pack
+
+**Para el curso:** **No es necesario.** VS Code + MSSQL extension cubre el 95% de casos. DataGrip es mejor si lo usáis en el día a día profesional.
+
+### 2.6.9 Beekeeper Studio — Alternativa free open-source
+
+**Otra alternativa moderna y minimalista, completamente free y open source.**
+
+```bash
+# Mac
+brew install --cask beekeeper-studio
+
+# Windows
+winget install beekeeper-studio.beekeeper-studio
+
+# Linux
+# Descargar AppImage de https://www.beekeeperstudio.io/
+```
+
+**Por qué considerarla:**
+
+- ✅ UI muy moderna y limpia
+- ✅ SQL Server, MySQL, PostgreSQL, SQLite, MariaDB, Redis, Cassandra
+- ✅ Multi-tab queries
+- ✅ Cross-platform
+- ✅ Gratis (Community), versión Ultimate ~€9/mes
+
+**Comparativa rápida con DBeaver:**
+
+| Aspecto | DBeaver | Beekeeper Studio |
+|---|---|---|
+| BBDD soportadas | ✅ Más (incluye NoSQL exóticas) | ✅ Las principales |
+| UI | Más densa, java-look | Más moderna, electron |
+| Tamaño | ~250 MB | ~150 MB |
+| Velocidad | Más rápido en datasets grandes | Más rápido al arrancar |
+| Curva aprendizaje | Mayor | Menor |
+| Free tier | Muy completo | Algo más limitado |
+
+### 2.6.10 Comparativa: ¿Cuál elegir para el curso?
+
+| Necesidad | Herramienta recomendada |
+|---|---|
+| **Queries SQL Server / Azure SQL básicas** | VS Code + MSSQL extension |
+| **SQL Server Agent / admin clásica (Windows)** | SQL Server Management Studio |
+| **Cosmos DB queries** | Portal Azure web o VS Code Azure Databases |
+| **Storage Tables / Blobs / Queues** | Storage Explorer |
+| **PostgreSQL (Azure Database for PostgreSQL)** | VS Code PostgreSQL extension |
+| **Trabajáis con MUCHAS BBDD distintas** | DBeaver Community (free) o DataGrip (€) |
+| **App moderna ligera para SQL** | Beekeeper Studio |
+
+**Para el alumno típico del curso:**
+
+```
+Setup mínimo recomendado:
+✅ VS Code + MSSQL extension       (queries Azure SQL)
+✅ Storage Explorer                (debug Storage)
+✅ Portal Azure (web)              (Cosmos DB queries)
+
+Setup avanzado (si trabajas con BBDD a diario):
+✅ Todo lo anterior +
+✅ DBeaver Community               (multi-BBDD)
+✅ SSMS (si Windows + admin)       (SQL Server Agent)
+```
+
+---
+
+## 2.7 Otras herramientas útiles del curso
+
+Tools que aparecen en distintas prácticas y conviene tener a mano:
+
+### 2.7.1 Postman / Bruno / Insomnia / Thunder Client — para testing de APIs
+
+Ya cubiertos en sección 5. **Recomendación clara para el curso:**
+
+| Tool | Cuándo |
+|---|---|
+| **REST Client** (extensión VS Code) | ✅ Recomendado para el curso (.http files, integrado) |
+| **Bruno** | Buen middle ground (open source, archivos en disco) |
+| **Postman** | Si ya lo usáis profesionalmente |
+| **Thunder Client** (VS Code) | Alternativa Postman dentro de VS Code |
+| **Insomnia** | Buena UX, pero ahora requiere cuenta |
+
+**Para el curso:** REST Client + curl es suficiente.
+
+### 2.7.2 Wireshark / Fiddler — debugging HTTP avanzado
+
+**Para casos donde necesitáis ver tráfico HTTP/HTTPS detallado:**
+
+```bash
+# Wireshark (todos los SO)
+brew install --cask wireshark      # Mac
+winget install WiresharkFoundation.Wireshark   # Windows
+sudo apt install wireshark         # Linux
+
+# Fiddler (Windows + Mac)
+winget install Telerik.Fiddler.Classic  # Windows
+brew install --cask fiddler-everywhere  # Mac (Fiddler Everywhere)
+```
+
+**Para el curso:** opcional. Útil en M07 si tenéis problemas con APIs externas, o M06 para inspeccionar flujos OAuth2.
+
+### 2.7.3 JMeter / k6 — load testing
+
+**Si queréis hacer tests de carga (no obligatorio en el curso):**
+
+```bash
+# k6 (recomendado, moderno, scripts en JS)
+brew install k6                          # Mac
+winget install k6.k6                     # Windows
+sudo snap install k6                     # Linux
+
+# JMeter (clásico, basado en Java)
+brew install --cask jmeter               # Mac
+winget install Apache.JMeter             # Windows
+```
+
+**Comparativa:**
+
+| Tool | Pros | Cons |
+|---|---|---|
+| **k6** | Moderno, scripts JS, output a Grafana | Requiere aprender JS |
+| **JMeter** | Maduro, GUI, comunidad enorme | UI dated, lento, Java pesado |
+| **Apache Bench (ab)** | Simple, una línea de comando | Limitado para escenarios complejos |
+
+**Para el curso:** opcional. M02 menciona load testing brevemente; ab es suficiente.
+
+### 2.7.4 Editores rápidos para configs
+
+**Para casos donde abrir VS Code es overkill:**
+
+```bash
+# Notepad++ (Windows)
+winget install Notepad++.Notepad++
+
+# Sublime Text (Win/Mac/Linux)
+brew install --cask sublime-text         # Mac
+winget install SublimeHQ.SublimeText.4   # Windows
+
+# Nano (Linux/Mac, terminal)
+# Suele venir preinstalado
+
+# Vim/Neovim (Linux/Mac, terminal)
+brew install neovim
+```
+
+**Para el curso:** opcional. VS Code abre rápido suficiente.
+
+### 2.7.5 Windows Terminal (si Windows)
+
+**Si estáis en Windows, usad Windows Terminal — no la cmd.exe vieja.**
+
+```bash
+winget install Microsoft.WindowsTerminal
+```
+
+**Configurar perfiles útiles:**
+
+```
+- PowerShell 7 (default)
+- WSL Ubuntu (si tenéis WSL)
+- Azure Cloud Shell (web embebido)
+- Git Bash
+```
+
+**Settings recomendados:**
+
+```json
+{
+  "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+  "copyOnSelect": false,
+  "copyFormatting": "none",
+  "tabWidthMode": "equal",
+  "profiles": {
+    "defaults": {
+      "fontFace": "JetBrains Mono",
+      "fontSize": 11,
+      "useAcrylic": true,
+      "acrylicOpacity": 0.85
+    }
+  }
+}
+```
+
+**Para el curso:** muy recomendado en Windows. La cmd.exe clásica no soporta bien colores y a veces falla con Unicode.
+
+### 2.7.6 Tools de productividad complementarias
+
+**Clipboard managers:**
+
+```bash
+# Mac
+brew install --cask raycast          # Premium, muy potente
+
+# Windows
+winget install Microsoft.PowerToys   # Incluye PowerToys Run, Color Picker, etc.
+
+# Linux
+# CopyQ (multi-OS)
+sudo apt install copyq
+```
+
+**Window managers (productividad):**
+
+```
+Mac: Rectangle (free) o Magnet (€2.99)
+Windows: Microsoft PowerToys (FancyZones)
+Linux: built-in en la mayoría de DEs
+```
+
+**JSON viewers / formatters:**
+
+```bash
+# CLI (ya tenéis jq)
+jq .
+
+# Web (rápido para JSON grande)
+# https://jsonviewer.stack.hu/
+# https://jsonformatter.org/
+```
+
+**Para el curso:** opcionales. Mejoran productividad pero no son necesarios.
 
 ---
 
