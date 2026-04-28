@@ -29,6 +29,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 
 | Módulo | Submódulo | Ejemplo | Estado |
 | --- | --- | --- | --- |
+| [M01 — Intro Azure](M01-Intro-Azure/README.md) | S1.P — Práctica: Hello World end-to-end | [HelloWorld](M01-Intro-Azure/S1.P-practica-helloworld/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.1 — Creación, configuración y publicación | [AppService.Demo.Api](M02-App-Services/S2.1-creacion-config-publicacion/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.2 — Slots staging / producción | [AppService.Demo.Slots](M02-App-Services/S2.2-slots-staging-produccion/README.md) | ✅ Disponible |
 | [M02 — App Services](M02-App-Services/README.md) | S2.3 — Escalado automático | [AppService.Demo.Scale](M02-App-Services/S2.3-escalado-automatico-planes/README.md) | ✅ Disponible |
