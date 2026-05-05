@@ -13,7 +13,7 @@ a **Azure Functions isolated worker** sobre plan **Consumption**. Mismo
 | Submódulo | Tema | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [S3.1](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.1-principios-computo-sin-servidor-v4.md) | Principios del cómputo sin servidor | [`S3.1-principios-computo-sin-servidor/`](S3.1-principios-computo-sin-servidor/README.md) | ✅ Disponible |
-| S3.2 | Trigger HTTP | _Pendiente_ | ⏳ |
+| [S3.2](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.2-trigger-http-v4.md) | Trigger HTTP (CRUD completo) | [`S3.2-trigger-http/`](S3.2-trigger-http/README.md) | ✅ Disponible |
 | S3.3 | Trigger Timer | _Pendiente_ | ⏳ |
 | S3.4 | Trigger Blob Storage | _Pendiente_ | ⏳ |
 | S3.5 | Trigger Cosmos DB Change Feed | _Pendiente_ | ⏳ |

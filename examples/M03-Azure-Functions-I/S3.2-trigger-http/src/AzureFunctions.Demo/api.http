@@ -1,0 +1,60 @@
+### Slide 16 — REST Client examples para probar los endpoints en local.
+### Abre este archivo en VS Code con la extensión "REST Client" instalada.
+
+@host = http://localhost:7071/api
+
+### Health: GET /api/ping (Anonymous)
+GET {{host}}/ping
+
+### Hello (de S3.1)
+GET {{host}}/hello?name=Pedro
+
+### Listar productos (con paginación + filtros)
+GET {{host}}/productos?pagina=1&porPagina=10
+
+### Buscar por nombre (filtrado)
+GET {{host}}/productos?nombre=Laptop
+
+### Buscar por categoría + rango de precio
+GET {{host}}/productos?categoria=electronica&minPrecio=50&maxPrecio=2000
+
+### Obtener por ID
+GET {{host}}/productos/p-001
+
+### Obtener por ID inexistente (devuelve Problem Details 404)
+GET {{host}}/productos/no-existe
+
+### Crear producto (válido)
+POST {{host}}/productos
+Content-Type: application/json
+X-Correlation-Id: prueba-create-001
+
+{
+  "nombre": "Teclado mecánico",
+  "categoria": "electronica",
+  "precio": 89.90,
+  "stock": 25
+}
+
+### Crear producto (inválido — devuelve 422 Problem Details)
+POST {{host}}/productos
+Content-Type: application/json
+
+{
+  "nombre": "X",
+  "categoria": "",
+  "precio": -5,
+  "stock": -1
+}
+
+### Actualizar producto (parcial)
+PUT {{host}}/productos/p-001
+Content-Type: application/json
+
+{
+  "precio": 1199.99,
+  "stock": 12
+}
+
+### Eliminar producto
+DELETE {{host}}/productos/p-002
