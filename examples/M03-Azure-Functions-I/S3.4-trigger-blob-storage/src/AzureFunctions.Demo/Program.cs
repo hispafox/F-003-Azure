@@ -28,10 +28,8 @@ builder.Services
     .ValidateDataAnnotations()
     .ValidateOnStart();
 
-// Slide 25 (S3.1) — services como SINGLETON: misma instancia entre ejecuciones,
+// Slide 25 (S3.1) — service como SINGLETON: misma instancia entre ejecuciones,
 // estado en memoria persiste mientras la instancia esté caliente.
-// InformeService depende de ProductoService — DI resuelve el orden.
 builder.Services.AddSingleton<IProductoService, InMemoryProductoService>();
-builder.Services.AddSingleton<IInformeService, InMemoryInformeService>();
 
 builder.Build().Run();
