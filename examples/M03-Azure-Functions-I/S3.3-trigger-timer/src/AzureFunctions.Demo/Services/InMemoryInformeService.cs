@@ -14,22 +14,33 @@ public sealed class InMemoryInformeService(IProductoService productos) : IInform
     public (bool yaExistia, Informe informe) GenerarSiNoExiste(DateOnly fecha)
     {
         var id = $"informe-{fecha:yyyy-MM-dd}";
-        var yaExistia = true;
 
-        var informe = _store.GetOrAdd(id, key =>
+        // Fast path: ya existe.
+        if (_store.TryGetValue(id, out var existente))
         {
-            yaExistia = false;
-            var stats = productos.GetStats();
-            return new Informe(
-                Id: key,
-                Fecha: fecha,
-                TotalProductos: stats.Total,
-                ProductosSinStock: stats.SinStock,
-                ValorTotalStock: stats.ValorTotalStock,
-                GeneradoEn: DateTimeOffset.UtcNow);
-        });
+            return (yaExistia: true, informe: existente);
+        }
 
-        return (yaExistia, informe);
+        // No existe: lo construimos y probamos a insertar. TryAdd devuelve
+        // true UNA SOLA vez bajo contención. (GetOrAdd con factory puede
+        // invocar el factory varias veces aunque solo un valor "gane", con
+        // lo que el flag "yaExistia=false" se ponía en varios callers.)
+        var stats = productos.GetStats();
+        var nuevo = new Informe(
+            Id: id,
+            Fecha: fecha,
+            TotalProductos: stats.Total,
+            ProductosSinStock: stats.SinStock,
+            ValorTotalStock: stats.ValorTotalStock,
+            GeneradoEn: DateTimeOffset.UtcNow);
+
+        if (_store.TryAdd(id, nuevo))
+        {
+            return (yaExistia: false, informe: nuevo);
+        }
+
+        // Otro hilo nos ganó la carrera entre el TryGetValue y el TryAdd.
+        return (yaExistia: true, informe: _store[id]);
     }
 
     public Informe? GetByFecha(DateOnly fecha) =>

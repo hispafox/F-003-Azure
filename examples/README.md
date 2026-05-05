@@ -44,6 +44,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.2 — Trigger HTTP (CRUD completo) | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.2-trigger-http/README.md) | ✅ Disponible |
 | [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.3 — Trigger Timer (CRON + idempotencia) | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.3-trigger-timer/README.md) | ✅ Disponible |
 | [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.4 — Trigger Blob Storage (CSV import) | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.4-trigger-blob-storage/README.md) | ✅ Disponible |
+| [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.5 — Trigger Cosmos DB Change Feed | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.5-trigger-cosmosdb-changefeed/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7). Módulo M03 en curso.
 

@@ -1,0 +1,25 @@
+### REST Client examples para probar los endpoints HTTP en local.
+### Abrir este archivo en VS Code con la extensión "REST Client" instalada.
+
+@host = http://localhost:7071/api
+
+### Health: GET /api/ping (Anonymous)
+GET {{host}}/ping
+
+### Hello (de S3.1)
+GET {{host}}/hello?name=Pedro
+
+### Listar todas las notificaciones que el Change Feed ha generado.
+GET {{host}}/notificaciones
+
+### Filtrar por cliente
+GET {{host}}/notificaciones?clienteId=cliente-1
+
+### Listar resúmenes materializados
+GET {{host}}/resumenes
+
+### Obtener resumen de un cliente concreto
+GET {{host}}/resumenes/cliente-1
+
+### Resumen inexistente — devuelve 404
+GET {{host}}/resumenes/cliente-no-existe
