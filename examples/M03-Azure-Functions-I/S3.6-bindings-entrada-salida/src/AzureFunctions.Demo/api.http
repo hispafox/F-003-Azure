@@ -1,0 +1,46 @@
+### REST Client examples para probar los endpoints HTTP en local.
+### Abrir este archivo en VS Code con la extensión "REST Client" instalada.
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### Hello (esqueleto)
+GET {{host}}/hello?name=Pedro
+
+### --- POST /pedidos: MultiResponse (slide 6) ---
+### Crear un pedido válido (HTTP 201 + escribe a Cosmos + enqueue)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{
+  "clienteId": "cliente-A",
+  "total": 150.00,
+  "notas": "Demo S3.6"
+}
+
+### Pedido inválido (HTTP 400, ni Cosmos ni Queue)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{
+  "clienteId": "",
+  "total": -1
+}
+
+### Body JSON malformado (HTTP 400)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{ "clienteId": "X", "total": "no-es-numero"
+
+### --- GET /pedidos/{clienteId}/{id}: CosmosDBInput por id (slide 4) ---
+GET {{host}}/pedidos/cliente-A/REEMPLAZAR-CON-ID-REAL
+
+### --- GET /clientes/{clienteId}/pedidos: CosmosDBInput por SqlQuery (slide 4) ---
+GET {{host}}/clientes/cliente-A/pedidos
+
+### --- GET /exportar/{clienteId}/{id}: CosmosDBInput + BlobOutput dinámico (slide 7+10) ---
+### Lee de Cosmos y escribe el JSON a exports/{yyyy-MM-dd}/pedido-{clienteId}-{id}.json
+GET {{host}}/exportar/cliente-A/REEMPLAZAR-CON-ID-REAL
