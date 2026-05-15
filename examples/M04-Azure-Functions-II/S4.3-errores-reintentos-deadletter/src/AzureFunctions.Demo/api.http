@@ -1,0 +1,32 @@
+### REST Client — S4.3 Errores, reintentos y dead-letter.
+###
+### NOTA: este ejemplo no expone un POST para crear pedidos. Los mensajes
+### se inyectan directamente en la cola de Service Bus (Service Bus
+### Explorer del Portal, o el script 03-smoke-test.sh). Aquí solo el
+### endpoint de inspección.
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### Estado del flujo de resiliencia:
+###   procesados            → mensajes OK
+###   duplicadosSaltados    → idempotencia (slide 10)
+###   enviadosADeadLetter   → errores permanentes
+###   poisonProcesados      → el DLQ-processor los clasificó (slide 16)
+GET {{host}}/estado
+
+### --- Cómo probar los caminos (ver README) ---
+### En Service Bus Explorer, envía a la cola "pedidos-procesar":
+###
+### 1) Mensaje OK (se procesa):
+###    {"id":"ped-1","clienteId":"c","clienteEmail":"a@b.c","total":100}
+###
+### 2) JSON malformado → dead-letter inmediato (permanente):
+###    { broken json
+###
+### 3) Mismo id dos veces → el segundo se salta (idempotencia)
+###
+### Los mensajes que acaben en pedidos-procesar/$deadletterqueue
+### dispararán ProcesarDeadLetter, que los clasifica y completa.

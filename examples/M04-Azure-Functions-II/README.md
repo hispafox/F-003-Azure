@@ -14,7 +14,7 @@ testing avanzado.
 | --- | --- | --- | --- |
 | [S4.1](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.1-event-grid-service-bus-v4.md) | Event Grid + Service Bus | [`S4.1-event-grid-service-bus/`](S4.1-event-grid-service-bus/README.md) | ✅ Disponible |
 | [S4.2](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.2-durable-functions-v4.md) | Durable Functions | [`S4.2-durable-functions/`](S4.2-durable-functions/README.md) | ✅ Disponible |
-| S4.3 | Errores, reintentos, dead-letter | _Pendiente_ | ⏳ |
+| [S4.3](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.3-errores-reintentos-deadletter-v4.md) | Errores, reintentos, dead-letter | [`S4.3-errores-reintentos-deadletter/`](S4.3-errores-reintentos-deadletter/README.md) | ✅ Disponible |
 | S4.4 | Despliegue y versionado | _Pendiente_ | ⏳ |
 | S4.5 | Testing y depuración | _Pendiente_ | ⏳ |
 | S4.P | Práctica — flujo completo | _Pendiente_ | ⏳ |
