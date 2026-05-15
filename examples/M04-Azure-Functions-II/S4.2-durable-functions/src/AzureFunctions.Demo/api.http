@@ -1,0 +1,70 @@
+### REST Client — S4.2 Durable Functions.
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### --- Saga de pedido (chaining + retry + human + compensación) ---
+
+### 1) Pedido normal (< 5000€, total NO termina en .99) → completado
+POST {{host}}/pedidos/procesar
+Content-Type: application/json
+
+{
+  "id": "ped-001",
+  "clienteId": "cliente-A",
+  "clienteEmail": "alice@example.com",
+  "total": 1200.00,
+  "items": [{ "sku": "SKU-1", "cantidad": 2, "precioUnitario": 600.00 }]
+}
+
+### 2) Pedido que fuerza COMPENSACIÓN (total termina en .99 → pago rechazado)
+POST {{host}}/pedidos/procesar
+Content-Type: application/json
+
+{
+  "id": "ped-002",
+  "clienteId": "cliente-B",
+  "clienteEmail": "bob@example.com",
+  "total": 99.99,
+  "items": [{ "sku": "SKU-2", "cantidad": 1, "precioUnitario": 99.99 }]
+}
+
+### 3) Pedido que requiere APROBACIÓN HUMANA (> 5000€)
+POST {{host}}/pedidos/procesar
+Content-Type: application/json
+
+{
+  "id": "ped-003",
+  "clienteId": "cliente-C",
+  "clienteEmail": "carol@example.com",
+  "total": 8500.00,
+  "items": [{ "sku": "SKU-3", "cantidad": 1, "precioUnitario": 8500.00 }]
+}
+
+### Consultar estado (reemplaza {instanceId} con el de la respuesta del POST)
+GET {{host}}/pedidos/estado/REEMPLAZAR-INSTANCE-ID
+
+### Aprobar el pedido ped-003 (envía el evento que el orquestador espera)
+POST {{host}}/pedidos/REEMPLAZAR-INSTANCE-ID/aprobar
+Content-Type: application/json
+
+{ "aprobado": true }
+
+### Rechazar (aprobado=false → compensa)
+POST {{host}}/pedidos/REEMPLAZAR-INSTANCE-ID/aprobar
+Content-Type: application/json
+
+{ "aprobado": false }
+
+### --- Fan-out / fan-in: lote de facturas ---
+POST {{host}}/facturas/lote
+Content-Type: application/json
+
+[
+  { "id": "f-1", "clienteId": "c1", "importe": 100.0 },
+  { "id": "f-2", "clienteId": "c1", "importe": 250.0 },
+  { "id": "f-3", "clienteId": "c2", "importe": 0.0 },
+  { "id": "f-4", "clienteId": "c2", "importe": 75.5 }
+]
