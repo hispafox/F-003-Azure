@@ -1,0 +1,30 @@
+### REST Client — S4.4 Despliegue y versionado.
+
+@host = http://localhost:7071/api
+
+### Verificación post-deploy (slide 10) — 200 si sano, 503 si no
+GET {{host}}/health
+
+### Qué build está vivo + estado de feature flags (slide 14)
+GET {{host}}/version
+
+### --- Versionado de API (slide 7) ---
+
+### v1: contrato original {id, nombre, precio}
+GET {{host}}/v1/productos
+
+### v2: contrato ampliado {+moneda, +stock} — breaking change
+GET {{host}}/v2/productos
+
+### Mismo dominio, distinto contrato:
+GET {{host}}/v1/productos/p001
+###
+GET {{host}}/v2/productos/p001
+
+### --- Feature flag (slide 16) ---
+### legacy si FEATURE_NUEVO_PROCESAMIENTO != true; nuevo (con -5%) si =true.
+### Apagar el flag = rollback sin redeploy.
+POST {{host}}/pedidos/procesar
+Content-Type: application/json
+
+{ "id": "ped-1", "clienteId": "c1", "total": 200 }

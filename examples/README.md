@@ -51,10 +51,11 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.1 — Event Grid + Service Bus | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.1-event-grid-service-bus/README.md) | ✅ Disponible |
 | [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.2 — Durable Functions | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.2-durable-functions/README.md) | ✅ Disponible |
 | [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.3 — Errores, reintentos, dead-letter | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.3-errores-reintentos-deadletter/README.md) | ✅ Disponible |
+| [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.4 — Despliegue y versionado | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.4-despliegue-versionado/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
-🚧 **Módulo M04 en curso** (3/7).
+🚧 **Módulo M04 en curso** (4/7).
 
 ## Cómo usar un ejemplo
 

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+source "$( dirname "${BASH_SOURCE[0]}" )/_lib.sh"
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+
+while true; do
+  echo
+  echo "============================================"
+  echo " M04-S4.4 - Despliegue y versionado"
+  echo "============================================"
+  echo " 1) Provisionar (RG + Storage + Function App, Run from Package)"
+  echo " 2) Deploy"
+  echo " 3) Smoke test (v1/v2 + feature flag + health)"
+  echo " 4) Post-deploy check (slide 14)"
+  echo " 5) Log streaming (Ctrl+C para parar)"
+  echo " 6) Cleanup"
+  echo " 0) Salir"
+  echo
+  read -r -p "Opcion: " opt
+  case "$opt" in
+    1) ./01-provision.sh ;;
+    2) ./02-deploy.sh ;;
+    3) ./03-smoke-test.sh ;;
+    4) ./05-postdeploy-check.sh ;;
+    5) az functionapp log tail --name "$FUNC" --resource-group "$RG" ;;
+    6) ./04-cleanup.sh ;;
+    0) exit 0 ;;
+    *) echo "Opcion no valida" ;;
+  esac
+done
