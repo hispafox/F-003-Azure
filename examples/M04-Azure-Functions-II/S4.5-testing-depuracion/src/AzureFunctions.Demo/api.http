@@ -1,0 +1,23 @@
+### REST Client — S4.5 Testing y depuración.
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### Calcular descuento escalonado (slide 7)
+### <100 → 0% | [100,500) → 5% | [500,1000) → 10% | >=1000 → 15%
+POST {{host}}/pedidos/descuento
+Content-Type: application/json
+
+{ "id": "ped-1", "clienteId": "c1", "total": 500 }
+
+### Body inválido → 400
+POST {{host}}/pedidos/descuento
+Content-Type: application/json
+
+{ "id": "", "total": -1 }
+
+### Timer (LimpiezaProgramada) y Blob (ProcesarCsv) no tienen endpoint:
+### su lógica se testea como servicio (slides 10/11). Para verlos en
+### local: func start, y subir un .csv a uploads/ con Azurite.

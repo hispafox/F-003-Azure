@@ -28,8 +28,18 @@ builder.Services
     .ValidateDataAnnotations()
     .ValidateOnStart();
 
-// Slide 25 (S3.1) — service como SINGLETON: misma instancia entre ejecuciones,
-// estado en memoria persiste mientras la instancia esté caliente.
+// Slide 25 (S3.1) — services como SINGLETON: misma instancia entre
+// ejecuciones, estado en memoria persiste mientras la instancia esté
+// caliente. TODOS los servicios que inyectan las funciones por
+// constructor deben registrarse aquí o el host no puede instanciarlas:
+//   CsvImportFunction     → ICsvProductosImporter, IImportSummaryService
+//   ImportsHttpFunctions  → IImportSummaryService
+//   InformesHttpFunctions → IInformeService
+//   TimerFunctions        → IProductoService, IInformeService
+//   ProductosFunctions    → IProductoService
 builder.Services.AddSingleton<IProductoService, InMemoryProductoService>();
+builder.Services.AddSingleton<IInformeService, InMemoryInformeService>();
+builder.Services.AddSingleton<IImportSummaryService, InMemoryImportSummaryService>();
+builder.Services.AddSingleton<ICsvProductosImporter, CsvProductosImporter>();
 
 builder.Build().Run();
