@@ -19,7 +19,9 @@ a **Azure Functions isolated worker** sobre plan **Consumption**. Mismo
 | [S3.5](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.5-trigger-cosmosdb-changefeed-v4.md) | Trigger Cosmos DB Change Feed | [`S3.5-trigger-cosmosdb-changefeed/`](S3.5-trigger-cosmosdb-changefeed/README.md) | ✅ Disponible |
 | [S3.6](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.6-bindings-entrada-salida-v4.md) | Bindings de entrada y salida | [`S3.6-bindings-entrada-salida/`](S3.6-bindings-entrada-salida/README.md) | ✅ Disponible |
 | [S3.P](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.P-practica-4-triggers-v4.md) | Práctica — 4 triggers | [`S3.P-practica-4-triggers/`](S3.P-practica-4-triggers/README.md) | ✅ Disponible |
-| S3.P2 | Práctica — HTTP CRUD en memoria | _Pendiente_ | ⏳ |
+| [S3.P2](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.P2-practica-http-crud-memoria-v1.md) | Práctica — HTTP CRUD en memoria | [`S3.P2-practica-http-crud-memoria/`](S3.P2-practica-http-crud-memoria/README.md) | ✅ Disponible |
+
+> ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 
 ## Hilo conductor
 

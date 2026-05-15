@@ -1,0 +1,64 @@
+### REST Client — CRUD HTTP en memoria.
+### Abrir en VS Code con la extensión "REST Client".
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### --- 5 endpoints CRUD (slides 7-8) ---
+
+### 1) GET listar (seed con 3)
+GET {{host}}/productos
+
+### 2) GET por id
+GET {{host}}/productos/p001
+
+### 3) GET id inexistente -> 404
+GET {{host}}/productos/no-existe
+
+### 4) POST crear válido
+POST {{host}}/productos
+Content-Type: application/json
+
+{
+  "nombre": "Ratón gaming",
+  "precio": 59.99,
+  "stock": 15
+}
+
+### 5) POST inválido -> 400
+POST {{host}}/productos
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "precio": -1,
+  "stock": 0
+}
+
+### 6) PUT actualizar
+PUT {{host}}/productos/p001
+Content-Type: application/json
+
+{
+  "nombre": "Laptop Premium",
+  "precio": 1799.00,
+  "stock": 3
+}
+
+### 7) PUT a id inexistente -> 404
+PUT {{host}}/productos/no-existe
+Content-Type: application/json
+
+{
+  "nombre": "X",
+  "precio": 1,
+  "stock": 1
+}
+
+### 8) DELETE
+DELETE {{host}}/productos/p002
+
+### 9) DELETE de id inexistente -> 404
+DELETE {{host}}/productos/no-existe
