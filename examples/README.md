@@ -48,9 +48,11 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.6 — Bindings de entrada y salida | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.6-bindings-entrada-salida/README.md) | ✅ Disponible |
 | [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.P — Práctica: 4 triggers | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.P-practica-4-triggers/README.md) | ✅ Disponible |
 | [M03 — Azure Functions I](M03-Azure-Functions-I/README.md) | S3.P2 — Práctica: HTTP CRUD en memoria | [AzureFunctions.Demo](M03-Azure-Functions-I/S3.P2-practica-http-crud-memoria/README.md) | ✅ Disponible |
+| [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.1 — Event Grid + Service Bus | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.1-event-grid-service-bus/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
+🚧 **Módulo M04 en curso** (1/7).
 
 ## Cómo usar un ejemplo
 

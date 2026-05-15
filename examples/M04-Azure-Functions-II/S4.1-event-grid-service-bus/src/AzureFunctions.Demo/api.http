@@ -1,0 +1,65 @@
+### REST Client — S4.1 Event Grid + Service Bus.
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### --- POST /pedidos (slide 13): HTTP 202 + SB Queue + SB Topic ---
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{
+  "clienteId": "cliente-A",
+  "clienteEmail": "alice@example.com",
+  "total": 250.00,
+  "notas": "Demo S4.1"
+}
+
+### Pedido inválido (HTTP 400, nada se encola)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{
+  "clienteId": "",
+  "clienteEmail": "no-email",
+  "total": -1
+}
+
+### Body JSON malformado (HTTP 400)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{ broken
+
+### --- Inspección consolidada (slide 23) ---
+### Devuelve los contadores in-memory de cada trigger:
+###   encolados      → POST /pedidos (HTTP)
+###   procesados     → SB queue trigger
+###   notificaciones → SB topic + subscription
+###   clasificados   → Event Grid trigger
+GET {{host}}/estado
+
+### --- Simulación local de Event Grid (slide 22) ---
+### Event Grid no tiene emulador. Para probar el clasificador en local,
+### POST manualmente al webhook del runtime con el payload de BlobCreated.
+###
+### En LOCAL la ruta es /runtime/webhooks/eventgrid sobre el puerto del host;
+### en Azure usa el formato indicado en la suscripción (con system key).
+POST http://localhost:7071/runtime/webhooks/eventgrid?functionName=ClasificarArchivo
+Content-Type: application/json
+aeg-event-type: Notification
+
+[
+  {
+    "id": "evt-test-1",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "subject": "/blobServices/default/containers/uploads/blobs/factura-001.pdf",
+    "data": {
+      "url": "https://storage/uploads/factura-001.pdf",
+      "contentLength": 1024
+    },
+    "dataVersion": "1.0",
+    "eventTime": "2026-05-15T10:00:00Z"
+  }
+]

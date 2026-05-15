@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AZURE_FUNCTIONS_ENVIRONMENT": "Development",
+
+    "// ServiceBusConnection (slide 22)": "Service Bus NO tiene emulador local oficial.",
+    "// Opciones": "1) Apuntar a un SB real de desarrollo (Standard tier ~10€/mes). 2) Saltar pruebas locales del SB trigger — los tests cubren la lógica sin runtime.",
+    "ServiceBusConnection": "Endpoint=sb://TU-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=TU-KEY"
+  }
+}

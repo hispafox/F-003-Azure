@@ -1,0 +1,34 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Information",
+      "Host.Aggregator": "Trace"
+    }
+  },
+  "functionTimeout": "00:10:00",
+  "extensions": {
+    "http": {
+      "routePrefix": "api",
+      "maxOutstandingRequests": 200,
+      "maxConcurrentRequests": 100
+    },
+    "serviceBus": {
+      "//": "Slide 18 — peek-lock con renovación automática de lock. maxAutoLockRenewalDuration controla cuánto puede correr la función antes de que SB asuma que está colgada y libere el mensaje para reintento.",
+      "maxAutoLockRenewalDuration": "00:05:00",
+      "prefetchCount": 0,
+      "messageHandlerOptions": {
+        "autoCompleteMessages": false,
+        "maxConcurrentCalls": 16
+      }
+    }
+  }
+}
