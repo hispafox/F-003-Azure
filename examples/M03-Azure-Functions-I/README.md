@@ -18,7 +18,7 @@ a **Azure Functions isolated worker** sobre plan **Consumption**. Mismo
 | [S3.4](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.4-trigger-blob-storage-v4.md) | Trigger Blob Storage (CSV import) | [`S3.4-trigger-blob-storage/`](S3.4-trigger-blob-storage/README.md) | ✅ Disponible |
 | [S3.5](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.5-trigger-cosmosdb-changefeed-v4.md) | Trigger Cosmos DB Change Feed | [`S3.5-trigger-cosmosdb-changefeed/`](S3.5-trigger-cosmosdb-changefeed/README.md) | ✅ Disponible |
 | [S3.6](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.6-bindings-entrada-salida-v4.md) | Bindings de entrada y salida | [`S3.6-bindings-entrada-salida/`](S3.6-bindings-entrada-salida/README.md) | ✅ Disponible |
-| S3.P | Práctica — 4 triggers | _Pendiente_ | ⏳ |
+| [S3.P](../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.P-practica-4-triggers-v4.md) | Práctica — 4 triggers | [`S3.P-practica-4-triggers/`](S3.P-practica-4-triggers/README.md) | ✅ Disponible |
 | S3.P2 | Práctica — HTTP CRUD en memoria | _Pendiente_ | ⏳ |
 
 ## Hilo conductor

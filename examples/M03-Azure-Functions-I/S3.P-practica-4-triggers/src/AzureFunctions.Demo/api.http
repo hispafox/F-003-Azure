@@ -1,0 +1,44 @@
+### REST Client — los 4 triggers de la práctica.
+
+@host = http://localhost:7071/api
+
+### --- HTTP Trigger ---
+
+### Health
+GET {{host}}/ping
+
+### Listar productos (seed con 3)
+GET {{host}}/productos
+
+### Obtener uno
+GET {{host}}/productos/1
+
+### Crear (201)
+POST {{host}}/productos
+Content-Type: application/json
+
+{ "nombre": "Mouse", "precio": 29.99 }
+
+### Crear inválido (400)
+POST {{host}}/productos
+Content-Type: application/json
+
+{ "nombre": "", "precio": -1 }
+
+### --- Estado consolidado (los otros 3 triggers escriben aquí) ---
+### Inspecciona productos, ejecuciones del timer y notificaciones de Cosmos.
+GET {{host}}/estado
+
+### --- Timer Trigger ---
+### Corre cada minuto automáticamente. No hay endpoint que dispararlo;
+### usa /api/estado para ver cuántas veces ha ejecutado.
+
+### --- Blob Trigger ---
+### No hay endpoint HTTP. Sube un CSV al container 'uploads/' del Storage
+### (con Azurite o az storage blob upload) y verifica que aparece el
+### resumen en 'resultados/<nombre>-resumen.json'.
+
+### --- Cosmos DB Change Feed Trigger ---
+### No hay endpoint HTTP. Crea un documento en 'tienda/pedidos' (Data
+### Explorer o az cosmosdb sql container create-item-or-update) y verifica
+### con /api/estado que las notificaciones se incrementan.
