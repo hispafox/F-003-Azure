@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 67 | 0 | 13 | 53 | 27 |
+| **Totales** | 67 | 0 | 13 | 57 | 23 |
 
 - **Gamma:** M01–M08 en repo · M09 S9.1–S9.P aplicadas · 13 sin crear (M09×1 · M10×2 · M11×10).
-- **PDF:** M01–M06 completos · M07 5/9 · M09 4/7 → 53 subidos · 27 pendientes.
+- **PDF:** M01–M07 completos · M09 4/7 → 57 subidos · 23 pendientes.
 
 ---
 
@@ -111,11 +111,11 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S7.2 | Diseño event-driven | ✅ | ✅ |
 | S7.3 | API Management | ✅ | ✅ |
 | S7.4 | ClickOnce vs MSIX | ✅ | ✅ |
-| S7.5 | MSIX — empaquetado y distribución | ✅ | ❌ |
+| S7.5 | MSIX — empaquetado y distribución | ✅ | ✅ |
 | S7.6 | MSIX — auto-update | ✅ | ✅ |
-| S7.7 | Migración ClickOnce → MSIX | ✅ | ❌ |
-| S7.P | Práctica — MSIX | ✅ | ❌ |
-| S7.P2 | Práctica — MSIX wizard | ✅ | ❌ |
+| S7.7 | Migración ClickOnce → MSIX | ✅ | ✅ |
+| S7.P | Práctica — MSIX | ✅ | ✅ |
+| S7.P2 | Práctica — MSIX wizard | ✅ | ✅ |
 
 ## M08 — DevOps y Automatización (v3)
 
