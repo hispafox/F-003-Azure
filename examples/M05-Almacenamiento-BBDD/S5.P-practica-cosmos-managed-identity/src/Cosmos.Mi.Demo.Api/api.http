@@ -1,0 +1,32 @@
+### REST Client — S5.P Práctica: Cosmos DB + Managed Identity.
+### /practica/* funcionan offline. El CRUD requiere Cosmos accesible
+### (emulador local key auth, o Azure real con `az login` + RBAC).
+
+@host = http://localhost:5086
+
+### Info: la app declara conexión sin passwords (slide 8)
+GET {{host}}/
+
+### Health
+GET {{host}}/health
+
+### Crear producto (slide 8/9)
+POST {{host}}/productos
+Content-Type: application/json
+
+{ "categoria": "electronica", "nombre": "Laptop", "precio": 999.99 }
+
+### Listar por categoría (single-partition, ~3 RU, slide 12)
+GET {{host}}/productos?categoria=electronica
+
+### Listar TODO (cross-partition, caro, slide 12)
+GET {{host}}/productos
+
+### Leer por id dentro de su partición (1 RU, slide 12)
+GET {{host}}/productos/electronica/PON_AQUI_EL_ID
+
+### Partition key: ¿buena? (slide 11)
+GET {{host}}/practica/partition-key?cardinalidad=5000&uniforme=true&enQueries=true&estable=true
+
+### Auditoría zero-secrets (entregable, slides 13/19)
+GET {{host}}/practica/auditoria-secretos

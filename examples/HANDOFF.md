@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras S5.5)
+## Estado actual (tras S5.P)
 
 | Módulo | Estado |
 | --- | --- |
@@ -25,16 +25,18 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M02 App Services | ✅ completo 7/7 |
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
-| M05 Almacenamiento y BBDD | 🚧 5/7 — S5.1 (Storage), S5.2 (SQL), S5.3 (Cosmos), S5.4 (MI), S5.5 (Backups/DR) |
+| M05 Almacenamiento y BBDD | 🚧 6/7 — S5.1, S5.2, S5.3, S5.4, S5.5, **S5.P** (falta S5.P2) |
 | M06–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M05-S5.P — Práctica del módulo`
-(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.P-practica-v3.md`). Leer
-el doc primero. Es una **práctica** (Cosmos DB + Managed Identity → integra
-S5.3 + S5.4): probablemente Minimal API con `CosmosClient` keyless
-(`DefaultAzureCredential`) — reutilizar piezas de S5.3 y S5.4; tests
-CAPA 1 (pura) + CAPA 0 (DI) y, si Docker, integración con el emulador
-Cosmos (`SkippableFact`). Luego S5.P2 (Table Storage CRUD) y M05 cerrado.
+**Siguiente tarea concreta (cierra M05):** `M05-S5.P2 — Práctica: Table
+Storage CRUD`
+(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.P2-practica-table-storage-crud-v1.md`).
+Leer el doc primero. Práctica corta de Table Storage: probable Minimal
+API con `Azure.Data.Tables` (reutilizar el `ITableRepository`/Azurite de
+S5.1) — CAPA 1 (pura: clave PartitionKey/RowKey) + CAPA 0 (DI) +
+integración Azurite con `Testcontainers.Azurite` (`SkippableFact`, como
+S5.1). Al terminarla, **M05 queda completo 7/7**; actualizar los índices
+a "✅ Módulo M05 completo".
 
 > Regla de proceso (memoria `feedback-esperar-confirmacion-push`): en
 > este repo **nunca `git push` sin OK explícito**; el usuario trabaja en

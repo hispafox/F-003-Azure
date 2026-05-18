@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Práctica: integra S5.3 (Cosmos DB) + S5.4 (Managed Identity).
+       Conexión a Cosmos SIN key, solo con DefaultAzureCredential. -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.59.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Azure.Identity" Version="1.14.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Cosmos.Mi.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

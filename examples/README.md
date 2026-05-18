@@ -60,11 +60,12 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M05 — Almacenamiento y BBDD](M05-Almacenamiento-BBDD/README.md) | S5.3 — Cosmos DB (partición, RU, consistencia, soft delete) | [Cosmos.Demo.Api](M05-Almacenamiento-BBDD/S5.3-cosmosdb/README.md) | ✅ Disponible |
 | [M05 — Almacenamiento y BBDD](M05-Almacenamiento-BBDD/README.md) | S5.4 — Managed Identity (keyless, RBAC mínimo, Key Vault refs) | [ManagedIdentity.Demo.Api](M05-Almacenamiento-BBDD/S5.4-managed-identity/README.md) | ✅ Disponible |
 | [M05 — Almacenamiento y BBDD](M05-Almacenamiento-BBDD/README.md) | S5.5 — Backups, replicación y DR (RPO/RTO, soft delete) | [Dr.Demo.Api](M05-Almacenamiento-BBDD/S5.5-backups-dr/README.md) | ✅ Disponible |
+| [M05 — Almacenamiento y BBDD](M05-Almacenamiento-BBDD/README.md) | S5.P — Práctica: Cosmos DB con Managed Identity | [Cosmos.Mi.Demo.Api](M05-Almacenamiento-BBDD/S5.P-practica-cosmos-managed-identity/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
-🚧 **Módulo M05 en curso** (5/7).
+🚧 **Módulo M05 en curso** (6/7).
 
 ## Cómo usar un ejemplo
 
