@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 58 | 3 | 16 | 26 | 54 |
+| **Totales** | 58 | 3 | 16 | 29 | 51 |
 
 - **Gamma:** M01–M08 en repo (S8.P2 ⚠️ duplicado) · M09 S9.1–S9.3 con URL sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
-- **PDF:** M01–M03 completos · M04 4/7 → 26 subidos · 54 pendientes.
+- **PDF:** M01–M04 completos → 29 subidos · 51 pendientes.
 
 ---
 
@@ -74,9 +74,9 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S4.2 | Durable Functions | ✅ | ✅ |
 | S4.3 | Errores, reintentos y dead-letter | ✅ | ✅ |
 | S4.4 | Despliegue y versionado | ✅ | ✅ |
-| S4.5 | Testing y depuración | ✅ | ❌ |
-| S4.P | Práctica — flujo completo | ✅ | ❌ |
-| S4.P2 | Práctica — Durable Hello World | ✅ | ❌ |
+| S4.5 | Testing y depuración | ✅ | ✅ |
+| S4.P | Práctica — flujo completo | ✅ | ✅ |
+| S4.P2 | Práctica — Durable Hello World | ✅ | ✅ |
 
 ## M05 — Almacenamiento y BBDD (v3)
 
