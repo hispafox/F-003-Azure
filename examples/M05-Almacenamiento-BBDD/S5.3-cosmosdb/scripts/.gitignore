@@ -1,0 +1,2 @@
+# Variables locales con datos del alumno (subscription id, nombres, etc.)
+.env.demo

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Cosmos.Demo.Api/Cosmos.Demo.Api.csproj" />
+  <Project Path="tests/Cosmos.Demo.Api.Tests/Cosmos.Demo.Api.Tests.csproj" />
+</Solution>

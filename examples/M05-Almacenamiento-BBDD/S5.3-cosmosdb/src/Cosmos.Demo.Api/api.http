@@ -1,0 +1,59 @@
+### REST Client — S5.3 Cosmos DB. API local (dotnet run + emulador).
+### Requiere el emulador de Cosmos y la db/container creados
+### (ver README → "Ejecución local").
+
+@host = http://localhost:5083
+@cliente = cli-001
+
+### Health
+GET {{host}}/health
+
+### --- Pedidos (slides 8-12, 17) ---
+
+### Crear pedido (embed: items + nombre cliente dentro, slide 14)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{
+  "clienteId": "cli-001",
+  "clienteNombre": "Pedro García",
+  "items": [
+    { "productoId": "p-1", "nombre": "Laptop", "cantidad": 1, "precio": 999.99 },
+    { "productoId": "p-2", "nombre": "Mouse", "cantidad": 2, "precio": 29.99 }
+  ]
+}
+
+### Listar por cliente (single-partition, ~3 RU, slide 8)
+GET {{host}}/pedidos/{{cliente}}
+
+### Leer por id dentro de su partición (1 RU, slide 8)
+### (sustituye {id} por el id devuelto al crear)
+GET {{host}}/pedidos/{{cliente}}/PON_AQUI_EL_ID
+
+### Soft delete (slide 12)
+DELETE {{host}}/pedidos/{{cliente}}/PON_AQUI_EL_ID
+
+### Pedido + movimiento atómico — TransactionalBatch (slide 17)
+POST {{host}}/pedidos/con-movimiento
+Content-Type: application/json
+
+{
+  "pedido": {
+    "clienteId": "cli-001",
+    "clienteNombre": "Pedro García",
+    "items": [ { "productoId": "p-9", "nombre": "Teclado", "cantidad": 1, "precio": 89.90 } ]
+  },
+  "tipo": "cargo",
+  "importe": 89.90
+}
+
+### --- Cosmos: lógica pura ---
+
+### ¿Buena partition key? (slides 4-6)
+GET {{host}}/cosmos/partition-key?cardinalidad=5000&uniforme=true&alineada=true
+
+### Nivel de consistencia recomendado (slide 11)
+GET {{host}}/cosmos/consistencia?financiero=false&ultimaEscritura=false&latenciaMinima=false
+
+### RU estimadas por patrón de acceso (slides 7-8)
+GET {{host}}/cosmos/ru-estimado?op=QueryCrossPartition&docs=10

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <!-- SDK oficial de Cosmos DB NoSQL (slides 9-10, 15). -->
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.59.0" />
+    <!-- El serializador por defecto de Cosmos es Newtonsoft; el SDK 3.x
+         exige referenciarlo explícitamente (camelCase, slide 9). -->
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <!-- Auth con Entra ID / Managed Identity sin key (slide 15, M05-S5.4). -->
+    <PackageReference Include="Azure.Identity" Version="1.14.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Cosmos.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

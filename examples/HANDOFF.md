@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras S5.2)
+## Estado actual (tras S5.3)
 
 | Módulo | Estado |
 | --- | --- |
@@ -25,18 +25,17 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M02 App Services | ✅ completo 7/7 |
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
-| M05 Almacenamiento y BBDD | 🚧 2/7 — hechos **S5.1** (Storage), **S5.2** (Azure SQL) |
+| M05 Almacenamiento y BBDD | 🚧 3/7 — hechos **S5.1** (Storage), **S5.2** (Azure SQL), **S5.3** (Cosmos) |
 | M06–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M05-S5.3 — Cosmos DB`
-(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.3-*-v3.md`). Patrón
-esperado: Minimal API `Cosmos.Demo.Api` con el SDK
-`Microsoft.Azure.Cosmos` (o EF Core Cosmos provider) — particionado,
-RU/s, consistencia, Change Feed; tests unit de lógica pura (clave de
-partición, política de consistencia) + componente + integración con
-**Testcontainers** del emulador de Cosmos (`SkippableFact`); scripts
-provisión Cosmos **serverless** (~0€). Luego S5.4 Managed Identity,
-S5.5 Backups, S5.P, S5.P2.
+**Siguiente tarea concreta:** `M05-S5.4 — Managed Identity`
+(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.4-managed-identity-v3.md`).
+Patrón esperado: Minimal API que se conecta a SQL/Cosmos/Storage **sin
+keys ni passwords** vía `DefaultAzureCredential` (system-assigned /
+user-assigned MI, RBAC roles); lógica pura testeable (selección de
+credencial, parsing de connection string sin secreto) + DI container +
+integración (Testcontainers o, si no aplica, solo CAPA 1+0). Scripts
+`az` para asignar la MI y los roles. Luego S5.5 Backups, S5.P, S5.P2.
 
 ## La receta (cómo se construye CADA ejemplo)
 
@@ -137,6 +136,26 @@ S5.5 Backups, S5.P, S5.P2.
    - **`dotnet ef migrations remove`** intenta conectar a la BD para ver
      si está aplicada; con cs placeholder cuelga. Regenerar borrando la
      carpeta `Migrations/` y `dotnet ef migrations add` (no conecta).
+7. **Cosmos gotchas (S5.3)** — para los ejemplos con `Microsoft.Azure.Cosmos`:
+   - **Newtonsoft.Json explícito obligatorio**: el SDK 3.x usa Newtonsoft
+     como serializador por defecto y **falla el build** si no lo
+     referencias (o `AzureCosmosDisableNewtonsoftJsonCheck=true`). Añadir
+     `Newtonsoft.Json 13.0.3`. El POCO va sin atributos: con
+     `CosmosPropertyNamingPolicy.CamelCase`, `Id`→`"id"` (lo exige Cosmos).
+   - **`Testcontainers.CosmosDb`/`MsSql` ctor sin args = `[Obsolete]`**
+     (CS0618 = error con TreatWarningsAsErrors). Usar el ctor con imagen:
+     `new CosmosDbBuilder("mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest")`.
+   - **`ConfigureTestServices`** vive en `Microsoft.AspNetCore.TestHost`
+     (añadir el `using`); reemplaza singletons del Program para el test
+     (aquí, el `CosmosClient` por uno apuntando al emulador con
+     `ConnectionMode.Gateway` + `HttpClientFactory => emulador.HttpClient`).
+   - **Cosmos NO tiene proveedor in-memory** (no hay CAPA 2 tipo SQLite):
+     lógica testable → clases puras (CAPA 1); round-trip → emulador
+     (CAPA "Integration") con `SkippableFact` capturando CUALQUIER
+     excepción de arranque (el emulador es pesado y a menudo no arranca).
+   - **El SDK de Cosmos es lazy**: construir `CosmosClient` + `GetContainer`
+     no abre conexión → el test de CAPA 0 DI corre sin Docker. Usar la
+     clave **pública** del emulador como cs por defecto (no es secreto).
 
 ## Convenciones de scaffolding (copiar tal cual)
 

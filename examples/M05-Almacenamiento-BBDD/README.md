@@ -16,7 +16,7 @@ Cosmos DB) desde sus SDKs. El patrón de tests vuelve al de M02
 | --- | --- | --- | --- |
 | [S5.1](../../doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.1-azure-storage-v3.md) | Azure Storage (Blob/Table/Queue/File) | [`S5.1-azure-storage/`](S5.1-azure-storage/README.md) | ✅ Disponible |
 | [S5.2](../../doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.2-azure-sql-database-v3.md) | Azure SQL Database (EF Core, migraciones, retry) | [`S5.2-azure-sql-database/`](S5.2-azure-sql-database/README.md) | ✅ Disponible |
-| S5.3 | Cosmos DB | _Pendiente_ | ⏳ |
+| [S5.3](../../doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.3-cosmosdb-v3.md) | Cosmos DB (partición, RU, consistencia, soft delete) | [`S5.3-cosmosdb/`](S5.3-cosmosdb/README.md) | ✅ Disponible |
 | S5.4 | Managed Identity | _Pendiente_ | ⏳ |
 | S5.5 | Backups | _Pendiente_ | ⏳ |
 | S5.P | Práctica | _Pendiente_ | ⏳ |
