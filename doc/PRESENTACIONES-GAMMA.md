@@ -130,7 +130,7 @@ Leyenda: ✅ enlace registrado · ⏳ pendiente de URL.
 | S9.4 | MCP — Herramientas | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S94-mcp-herramientas-v3-cc8hg78eiois2eu) |
 | S9.5 | Buenas prácticas y limitaciones | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S95-buenas-practicas-limitaciones-v3-ggkpydlxlqmrpaa) |
 | S9.P | Práctica — Claude Code + MCP | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.P-practica-cc-mcp-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S9P-practica-cc-mcp-v3-3cpmdnyvbymeu1n) |
-| S9.P2 | Práctica — Claude Code primer comando | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.P2-practica-claude-code-primer-comando-v1.md) | ⏳ |
+| S9.P2 | Práctica — Claude Code primer comando | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.P2-practica-claude-code-primer-comando-v1.md) | ✅ [Gamma](https://gamma.app/docs/M09-S9P2-practica-claude-code-primer-comando-v1-crwnqkgk3gpx1qp) |
 
 ### M10 — Proyecto integrador (v3)
 

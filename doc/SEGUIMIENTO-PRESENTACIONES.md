@@ -22,9 +22,9 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 68 | 0 | 12 | 66 | 14 |
+| **Totales** | 69 | 0 | 11 | 66 | 14 |
 
-- **Gamma:** M01–M08 en repo · M09 S9.1–S9.P · M10-S10.1 aplicadas · 12 sin crear (M09×1 · M10×1 · M11×10).
+- **Gamma:** M01–M09 en repo · M10-S10.1 aplicada · 11 sin crear (M10×1 · M11×10).
 - **PDF:** M01–M08 completos · M09 5/7 → 66 subidos · 14 pendientes.
 
 ---
@@ -142,9 +142,9 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S9.4 | MCP — Herramientas | ✅ | ✅ |
 | S9.5 | Buenas prácticas y limitaciones | ✅ | ✅ |
 | S9.P | Práctica — Claude Code + MCP | ✅ | ✅ |
-| S9.P2 | Práctica — Claude Code primer comando | ⏳ | ❌ |
+| S9.P2 | Práctica — Claude Code primer comando | ✅ | ❌ |
 
-> **S9.P2:** presentación aún no creada en Gamma.
+> **M09:** todas las presentaciones Gamma aplicadas (S9.1–S9.P2).
 
 ## M10 — Proyecto Integrador (v3)
 
