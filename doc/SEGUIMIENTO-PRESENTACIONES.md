@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 69 | 0 | 11 | 66 | 14 |
+| **Totales** | 69 | 0 | 11 | 68 | 12 |
 
 - **Gamma:** M01–M09 en repo · M10-S10.1 aplicada · 11 sin crear (M10×1 · M11×10).
-- **PDF:** M01–M08 completos · M09 5/7 → 66 subidos · 14 pendientes.
+- **PDF:** M01–M09 completos → 68 subidos · 12 pendientes.
 
 ---
 
@@ -136,13 +136,13 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
-| S9.1 | Claude Code — Introducción | ✅ | ❌ |
+| S9.1 | Claude Code — Introducción | ✅ | ✅ |
 | S9.2 | Claude Code — Casos de uso | ✅ | ✅ |
 | S9.3 | Claude Code — Infraestructura | ✅ | ✅ |
 | S9.4 | MCP — Herramientas | ✅ | ✅ |
 | S9.5 | Buenas prácticas y limitaciones | ✅ | ✅ |
 | S9.P | Práctica — Claude Code + MCP | ✅ | ✅ |
-| S9.P2 | Práctica — Claude Code primer comando | ✅ | ❌ |
+| S9.P2 | Práctica — Claude Code primer comando | ✅ | ✅ |
 
 > **M09:** todas las presentaciones Gamma aplicadas (S9.1–S9.P2).
 
