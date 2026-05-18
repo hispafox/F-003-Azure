@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 58 | 3 | 16 | 29 | 51 |
+| **Totales** | 58 | 3 | 16 | 36 | 44 |
 
 - **Gamma:** M01–M08 en repo (S8.P2 ⚠️ duplicado) · M09 S9.1–S9.3 con URL sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
-- **PDF:** M01–M04 completos → 29 subidos · 51 pendientes.
+- **PDF:** M01–M05 completos → 36 subidos · 44 pendientes.
 
 ---
 
@@ -82,13 +82,13 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
-| S5.1 | Azure Storage | ✅ | ❌ |
-| S5.2 | Azure SQL Database | ✅ | ❌ |
-| S5.3 | Cosmos DB | ✅ | ❌ |
-| S5.4 | Managed Identity | ✅ | ❌ |
-| S5.5 | Backups | ✅ | ❌ |
-| S5.P | Práctica — Cosmos + Managed Identity | ✅ | ❌ |
-| S5.P2 | Práctica — Table Storage CRUD | ✅ | ❌ |
+| S5.1 | Azure Storage | ✅ | ✅ |
+| S5.2 | Azure SQL Database | ✅ | ✅ |
+| S5.3 | Cosmos DB | ✅ | ✅ |
+| S5.4 | Managed Identity | ✅ | ✅ |
+| S5.5 | Backups | ✅ | ✅ |
+| S5.P | Práctica — Cosmos + Managed Identity | ✅ | ✅ |
+| S5.P2 | Práctica — Table Storage CRUD | ✅ | ✅ |
 
 ## M06 — Seguridad y Autenticación (v3)
 
