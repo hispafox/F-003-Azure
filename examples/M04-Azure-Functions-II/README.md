@@ -18,7 +18,9 @@ testing avanzado.
 | [S4.4](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.4-despliegue-versionado-v4.md) | Despliegue y versionado | [`S4.4-despliegue-versionado/`](S4.4-despliegue-versionado/README.md) | ✅ Disponible |
 | [S4.5](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.5-testing-depuracion-v4.md) | Testing y depuración | [`S4.5-testing-depuracion/`](S4.5-testing-depuracion/README.md) | ✅ Disponible |
 | [S4.P](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.P-practica-flujo-completo-v4.md) | Práctica — flujo completo | [`S4.P-practica-flujo-completo/`](S4.P-practica-flujo-completo/README.md) | ✅ Disponible |
-| S4.P2 | Práctica — Durable Hello World | _Pendiente_ | ⏳ |
+| [S4.P2](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.P2-practica-durable-hello-world-v1.md) | Práctica — Durable Hello World | [`S4.P2-practica-durable-hello-world/`](S4.P2-practica-durable-hello-world/README.md) | ✅ Disponible |
+
+> ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 
 ## Coste a tener en cuenta
 

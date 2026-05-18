@@ -1,0 +1,20 @@
+### REST Client — S4.P2 Durable Hello World (fan-out/fan-in mínimo).
+
+@host = http://localhost:7071/api
+
+### Iniciar la orquestación: saluda a N nombres en paralelo
+POST {{host}}/saludos
+Content-Type: application/json
+
+["Ana", "Luis", "Marta", "Pedro"]
+
+### Lista vacía → 400
+POST {{host}}/saludos
+Content-Type: application/json
+
+[]
+
+### Consultar estado (reemplaza con el instanceId que devolvió el POST)
+### runtimeStatus: Pending → Running → Completed
+### output (al completar): ["¡Hola, Ana!","¡Hola, Luis!",...]
+GET {{host}}/saludos/REEMPLAZAR-INSTANCE-ID
