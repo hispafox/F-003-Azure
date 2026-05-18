@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 68 | 0 | 12 | 65 | 15 |
+| **Totales** | 68 | 0 | 12 | 66 | 14 |
 
 - **Gamma:** M01–M08 en repo · M09 S9.1–S9.P · M10-S10.1 aplicadas · 12 sin crear (M09×1 · M10×1 · M11×10).
-- **PDF:** M01–M07 completos · M08 7/8 (falta S8.5) · M09 5/7 → 65 subidos · 15 pendientes.
+- **PDF:** M01–M08 completos · M09 5/7 → 66 subidos · 14 pendientes.
 
 ---
 
@@ -125,7 +125,7 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S8.2 | Pipelines CI/CD YAML | ✅ | ✅ |
 | S8.3 | Despliegue automatizado | ✅ | ✅ |
 | S8.4 | ADO vs GitHub Actions | ✅ | ✅ |
-| S8.5 | IaC con Bicep | ✅ | ❌ |
+| S8.5 | IaC con Bicep | ✅ | ✅ |
 | S8.6 | App Insights y Monitor | ✅ | ✅ |
 | S8.P | Práctica — Pipeline CI/CD | ✅ | ✅ |
 | S8.P2 | Práctica — GitHub Actions + publish profile | ✅ | ✅ |
