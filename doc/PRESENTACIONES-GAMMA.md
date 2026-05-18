@@ -136,7 +136,7 @@ Leyenda: ✅ enlace registrado · ⏳ pendiente de URL.
 
 | Submódulo | Título | Doc | Presentación |
 | --- | --- | --- | --- |
-| S10.1 | Diseño y arquitectura | [doc](M10-Proyecto-Integrador/v3-actual/M10-S10.1-diseno-arquitectura-v3.md) | ⏳ |
+| S10.1 | Diseño y arquitectura | [doc](M10-Proyecto-Integrador/v3-actual/M10-S10.1-diseno-arquitectura-v3.md) | ✅ [Gamma](https://gamma.app/docs/M10-S101-diseno-arquitectura-v3-uuagmo9rnnaw03v) |
 | S10.P2 | Práctica — Mini proyecto Notas | [doc](M10-Proyecto-Integrador/v3-actual/M10-S10.P2-practica-mini-proyecto-notas-v1.md) | ⏳ |
 
 ### M11 — Bonus: Claude Code en Azure (v1)
