@@ -22,9 +22,9 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 63 | 1 | 16 | 36 | 44 |
+| **Totales** | 66 | 0 | 14 | 36 | 44 |
 
-- **Gamma:** M01–M08 en repo · M09 S9.1–S9.2 aplicadas · S9.3 con URL verificada sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
+- **Gamma:** M01–M08 en repo · M09 S9.1–S9.5 aplicadas · 14 sin crear (M09×2 · M10×2 · M11×10).
 - **PDF:** M01–M05 completos → 36 subidos · 44 pendientes.
 
 ---
@@ -138,13 +138,13 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | --- | --- | :---: | :---: |
 | S9.1 | Claude Code — Introducción | ✅ | ❌ |
 | S9.2 | Claude Code — Casos de uso | ✅ | ❌ |
-| S9.3 | Claude Code — Infraestructura | 🟡 | ❌ |
-| S9.4 | MCP — Herramientas | ⏳ | ❌ |
-| S9.5 | Buenas prácticas y limitaciones | ⏳ | ❌ |
+| S9.3 | Claude Code — Infraestructura | ✅ | ❌ |
+| S9.4 | MCP — Herramientas | ✅ | ❌ |
+| S9.5 | Buenas prácticas y limitaciones | ✅ | ❌ |
 | S9.P | Práctica — Claude Code + MCP | ⏳ | ❌ |
 | S9.P2 | Práctica — Claude Code primer comando | ⏳ | ❌ |
 
-> **S9.3:** URL ya verificada en Gamma, pendiente de aplicar al índice y docs.
+> **S9.P y S9.P2:** presentación aún no creada en Gamma.
 
 ## M10 — Proyecto Integrador (v3)
 

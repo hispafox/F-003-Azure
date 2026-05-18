@@ -126,9 +126,9 @@ Leyenda: ✅ enlace registrado · ⏳ pendiente de URL.
 | --- | --- | --- | --- |
 | S9.1 | Claude Code — Introducción | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.1-claude-code-intro-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S91-claude-code-intro-v3-8vy6chpiy3zskqg) |
 | S9.2 | Claude Code — Casos de uso | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.2-claude-code-casos-uso-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S92-claude-code-casos-uso-v3-4s0b2p2c15m66u6) |
-| S9.3 | Claude Code — Infraestructura | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.3-cc-infraestructura-v3.md) | ⏳ |
-| S9.4 | MCP — Herramientas | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md) | ⏳ |
-| S9.5 | Buenas prácticas y limitaciones | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md) | ⏳ |
+| S9.3 | Claude Code — Infraestructura | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.3-cc-infraestructura-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S93-cc-infraestructura-v3-u0ugqbuxijbslhd) |
+| S9.4 | MCP — Herramientas | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S94-mcp-herramientas-v3-cc8hg78eiois2eu) |
+| S9.5 | Buenas prácticas y limitaciones | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S95-buenas-practicas-limitaciones-v3-ggkpydlxlqmrpaa) |
 | S9.P | Práctica — Claude Code + MCP | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.P-practica-cc-mcp-v3.md) | ⏳ |
 | S9.P2 | Práctica — Claude Code primer comando | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.P2-practica-claude-code-primer-comando-v1.md) | ⏳ |
 
