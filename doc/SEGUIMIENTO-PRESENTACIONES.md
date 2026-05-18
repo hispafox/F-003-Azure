@@ -22,9 +22,9 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 69 | 0 | 11 | 69 | 11 |
+| **Totales** | 70 | 0 | 10 | 69 | 11 |
 
-- **Gamma:** M01–M09 en repo · M10-S10.1 aplicada · 11 sin crear (M10×1 · M11×10).
+- **Gamma:** M01–M10 en repo · 10 sin crear (M11×10).
 - **PDF:** M01–M09 completos · M10 1/2 → 69 subidos · 11 pendientes.
 
 ---
@@ -151,7 +151,7 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
 | S10.1 | Diseño y arquitectura | ✅ | ✅ |
-| S10.P2 | Práctica — Mini proyecto Notas | ⏳ | ❌ |
+| S10.P2 | Práctica — Mini proyecto Notas | ✅ | ❌ |
 
 ## M11 — Bonus: Claude Code en Azure (v1)
 
