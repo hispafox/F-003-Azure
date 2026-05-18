@@ -1,0 +1,34 @@
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    },
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Information",
+      "Host.Aggregator": "Trace"
+    }
+  },
+  "functionTimeout": "00:10:00",
+  "extensions": {
+    "http": {
+      "routePrefix": "api",
+      "maxOutstandingRequests": 200,
+      "maxConcurrentRequests": 100
+    },
+    "queues": {
+      "//": "Tras maxDequeueCount fallos el mensaje va a facturas-generadas-poison.",
+      "maxDequeueCount": 5,
+      "batchSize": 16
+    },
+    "cosmosDB": {
+      "//": "Latencia baja del Change Feed para que la demo del flujo no espere.",
+      "feedPollDelay": "00:00:05"
+    }
+  }
+}

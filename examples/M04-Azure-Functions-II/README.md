@@ -17,7 +17,7 @@ testing avanzado.
 | [S4.3](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.3-errores-reintentos-deadletter-v4.md) | Errores, reintentos, dead-letter | [`S4.3-errores-reintentos-deadletter/`](S4.3-errores-reintentos-deadletter/README.md) | ✅ Disponible |
 | [S4.4](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.4-despliegue-versionado-v4.md) | Despliegue y versionado | [`S4.4-despliegue-versionado/`](S4.4-despliegue-versionado/README.md) | ✅ Disponible |
 | [S4.5](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.5-testing-depuracion-v4.md) | Testing y depuración | [`S4.5-testing-depuracion/`](S4.5-testing-depuracion/README.md) | ✅ Disponible |
-| S4.P | Práctica — flujo completo | _Pendiente_ | ⏳ |
+| [S4.P](../../doc/M04-Azure-Functions-II/v4-actual/M04-S4.P-practica-flujo-completo-v4.md) | Práctica — flujo completo | [`S4.P-practica-flujo-completo/`](S4.P-practica-flujo-completo/README.md) | ✅ Disponible |
 | S4.P2 | Práctica — Durable Hello World | _Pendiente_ | ⏳ |
 
 ## Coste a tener en cuenta

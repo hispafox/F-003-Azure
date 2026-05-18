@@ -1,0 +1,38 @@
+### REST Client — S4.P Práctica: flujo completo.
+### Cosmos → Function → Blob → Queue → Function
+
+@host = http://localhost:7071/api
+
+### Health
+GET {{host}}/ping
+
+### PASO 1 — crear pedido (HTTP → Cosmos output)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{
+  "clienteId": "cli-001",
+  "clienteNombre": "Pedro García",
+  "items": [
+    { "productoId": "p-1", "nombre": "Laptop", "cantidad": 1, "precioUnitario": 999.99 },
+    { "productoId": "p-2", "nombre": "Mouse",  "cantidad": 2, "precioUnitario": 29.99 }
+  ]
+}
+
+### Pedido inválido → 400 (nada va a Cosmos)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{ "clienteId": "", "items": [] }
+
+### Inspección end-to-end del flujo:
+###   creados   → POST /pedidos (paso 1)
+###   facturados→ Cosmos trigger (paso 2)
+###   notificados→ Queue trigger (paso 3)
+GET {{host}}/estado
+
+### PASOS 2 y 3 no tienen endpoint:
+###  - Cosmos Change Feed dispara ProcesarNuevosPedidos al crear el doc
+###  - escribe la factura a Blob "facturas/" y un mensaje a "facturas-generadas"
+###  - NotificarFacturaGenerada (Queue trigger) loguea la notificación
+### Verifica con GET /estado tras unos segundos.
