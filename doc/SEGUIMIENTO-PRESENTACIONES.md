@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 67 | 0 | 13 | 43 | 37 |
+| **Totales** | 67 | 0 | 13 | 53 | 27 |
 
 - **Gamma:** M01–M08 en repo · M09 S9.1–S9.P aplicadas · 13 sin crear (M09×1 · M10×2 · M11×10).
-- **PDF:** M01–M05 completos · M06 7/8 (falta S6.5) → 43 subidos · 37 pendientes.
+- **PDF:** M01–M06 completos · M07 5/9 · M09 4/7 → 53 subidos · 27 pendientes.
 
 ---
 
@@ -98,7 +98,7 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S6.2 | Microsoft Entra ID | ✅ | ✅ |
 | S6.3 | OAuth2 / OpenID Connect | ✅ | ✅ |
 | S6.4 | Auth en desktop / MSIX | ✅ | ✅ |
-| S6.5 | Seguridad de datos | ✅ | ❌ |
+| S6.5 | Seguridad de datos | ✅ | ✅ |
 | S6.6 | Key Vault | ✅ | ✅ |
 | S6.P | Práctica — OAuth2 + Key Vault | ✅ | ✅ |
 | S6.P2 | Práctica — Easy Auth | ✅ | ✅ |
@@ -107,12 +107,12 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
-| S7.1 | Service Bus / Event Grid avanzado | ✅ | ❌ |
-| S7.2 | Diseño event-driven | ✅ | ❌ |
-| S7.3 | API Management | ✅ | ❌ |
-| S7.4 | ClickOnce vs MSIX | ✅ | ❌ |
+| S7.1 | Service Bus / Event Grid avanzado | ✅ | ✅ |
+| S7.2 | Diseño event-driven | ✅ | ✅ |
+| S7.3 | API Management | ✅ | ✅ |
+| S7.4 | ClickOnce vs MSIX | ✅ | ✅ |
 | S7.5 | MSIX — empaquetado y distribución | ✅ | ❌ |
-| S7.6 | MSIX — auto-update | ✅ | ❌ |
+| S7.6 | MSIX — auto-update | ✅ | ✅ |
 | S7.7 | Migración ClickOnce → MSIX | ✅ | ❌ |
 | S7.P | Práctica — MSIX | ✅ | ❌ |
 | S7.P2 | Práctica — MSIX wizard | ✅ | ❌ |
@@ -138,10 +138,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | --- | --- | :---: | :---: |
 | S9.1 | Claude Code — Introducción | ✅ | ❌ |
 | S9.2 | Claude Code — Casos de uso | ✅ | ❌ |
-| S9.3 | Claude Code — Infraestructura | ✅ | ❌ |
-| S9.4 | MCP — Herramientas | ✅ | ❌ |
-| S9.5 | Buenas prácticas y limitaciones | ✅ | ❌ |
-| S9.P | Práctica — Claude Code + MCP | ✅ | ❌ |
+| S9.3 | Claude Code — Infraestructura | ✅ | ✅ |
+| S9.4 | MCP — Herramientas | ✅ | ✅ |
+| S9.5 | Buenas prácticas y limitaciones | ✅ | ✅ |
+| S9.P | Práctica — Claude Code + MCP | ✅ | ✅ |
 | S9.P2 | Práctica — Claude Code primer comando | ⏳ | ❌ |
 
 > **S9.P2:** presentación aún no creada en Gamma.
