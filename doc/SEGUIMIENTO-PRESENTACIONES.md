@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 66 | 0 | 14 | 36 | 44 |
+| **Totales** | 66 | 0 | 14 | 43 | 37 |
 
 - **Gamma:** M01–M08 en repo · M09 S9.1–S9.5 aplicadas · 14 sin crear (M09×2 · M10×2 · M11×10).
-- **PDF:** M01–M05 completos → 36 subidos · 44 pendientes.
+- **PDF:** M01–M05 completos · M06 7/8 (falta S6.5) → 43 subidos · 37 pendientes.
 
 ---
 
@@ -94,14 +94,14 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
-| S6.1 | Responsabilidad compartida | ✅ | ❌ |
-| S6.2 | Microsoft Entra ID | ✅ | ❌ |
-| S6.3 | OAuth2 / OpenID Connect | ✅ | ❌ |
-| S6.4 | Auth en desktop / MSIX | ✅ | ❌ |
+| S6.1 | Responsabilidad compartida | ✅ | ✅ |
+| S6.2 | Microsoft Entra ID | ✅ | ✅ |
+| S6.3 | OAuth2 / OpenID Connect | ✅ | ✅ |
+| S6.4 | Auth en desktop / MSIX | ✅ | ✅ |
 | S6.5 | Seguridad de datos | ✅ | ❌ |
-| S6.6 | Key Vault | ✅ | ❌ |
-| S6.P | Práctica — OAuth2 + Key Vault | ✅ | ❌ |
-| S6.P2 | Práctica — Easy Auth | ✅ | ❌ |
+| S6.6 | Key Vault | ✅ | ✅ |
+| S6.P | Práctica — OAuth2 + Key Vault | ✅ | ✅ |
+| S6.P2 | Práctica — Easy Auth | ✅ | ✅ |
 
 ## M07 — Integración y MSIX (v3)
 
