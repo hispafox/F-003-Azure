@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 58 | 3 | 16 | 21 | 59 |
+| **Totales** | 58 | 3 | 16 | 25 | 55 |
 
 - **Gamma:** M01–M08 en repo (S8.P2 ⚠️ duplicado) · M09 S9.1–S9.3 con URL sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
-- **PDF:** M01–M02 completos y M03 salvo S3.4 → 21 subidos · 59 pendientes.
+- **PDF:** M01–M03 completos · M04 3/7 → 25 subidos · 55 pendientes.
 
 ---
 
@@ -60,7 +60,7 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S3.1 | Principios de cómputo sin servidor | ✅ | ✅ |
 | S3.2 | Trigger HTTP | ✅ | ✅ |
 | S3.3 | Trigger Timer | ✅ | ✅ |
-| S3.4 | Trigger Blob Storage | ✅ | ❌ |
+| S3.4 | Trigger Blob Storage | ✅ | ✅ |
 | S3.5 | Trigger Cosmos DB Change Feed | ✅ | ✅ |
 | S3.6 | Bindings de entrada y salida | ✅ | ✅ |
 | S3.P | Práctica — 4 triggers | ✅ | ✅ |
@@ -70,10 +70,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
-| S4.1 | Event Grid y Service Bus | ✅ | ❌ |
+| S4.1 | Event Grid y Service Bus | ✅ | ✅ |
 | S4.2 | Durable Functions | ✅ | ❌ |
-| S4.3 | Errores, reintentos y dead-letter | ✅ | ❌ |
-| S4.4 | Despliegue y versionado | ✅ | ❌ |
+| S4.3 | Errores, reintentos y dead-letter | ✅ | ✅ |
+| S4.4 | Despliegue y versionado | ✅ | ✅ |
 | S4.5 | Testing y depuración | ✅ | ❌ |
 | S4.P | Práctica — flujo completo | ✅ | ❌ |
 | S4.P2 | Práctica — Durable Hello World | ✅ | ❌ |
