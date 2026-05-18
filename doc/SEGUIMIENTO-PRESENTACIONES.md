@@ -22,10 +22,10 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 58 | 3 | 16 | 25 | 55 |
+| **Totales** | 58 | 3 | 16 | 26 | 54 |
 
 - **Gamma:** M01–M08 en repo (S8.P2 ⚠️ duplicado) · M09 S9.1–S9.3 con URL sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
-- **PDF:** M01–M03 completos · M04 3/7 → 25 subidos · 55 pendientes.
+- **PDF:** M01–M03 completos · M04 4/7 → 26 subidos · 54 pendientes.
 
 ---
 
@@ -71,7 +71,7 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
 | S4.1 | Event Grid y Service Bus | ✅ | ✅ |
-| S4.2 | Durable Functions | ✅ | ❌ |
+| S4.2 | Durable Functions | ✅ | ✅ |
 | S4.3 | Errores, reintentos y dead-letter | ✅ | ✅ |
 | S4.4 | Despliegue y versionado | ✅ | ✅ |
 | S4.5 | Testing y depuración | ✅ | ❌ |
