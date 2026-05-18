@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (al commit 66548bf)
+## Estado actual (tras S5.2)
 
 | Módulo | Estado |
 | --- | --- |
@@ -25,17 +25,18 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M02 App Services | ✅ completo 7/7 |
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
-| M05 Almacenamiento y BBDD | 🚧 1/7 — hecho **S5.1** (Azure Storage) |
+| M05 Almacenamiento y BBDD | 🚧 2/7 — hechos **S5.1** (Storage), **S5.2** (Azure SQL) |
 | M06–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M05-S5.2 — Azure SQL Database`
-(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.2-azure-sql-database-v3.md`).
-Plan ya pensado (no implementado): Minimal API `Sql.Demo.Api` con EF Core
-(`VentasDbContext`, `Producto`+`Pedido`, migración `InitialCreate`,
-`EnableRetryOnFailure`), repos, endpoints CRUD; tests unit con **EF Core
-SQLite in-memory** + integración con **Testcontainers.MsSql**
-(`SkippableFact`); scripts provisión Azure SQL **serverless** (auto-pause,
-~0€). Luego S5.3 Cosmos, S5.4 Managed Identity, S5.5 Backups, S5.P, S5.P2.
+**Siguiente tarea concreta:** `M05-S5.3 — Cosmos DB`
+(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.3-*-v3.md`). Patrón
+esperado: Minimal API `Cosmos.Demo.Api` con el SDK
+`Microsoft.Azure.Cosmos` (o EF Core Cosmos provider) — particionado,
+RU/s, consistencia, Change Feed; tests unit de lógica pura (clave de
+partición, política de consistencia) + componente + integración con
+**Testcontainers** del emulador de Cosmos (`SkippableFact`); scripts
+provisión Cosmos **serverless** (~0€). Luego S5.4 Managed Identity,
+S5.5 Backups, S5.P, S5.P2.
 
 ## La receta (cómo se construye CADA ejemplo)
 
@@ -113,6 +114,29 @@ SQLite in-memory** + integración con **Testcontainers.MsSql**
 5. **Coste**: Service Bus Standard ~10€/mes fijo (S4.1, S4.3) — aviso
    prominente en README y `demo.sh`. Cosmos serverless / Azure SQL
    serverless / Storage ≈ 0€. Cada ejemplo trae `cleanup`.
+6. **EF Core gotchas (S5.2)** — para los ejemplos con EF Core:
+   - **SQLite no soporta `ORDER BY DateTimeOffset`**
+     (`NotSupportedException`). Si una entidad se ordena por fecha y se
+     testea con SQLite in-memory (CAPA 2), usar `DateTime` (UTC), no
+     `DateTimeOffset`. Funciona en SQL Server (`datetime2`) y SQLite.
+   - **No migrar en el arranque** (`Database.Migrate()` en `Program.cs`)
+     = anti-pattern 8 (slide 35). El test de integración aplica la
+     migración en su propio scope; CAPA 2 usa `EnsureCreated()` (las
+     migraciones son SQL Server-specific).
+   - **Versionado**: `Microsoft.EntityFrameworkCore.SqlServer` arrastra
+     `Microsoft.Data.SqlClient` que exige `Azure.Identity >= 1.14.2`.
+     Si pones Azure.Identity explícito, ≥ esa versión (NU1605 con
+     `TreatWarningsAsErrors`). EF Core/tools **10.0.2** (alinear paquete
+     y `dotnet ef` a la misma versión).
+   - **Testcontainers.MsSql 4.11**: el ctor sin parámetros está
+     `[Obsolete]` (CS0618 = error). Usar `new MsSqlBuilder("mcr.microsoft.com/mssql/server:2022-latest")`.
+   - **CAPA 0 DI sin Docker**: como la integración (CAPA 3) se salta sin
+     Docker, añadir un test que resuelva el contenedor real
+     (`WebApplicationFactory` + `CreateScope` + `GetRequiredService`,
+     sin tocar la BD). Cierra la lección DI aunque no haya Docker.
+   - **`dotnet ef migrations remove`** intenta conectar a la BD para ver
+     si está aplicada; con cs placeholder cuelga. Regenerar borrando la
+     carpeta `Migrations/` y `dotnet ef migrations add` (no conecta).
 
 ## Convenciones de scaffolding (copiar tal cual)
 

@@ -1,0 +1,53 @@
+### REST Client — S5.2 Azure SQL Database. API local (dotnet run).
+### Requiere un SQL Server accesible y la migración aplicada:
+###   dotnet ef database update --project src/Sql.Demo.Api
+
+@host = http://localhost:5082
+
+### Health
+GET {{host}}/health
+
+### --- Productos: CRUD (slide 7) ---
+
+### Crear
+POST {{host}}/productos
+Content-Type: application/json
+
+{ "nombre": "Teclado mecánico", "precio": 89.90, "stock": 50 }
+
+### Listar (AsNoTracking, ordenado por nombre indexado)
+GET {{host}}/productos
+
+### Obtener por id
+GET {{host}}/productos/1
+
+### Actualizar precio/stock
+PUT {{host}}/productos/1
+Content-Type: application/json
+
+{ "precio": 79.90, "stock": 40 }
+
+### Borrar
+DELETE {{host}}/productos/1
+
+### --- Pedidos: descuenta stock en una transacción (slide 12) ---
+
+### Crear pedido (valida stock, descuenta, calcula total)
+POST {{host}}/pedidos
+Content-Type: application/json
+
+{ "productoId": 1, "cantidad": 3 }
+
+### Listar (Include Producto → sin N+1, slide 31)
+GET {{host}}/pedidos
+
+### Obtener por id
+GET {{host}}/pedidos/1
+
+### --- SQL: lógica pura ---
+
+### Recomendación de tier (slides 4-5, 21)
+GET {{host}}/sql/tier-sugerido?intermitente=true&maxConexiones=10&datosGb=5
+
+### Info de conexión efectiva, sin secretos (slides 6, 10, 20)
+GET {{host}}/sql/conn-info

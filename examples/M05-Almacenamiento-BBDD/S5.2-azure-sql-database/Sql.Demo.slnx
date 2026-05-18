@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Sql.Demo.Api/Sql.Demo.Api.csproj" />
+  <Project Path="tests/Sql.Demo.Api.Tests/Sql.Demo.Api.Tests.csproj" />
+</Solution>
