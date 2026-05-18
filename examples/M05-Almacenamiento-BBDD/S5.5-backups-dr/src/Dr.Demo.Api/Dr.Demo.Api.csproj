@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Submódulo conceptual (backups/DR): solo ASP.NET. La lógica
+       (políticas de backup, RPO/RTO, retención compliance) es pura;
+       no hay SDK de datos que añadir. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Dr.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

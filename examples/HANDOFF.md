@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras S5.4)
+## Estado actual (tras S5.5)
 
 | Módulo | Estado |
 | --- | --- |
@@ -25,16 +25,21 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M02 App Services | ✅ completo 7/7 |
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
-| M05 Almacenamiento y BBDD | 🚧 4/7 — **S5.1** (Storage), **S5.2** (SQL), **S5.3** (Cosmos), **S5.4** (Managed Identity) |
+| M05 Almacenamiento y BBDD | 🚧 5/7 — S5.1 (Storage), S5.2 (SQL), S5.3 (Cosmos), S5.4 (MI), S5.5 (Backups/DR) |
 | M06–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M05-S5.5 — Backups, replicación y DR`
-(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.5-backups-v3.md`). Leer
-el doc primero. Patrón esperado: lógica pura testeable (política de
-retención / RPO-RTO / ventana de point-in-time / decisión LRS-ZRS-GRS) +
-DI container; integración solo si hay algo emulable (probablemente no →
-CAPA 1+0 como S5.4). Scripts `az` de backup/restore/geo-replicación.
-Luego S5.P, S5.P2 y M05 cerrado.
+**Siguiente tarea concreta:** `M05-S5.P — Práctica del módulo`
+(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.P-practica-v3.md`). Leer
+el doc primero. Es una **práctica** (Cosmos DB + Managed Identity → integra
+S5.3 + S5.4): probablemente Minimal API con `CosmosClient` keyless
+(`DefaultAzureCredential`) — reutilizar piezas de S5.3 y S5.4; tests
+CAPA 1 (pura) + CAPA 0 (DI) y, si Docker, integración con el emulador
+Cosmos (`SkippableFact`). Luego S5.P2 (Table Storage CRUD) y M05 cerrado.
+
+> Regla de proceso (memoria `feedback-esperar-confirmacion-push`): en
+> este repo **nunca `git push` sin OK explícito**; el usuario trabaja en
+> paralelo desde otro chat (presentaciones a `doc/**`). Stagear siempre
+> con rutas explícitas, jamás `git add -A`; `git fetch` antes de push.
 
 ## La receta (cómo se construye CADA ejemplo)
 

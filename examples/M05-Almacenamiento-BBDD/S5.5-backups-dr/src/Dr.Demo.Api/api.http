@@ -1,0 +1,44 @@
+### REST Client — S5.5 Backups & DR. API local (dotnet run).
+### Todo es lógica pura (decisión de backup/DR/retención): offline.
+
+@host = http://localhost:5085
+
+### Health
+GET {{host}}/health
+
+### Backup "de fábrica" de un servicio (slides 3/6/19)
+GET {{host}}/dr/backup/CosmosDb
+
+### TableStorage: sin backup automático (slide 3)
+GET {{host}}/dr/backup/TableStorage
+
+### RPO/RTO por estrategia (slides 8/14/22/24)
+GET {{host}}/dr/rpo-rto/WarmStandby
+
+### Retención por regulación (slide 20)
+GET {{host}}/dr/retencion/SecFinra
+
+### RGPD: derecho al olvido (slide 20)
+GET {{host}}/dr/retencion/Rgpd
+
+### Plan de DR completo (slides 8/12/16)
+POST {{host}}/dr/plan
+Content-Type: application/json
+
+{
+  "criticidad": "Importante",
+  "servicios": ["CosmosDb", "AzureSql", "BlobStorage", "TableStorage", "AppService"],
+  "rpoObjetivoMin": 15,
+  "rtoObjetivoMin": 60
+}
+
+### Plan que NO cumple objetivos (RTO exigente con ColdStandby)
+POST {{host}}/dr/plan
+Content-Type: application/json
+
+{
+  "criticidad": "Interno",
+  "servicios": ["BlobStorage"],
+  "rpoObjetivoMin": 5,
+  "rtoObjetivoMin": 10
+}
