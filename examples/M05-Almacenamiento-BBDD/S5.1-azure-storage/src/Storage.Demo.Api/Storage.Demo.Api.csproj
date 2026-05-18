@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <!-- SDKs de los 4 servicios del Storage Account (slides 7-20). -->
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.23.0" />
+    <PackageReference Include="Azure.Storage.Queues" Version="12.21.0" />
+    <PackageReference Include="Azure.Data.Tables" Version="12.9.1" />
+    <PackageReference Include="Azure.Storage.Files.Shares" Version="12.21.0" />
+    <!-- Managed Identity en producción (slide 7). -->
+    <PackageReference Include="Azure.Identity" Version="1.13.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Storage.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

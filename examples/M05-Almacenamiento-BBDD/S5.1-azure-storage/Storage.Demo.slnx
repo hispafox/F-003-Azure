@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Storage.Demo.Api/Storage.Demo.Api.csproj" />
+  <Project Path="tests/Storage.Demo.Api.Tests/Storage.Demo.Api.Tests.csproj" />
+</Solution>

@@ -55,10 +55,12 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.5 — Testing y depuración | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.5-testing-depuracion/README.md) | ✅ Disponible |
 | [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.P — Práctica: flujo completo | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.P-practica-flujo-completo/README.md) | ✅ Disponible |
 | [M04 — Azure Functions II](M04-Azure-Functions-II/README.md) | S4.P2 — Práctica: Durable Hello World | [AzureFunctions.Demo](M04-Azure-Functions-II/S4.P2-practica-durable-hello-world/README.md) | ✅ Disponible |
+| [M05 — Almacenamiento y BBDD](M05-Almacenamiento-BBDD/README.md) | S5.1 — Azure Storage (Blob/Table/Queue/File) | [Storage.Demo.Api](M05-Almacenamiento-BBDD/S5.1-azure-storage/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
+🚧 **Módulo M05 en curso** (1/7).
 
 ## Cómo usar un ejemplo
 

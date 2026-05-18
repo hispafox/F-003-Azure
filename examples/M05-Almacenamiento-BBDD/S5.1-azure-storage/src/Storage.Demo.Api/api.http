@@ -1,0 +1,50 @@
+### REST Client — S5.1 Azure Storage. API local (dotnet run, Azurite).
+
+@host = http://localhost:5080
+
+### Health
+GET {{host}}/health
+
+### --- Blob (slides 6-10) ---
+
+### Subir (el body crudo es el contenido del blob)
+POST {{host}}/blob/facturas/2026/05/f-1.csv
+Content-Type: text/csv
+
+factura,total
+F-1,1299.99
+
+### Listar por "carpeta" (prefijo)
+GET {{host}}/blob/facturas?prefijo=2026/05/
+
+### Descargar
+GET {{host}}/blob/facturas/2026/05/f-1.csv
+
+### Borrar
+DELETE {{host}}/blob/facturas/2026/05/f-1.csv
+
+### Sugerencia de access tier por antigüedad (slide 5, lógica pura)
+GET {{host}}/blob/tier-sugerido/45
+
+### --- Table (slides 11-12) ---
+
+POST {{host}}/table
+Content-Type: application/json
+
+{ "particion": "2026-05-15", "usuario": "pedro@x.com", "accion": "CrearPedido", "detalle": "PED-1" }
+
+### Query por PartitionKey (rápida)
+GET {{host}}/table/2026-05-15
+
+### --- Queue (slides 18-19) ---
+
+POST {{host}}/queue/pedidos
+Content-Type: application/json
+
+{ "cuerpo": "PED-1 listo para procesar" }
+
+### Recibir
+GET {{host}}/queue/pedidos
+
+### Longitud aproximada
+GET {{host}}/queue/pedidos/longitud
