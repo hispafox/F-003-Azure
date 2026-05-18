@@ -118,14 +118,14 @@ Leyenda: ✅ enlace registrado · ⏳ pendiente de URL.
 | S8.5 | IaC con Bicep | [doc](M08-DevOps-Automatizacion/v3-actual/M08-S8.5-iac-bicep-v3.md) | ✅ [Gamma](https://gamma.app/docs/M08-S85-iac-bicep-v3-pssjpacv9y6yc56) |
 | S8.6 | App Insights y Monitor | [doc](M08-DevOps-Automatizacion/v3-actual/M08-S8.6-app-insights-monitor-v3.md) | ✅ [Gamma](https://gamma.app/docs/M08-S86-app-insights-monitor-v3-goe1ecns17gjowq) |
 | S8.P | Práctica — Pipeline CI/CD | [doc](M08-DevOps-Automatizacion/v3-actual/M08-S8.P-practica-pipeline-cicd-v3.md) | ✅ [Gamma](https://gamma.app/docs/M08-S8P-practica-pipeline-cicd-v3-zxa4gftu0rlaanr) |
-| S8.P2 | Práctica — GitHub Actions + publish profile | [doc](M08-DevOps-Automatizacion/v3-actual/M08-S8.P2-practica-github-actions-publish-profile-v1.md) | ✅ [Gamma](https://gamma.app/docs/M08-S8P2-practica-github-actions-publish-profile-v1-ef0q3jcujuv1532) |
+| S8.P2 | Práctica — GitHub Actions + publish profile | [doc](M08-DevOps-Automatizacion/v3-actual/M08-S8.P2-practica-github-actions-publish-profile-v1.md) | ✅ [Gamma](https://gamma.app/docs/M08-S8P2-practica-github-actions-publish-profile-v1-4jdauo28d1r9q77) |
 
 ### M09 — IA y Claude Code (v3)
 
 | Submódulo | Título | Doc | Presentación |
 | --- | --- | --- | --- |
-| S9.1 | Claude Code — Introducción | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.1-claude-code-intro-v3.md) | ⏳ |
-| S9.2 | Claude Code — Casos de uso | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.2-claude-code-casos-uso-v3.md) | ⏳ |
+| S9.1 | Claude Code — Introducción | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.1-claude-code-intro-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S91-claude-code-intro-v3-8vy6chpiy3zskqg) |
+| S9.2 | Claude Code — Casos de uso | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.2-claude-code-casos-uso-v3.md) | ✅ [Gamma](https://gamma.app/docs/M09-S92-claude-code-casos-uso-v3-4s0b2p2c15m66u6) |
 | S9.3 | Claude Code — Infraestructura | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.3-cc-infraestructura-v3.md) | ⏳ |
 | S9.4 | MCP — Herramientas | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md) | ⏳ |
 | S9.5 | Buenas prácticas y limitaciones | [doc](M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md) | ⏳ |

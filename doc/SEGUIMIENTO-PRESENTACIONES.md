@@ -22,9 +22,9 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 
 | | Gamma ✅ | Gamma 🟡 | Gamma ⏳ | PDF ✅ | PDF ❌ |
 | --- | --- | --- | --- | --- | --- |
-| **Totales** | 58 | 3 | 16 | 36 | 44 |
+| **Totales** | 63 | 1 | 16 | 36 | 44 |
 
-- **Gamma:** M01–M08 en repo (S8.P2 ⚠️ duplicado) · M09 S9.1–S9.3 con URL sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
+- **Gamma:** M01–M08 en repo · M09 S9.1–S9.2 aplicadas · S9.3 con URL verificada sin aplicar · 16 sin crear (M09×4 · M10×2 · M11×10).
 - **PDF:** M01–M05 completos → 36 subidos · 44 pendientes.
 
 ---
@@ -128,23 +128,23 @@ registrada en el repo y si el **PDF** está subido (Git LFS).
 | S8.5 | IaC con Bicep | ✅ | ❌ |
 | S8.6 | App Insights y Monitor | ✅ | ❌ |
 | S8.P | Práctica — Pipeline CI/CD | ✅ | ❌ |
-| S8.P2 | Práctica — GitHub Actions + publish profile | ⚠️ | ❌ |
+| S8.P2 | Práctica — GitHub Actions + publish profile | ✅ | ❌ |
 
-> **S8.P2:** 2 decks duplicados en Gamma con el mismo título. En repo: `…-ef0q3jcujuv1532` (04-may). Duplicado nuevo: `…-4jdauo28d1r9q77` (18-may). **Pendiente decidir cuál es la buena.**
+> **S8.P2:** resuelto — se usa el deck nuevo `…-4jdauo28d1r9q77` (18-may). El antiguo `…-ef0q3jcujuv1532` queda descartado.
 
 ## M09 — IA y Claude Code (v3)
 
 | Submódulo | Título | Gamma | PDF |
 | --- | --- | :---: | :---: |
-| S9.1 | Claude Code — Introducción | 🟡 | ❌ |
-| S9.2 | Claude Code — Casos de uso | 🟡 | ❌ |
+| S9.1 | Claude Code — Introducción | ✅ | ❌ |
+| S9.2 | Claude Code — Casos de uso | ✅ | ❌ |
 | S9.3 | Claude Code — Infraestructura | 🟡 | ❌ |
 | S9.4 | MCP — Herramientas | ⏳ | ❌ |
 | S9.5 | Buenas prácticas y limitaciones | ⏳ | ❌ |
 | S9.P | Práctica — Claude Code + MCP | ⏳ | ❌ |
 | S9.P2 | Práctica — Claude Code primer comando | ⏳ | ❌ |
 
-> **S9.1–S9.3:** URL ya verificada en Gamma, pendiente de aplicar al índice y docs.
+> **S9.3:** URL ya verificada en Gamma, pendiente de aplicar al índice y docs.
 
 ## M10 — Proyecto Integrador (v3)
 
