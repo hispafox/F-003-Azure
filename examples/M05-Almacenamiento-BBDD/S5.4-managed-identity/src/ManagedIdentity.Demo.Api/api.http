@@ -1,0 +1,40 @@
+### REST Client — S5.4 Managed Identity. API local (dotnet run).
+### /seguridad/* funcionan offline (lógica pura).
+### /blob/contenedores requiere Azure real + `az login` (sin key).
+
+@host = http://localhost:5084
+
+### Health
+GET {{host}}/health
+
+### --- Seguridad: lógica pura ---
+
+### Escanear un valor de config (slide 2/10/13)
+POST {{host}}/seguridad/scan
+Content-Type: application/json
+
+{ "valor": "Server=tcp:sql.database.windows.net,1433;Database=db;User ID=sa;Password=Secreto123;" }
+
+### Escanear una conexión SIN secreto (Entra ID)
+POST {{host}}/seguridad/scan
+Content-Type: application/json
+
+{ "valor": "Server=tcp:sql.database.windows.net,1433;Database=db;Authentication=Active Directory Default;Encrypt=true;" }
+
+### Escanear una Key Vault Reference (slide 10)
+POST {{host}}/seguridad/scan
+Content-Type: application/json
+
+{ "valor": "@Microsoft.KeyVault(VaultName=kv-prod;SecretName=api-key)" }
+
+### Rol RBAC mínimo + sufijo App Setting (slides 17/23/27)
+GET {{host}}/seguridad/rol?servicio=BlobStorage&acceso=Lectura
+
+### Otro: Cosmos lectura+escritura
+GET {{host}}/seguridad/rol?servicio=CosmosDb&acceso=LecturaEscritura
+
+### Checklist de la sección Conexiones (slide 13)
+GET {{host}}/seguridad/checklist
+
+### --- Demo real SIN key (requiere Azure + az login, slide 6/8) ---
+GET {{host}}/blob/contenedores

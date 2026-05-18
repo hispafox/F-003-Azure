@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <!-- DefaultAzureCredential / TokenCredential: el corazón del submódulo
+         (slides 6-7). Mismo código en local (az login) y en Azure (MI). -->
+    <PackageReference Include="Azure.Identity" Version="1.14.2" />
+    <!-- Cliente de ejemplo conectado SIN key, solo con la credencial
+         (slides 6, 8). Sirve cualquier SDK Azure; usamos Blob. -->
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.23.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ManagedIdentity.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

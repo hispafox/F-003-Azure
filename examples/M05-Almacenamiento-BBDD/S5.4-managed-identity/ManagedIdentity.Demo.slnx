@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/ManagedIdentity.Demo.Api/ManagedIdentity.Demo.Api.csproj" />
+  <Project Path="tests/ManagedIdentity.Demo.Api.Tests/ManagedIdentity.Demo.Api.Tests.csproj" />
+</Solution>

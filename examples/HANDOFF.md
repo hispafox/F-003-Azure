@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras S5.3)
+## Estado actual (tras S5.4)
 
 | Módulo | Estado |
 | --- | --- |
@@ -25,17 +25,16 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M02 App Services | ✅ completo 7/7 |
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
-| M05 Almacenamiento y BBDD | 🚧 3/7 — hechos **S5.1** (Storage), **S5.2** (Azure SQL), **S5.3** (Cosmos) |
+| M05 Almacenamiento y BBDD | 🚧 4/7 — **S5.1** (Storage), **S5.2** (SQL), **S5.3** (Cosmos), **S5.4** (Managed Identity) |
 | M06–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M05-S5.4 — Managed Identity`
-(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.4-managed-identity-v3.md`).
-Patrón esperado: Minimal API que se conecta a SQL/Cosmos/Storage **sin
-keys ni passwords** vía `DefaultAzureCredential` (system-assigned /
-user-assigned MI, RBAC roles); lógica pura testeable (selección de
-credencial, parsing de connection string sin secreto) + DI container +
-integración (Testcontainers o, si no aplica, solo CAPA 1+0). Scripts
-`az` para asignar la MI y los roles. Luego S5.5 Backups, S5.P, S5.P2.
+**Siguiente tarea concreta:** `M05-S5.5 — Backups, replicación y DR`
+(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.5-backups-v3.md`). Leer
+el doc primero. Patrón esperado: lógica pura testeable (política de
+retención / RPO-RTO / ventana de point-in-time / decisión LRS-ZRS-GRS) +
+DI container; integración solo si hay algo emulable (probablemente no →
+CAPA 1+0 como S5.4). Scripts `az` de backup/restore/geo-replicación.
+Luego S5.P, S5.P2 y M05 cerrado.
 
 ## La receta (cómo se construye CADA ejemplo)
 
@@ -156,6 +155,27 @@ integración (Testcontainers o, si no aplica, solo CAPA 1+0). Scripts
    - **El SDK de Cosmos es lazy**: construir `CosmosClient` + `GetContainer`
      no abre conexión → el test de CAPA 0 DI corre sin Docker. Usar la
      clave **pública** del emulador como cs por defecto (no es secreto).
+8. **Submódulos transversales / no emulables (S5.4 Managed Identity)** —
+   cuando el tema NO es un servicio de datos nuevo sino *cómo* se conecta
+   (auth, seguridad, cifrado):
+   - **Entra ID / Managed Identity NO se emula** (Azurite/Cosmos emulator
+     usan key fija). NO forzar una CAPA de integración: queda
+     **CAPA 1 (lógica pura) + CAPA 0 (DI container)**, y se documenta el
+     porqué en README y csproj (igual que "Cosmos no tiene in-memory").
+     Sin `SkippableFact` si no hay nada que saltar — no inventes un test
+     que siempre se salta.
+   - **`DefaultAzureCredential`/clientes SDK son lazy**: construir no
+     autentica → el test DI corre sin Azure. Patrón slide 21:
+     `AddSingleton<TokenCredential>` una vez y todos los clientes
+     (`BlobServiceClient`, `CosmosClient`...) lo comparten; el test DI
+     verifica `Assert.Same` la credencial.
+   - **Lógica pura aunque el tema sea "conceptual"**: siempre hay algo
+     testeable — mapear config→opciones de credencial, escanear secretos
+     en connection strings, recomendar el rol RBAC mínimo. Tres clases
+     puras (`*Factory`/`*Scanner`/`*Advisor`) mantienen el patrón de S5.2/S5.3.
+   - **Endpoint "demo real" que requiere Azure**: incluirlo pero que
+     devuelva 503 claro si falta config (no romper `dotnet run` sin
+     Azure); se prueba a mano con `az login`.
 
 ## Convenciones de scaffolding (copiar tal cual)
 
