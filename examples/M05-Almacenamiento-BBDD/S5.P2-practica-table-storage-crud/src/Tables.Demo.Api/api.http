@@ -1,0 +1,37 @@
+### REST Client — S5.P2 Práctica: Table Storage CRUD. API local.
+### Requiere Azurite (o Storage real) y la tabla 'productos' creada.
+
+@host = http://localhost:5087
+
+### Health
+GET {{host}}/health
+
+### Listar todos (scan, slide 8)
+GET {{host}}/productos
+
+### Crear (slide 8)
+POST {{host}}/productos
+Content-Type: application/json
+
+{ "partitionKey": "electronica", "rowKey": "laptop001", "nombre": "Laptop Dell", "precio": 1299.00, "stock": 5 }
+
+### Listar por categoría (PartitionKey, rápido)
+GET {{host}}/productos/categoria/electronica
+
+### Obtener uno
+GET {{host}}/productos/electronica/laptop001
+
+### Actualizar
+PUT {{host}}/productos/electronica/laptop001
+Content-Type: application/json
+
+{ "partitionKey": "electronica", "rowKey": "laptop001", "nombre": "Laptop Dell XPS", "precio": 1499.00, "stock": 3 }
+
+### Borrar
+DELETE {{host}}/productos/electronica/laptop001
+
+### Reto 1 — filtro OData por rango de precio (slide 20)
+GET {{host}}/productos/precio?min=50&max=500
+
+### Validar/normalizar una clave (slide 5/14)
+GET {{host}}/tools/clave?valor=cat/egoria%23mala

@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras S5.P)
+## Estado actual (tras S5.P2 — M05 COMPLETO)
 
 | Módulo | Estado |
 | --- | --- |
@@ -25,18 +25,19 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M02 App Services | ✅ completo 7/7 |
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
-| M05 Almacenamiento y BBDD | 🚧 6/7 — S5.1, S5.2, S5.3, S5.4, S5.5, **S5.P** (falta S5.P2) |
-| M06–M11 | pendientes |
+| M05 Almacenamiento y BBDD | ✅ completo 7/7 (S5.1–S5.5 + S5.P + S5.P2) |
+| M06 Seguridad y Auth | pendiente — **siguiente** |
+| M07–M11 | pendientes |
 
-**Siguiente tarea concreta (cierra M05):** `M05-S5.P2 — Práctica: Table
-Storage CRUD`
-(`doc/M05-Almacenamiento-BBDD/v3-actual/M05-S5.P2-practica-table-storage-crud-v1.md`).
-Leer el doc primero. Práctica corta de Table Storage: probable Minimal
-API con `Azure.Data.Tables` (reutilizar el `ITableRepository`/Azurite de
-S5.1) — CAPA 1 (pura: clave PartitionKey/RowKey) + CAPA 0 (DI) +
-integración Azurite con `Testcontainers.Azurite` (`SkippableFact`, como
-S5.1). Al terminarla, **M05 queda completo 7/7**; actualizar los índices
-a "✅ Módulo M05 completo".
+**Siguiente tarea concreta:** `M06-S6.1 — Responsabilidad compartida`
+(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.1-responsabilidad-compartida-v3.md`).
+Leer el doc primero — M06 (Seguridad, Entra ID, OAuth2/OIDC, auth
+desktop/MSIX, Key Vault) **cambia de dominio**: muchos submódulos serán
+conceptuales (modelo de responsabilidad, OAuth flows) → patrón S5.4/S5.5
+(lógica pura + CAPA 0 DI, sin integración si no es emulable); los de
+Key Vault/Entra sí pueden tener integración. Crear `examples/M06-*/`
+y su README de módulo al empezar el primer submódulo. El nombre exacto
+de carpeta de cada ejemplo: `SX.Y-<slug>` / `SX.P-practica-<slug>`.
 
 > Regla de proceso (memoria `feedback-esperar-confirmacion-push`): en
 > este repo **nunca `git push` sin OK explícito**; el usuario trabaja en
