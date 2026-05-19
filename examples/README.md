@@ -72,13 +72,14 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.P2 — Práctica: Easy Auth (auth sin código) | [EasyAuth.Demo.Api](M06-Seguridad-Auth/S6.P2-practica-easy-auth/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.1 — Service Bus / Event Grid avanzado (filtros SQL, dedup, DLQ) | [Messaging.Demo.Api](M07-Integracion-MSIX/S7.1-service-bus-event-grid-avanzado/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.2 — Diseño event-driven (patrones, Saga, Event Sourcing) | [EventDriven.Demo.Api](M07-Integracion-MSIX/S7.2-diseno-event-driven/README.md) | ✅ Disponible |
+| [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.3 — Azure API Management (policies, versionado, tier) | [Apim.Demo.Api](M07-Integracion-MSIX/S7.3-api-management/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
-⏳ **Módulo M07 en construcción** (2/9 — S7.1, S7.2 disponibles).
+⏳ **Módulo M07 en construcción** (3/9 — S7.1, S7.2, S7.3 disponibles).
 
 ## Cómo usar un ejemplo
 

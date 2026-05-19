@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Apim.Demo.Api/Apim.Demo.Api.csproj" />
+  <Project Path="tests/Apim.Demo.Api.Tests/Apim.Demo.Api.Tests.csproj" />
+</Solution>

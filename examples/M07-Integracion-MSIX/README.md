@@ -17,7 +17,7 @@ forzar integración cuando no aporta).
 | --- | --- | --- | --- |
 | [S7.1](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.1-service-bus-event-grid-avanzado-v3.md) | Service Bus / Event Grid avanzado (filtros SQL, dedup, request/reply, DLQ) | [`S7.1-service-bus-event-grid-avanzado/`](S7.1-service-bus-event-grid-avanzado/README.md) | ✅ Disponible |
 | [S7.2](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.2-diseno-event-driven-v3.md) | Diseño event-driven (patrones, Saga, anti-patterns, Event Sourcing) | [`S7.2-diseno-event-driven/`](S7.2-diseno-event-driven/README.md) | ✅ Disponible |
-| S7.3 | API Management | — | ⏳ Pendiente |
+| [S7.3](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.3-api-management-v3.md) | Azure API Management (policies, versionado, tier) | [`S7.3-api-management/`](S7.3-api-management/README.md) | ✅ Disponible |
 | S7.4 | ClickOnce vs MSIX | — | ⏳ Pendiente |
 | S7.5 | MSIX empaquetado y distribución | — | ⏳ Pendiente |
 | S7.6 | MSIX auto-update | — | ⏳ Pendiente |
@@ -25,7 +25,7 @@ forzar integración cuando no aporta).
 | S7.P | Práctica — MSIX | — | ⏳ Pendiente |
 | S7.P2 | Práctica — MSIX wizard | — | ⏳ Pendiente |
 
-⏳ **Módulo M07 en construcción** (2/9).
+⏳ **Módulo M07 en construcción** (3/9).
 
 ## Patrón de tests
 

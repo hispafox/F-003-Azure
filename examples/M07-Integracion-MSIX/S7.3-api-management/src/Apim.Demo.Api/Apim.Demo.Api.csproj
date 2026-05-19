@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.3 API Management. Submódulo conceptual: APIM no tiene emulador
+       útil. El valor docente es la LÓGICA del gateway (policies: rate-
+       limit/quota/jwt/ip-filter, resolución de versión, elección de
+       tier) — pura y testeable. Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Apim.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
