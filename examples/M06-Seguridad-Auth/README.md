@@ -18,7 +18,7 @@ pueden llevar integración).
 | [S6.1](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.1-responsabilidad-compartida-v3.md) | Responsabilidad compartida, defense in depth, STRIDE | [`S6.1-responsabilidad-compartida/`](S6.1-responsabilidad-compartida/README.md) | ✅ Disponible |
 | [S6.2](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.2-entra-id-v3.md) | Microsoft Entra ID (identidades, roles, JWT, App Roles) | [`S6.2-entra-id/`](S6.2-entra-id/README.md) | ✅ Disponible |
 | [S6.3](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.3-oauth2-openid-connect-v3.md) | OAuth2 / OpenID Connect (flujos, PKCE, authorize URL) | [`S6.3-oauth2-oidc/`](S6.3-oauth2-oidc/README.md) | ✅ Disponible |
-| S6.4 | Auth desktop / MSIX | _Pendiente_ | ⏳ |
+| [S6.4](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.4-auth-desktop-msix-v3.md) | Auth desktop / MSIX (WAM, redirect URIs, ciclo de token) | [`S6.4-auth-desktop-msix/`](S6.4-auth-desktop-msix/README.md) | ✅ Disponible |
 | S6.5 | Seguridad de datos | _Pendiente_ | ⏳ |
 | S6.6 | Key Vault | _Pendiente_ | ⏳ |
 | S6.P | Práctica — OAuth2 + Key Vault | _Pendiente_ | ⏳ |

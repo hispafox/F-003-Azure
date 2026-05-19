@@ -1,0 +1,43 @@
+### REST Client — S6.4 Auth desktop / MSIX. API local.
+### Modela la decisión de auth de una app WPF/MSIX (offline).
+
+@host = http://localhost:5091
+@cid = 22222222-2222-2222-2222-222222222222
+
+### Health
+GET {{host}}/health
+
+### Método recomendado por contexto (slide 3)
+GET {{host}}/desktop/flujo?contexto=WindowsEntraJoined
+###
+GET {{host}}/desktop/flujo?contexto=MultiPlataforma
+###
+GET {{host}}/desktop/flujo?contexto=KioscoOCli
+
+### Redirect URI por tipo de app (slide 7/11)
+GET {{host}}/desktop/redirect-uri?tipo=SystemBrowser&clientId={{cid}}
+###
+GET {{host}}/desktop/redirect-uri?tipo=Msix&clientId={{cid}}
+
+### Siguiente acción del ciclo de token (slide 10/12)
+### Primera vez (sin cuenta) → Interactive
+POST {{host}}/desktop/token-accion
+Content-Type: application/json
+
+{ "hayCuentaEnCache": false, "accessTokenValido": false, "refreshTokenValido": false, "retoConditionalAccess": false }
+
+### Access caducado, refresh válido → RefrescarSilent
+POST {{host}}/desktop/token-accion
+Content-Type: application/json
+
+{ "hayCuentaEnCache": true, "accessTokenValido": false, "refreshTokenValido": true, "retoConditionalAccess": false }
+
+### Plan completo (slide 3-12)
+POST {{host}}/desktop/plan
+Content-Type: application/json
+
+{
+  "contexto": "WindowsEntraJoined",
+  "clientId": "22222222-2222-2222-2222-222222222222",
+  "estado": { "hayCuentaEnCache": true, "accessTokenValido": true, "refreshTokenValido": true, "retoConditionalAccess": false }
+}

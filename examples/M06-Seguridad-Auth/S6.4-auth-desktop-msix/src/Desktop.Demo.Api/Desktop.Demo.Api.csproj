@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Submódulo conceptual (auth desktop/MSIX: WAM vs system browser,
+       redirect URIs, ciclo de token). Solo ASP.NET: la lógica es pura.
+       La app desktop real (WPF/MSAL) se modela, no se ejecuta aquí. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Desktop.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
