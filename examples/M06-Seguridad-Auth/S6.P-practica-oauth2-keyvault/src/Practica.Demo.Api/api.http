@@ -1,0 +1,30 @@
+### REST Client — S6.P Práctica: OAuth2 + Key Vault. API local.
+### En local NO hay Easy Auth delante: /api/perfil exige las cabeceras
+### X-MS-CLIENT-PRINCIPAL-* (que Easy Auth inyecta en Azure).
+
+@host = http://localhost:5094
+
+### Público (sin token) — slide 9
+GET {{host}}/health
+
+### Protegido SIN cabeceras → 401 (slide 9/11)
+GET {{host}}/api/perfil
+
+### Protegido SIMULANDO Easy Auth (cabeceras que inyecta en Azure)
+GET {{host}}/api/perfil
+X-MS-CLIENT-PRINCIPAL-NAME: pedro@empresa.com
+X-MS-CLIENT-PRINCIPAL-IDP: aad
+
+### Easy Auth: acción + issuer por tipo de app (slide 8)
+GET {{host}}/practica/easyauth?tipo=Api&tenantId=11111111-1111-1111-1111-111111111111
+###
+GET {{host}}/practica/easyauth?tipo=WebApp&tenantId=11111111-1111-1111-1111-111111111111
+
+### App Settings con Key Vault References (slide 7/11)
+GET {{host}}/practica/appsettings?tenantId=t-123&clientId=c-456&vault=kv-curso
+
+### Plan completo de la práctica (slide 7-8-11)
+POST {{host}}/practica/plan
+Content-Type: application/json
+
+{ "tipo": "Api", "tenantId": "t-123", "clientId": "c-456", "vault": "kv-curso" }

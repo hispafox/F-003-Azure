@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Práctica del módulo: integra S6.3 (OAuth2/Easy Auth) + S6.6
+       (Key Vault References). Solo ASP.NET: la lógica es pura; la API
+       protegida lee las cabeceras que Easy Auth inyecta. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Practica.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

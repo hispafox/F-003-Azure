@@ -68,12 +68,13 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.4 — Auth desktop / MSIX (WAM, redirect URIs, ciclo de token) | [Desktop.Demo.Api](M06-Seguridad-Auth/S6.4-auth-desktop-msix/README.md) | ✅ Disponible |
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.5 — Seguridad de datos (cifrado at-rest/in-transit, CMK, CORS) | [Datos.Demo.Api](M06-Seguridad-Auth/S6.5-seguridad-datos/README.md) | ✅ Disponible |
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.6 — Key Vault (secretos/keys/certs, RBAC, references, rotación) | [KeyVault.Demo.Api](M06-Seguridad-Auth/S6.6-key-vault/README.md) | ✅ Disponible |
+| [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.P — Práctica: OAuth2 + Key Vault | [Practica.Demo.Api](M06-Seguridad-Auth/S6.P-practica-oauth2-keyvault/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
-🚧 **Módulo M06 en curso** (6/8).
+🚧 **Módulo M06 en curso** (7/8).
 
 ## Cómo usar un ejemplo
 

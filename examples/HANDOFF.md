@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras M06-S6.6)
+## Estado actual (HANDOFF para chat nuevo — leer esto primero)
 
 | Módulo | Estado |
 | --- | --- |
@@ -26,23 +26,54 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
-| M06 Seguridad y Auth | 🚧 6/8 — S6.1–S6.5 + S6.6 (Key Vault); faltan S6.P, S6.P2 |
+| M06 Seguridad y Auth | 🚧 7/8 — S6.1–S6.6 + **S6.P** hechos; falta solo **S6.P2** |
 | M07–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M06-S6.P — Práctica: OAuth2 + Key Vault`
-(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.P-practica-oauth2-keyvault-v3.md`).
-Leer el doc primero. Es una **práctica** que integra S6.3 (OAuth2/OIDC)
-+ S6.6 (Key Vault) — reutilizar piezas de ambos (flow advisor/PKCE +
-KeyVaultReference/ItemAdvisor). Patrón conceptual CAPA 1 + CAPA 0 (sin
-integración salvo algo emulable). Luego S6.P2 (Easy Auth) y M06 cerrado
-(8/8). **S6.6 está commit-less en el working tree (pendiente de "sube").**
-El módulo M06 README ya existe (`examples/M06-Seguridad-Auth/README.md`):
-solo actualizar su tabla + el índice global + footer al cerrar cada sub.
+### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-> Regla de proceso (memoria `feedback-esperar-confirmacion-push`): en
-> este repo **nunca `git push` sin OK explícito**; el usuario trabaja en
-> paralelo desde otro chat (presentaciones a `doc/**`). Stagear siempre
-> con rutas explícitas, jamás `git add -A`; `git fetch` antes de push.
+- **`origin/main` = local `main` = commit `4772935`** = último PUSHEADO
+  = `M06-S6.6 Azure Key Vault`. M02–M06(S6.1..S6.6) están en remoto.
+- **S6.P está CONSTRUIDO, VERDE (12 tests pass, 0 warn) pero SIN
+  COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
+  Sin commitear ahora mismo:
+  - `?? examples/M06-Seguridad-Auth/S6.P-practica-oauth2-keyvault/` (nuevo)
+  - ` M examples/M06-Seguridad-Auth/README.md` (fila S6.P)
+  - ` M examples/README.md` (fila S6.P + footer "M06 7/8")
+  - ` M examples/HANDOFF.md` (este archivo)
+- Cuando el usuario diga **"sube"**: `git fetch`, comprobar
+  ahead/behind, y commit ACOTADO + push (jamás `git add -A`):
+  ```
+  cd c:/w/repos/F-003-Azure
+  git add examples/M06-Seguridad-Auth/S6.P-practica-oauth2-keyvault \
+          examples/M06-Seguridad-Auth/README.md \
+          examples/README.md examples/HANDOFF.md
+  # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
+  git push origin main
+  ```
+  (También puede haber `doc/**` y un `.gitattributes` raíz modificados
+  por el OTRO chat del usuario que sube presentaciones — **NO** stagearlos,
+  no son nuestros; por eso siempre `git add` con rutas explícitas.)
+
+**Siguiente tarea concreta (cierra M06 → 8/8):** `M06-S6.P2 — Práctica:
+Easy Auth` (`doc/M06-Seguridad-Auth/v3-actual/M06-S6.P2-practica-easy-auth-v1.md`).
+Leer el doc entero primero. Práctica de Easy Auth (auth sin código):
+patrón conceptual (ver lección 9) — lógica pura (CAPA 1) + DI container
+(CAPA 0) + CAPA E2E con `WebApplicationFactory` simulando las cabeceras
+`X-MS-CLIENT-PRINCIPAL-*` como hizo S6.P. Carpeta:
+`examples/M06-Seguridad-Auth/S6.P2-practica-easy-auth/`. Al cerrarla:
+actualizar `examples/M06-Seguridad-Auth/README.md` (fila S6.P2 ✅ +
+nota "Módulo M06 completo"), `examples/README.md` (fila S6.P2 + footer
+"✅ Módulo M06 completo (... 8/8)") y este HANDOFF. Después → **M07**
+(crear `examples/M07-*/` + su README de módulo; leer doc M07-S7.1).
+
+> **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
+> en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.
+> El usuario trabaja en paralelo desde otro chat (sube presentaciones a
+> `doc/**`) → stagear SIEMPRE con rutas explícitas, jamás `git add -A`;
+> `git fetch` antes de push; commit acotado por carpeta de ejemplo +
+> los 2-3 índices + HANDOFF. Trigger "sigue"/"sigamos" = construir el
+> siguiente submódulo (NO implica push); "sube" = pushear lo que esté
+> verde y sin commitear.
 
 ## La receta (cómo se construye CADA ejemplo)
 
@@ -184,6 +215,45 @@ solo actualizar su tabla + el índice global + footer al cerrar cada sub.
    - **Endpoint "demo real" que requiere Azure**: incluirlo pero que
      devuelva 503 claro si falta config (no romper `dotnet run` sin
      Azure); se prueba a mano con `az login`.
+9. **Patrón M06 conceptual (S6.1–S6.P, replicar en S6.P2 y similares)** —
+   todo M06 es seguridad transversal, no servicios de datos. Receta fija
+   por submódulo (todos verdes, 0 warn, sin integración):
+   - **Proyecto**: `Minimal API` `<Tema>.Demo.Api` (Web SDK), **sin
+     PackageReference externas** (lógica pura; sólo ASP.NET). `.slnx`,
+     `Directory.Build.props`, `global.json`, `.gitattributes` estándar.
+     Puertos launchSettings: S6.1=5088 … S6.P=5094 (S6.P2 → 5095).
+   - **3 clases puras** en `src/.../<Tema>/` (estilo `*Advisor` /
+     `*Validator` / `*Policy` / `*Inspector`): tablas de decisión y
+     parsing testeables. Convención de nombres en español, slides citadas
+     en comentarios.
+   - **1 servicio inyectable** `I<X>` + `<X>` (`AddSingleton`) que
+     **compone** las clases puras → "plan/assessment". Es el seam del
+     test de contenedor.
+   - **Endpoints**: `/health` + grupo temático con GETs (query params)
+     y POSTs (DTO body) que delegan en lo puro/servicio. Si el tema lo
+     pide, un endpoint "protegido" que lee cabeceras (p.ej. Easy Auth
+     `X-MS-CLIENT-PRINCIPAL-*`) y responde 401/200.
+   - **Tests**: `Unit_*` por cada clase pura (incluye casos límite +
+     `Assert.Throws`); `DiContainer_Tests` que resuelve el servicio del
+     `WebApplicationFactory` real y `Assert.Same` el singleton (cubre la
+     lección DI sin Docker); si hay endpoint con cabeceras, un
+     `Api_*Tests` E2E con `WebApplicationFactory` simulándolas.
+     `GlobalUsings.cs` = `global using Xunit;`.
+   - **SIN CAPA de integración** y se documenta el porqué en README +
+     csproj ("Entra ID/OAuth/KV no emulable"). **No** inventar un
+     `SkippableFact` que siempre se salta.
+   - **Scripts `az` SOLO LECTURA** (`_lib.sh`, `.env.demo.example`,
+     `.gitignore`, `01-*.sh` read-only, `demo.sh`): inventario/postura,
+     **no crean recursos → sin `03-cleanup.sh`**; el menú lo dice. Nunca
+     leer valores de secretos.
+   - **README** con mapeo a slides, "sin CAPA de integración a propósito",
+     despliegue por Portal, ideas centrales, próximo paso. Actualizar
+     `examples/M06-Seguridad-Auth/README.md` (ya existe) + `examples/README.md`
+     (fila + footer N/8) + este HANDOFF.
+   - Pure helpers ya escritos reutilizables como referencia: S6.2
+     `JwtInspector`, S6.3 `PkceGenerator`/`AuthorizeUrlBuilder`, S6.6
+     `KeyVaultReference` (GeneratedRegex en `static partial class`),
+     S6.P `EasyAuthPrincipal`/`KeyVaultRefAppSettings`.
 
 ## Convenciones de scaffolding (copiar tal cual)
 

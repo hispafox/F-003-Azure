@@ -21,7 +21,7 @@ pueden llevar integración).
 | [S6.4](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.4-auth-desktop-msix-v3.md) | Auth desktop / MSIX (WAM, redirect URIs, ciclo de token) | [`S6.4-auth-desktop-msix/`](S6.4-auth-desktop-msix/README.md) | ✅ Disponible |
 | [S6.5](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.5-seguridad-datos-v3.md) | Seguridad de datos (cifrado at-rest/in-transit, CMK, CORS) | [`S6.5-seguridad-datos/`](S6.5-seguridad-datos/README.md) | ✅ Disponible |
 | [S6.6](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.6-key-vault-v3.md) | Key Vault (secretos/keys/certs, RBAC, references, rotación) | [`S6.6-key-vault/`](S6.6-key-vault/README.md) | ✅ Disponible |
-| S6.P | Práctica — OAuth2 + Key Vault | _Pendiente_ | ⏳ |
+| [S6.P](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.P-practica-oauth2-keyvault-v3.md) | Práctica — OAuth2 + Key Vault (integra S6.3+S6.6) | [`S6.P-practica-oauth2-keyvault/`](S6.P-practica-oauth2-keyvault/README.md) | ✅ Disponible |
 | S6.P2 | Práctica — Easy Auth | _Pendiente_ | ⏳ |
 
 ## Patrón de tests
