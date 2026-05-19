@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.2 Diseño event-driven. Submódulo conceptual: el valor docente
+       son los PATRONES (Notification vs Carried-State vs Sourcing,
+       cuándo aplicar event-driven, Saga choreo/orquestación, anti-
+       patterns de la slide 20) y un Event Store en memoria con replay
+       + snapshot. Lógica pura — sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="EventDriven.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

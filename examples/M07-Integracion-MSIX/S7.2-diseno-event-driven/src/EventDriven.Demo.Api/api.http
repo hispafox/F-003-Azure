@@ -1,0 +1,75 @@
+### REST Client — S7.2 Diseño event-driven.
+### Patrones de diseño (lógica pura, sin Azure).
+
+@host = http://localhost:5097
+
+### Salud (público)
+GET {{host}}/health
+
+### Patrón de evento: audit trail → Event Sourcing (slide 6)
+GET {{host}}/eventdriven/patron?auditTrailCompleto=true
+
+### Patrón: consumidor autónomo, eventos grandes → Carried State (slide 6)
+GET {{host}}/eventdriven/patron?consumidorAutonomo=true&eventosPequenos=false
+
+### ¿Buen caso para event-driven? (slide 13) → recomendado=true
+POST {{host}}/eventdriven/caso
+Content-Type: application/json
+
+{ "multiplesConsumidores": true, "procesamientoPesado": true, "escaladoIndependiente": true, "equipoPuedeComplejidad": true }
+
+### CRUD simple, volumen bajo → NO event-driven (slide 13)
+POST {{host}}/eventdriven/caso
+Content-Type: application/json
+
+{ "crudSimple": true, "volumenBajo": true, "consistenciaFuerteInmediata": true, "equipoPuedeComplejidad": false }
+
+### Saga: 6 pasos → Orchestration (Durable) (slide 8/22)
+GET {{host}}/eventdriven/saga?pasos=6
+
+### Saga: 3 pasos sin condicionales → Choreography
+GET {{host}}/eventdriven/saga?pasos=3
+
+### Compensación: falla el paso 3 → revertir 2 y 1 (slide 22)
+POST {{host}}/eventdriven/compensacion
+Content-Type: application/json
+
+{ "pasos": ["Reservar inventario", "Cobrar tarjeta", "Programar envío"], "falloEnPaso": 3 }
+
+### Validar evento: comando disfrazado + dato sensible + sin versión (slide 20)
+POST {{host}}/eventdriven/validar
+Content-Type: application/json
+
+{ "tipo": "EnviarEmailAlCliente", "campos": ["email", "password"] }
+
+### Validar evento correcto (slide 20)
+POST {{host}}/eventdriven/validar
+Content-Type: application/json
+
+{ "tipo": "PedidoCreado", "campos": ["pedidoId", "clienteId", "version"] }
+
+### Cadena de eventos demasiado larga (slide 20.1)
+GET {{host}}/eventdriven/cadena?saltos=7
+
+### Event Sourcing: replay + snapshot cada 3 (slide 14/15/21)
+POST {{host}}/eventdriven/sourcing
+Content-Type: application/json
+
+{ "snapshotCada": 3, "eventos": [
+  { "tipo": "PedidoCreado", "clienteId": "CLI-001" },
+  { "tipo": "ItemAnadido", "nombre": "Mouse", "precio": 29.99, "cantidad": 2 },
+  { "tipo": "DescuentoAplicado", "codigo": "VERANO10", "importe": 10 },
+  { "tipo": "PagoConfirmado", "transaccion": "TXN-789" },
+  { "tipo": "PedidoEnviado", "tracking": "ES123456" } ] }
+
+### Plan + checklist del entregable
+POST {{host}}/eventdriven/plan
+Content-Type: application/json
+
+{
+  "escenario": { "multiplesConsumidores": true, "procesamientoPesado": true, "auditTrailCompleto": true, "pasosSaga": 6 },
+  "catalogo": [
+    { "tipo": "PedidoCreado", "campos": ["pedidoId", "version"] },
+    { "tipo": "CobrarTarjeta", "campos": ["tarjeta", "cvv"] }
+  ]
+}
