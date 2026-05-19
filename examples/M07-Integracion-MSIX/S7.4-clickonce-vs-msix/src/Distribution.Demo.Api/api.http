@@ -1,0 +1,50 @@
+### REST Client — S7.4 ClickOnce vs MSIX.
+### Decisión de distribución desktop (lógica pura, sin instaladores).
+
+@host = http://localhost:5099
+
+### Salud
+GET {{host}}/health
+
+### ¿Soporta ClickOnce sandbox? (slide 4)
+GET {{host}}/distribution/soporta?formato=ClickOnce&caracteristica=Sandboxing
+
+### ¿Soporta MSIX sandbox?
+GET {{host}}/distribution/soporta?formato=Msix&caracteristica=Sandboxing
+
+### Comparar ClickOnce vs MSIX (slide 4)
+GET {{host}}/distribution/comparar?a=ClickOnce&b=Msix
+
+### ¿Migrar a MSIX? — sí: Intune + .NET 8 planeados (slide 18)
+POST {{host}}/distribution/migrar
+Content-Type: application/json
+
+{ "intunePlaneado": true, "dotNet8Planeado": true, "clickOnceFuncionaBien": true }
+
+### ¿Migrar? — no: ClickOnce funciona y equipo sin bandwidth
+POST {{host}}/distribution/migrar
+Content-Type: application/json
+
+{ "clickOnceFuncionaBien": true, "equipoSinBandwidth": true }
+
+### Escenario A: app existente .NET Framework sin tiempo → empaquetar tal cual (slide 12)
+GET {{host}}/distribution/escenario?esAppNueva=false&sobreDotNetFramework=true&tieneTiempoEquipo=false
+
+### Escenario B: app .NET Framework con tiempo → modernizar a .NET 8 + MSIX
+GET {{host}}/distribution/escenario?esAppNueva=false&sobreDotNetFramework=true&tieneTiempoEquipo=true
+
+### Escenario C: app nueva directamente con MSIX
+GET {{host}}/distribution/escenario?esAppNueva=true
+
+### Certificado: distribución interna → Enterprise CA (slide 8)
+GET {{host}}/distribution/cert?escenario=DistribucionInterna
+
+### Certificado: publicación en Store
+GET {{host}}/distribution/cert?escenario=PublicacionStore
+
+### Plan + checklist del entregable
+POST {{host}}/distribution/plan
+Content-Type: application/json
+
+{ "intunePlaneado": true, "dotNet8Planeado": true, "sobreDotNetFramework": true,
+  "tieneTiempoEquipo": true, "escenarioFirma": "DistribucionInterna" }

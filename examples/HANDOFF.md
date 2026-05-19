@@ -27,23 +27,29 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
-| M07 Integración y MSIX | 🚧 3/9 (S7.1–S7.3 hechos; S7.4–S7.7 + S7.P + S7.P2 pendientes) |
+| M07 Integración y MSIX | 🚧 4/9 (S7.1–S7.4 hechos; S7.5–S7.7 + S7.P + S7.P2 pendientes) |
 | M08–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `d985ec3`** = último PUSHEADO
-  = `M07-S7.2 event-driven design patterns`. M02–M06 enteros + M07-S7.1
-  + M07-S7.2 en remoto.
-- **S7.3 está CONSTRUIDO, VERDE (31 tests pass, 0 skip, 0 warn) pero SIN
+- **`origin/main` = local `main` = commit `4f50b23`** = último PUSHEADO
+  = `M07-S7.3 Azure API Management gateway logic`. M02–M06 enteros +
+  M07-S7.1/S7.2/S7.3 en remoto. (Nota: el otro chat pusheó `6adcf4f`
+  "MANUAL.md de M05-S5.1 + skill documentador-ejemplos" entre mi push
+  de S7.2 y el de S7.3 — historia lineal limpia.)
+- **S7.4 está CONSTRUIDO, VERDE (30 tests pass, 0 skip, 0 warn) pero SIN
   COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
-  Sin commitear ahora mismo:
-  - `?? examples/M07-Integracion-MSIX/S7.3-api-management/` (nuevo)
-  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.3 + "3/9")
-  - ` M examples/README.md` (fila S7.3 + footer "⏳ M07 3/9")
+  Sin commitear ahora mismo (acotado a S7.4 + 3 índices):
+  - `?? examples/M07-Integracion-MSIX/S7.4-clickonce-vs-msix/` (nuevo)
+  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.4 + "4/9")
+  - ` M examples/README.md` (fila S7.4 + footer "⏳ M07 4/9")
   - ` M examples/HANDOFF.md` (este archivo)
+  - **IMPORTANTE — NO stagear**: el otro chat tiene en el working tree
+    `?? .claude/skills/escritura-humana/`, `?? examples/M05-Almacenamiento-BBDD/S5.2-*/MANUAL.md` y modificaciones en `M examples/M05-Almacenamiento-BBDD/**/README.md`.
+    Esos archivos son del otro chat — siempre `git add` con rutas
+    explícitas, nunca `git add -A`.
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
-  ahead/behind, y commit ACOTADO + push (jamás `git add -A`):
+  ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
   git add examples/M07-Integracion-MSIX \
@@ -51,23 +57,21 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
-  (También puede haber `doc/**` y un `.gitattributes` raíz modificados
-  por el OTRO chat del usuario que sube presentaciones — **NO** stagearlos,
-  no son nuestros; por eso siempre `git add` con rutas explícitas.)
 
-**Siguiente tarea concreta:** `M07-S7.4` — leer primero
-`doc/M07-Integracion-MSIX/v3-actual/M07-S7.4-clickonce-vs-msix-v3.md`.
-A partir de S7.4 el dominio cambia a **distribución de escritorio
-Windows** (ClickOnce vs MSIX, empaquetado, auto-update, migración) y
-las dos prácticas finales del módulo. Resto: S7.4 ClickOnce vs MSIX,
-S7.5 MSIX empaquetado, S7.6 MSIX auto-update, S7.7 migración,
-S7.P/S7.P2 prácticas MSIX. **Decisión S7.1/S7.2/S7.3 (patrón M07):**
-conceptual (lección 9) — el valor docente son los patrones de decisión
-puros, no el round-trip del SDK; CAPA 1 + CAPA 0 + E2E, sin
-integración, documentado en README+csproj. Para **S7.4–S7.7 (MSIX)**
-seguir el mismo patrón conceptual: lógica de decisión / validación del
-manifiesto / política de auto-update / plan de migración como lógica
-pura testeable. Puerto launchSettings siguiente libre: **5099**.
+**Siguiente tarea concreta:** `M07-S7.5` — leer primero
+`doc/M07-Integracion-MSIX/v3-actual/M07-S7.5-msix-empaquetado-distribucion-v3.md`.
+A partir de aquí los submódulos son el empaquetado MSIX real (manifest,
+capabilities, signing, AppInstaller, distribución). Resto M07: S7.5
+empaquetado, S7.6 auto-update, S7.7 migración, S7.P/S7.P2 prácticas
+MSIX. **Decisión S7.1–S7.4 (patrón M07):** conceptual (lección 9). En
+S7.4 el dominio cambió a desktop Windows; **scripts en PowerShell
+(.ps1)** en vez de bash + `az` (S7.4 inventaría `Get-AppxPackage` +
+`%LocalAppData%\Apps\2.0\`); seguir ese patrón para S7.5–S7.7. **Para
+S7.5 (manifiesto MSIX)** modelar como lógica pura: parser/validador
+del `AppxManifest.xml` (Identity Name+Publisher+Version, capabilities
+mínimas, dependency target version) + cálculo del nombre del paquete
++ recomendación de distribución (Store/AppInstaller/Intune/winget).
+Puerto launchSettings siguiente libre: **5100**.
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

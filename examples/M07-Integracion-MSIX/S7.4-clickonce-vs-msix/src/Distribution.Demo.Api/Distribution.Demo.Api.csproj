@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.4 ClickOnce vs MSIX. Submódulo conceptual: empieza el bloque
+       de distribución desktop Windows de M07. El valor docente es la
+       DECISIÓN (comparativa de formatos, factores de migración, tipo de
+       certificado de firma) — lógica pura, sin instaladores reales. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Distribution.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
