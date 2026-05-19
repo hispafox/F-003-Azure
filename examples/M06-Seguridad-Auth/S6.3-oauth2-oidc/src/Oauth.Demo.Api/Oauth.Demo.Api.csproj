@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Submódulo conceptual (OAuth2/OIDC: flujos, PKCE, authorize URL).
+       Solo ASP.NET: la lógica es pura. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Oauth.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

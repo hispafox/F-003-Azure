@@ -64,12 +64,13 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M05 — Almacenamiento y BBDD](M05-Almacenamiento-BBDD/README.md) | S5.P2 — Práctica: Table Storage CRUD | [Tables.Demo.Api](M05-Almacenamiento-BBDD/S5.P2-practica-table-storage-crud/README.md) | ✅ Disponible |
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.1 — Responsabilidad compartida, defense in depth, STRIDE | [Security.Demo.Api](M06-Seguridad-Auth/S6.1-responsabilidad-compartida/README.md) | ✅ Disponible |
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.2 — Microsoft Entra ID (identidades, roles, JWT, App Roles) | [Entra.Demo.Api](M06-Seguridad-Auth/S6.2-entra-id/README.md) | ✅ Disponible |
+| [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.3 — OAuth2 / OpenID Connect (flujos, PKCE, authorize URL) | [Oauth.Demo.Api](M06-Seguridad-Auth/S6.3-oauth2-oidc/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
-🚧 **Módulo M06 en curso** (2/8).
+🚧 **Módulo M06 en curso** (3/8).
 
 ## Cómo usar un ejemplo
 

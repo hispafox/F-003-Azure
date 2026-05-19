@@ -1,0 +1,46 @@
+### REST Client — S6.3 OAuth2 / OpenID Connect. API local.
+### Todo es lógica pura (flujos, PKCE, authorize URL): offline.
+
+@host = http://localhost:5090
+
+### Health
+GET {{host}}/health
+
+### Flujo recomendado por tipo de cliente (slide 5)
+GET {{host}}/oauth/flujo?cliente=Spa
+###
+GET {{host}}/oauth/flujo?cliente=DaemonOServicio
+###
+GET {{host}}/oauth/flujo?cliente=Cli
+
+### ¿Flujo deprecado? (slide 5)
+GET {{host}}/oauth/deprecado/Implicit
+###
+GET {{host}}/oauth/deprecado/AuthorizationCodePkce
+
+### Generar par PKCE (slide 6)
+GET {{host}}/oauth/pkce
+
+### Plan de login completo (flujo + authorize URL + PKCE, slide 5-6)
+POST {{host}}/oauth/plan
+Content-Type: application/json
+
+{
+  "cliente": "Spa",
+  "tenantId": "11111111-1111-1111-1111-111111111111",
+  "clientId": "22222222-2222-2222-2222-222222222222",
+  "redirectUri": "http://localhost:5173/callback",
+  "scopes": ["openid", "profile", "api://api-ventas/Pedidos.Read"]
+}
+
+### Plan para un daemon (Client Credentials, sin authorize URL)
+POST {{host}}/oauth/plan
+Content-Type: application/json
+
+{
+  "cliente": "DaemonOServicio",
+  "tenantId": "11111111-1111-1111-1111-111111111111",
+  "clientId": "22222222-2222-2222-2222-222222222222",
+  "redirectUri": "",
+  "scopes": ["api://api-ventas/.default"]
+}

@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras M06-S6.2)
+## Estado actual (tras M06-S6.3)
 
 | Módulo | Estado |
 | --- | --- |
@@ -26,18 +26,18 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
-| M06 Seguridad y Auth | 🚧 2/8 — **S6.1** (resp. compartida), **S6.2** (Entra ID) |
+| M06 Seguridad y Auth | 🚧 3/8 — S6.1 (resp. compartida), S6.2 (Entra ID), S6.3 (OAuth2/OIDC) |
 | M07–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M06-S6.3 — OAuth2 / OpenID Connect`
-(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.3-oauth2-openid-connect-v3.md`).
-Leer el doc primero. Probable: lógica pura (selección de OAuth flow
-auth-code/PKCE/client-credentials/device-code según tipo de cliente,
-validación de parámetros OIDC, construcción de la URL de authorize) +
-servicio DI + CAPA 0. Patrón conceptual S6.1/S6.2 (CAPA 1 + CAPA 0,
-sin integración salvo que algo sea emulable). Submódulos M06 restantes:
-S6.3 OAuth2/OIDC, S6.4 auth desktop/MSIX, S6.5 seguridad datos,
-S6.6 Key Vault, S6.P (práctica OAuth2+KV), S6.P2 (Easy Auth).
+**Siguiente tarea concreta:** `M06-S6.4 — Autenticación desktop / MSIX`
+(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.4-auth-desktop-msix-v3.md`).
+Leer el doc primero (el usuario lo tenía abierto en el IDE al inicio).
+Probable: lógica pura (broker/WAM vs embedded webview, redirect URIs
+para apps nativas/MSIX, MSAL public client config, cache de token por
+usuario) + servicio DI + CAPA 0. Patrón conceptual S6.1/S6.2/S6.3
+(CAPA 1 + CAPA 0, sin integración). Submódulos M06 restantes:
+S6.4 auth desktop/MSIX, S6.5 seguridad datos, S6.6 Key Vault,
+S6.P (práctica OAuth2+KV), S6.P2 (Easy Auth).
 El módulo M06 README ya existe (`examples/M06-Seguridad-Auth/README.md`):
 solo actualizar su tabla + el índice global + footer al cerrar cada sub.
 
