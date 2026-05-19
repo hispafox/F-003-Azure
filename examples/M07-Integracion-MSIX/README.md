@@ -19,13 +19,13 @@ forzar integración cuando no aporta).
 | [S7.2](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.2-diseno-event-driven-v3.md) | Diseño event-driven (patrones, Saga, anti-patterns, Event Sourcing) | [`S7.2-diseno-event-driven/`](S7.2-diseno-event-driven/README.md) | ✅ Disponible |
 | [S7.3](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.3-api-management-v3.md) | Azure API Management (policies, versionado, tier) | [`S7.3-api-management/`](S7.3-api-management/README.md) | ✅ Disponible |
 | [S7.4](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.4-clickonce-vs-msix-v3.md) | ClickOnce vs MSIX (comparativa, migración, firma) | [`S7.4-clickonce-vs-msix/`](S7.4-clickonce-vs-msix/README.md) | ✅ Disponible |
-| S7.5 | MSIX empaquetado y distribución | — | ⏳ Pendiente |
+| [S7.5](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.5-msix-empaquetado-distribucion-v3.md) | MSIX empaquetado y distribución (manifest, naming, canales) | [`S7.5-msix-empaquetado-distribucion/`](S7.5-msix-empaquetado-distribucion/README.md) | ✅ Disponible |
 | S7.6 | MSIX auto-update | — | ⏳ Pendiente |
 | S7.7 | Migración ClickOnce → MSIX | — | ⏳ Pendiente |
 | S7.P | Práctica — MSIX | — | ⏳ Pendiente |
 | S7.P2 | Práctica — MSIX wizard | — | ⏳ Pendiente |
 
-⏳ **Módulo M07 en construcción** (4/9).
+⏳ **Módulo M07 en construcción** (5/9).
 
 ## Patrón de tests
 

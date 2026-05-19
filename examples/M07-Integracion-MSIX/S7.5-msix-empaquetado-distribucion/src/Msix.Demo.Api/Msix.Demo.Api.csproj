@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.5 MSIX empaquetado y distribución. Submódulo conceptual: el
+       empaquetado real requiere Windows SDK + signtool + clave privada.
+       El valor docente es la lógica testeable: validar AppxManifest,
+       calcular el nombre del paquete y elegir canal de distribución.
+       Sin PackageReference externas — XML parsing con System.Xml. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Msix.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

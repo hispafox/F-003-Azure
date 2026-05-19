@@ -1,0 +1,61 @@
+### REST Client — S7.5 MSIX empaquetado y distribución.
+### Validación del manifest + nombre del paquete + canal de distribución.
+
+@host = http://localhost:5100
+
+### Salud
+GET {{host}}/health
+
+### Parsear un Package.appxmanifest mínimo (slide 3)
+POST {{host}}/msix/parsear
+Content-Type: application/json
+
+{ "xml": "<?xml version='1.0' encoding='utf-8'?><Package xmlns='http://schemas.microsoft.com/appx/manifest/foundation/windows10'><Identity Name='MiEmpresa.VentasDesktop' Publisher='CN=MiEmpresa, O=MiOrg, C=ES' Version='2.4.1.0' ProcessorArchitecture='x64'/><Dependencies><TargetDeviceFamily Name='Windows.Desktop' MinVersion='10.0.17763.0' MaxVersionTested='10.0.22621.0'/></Dependencies><Capabilities><Capability Name='internetClient'/></Capabilities></Package>" }
+
+### Validar un manifest OK (slide 3)
+POST {{host}}/msix/validar
+Content-Type: application/json
+
+{ "identityName": "MiEmpresa.VentasDesktop", "publisher": "CN=MiEmpresa", "version": "2.4.1.0", "processorArchitecture": "x64", "targetMinVersion": "10.0.17763.0", "capabilities": ["internetClient"] }
+
+### Validar manifest con problemas: name mal, publisher sin CN=, version mala
+POST {{host}}/msix/validar
+Content-Type: application/json
+
+{ "identityName": "sin-formato", "publisher": "MiEmpresa", "version": "2.4", "processorArchitecture": "mips", "targetMinVersion": "10.0.17134.0", "capabilities": ["runFullTrust"] }
+
+### Nombre del archivo (slide 4)
+GET {{host}}/msix/nombre?identityName=MiEmpresa.VentasDesktop&version=2.4.1.0&arch=x64
+
+### Siguiente versión desde el build id del pipeline (slide 11)
+POST {{host}}/msix/version-siguiente
+Content-Type: application/json
+
+{ "actual": "2.4.1.0", "buildId": 1234 }
+
+### ¿Incremental? (slide 3)
+GET {{host}}/msix/incremental?anterior=2.4.1.0&nueva=2.4.2.0
+
+### Distribución: corporativa con Intune + Azure Blob (slide 7/27)
+POST {{host}}/msix/distribucion
+Content-Type: application/json
+
+{ "mdmIntune": true, "hostingAzureBlob": true, "autoUpdateNecesario": true }
+
+### Distribución: público con power users → Store + winget (slide 26)
+POST {{host}}/msix/distribucion
+Content-Type: application/json
+
+{ "audienciaPublica": true, "developerPowerUsers": true }
+
+### Política UpdateSettings por defecto del .appinstaller (slide 7)
+GET {{host}}/msix/politica-auto-update
+
+### Plan + checklist del entregable
+POST {{host}}/msix/plan
+Content-Type: application/json
+
+{
+  "manifest": { "identityName": "MiEmpresa.VentasDesktop", "publisher": "CN=MiEmpresa", "version": "2.4.1.0", "processorArchitecture": "x64", "targetMinVersion": "10.0.17763.0", "capabilities": ["internetClient"] },
+  "distribucion": { "mdmIntune": true, "hostingAzureBlob": true, "autoUpdateNecesario": true }
+}
