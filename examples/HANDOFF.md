@@ -27,25 +27,26 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
-| M07–M11 | pendientes |
+| M07 Integración y MSIX | 🚧 1/9 (S7.1 hecho; S7.2–S7.7 + S7.P + S7.P2 pendientes) |
+| M08–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `9bb1c8e`** = último PUSHEADO
-  = `M06-S6.P práctica OAuth2 + Key Vault`. M02–M06(hasta S6.P) en remoto.
-- **S6.P2 está CONSTRUIDO, VERDE (16 tests pass, 0 warn) pero SIN
+- **`origin/main` = local `main` = commit `16da902`** = último PUSHEADO
+  = `M06-S6.P2 práctica Easy Auth (M06 completo 8/8)`. M02–M06 enteros
+  en remoto.
+- **S7.1 está CONSTRUIDO, VERDE (54 tests pass, 0 skip, 0 warn) pero SIN
   COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
   Sin commitear ahora mismo:
-  - `?? examples/M06-Seguridad-Auth/S6.P2-practica-easy-auth/` (nuevo)
-  - ` M examples/M06-Seguridad-Auth/README.md` (fila S6.P2 + "M06 completo")
-  - ` M examples/README.md` (fila S6.P2 + footer "✅ M06 completo 8/8")
+  - `?? examples/M07-Integracion-MSIX/` (nuevo: README de módulo +
+    `S7.1-service-bus-event-grid-avanzado/` completo)
+  - ` M examples/README.md` (fila S7.1 + footer "⏳ M07 en construcción 1/9")
   - ` M examples/HANDOFF.md` (este archivo)
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push (jamás `git add -A`):
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M06-Seguridad-Auth/S6.P2-practica-easy-auth \
-          examples/M06-Seguridad-Auth/README.md \
+  git add examples/M07-Integracion-MSIX \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
@@ -54,17 +55,20 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   por el OTRO chat del usuario que sube presentaciones — **NO** stagearlos,
   no son nuestros; por eso siempre `git add` con rutas explícitas.)
 
-**Siguiente tarea concreta (arranca M07):** `M07-S7.1` — leer primero
-`doc/M07-Integracion-MSIX/v3-actual/M07-S7.1-*-v3.md` (ver `ls` de esa
-carpeta para el nombre exacto). M07 = Integración y MSIX (Service Bus/
-Event Grid avanzado, event-driven, API Management, ClickOnce vs MSIX,
-empaquetado/auto-update, migración). Algunos submódulos volverán a
-tener servicio real emulable (Service Bus, APIM) → puede haber CAPA de
-integración con `Testcontainers` + `SkippableFact` (lección 2); los de
-MSIX/diseño serán conceptuales (patrón lección 9). **Crear
-`examples/M07-Integracion-MSIX/` + su README de módulo** al empezar el
-primer submódulo (mirror del de M06). Carpetas: `SX.Y-<slug>` /
-`SX.P-practica-<slug>`. Puerto launchSettings siguiente libre: 5096.
+**Siguiente tarea concreta:** `M07-S7.2` — leer primero
+`doc/M07-Integracion-MSIX/v3-actual/M07-S7.2-diseno-event-driven-v3.md`.
+M07 = Integración y MSIX. Resto de submódulos: S7.2 diseño event-driven,
+S7.3 API Management, S7.4 ClickOnce vs MSIX, S7.5 MSIX empaquetado, S7.6
+MSIX auto-update, S7.7 migración, S7.P/S7.P2 prácticas MSIX. La carpeta
+`examples/M07-Integracion-MSIX/` + su README de módulo YA existen
+(actualizar la tabla del README al añadir cada submódulo). **Decisión
+S7.1 (referencia para el resto de M07):** se siguió el patrón
+conceptual (lección 9) — el valor docente eran patrones de decisión
+puros (filtros SQL, dedup, elección de servicio, DLQ), no el round-trip
+del SDK; el emulador de Service Bus exige sidecar SQL + topología
+estática y no aporta → CAPA 1 + CAPA 0 + E2E, sin integración,
+documentado en README+csproj. Para S7.3 (APIM) reevaluar si hay algo
+emulable que aporte. Puerto launchSettings siguiente libre: **5097**.
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.1 Service Bus / Event Grid avanzado. El valor docente son los
+       PATRONES DE DECISIÓN (filtros SQL de suscripción, ventana de
+       deduplicación, elección de servicio de mensajería, workflow de
+       DLQ): lógica pura testeable SIN broker. No hay PackageReference
+       externas — el round-trip del SDK no aporta a estos patrones. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Messaging.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

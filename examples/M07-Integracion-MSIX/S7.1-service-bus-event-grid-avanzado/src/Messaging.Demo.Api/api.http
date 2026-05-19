@@ -1,0 +1,65 @@
+### REST Client — S7.1 Service Bus / Event Grid avanzado.
+### Patrones de decisión de mensajería (lógica pura, sin broker).
+
+@host = http://localhost:5096
+
+### Salud (público)
+GET {{host}}/health
+
+### Filtro SQL de suscripción: pedido grande (slide 4) → entregado=true
+POST {{host}}/messaging/filtro
+Content-Type: application/json
+
+{ "filtro": "total > 100 AND pais = 'ES'", "propiedades": { "total": 299.99, "pais": "ES" } }
+
+### Mismo filtro, pedido pequeño → entregado=false
+POST {{host}}/messaging/filtro
+Content-Type: application/json
+
+{ "filtro": "total > 100 AND pais = 'ES'", "propiedades": { "total": 50, "pais": "ES" } }
+
+### Filtro con LIKE (slide 13 idea) — clientes premium
+POST {{host}}/messaging/filtro
+Content-Type: application/json
+
+{ "filtro": "clienteId LIKE 'PREM-%'", "propiedades": { "clienteId": "PREM-001" } }
+
+### Deduplicación (slide 10): mismo MessageId dentro de ventana 60 s
+POST {{host}}/messaging/dedup
+Content-Type: application/json
+
+{ "ventanaSegundos": 60, "mensajes": [
+  { "messageId": "PED-001", "encoladoSegundos": 0 },
+  { "messageId": "PED-001", "encoladoSegundos": 30 },
+  { "messageId": "PED-001", "encoladoSegundos": 120 },
+  { "messageId": "PED-002", "encoladoSegundos": 5 } ] }
+
+### Recomendar servicio: streaming → Event Hubs (slide 32)
+GET {{host}}/messaging/recomendar?tipo=Streaming
+
+### Recomendar: webhook push → Event Grid (slide 16)
+GET {{host}}/messaging/recomendar?tipo=EventoNegocio&push=true
+
+### Recomendar: mensaje 1024 KB → Service Bus Premium (slide 25)
+GET {{host}}/messaging/recomendar?tipo=EventoNegocio&tamanoKb=1024
+
+### Recomendar: comando bajo volumen → Storage Queue (slide 32)
+GET {{host}}/messaging/recomendar?tipo=Comando&opsMes=50000
+
+### DLQ: por qué fue a dead-letter (slide 30 ISSUE 2)
+GET {{host}}/messaging/dlq?motivo=MaxDeliveryCountExceeded
+
+### Plan + checklist del entregable (slide 19/31)
+POST {{host}}/messaging/plan
+Content-Type: application/json
+
+{
+  "escenario": { "tipo": "EventoNegocio", "fanOutMultiplesSuscriptores": true },
+  "topic": "pedidos-eventos",
+  "suscripciones": [
+    { "nombre": "sub-pedidos-grandes", "filtroSql": "total > 100" },
+    { "nombre": "sub-espana", "filtroSql": "pais = 'ES'" },
+    { "nombre": "sub-rota", "filtroSql": "total >>> 100" }
+  ],
+  "ventanaDedupSegundos": 86400
+}
