@@ -1,0 +1,46 @@
+### REST Client — S6.1 Responsabilidad compartida. API local.
+### Todo es lógica pura de seguridad: offline.
+
+@host = http://localhost:5088
+
+### Health
+GET {{host}}/health
+
+### Responsabilidad de una capa por modelo (slide 3)
+GET {{host}}/seguridad/responsabilidad?capa=SistemaOperativo&modelo=PaaS
+
+### Datos: SIEMPRE tuya (la línea que nunca cambia)
+GET {{host}}/seguridad/responsabilidad?capa=DatosYClasificacion&modelo=SaaS
+
+### STRIDE: amenaza + mitigaciones (slide 20)
+GET {{host}}/seguridad/stride/Spoofing
+
+### Escanear secretos — connection string con key (slide 4/22)
+POST {{host}}/seguridad/scan
+Content-Type: application/json
+
+{ "contenido": "DefaultEndpointsProtocol=https;AccountName=stx;AccountKey=abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcd==;EndpointSuffix=core.windows.net" }
+
+### Escanear — referencia a Key Vault (NO es secreto, slide 22)
+POST {{host}}/seguridad/scan
+Content-Type: application/json
+
+{ "contenido": "@Microsoft.KeyVault(VaultName=kv-prod;SecretName=api-key)" }
+
+### Secure Score del checklist (slide 10/17)
+POST {{host}}/seguridad/secure-score
+Content-Type: application/json
+
+{
+  "mfaAdmins": true,
+  "rbacMinimoPrivilegio": true,
+  "managedIdentity": true,
+  "keyVaultSecretos": true,
+  "httpsForzado": true,
+  "storagePublicoDeshabilitado": false,
+  "sqlFirewallYEntraId": false,
+  "azurePolicy": false,
+  "logsYAuditoria": true,
+  "dependenciasAuditadas": true,
+  "planRespuestaIncidentes": false
+}

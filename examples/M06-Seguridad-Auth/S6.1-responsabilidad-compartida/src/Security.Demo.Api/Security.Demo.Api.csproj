@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Submódulo conceptual (responsabilidad compartida, defense in
+       depth, STRIDE, secrets). Solo ASP.NET: la lógica es pura. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Security.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

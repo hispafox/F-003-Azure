@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Security.Demo.Api/Security.Demo.Api.csproj" />
+  <Project Path="tests/Security.Demo.Api.Tests/Security.Demo.Api.Tests.csproj" />
+</Solution>
