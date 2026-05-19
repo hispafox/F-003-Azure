@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Submódulo conceptual (seguridad de datos: cifrado at-rest/in-
+       transit, CMK, TDE, CORS). Solo ASP.NET: la lógica es pura. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Datos.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

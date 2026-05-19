@@ -1,0 +1,46 @@
+### REST Client — S6.5 Seguridad de datos. API local. Todo offline.
+
+@host = http://localhost:5092
+
+### Health
+GET {{host}}/health
+
+### Cifrado at-rest recomendado (slide 6-9)
+GET {{host}}/datos/cifrado?sensibilidad=Normal&regulacionClaves=false
+###
+GET {{host}}/datos/cifrado?sensibilidad=Normal&regulacionClaves=true
+###
+GET {{host}}/datos/cifrado?sensibilidad=AltamenteConfidencial&regulacionClaves=false
+
+### ¿Versión TLS permitida? (slide 3)
+GET {{host}}/datos/tls/1.2
+###
+GET {{host}}/datos/tls/TLS1_0
+
+### Auditar CORS (slide 13) — combinación prohibida
+POST {{host}}/datos/cors
+Content-Type: application/json
+
+{ "origenes": ["*"], "allowCredentials": true }
+
+### CORS correcto
+POST {{host}}/datos/cors
+Content-Type: application/json
+
+{ "origenes": ["https://app-ventas.azurewebsites.net"], "allowCredentials": true }
+
+### Checklist completo de seguridad de datos (slide 14)
+POST {{host}}/datos/checklist
+Content-Type: application/json
+
+{
+  "httpsForzado": true,
+  "tlsMinimo": "1.2",
+  "sqlConnectionString": "Server=tcp:x;Database=d;Authentication=Active Directory Default;Encrypt=true;",
+  "storageConnectionString": "https://stx.blob.core.windows.net",
+  "tdeHabilitado": true,
+  "sensibilidadMaxima": "Confidencial",
+  "regulacionExigeClaves": false,
+  "corsOrigenes": ["https://app-ventas.azurewebsites.net"],
+  "corsAllowCredentials": true
+}

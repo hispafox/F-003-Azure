@@ -66,12 +66,13 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.2 — Microsoft Entra ID (identidades, roles, JWT, App Roles) | [Entra.Demo.Api](M06-Seguridad-Auth/S6.2-entra-id/README.md) | ✅ Disponible |
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.3 — OAuth2 / OpenID Connect (flujos, PKCE, authorize URL) | [Oauth.Demo.Api](M06-Seguridad-Auth/S6.3-oauth2-oidc/README.md) | ✅ Disponible |
 | [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.4 — Auth desktop / MSIX (WAM, redirect URIs, ciclo de token) | [Desktop.Demo.Api](M06-Seguridad-Auth/S6.4-auth-desktop-msix/README.md) | ✅ Disponible |
+| [M06 — Seguridad y Auth](M06-Seguridad-Auth/README.md) | S6.5 — Seguridad de datos (cifrado at-rest/in-transit, CMK, CORS) | [Datos.Demo.Api](M06-Seguridad-Auth/S6.5-seguridad-datos/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
-🚧 **Módulo M06 en curso** (4/8).
+🚧 **Módulo M06 en curso** (5/8).
 
 ## Cómo usar un ejemplo
 
