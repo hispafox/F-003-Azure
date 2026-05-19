@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/KeyVault.Demo.Api/KeyVault.Demo.Api.csproj" />
+  <Project Path="tests/KeyVault.Demo.Api.Tests/KeyVault.Demo.Api.Tests.csproj" />
+</Solution>

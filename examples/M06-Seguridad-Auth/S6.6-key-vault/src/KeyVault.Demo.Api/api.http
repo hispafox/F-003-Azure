@@ -1,0 +1,34 @@
+### REST Client — S6.6 Azure Key Vault. API local. Todo offline.
+
+@host = http://localhost:5093
+
+### Health
+GET {{host}}/health
+
+### ¿Dónde va esto y con qué rol mínimo? (slide 2-5)
+GET {{host}}/kv/donde?que=ConexionAzureAAzure&acceso=Lectura
+###
+GET {{host}}/kv/donde?que=ApiKeyExterna&acceso=Lectura
+###
+GET {{host}}/kv/donde?que=CertificadoSsl&acceso=Gestion
+
+### Construir Key Vault Reference (slide 6)
+GET {{host}}/kv/referencia?vault=kv-ventas-prod&secret=StripeApiKey
+
+### Parsear Key Vault Reference (slide 6)
+POST {{host}}/kv/referencia/parse
+Content-Type: application/json
+
+{ "valor": "@Microsoft.KeyVault(VaultName=kv-ventas-prod;SecretName=StripeApiKey)" }
+
+### ¿Toca rotar el secreto? (slide 8-9)
+POST {{host}}/kv/rotacion
+Content-Type: application/json
+
+{ "expira": "2026-06-10T00:00:00Z", "ahora": "2026-05-19T00:00:00Z", "ventanaDias": 30 }
+
+### Plan de almacenamiento completo (slide 2-6)
+POST {{host}}/kv/plan
+Content-Type: application/json
+
+{ "que": "ApiKeyExterna", "acceso": "Lectura", "vaultName": "kv-ventas-prod", "itemName": "StripeApiKey" }

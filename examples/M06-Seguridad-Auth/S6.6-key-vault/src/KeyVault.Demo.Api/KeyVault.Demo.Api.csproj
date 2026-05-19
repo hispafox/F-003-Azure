@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Submódulo conceptual (Key Vault: dónde va cada secreto, rol
+       mínimo, Key Vault References, rotación). Solo ASP.NET: la lógica
+       es pura. El SDK SecretClient se documenta, no se invoca aquí. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="KeyVault.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

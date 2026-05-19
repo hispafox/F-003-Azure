@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras M06-S6.5)
+## Estado actual (tras M06-S6.6)
 
 | Módulo | Estado |
 | --- | --- |
@@ -26,18 +26,16 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
-| M06 Seguridad y Auth | 🚧 5/8 — S6.1, S6.2, S6.3, S6.4, S6.5 (seguridad datos) |
+| M06 Seguridad y Auth | 🚧 6/8 — S6.1–S6.5 + S6.6 (Key Vault); faltan S6.P, S6.P2 |
 | M07–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M06-S6.6 — Key Vault`
-(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.6-key-vault-v3.md`). Leer el
-doc primero. Key Vault SÍ podría tener integración (¿emulador? poco
-probable → patrón conceptual CAPA 1 + CAPA 0 como S6.1–S6.5: lógica
-pura de secretos/keys/certs, rotación, Key Vault References, RBAC vs
-access policies; servicio DI). Si hubiera algo emulable de KV, añadir
-CAPA de integración con SkippableFact. Submódulos M06 restantes:
-S6.6 Key Vault, S6.P (práctica OAuth2+KV), S6.P2 (Easy Auth).
-**S6.5 está commit-less en el working tree (pendiente de "sube").**
+**Siguiente tarea concreta:** `M06-S6.P — Práctica: OAuth2 + Key Vault`
+(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.P-practica-oauth2-keyvault-v3.md`).
+Leer el doc primero. Es una **práctica** que integra S6.3 (OAuth2/OIDC)
++ S6.6 (Key Vault) — reutilizar piezas de ambos (flow advisor/PKCE +
+KeyVaultReference/ItemAdvisor). Patrón conceptual CAPA 1 + CAPA 0 (sin
+integración salvo algo emulable). Luego S6.P2 (Easy Auth) y M06 cerrado
+(8/8). **S6.6 está commit-less en el working tree (pendiente de "sube").**
 El módulo M06 README ya existe (`examples/M06-Seguridad-Auth/README.md`):
 solo actualizar su tabla + el índice global + footer al cerrar cada sub.
 
