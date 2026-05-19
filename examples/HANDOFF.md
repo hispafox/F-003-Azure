@@ -17,7 +17,7 @@ y push. El usuario confía en el criterio; no hace falta pedir aprobación
 de scope salvo que haya una dependencia nueva cara o una decisión de
 arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 
-## Estado actual (tras M06-S6.1)
+## Estado actual (tras M06-S6.2)
 
 | Módulo | Estado |
 | --- | --- |
@@ -26,17 +26,18 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
-| M06 Seguridad y Auth | 🚧 1/8 — hecho **S6.1** (responsabilidad compartida) |
+| M06 Seguridad y Auth | 🚧 2/8 — **S6.1** (resp. compartida), **S6.2** (Entra ID) |
 | M07–M11 | pendientes |
 
-**Siguiente tarea concreta:** `M06-S6.2 — Microsoft Entra ID`
-(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.2-entra-id-v3.md`). Leer el
-doc primero. Probable: lógica pura (validación de roles/claims, parsing
-de App Registration / scopes) + CAPA 0 DI. Si hay flujo de tokens
-testeable contra un IdP de juguete podría haber integración; si no,
-patrón conceptual S6.1/S5.4 (CAPA 1 + CAPA 0). Submódulos M06 restantes:
-S6.2 Entra ID, S6.3 OAuth2/OIDC, S6.4 auth desktop/MSIX, S6.5 seguridad
-datos, S6.6 Key Vault, S6.P (práctica OAuth2+KV), S6.P2 (Easy Auth).
+**Siguiente tarea concreta:** `M06-S6.3 — OAuth2 / OpenID Connect`
+(`doc/M06-Seguridad-Auth/v3-actual/M06-S6.3-oauth2-openid-connect-v3.md`).
+Leer el doc primero. Probable: lógica pura (selección de OAuth flow
+auth-code/PKCE/client-credentials/device-code según tipo de cliente,
+validación de parámetros OIDC, construcción de la URL de authorize) +
+servicio DI + CAPA 0. Patrón conceptual S6.1/S6.2 (CAPA 1 + CAPA 0,
+sin integración salvo que algo sea emulable). Submódulos M06 restantes:
+S6.3 OAuth2/OIDC, S6.4 auth desktop/MSIX, S6.5 seguridad datos,
+S6.6 Key Vault, S6.P (práctica OAuth2+KV), S6.P2 (Easy Auth).
 El módulo M06 README ya existe (`examples/M06-Seguridad-Auth/README.md`):
 solo actualizar su tabla + el índice global + footer al cerrar cada sub.
 

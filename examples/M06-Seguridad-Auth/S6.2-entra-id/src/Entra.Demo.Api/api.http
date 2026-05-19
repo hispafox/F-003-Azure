@@ -1,0 +1,32 @@
+### REST Client — S6.2 Microsoft Entra ID. API local.
+### Todo es lógica pura (identidad, JWT, roles): offline.
+
+@host = http://localhost:5089
+
+### Health
+GET {{host}}/health
+
+### Tipo de identidad recomendado (slide 10)
+GET {{host}}/entra/identidad?escenario=RecursoAzureAccedeAOtro
+
+### Pipeline CI/CD → Service Principal
+GET {{host}}/entra/identidad?escenario=ScriptOPipeline
+
+### ¿RBAC de Azure o rol de Entra ID? (slide 6-7)
+GET {{host}}/entra/rol?nombre=Contributor
+###
+GET {{host}}/entra/rol?nombre=Global%20Administrator
+
+### Decodificar (NO validar) un JWT y ver claims (slide 18)
+### Token de ejemplo (alg=none, NO firmado — solo didáctico):
+###   payload: sub, name, preferred_username, roles, exp 2099
+POST {{host}}/entra/token
+Content-Type: application/json
+
+{ "jwt": "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjbGllbnQtaWQiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vdGVuYW50L3YyLjAiLCJzdWIiOiJ1c2VyLTEyMyIsIm5hbWUiOiJQZWRybyBHYXJjaWEiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJwZWRyb0BlbXByZXNhLmNvbSIsImVtYWlsIjoicGVkcm9AZW1wcmVzYS5jb20iLCJyb2xlcyI6WyJBZG1pbiIsIkRldmVsb3BlciJdLCJncm91cHMiOlsiZ3JwLWRldiJdLCJleHAiOjQxMDI0NDQ4MDB9." }
+
+### App Roles: ¿autorizado? (slide 19)
+POST {{host}}/entra/autorizar
+Content-Type: application/json
+
+{ "rolesDelToken": ["Developer", "Viewer"], "rolRequerido": "Admin" }

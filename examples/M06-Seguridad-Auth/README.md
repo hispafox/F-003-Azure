@@ -16,7 +16,7 @@ pueden llevar integración).
 | Submódulo | Tema | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [S6.1](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.1-responsabilidad-compartida-v3.md) | Responsabilidad compartida, defense in depth, STRIDE | [`S6.1-responsabilidad-compartida/`](S6.1-responsabilidad-compartida/README.md) | ✅ Disponible |
-| S6.2 | Microsoft Entra ID | _Pendiente_ | ⏳ |
+| [S6.2](../../doc/M06-Seguridad-Auth/v3-actual/M06-S6.2-entra-id-v3.md) | Microsoft Entra ID (identidades, roles, JWT, App Roles) | [`S6.2-entra-id/`](S6.2-entra-id/README.md) | ✅ Disponible |
 | S6.3 | OAuth2 / OpenID Connect | _Pendiente_ | ⏳ |
 | S6.4 | Auth desktop / MSIX | _Pendiente_ | ⏳ |
 | S6.5 | Seguridad de datos | _Pendiente_ | ⏳ |
