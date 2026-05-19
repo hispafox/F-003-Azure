@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/EasyAuth.Demo.Api/EasyAuth.Demo.Api.csproj" />
+  <Project Path="tests/EasyAuth.Demo.Api.Tests/EasyAuth.Demo.Api.Tests.csproj" />
+</Solution>

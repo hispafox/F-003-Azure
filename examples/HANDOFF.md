@@ -26,25 +26,25 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M03 Azure Functions I | ✅ completo 8/8 |
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
-| M06 Seguridad y Auth | 🚧 7/8 — S6.1–S6.6 + **S6.P** hechos; falta solo **S6.P2** |
+| M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `4772935`** = último PUSHEADO
-  = `M06-S6.6 Azure Key Vault`. M02–M06(S6.1..S6.6) están en remoto.
-- **S6.P está CONSTRUIDO, VERDE (12 tests pass, 0 warn) pero SIN
+- **`origin/main` = local `main` = commit `9bb1c8e`** = último PUSHEADO
+  = `M06-S6.P práctica OAuth2 + Key Vault`. M02–M06(hasta S6.P) en remoto.
+- **S6.P2 está CONSTRUIDO, VERDE (16 tests pass, 0 warn) pero SIN
   COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
   Sin commitear ahora mismo:
-  - `?? examples/M06-Seguridad-Auth/S6.P-practica-oauth2-keyvault/` (nuevo)
-  - ` M examples/M06-Seguridad-Auth/README.md` (fila S6.P)
-  - ` M examples/README.md` (fila S6.P + footer "M06 7/8")
+  - `?? examples/M06-Seguridad-Auth/S6.P2-practica-easy-auth/` (nuevo)
+  - ` M examples/M06-Seguridad-Auth/README.md` (fila S6.P2 + "M06 completo")
+  - ` M examples/README.md` (fila S6.P2 + footer "✅ M06 completo 8/8")
   - ` M examples/HANDOFF.md` (este archivo)
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push (jamás `git add -A`):
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M06-Seguridad-Auth/S6.P-practica-oauth2-keyvault \
+  git add examples/M06-Seguridad-Auth/S6.P2-practica-easy-auth \
           examples/M06-Seguridad-Auth/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
@@ -54,17 +54,17 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   por el OTRO chat del usuario que sube presentaciones — **NO** stagearlos,
   no son nuestros; por eso siempre `git add` con rutas explícitas.)
 
-**Siguiente tarea concreta (cierra M06 → 8/8):** `M06-S6.P2 — Práctica:
-Easy Auth` (`doc/M06-Seguridad-Auth/v3-actual/M06-S6.P2-practica-easy-auth-v1.md`).
-Leer el doc entero primero. Práctica de Easy Auth (auth sin código):
-patrón conceptual (ver lección 9) — lógica pura (CAPA 1) + DI container
-(CAPA 0) + CAPA E2E con `WebApplicationFactory` simulando las cabeceras
-`X-MS-CLIENT-PRINCIPAL-*` como hizo S6.P. Carpeta:
-`examples/M06-Seguridad-Auth/S6.P2-practica-easy-auth/`. Al cerrarla:
-actualizar `examples/M06-Seguridad-Auth/README.md` (fila S6.P2 ✅ +
-nota "Módulo M06 completo"), `examples/README.md` (fila S6.P2 + footer
-"✅ Módulo M06 completo (... 8/8)") y este HANDOFF. Después → **M07**
-(crear `examples/M07-*/` + su README de módulo; leer doc M07-S7.1).
+**Siguiente tarea concreta (arranca M07):** `M07-S7.1` — leer primero
+`doc/M07-Integracion-MSIX/v3-actual/M07-S7.1-*-v3.md` (ver `ls` de esa
+carpeta para el nombre exacto). M07 = Integración y MSIX (Service Bus/
+Event Grid avanzado, event-driven, API Management, ClickOnce vs MSIX,
+empaquetado/auto-update, migración). Algunos submódulos volverán a
+tener servicio real emulable (Service Bus, APIM) → puede haber CAPA de
+integración con `Testcontainers` + `SkippableFact` (lección 2); los de
+MSIX/diseño serán conceptuales (patrón lección 9). **Crear
+`examples/M07-Integracion-MSIX/` + su README de módulo** al empezar el
+primer submódulo (mirror del de M06). Carpetas: `SX.Y-<slug>` /
+`SX.P-practica-<slug>`. Puerto launchSettings siguiente libre: 5096.
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

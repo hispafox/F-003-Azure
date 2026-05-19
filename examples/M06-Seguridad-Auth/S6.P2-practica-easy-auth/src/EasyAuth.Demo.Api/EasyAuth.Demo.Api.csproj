@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- Práctica del módulo (cierra M06): Easy Auth sin código. Solo
+       ASP.NET: la lógica de decisión es pura; la API simula el
+       comportamiento del middleware Easy Auth (302/401 + headers). -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="EasyAuth.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

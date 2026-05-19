@@ -1,0 +1,37 @@
+### REST Client — S6.P2 Práctica: Easy Auth. API local.
+### En Azure, Easy Auth va DELANTE de la app. En local replicamos su
+### contrato leyendo X-MS-CLIENT-PRINCIPAL-* (cabeceras que inyecta).
+
+@host = http://localhost:5095
+
+### Público (sin auth) — slide 2
+GET {{host}}/health
+
+### Página protegida SIN sesión → 302 al login (sitio web, slide 5/6)
+GET {{host}}/
+
+### Página protegida SIMULANDO Easy Auth (cabeceras que inyecta)
+GET {{host}}/
+X-MS-CLIENT-PRINCIPAL-NAME: pedro@empresa.com
+X-MS-CLIENT-PRINCIPAL-ID: 11111111-2222-3333-4444-555555555555
+X-MS-CLIENT-PRINCIPAL-IDP: aad
+
+### /.auth/me sin sesión → [] (igual que App Service real, slide 4)
+GET {{host}}/.auth/me
+
+### /.auth/me con sesión simulada
+GET {{host}}/.auth/me
+X-MS-CLIENT-PRINCIPAL-NAME: pedro@empresa.com
+X-MS-CLIENT-PRINCIPAL-ID: 11111111-2222-3333-4444-555555555555
+X-MS-CLIENT-PRINCIPAL-IDP: aad
+
+### Config recomendada por tipo de app (slide 2-5)
+GET {{host}}/easyauth/config?tipo=SitioWeb
+###
+GET {{host}}/easyauth/config?tipo=Api
+
+### Plan + checklist del entregable (slide 2-6)
+POST {{host}}/easyauth/plan
+Content-Type: application/json
+
+{ "tipo": "SitioWeb", "proveedor": "aad", "appUrl": "https://webapp-easyauth.azurewebsites.net" }
