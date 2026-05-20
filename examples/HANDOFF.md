@@ -28,22 +28,23 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
-| M08 DevOps y Automatización | 🚧 7/8 (S8.1–S8.6 + S8.P hechos; S8.P2 pendiente) |
+| M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
 | M09–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `539473c`** = mi push previo
-  de `M08-S8.6 App Insights y Azure Monitor`. M02–M07 + M08-S8.1..S8.6
-  en remoto.
-- **S8.P está CONSTRUIDO, VERDE (32 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. Conceptual (lección 9 del
-  HANDOFF): el pipeline real corre en ADO/GHA, lo testeable son las
-  piezas decisorias (preflight, stages, smoke evaluator). Sin
-  commitear ahora mismo (acotado a S8.P + 3 índices):
-  - `?? examples/M08-DevOps-Automatizacion/S8.P-practica-pipeline-cicd/` (nuevo)
-  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.P + "7/8")
-  - ` M examples/README.md` (fila S8.P + footer "⏳ M08 7/8")
+- **`origin/main` = local `main` = commit `4422b96`** = mi push previo
+  de `M08-S8.P Pipeline CI/CD practice`. M02–M07 + M08-S8.1..S8.P en
+  remoto.
+- **S8.P2 está CONSTRUIDO, VERDE (32 tests pass + 0 fail + 0 warn)
+  pero SIN COMMITEAR** en el working tree. Conceptual (lección 9): el
+  workflow real corre en GHA; lo testeable son el parser del publish
+  profile XML, el builder del workflow YAML y el recomendador
+  PublishProfile vs OIDC. Cierra M08 (8/8). Sin commitear ahora mismo
+  (acotado a S8.P2 + 3 índices):
+  - `?? examples/M08-DevOps-Automatizacion/S8.P2-practica-github-actions-publish-profile/` (nuevo)
+  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.P2 + "M08 completo 8/8")
+  - ` M examples/README.md` (fila S8.P2 + footer "M08 completo 8/8")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -51,22 +52,30 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M08-DevOps-Automatizacion/S8.P-practica-pipeline-cicd \
+  git add examples/M08-DevOps-Automatizacion/S8.P2-practica-github-actions-publish-profile \
           examples/M08-DevOps-Automatizacion/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M08-S8.P2` — leer primero
-`doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.P2-practica-github-actions-publish-profile-v1.md`.
-Es práctica → GitHub Actions con publish profile (sin OIDC, para
-repos personales o forks). **Probable patrón**: validador del
-secreto `AZURE_WEBAPP_PUBLISH_PROFILE`, generador del workflow
-`.github/workflows/deploy.yml`, parser del XML del publish profile
-(extrae app name + slot, detecta credenciales rotadas), recomendador
-de qué pasar a OIDC vs cuándo mantener publish profile. Puerto
-launchSettings siguiente libre: **5112**.
+**Siguiente tarea concreta:** `M09` — primer submódulo de IA como
+herramienta de desarrollo (Claude Code, Copilot, MCP). Aún sin leer.
+Probable que tenga estructura distinta a los módulos previos
+(menos infra Azure, más workflow developer). **Reevaluar la receta
+en lectura del primer doc**. Puerto launchSettings siguiente libre:
+**5113**.
+
+**Lección S8.P2 (XML `<` en atributos)**: un test inicial pasó
+`userPWD="<password-larguisima>"` como literal en el XML. C# admite el
+`<` dentro del string de `XDocument.Parse`, pero el `<` dentro del
+atributo XML viola la spec y `XDocument.Parse` lanza `XmlException`.
+El parser captura la excepción y devuelve `EsValido=false` con
+`Perfiles=[]`, lo que hace que `r.Perfiles[0]` en el test reviente con
+`IndexOutOfRange`. **Fix**: usar un placeholder válido como
+`"changeme"` o escapar `&lt;` si quieres el literal. Aplicable a
+cualquier test de parser XML donde el caso "anti-pattern" usa
+caracteres reservados.
 
 **Lección S8.6 (Coercer JSON → object?)**: en un `switch` expression
 con `JsonValueKind.Number`, una rama ternaria `TryGetInt64(out i) ? i

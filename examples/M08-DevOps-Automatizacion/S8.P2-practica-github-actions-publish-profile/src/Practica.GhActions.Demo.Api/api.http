@@ -1,0 +1,77 @@
+### REST Client — S8.P2 Práctica GitHub Actions + publish profile.
+### Parser del XML + workflow YAML + recomendador auth.
+
+@host = http://localhost:5112
+
+### Salud
+GET {{host}}/health
+
+### Parsear publish profile correcto (MSDeploy + FTP, password real)
+POST {{host}}/ghactions/profile/parsear
+Content-Type: application/json
+
+{ "xml": "<publishData><publishProfile profileName=\"app - Web Deploy\" publishMethod=\"MSDeploy\" publishUrl=\"app.scm.azurewebsites.net:443\" userName=\"$app\" userPWD=\"abc123XYZsecreto\" destinationAppUrl=\"https://app.azurewebsites.net\" /><publishProfile profileName=\"app - FTP\" publishMethod=\"FTP\" publishUrl=\"ftps://...\" userName=\"$app\" userPWD=\"abc123XYZsecreto\" destinationAppUrl=\"https://app.azurewebsites.net\" /></publishData>" }
+
+### Parsear publish profile con password placeholder (anti-pattern)
+POST {{host}}/ghactions/profile/parsear
+Content-Type: application/json
+
+{ "xml": "<publishData><publishProfile profileName=\"app - Web Deploy\" publishMethod=\"MSDeploy\" publishUrl=\"app.scm.azurewebsites.net:443\" userName=\"$app\" userPWD=\"<password-larguisima>\" destinationAppUrl=\"https://app.azurewebsites.net\" /></publishData>" }
+
+### Workflow minimal (1 job, push a main)
+POST {{host}}/ghactions/workflow
+Content-Type: application/json
+
+{ "appName": "webapp-cicd-pedro", "dotnetVersion": "10.0.x" }
+
+### Workflow con tests (2 jobs: build-test → deploy)
+POST {{host}}/ghactions/workflow
+Content-Type: application/json
+
+{
+  "appName": "webapp-cicd-pedro",
+  "dotnetVersion": "10.0.x",
+  "incluirTests": true,
+  "smokeAlFinal": true
+}
+
+### Workflow solo en tags + Environment producción
+POST {{host}}/ghactions/workflow
+Content-Type: application/json
+
+{
+  "appName": "webapp-cicd-pedro",
+  "dotnetVersion": "10.0.x",
+  "soloEnTags": true,
+  "environmentProduccion": true,
+  "incluirTests": true
+}
+
+### Recomendar auth: side project personal → Publish Profile
+POST {{host}}/ghactions/auth/recomendar
+Content-Type: application/json
+
+{ "sideProjectPersonal": true }
+
+### Recomendar auth: producción + auditoría + Entra controlado → OIDC
+POST {{host}}/ghactions/auth/recomendar
+Content-Type: application/json
+
+{
+  "sideProjectPersonal": false,
+  "controlaEntraId": true,
+  "proyectoEnProduccion": true,
+  "auditoriaRequerida": true,
+  "multiEnvironment": true,
+  "equipoGrande": true
+}
+
+### Plan + checklist completo
+POST {{host}}/ghactions/plan
+Content-Type: application/json
+
+{
+  "publishProfileXml": "<publishData><publishProfile profileName=\"app - Web Deploy\" publishMethod=\"MSDeploy\" publishUrl=\"app.scm.azurewebsites.net:443\" userName=\"$app\" userPWD=\"realpwd123\" destinationAppUrl=\"https://app.azurewebsites.net\" /></publishData>",
+  "opciones": { "appName": "webapp-cicd-pedro", "incluirTests": true, "smokeAlFinal": true },
+  "escenario": { "sideProjectPersonal": true }
+}

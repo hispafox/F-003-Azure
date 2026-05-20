@@ -86,6 +86,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M08 — DevOps y Automatización](M08-DevOps-Automatizacion/README.md) | S8.5 — IaC con Bicep (linter, what-if, `bicep build` integration) | [Iac.Bicep.Demo.Api](M08-DevOps-Automatizacion/S8.5-iac-bicep/README.md) | ✅ Disponible |
 | [M08 — DevOps y Automatización](M08-DevOps-Automatizacion/README.md) | S8.6 — App Insights + monitoring (KQL, alertas, parser respuesta) | [Monitor.AppInsights.Demo.Api](M08-DevOps-Automatizacion/S8.6-app-insights-monitor/README.md) | ✅ Disponible |
 | [M08 — DevOps y Automatización](M08-DevOps-Automatizacion/README.md) | S8.P — Práctica Pipeline CI/CD (preflight, stages, smoke+rollback) | [Practica.Pipeline.Demo.Api](M08-DevOps-Automatizacion/S8.P-practica-pipeline-cicd/README.md) | ✅ Disponible |
+| [M08 — DevOps y Automatización](M08-DevOps-Automatizacion/README.md) | S8.P2 — Práctica GitHub Actions + publish profile (parser, workflow, auth) | [Practica.GhActions.Demo.Api](M08-DevOps-Automatizacion/S8.P2-practica-github-actions-publish-profile/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
@@ -93,7 +94,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
-⏳ **Módulo M08 en construcción** (7/8 — S8.1–S8.6 + S8.P disponibles).
+✅ **Módulo M08 completo** (6 submódulos + 2 prácticas, 8/8).
 
 ## Cómo usar un ejemplo
 

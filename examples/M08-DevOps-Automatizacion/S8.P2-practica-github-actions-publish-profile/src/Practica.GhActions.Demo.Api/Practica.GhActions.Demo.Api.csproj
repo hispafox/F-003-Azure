@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.P2 Práctica GitHub Actions + publish profile. Conceptual
+       (lección 9 del HANDOFF): el workflow real corre en GHA; aquí
+       extraemos la lógica testeable:
+         - parser del XML publish profile (extrae MSDeploy + FTP,
+           detecta password vacío / placeholder)
+         - generador del workflow YAML para GHA (knobs: tests, tags,
+           smoke al final)
+         - recomendador Publish Profile vs OIDC (slide 13)
+       Lógica pura. Sin PackageReference externas (System.Xml.Linq
+       viene en el BCL). -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Practica.GhActions.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

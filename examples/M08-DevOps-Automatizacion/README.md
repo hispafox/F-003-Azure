@@ -22,9 +22,9 @@ YAML de pipeline) — se reevalúa por submódulo.
 | [S8.5](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.5-iac-bicep-v3.md) | IaC con Bicep (linter, what-if, integración `bicep build`) | [`S8.5-iac-bicep/`](S8.5-iac-bicep/README.md) | ✅ Disponible |
 | [S8.6](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.6-app-insights-monitor-v3.md) | Application Insights + monitoring (KQL, alertas, parser de respuesta) | [`S8.6-app-insights-monitor/`](S8.6-app-insights-monitor/README.md) | ✅ Disponible |
 | [S8.P](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.P-practica-pipeline-cicd-v3.md) | Práctica — Pipeline CI/CD (preflight, stages, smoke + auto-rollback) | [`S8.P-practica-pipeline-cicd/`](S8.P-practica-pipeline-cicd/README.md) | ✅ Disponible |
-| S8.P2 | Práctica — GitHub Actions + publish profile | — | ⏳ Pendiente |
+| [S8.P2](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.P2-practica-github-actions-publish-profile-v1.md) | Práctica — GitHub Actions + publish profile (parser, workflow, auth) | [`S8.P2-practica-github-actions-publish-profile/`](S8.P2-practica-github-actions-publish-profile/README.md) | ✅ Disponible |
 
-⏳ **Módulo M08 en construcción** (7/8).
+✅ **Módulo M08 completo** (6 submódulos + 2 prácticas, 8/8).
 
 > 📘 **Manuales del alumno disponibles** (S8.1–S8.5):
 > [S8.1](S8.1-azure-devops-repos-boards/MANUAL.md) ·
