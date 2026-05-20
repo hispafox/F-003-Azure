@@ -6,6 +6,8 @@
 
 > ℹ️ La práctica está redactada sobre .NET 8, código en .NET 10 (LTS). Las APIs no han cambiado.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el ensayo general, el reflejo del rollback, los smoke tests antes del swap y por qué practicar el rollback antes de necesitarlo es la lección más valiosa de M02.
+
 ## Qué vas a hacer
 
 Recorrer el ciclo completo de despliegue con slots desde cero:

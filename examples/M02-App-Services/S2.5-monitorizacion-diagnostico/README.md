@@ -6,6 +6,8 @@
 
 > ℹ️ El submódulo está redactado sobre **.NET 8**, código en **.NET 10**.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el panel del coche moderno (Live Metrics, Application Map, Logs KQL, alertas), OpenTelemetry condicional, custom metrics con dimensiones, PII scrubbing antes de loguear y la asimetría "conectar AI el día uno vs reconstruir histórico después".
+
 ## Objetivo
 
 Cerrar el módulo conectando todo lo que tienes hasta ahora a **Application

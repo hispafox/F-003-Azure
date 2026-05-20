@@ -16,6 +16,16 @@ estilo: Minimal API .NET 10, xUnit, despliegue por Portal de Azure.
 | [S2.P](../../doc/M02-App-Services/v4-actual/M02-S2.P-practica-slots-swap-v4.md) | Práctica — slots y swap | [`S2.P-practica-slots-swap/`](S2.P-practica-slots-swap/README.md) | ✅ Disponible |
 | [S2.P2](../../doc/M02-App-Services/v4-actual/M02-S2.P2-practica-deploy-basico-v1.md) | Práctica — deploy básico | [`S2.P2-practica-deploy-basico/`](S2.P2-practica-deploy-basico/README.md) | ✅ Disponible |
 
+> 📘 **Manuales del alumno** (módulo M02 completo):
+> [S2.1](S2.1-creacion-config-publicacion/MANUAL.md) ·
+> [S2.2](S2.2-slots-staging-produccion/MANUAL.md) ·
+> [S2.3](S2.3-escalado-automatico-planes/MANUAL.md) ·
+> [S2.4](S2.4-variables-conexion-config-segura/MANUAL.md) ·
+> [S2.5](S2.5-monitorizacion-diagnostico/MANUAL.md) ·
+> [S2.P](S2.P-practica-slots-swap/MANUAL.md) ·
+> [S2.P2](S2.P2-practica-deploy-basico/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
+
 ## Hilo conductor del módulo
 
 A medida que avanzan los submódulos, los ejemplos se construyen sobre el del

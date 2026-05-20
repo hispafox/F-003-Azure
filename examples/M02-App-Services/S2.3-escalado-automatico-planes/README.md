@@ -5,6 +5,8 @@
 
 > ℹ️ El submódulo está redactado sobre **.NET 8**, pero el código está en **.NET 10**.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el restaurante con camareros que entran y salen, scale up vs scale out, la disciplina de configurar autoscale antes del pico y el detalle del `ShutdownTimeout=30s` que evita 502s en scale-in.
+
 ## Objetivo
 
 Construir sobre la API del [submódulo S2.2](../S2.2-slots-staging-produccion) y

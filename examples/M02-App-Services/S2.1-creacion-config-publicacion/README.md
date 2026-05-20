@@ -7,6 +7,8 @@
 > (LTS, noviembre 2025). Las APIs de ASP.NET Core que usamos no han cambiado: los
 > conceptos del material son idénticos.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: por qué Always On, Health Check, Options validadas, CORS desde configuración y HttpClient typed son la base de "App Service en serio".
+
 ## Objetivo
 
 Materializar en un proyecto pequeño los conceptos clave del submódulo S2.1:

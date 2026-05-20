@@ -8,6 +8,8 @@
 > en **.NET 10** (LTS). Para Azure usaremos `runtime DOTNETCORE:10.0`. Es la
 > regla del repo: TFM siempre en la última LTS.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el ciclo mínimo viable (crear → desplegar → configurar sin redesplegar → ver logs → limpiar), cuándo elegir S2.P2 vs S1.P y los cuatro retos opcionales para consolidar.
+
 ## Qué vas a hacer
 
 Tu **primer deploy** end-to-end a Azure App Service desde cero. Sin slots,

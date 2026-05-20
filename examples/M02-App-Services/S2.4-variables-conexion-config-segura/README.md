@@ -5,6 +5,8 @@
 
 > ℹ️ El submódulo está redactado sobre **.NET 8**, código en **.NET 10**.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el mayordomo y el cofre, Key Vault references como salida estándar para secretos, scrubbing por nombre de clave, fingerprints sin filtrar y la disciplina de tres capas (User Secrets / App Settings / Key Vault).
+
 ## Objetivo
 
 Construir sobre la API del [submódulo S2.3](../S2.3-escalado-automatico-planes) y

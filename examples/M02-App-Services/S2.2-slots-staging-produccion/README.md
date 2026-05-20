@@ -6,6 +6,8 @@
 > ℹ️ El submódulo está redactado sobre **.NET 8**, pero el código está en **.NET 10**
 > (LTS, noviembre 2025). Las APIs no han cambiado.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el escenario teatral del ensayo general, las sticky settings que se quedan en su slot, el `/warmup` como guardia de la puerta y la psicología del rollback en treinta segundos.
+
 ## Objetivo
 
 Construir sobre la API del [submódulo S2.1](../S2.1-creacion-config-publicacion) y
