@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.6 MSIX auto-update. Submódulo conceptual: el .appinstaller
+       real lo sirve Azure Blob y la API de Windows lo aplica. El valor
+       docente es la lógica testeable: builder del .appinstaller,
+       política de canary release y comparación de versiones. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="AutoUpdate.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

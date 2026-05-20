@@ -27,20 +27,21 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
-| M07 Integración y MSIX | 🚧 5/9 (S7.1–S7.5 hechos; S7.6, S7.7 + S7.P + S7.P2 pendientes) |
+| M07 Integración y MSIX | 🚧 6/9 (S7.1–S7.6 hechos; S7.7 + S7.P + S7.P2 pendientes) |
 | M08–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `94963dd`** = último PUSHEADO
-  = `M07-S7.4 ClickOnce vs MSIX decision`. M02–M06 enteros +
-  M07-S7.1/S7.2/S7.3/S7.4 en remoto.
-- **S7.5 está CONSTRUIDO, VERDE (34 tests pass, 0 skip, 0 warn) pero SIN
+- **`origin/main` = local `main` = commit `b6535ac`** = "todos los
+  MANUAL.md de M05 + integración escritura-humana" del OTRO chat,
+  encima de mi `3bf27ec` (S7.5). M02–M06 enteros + M07-S7.1..S7.5 +
+  los manuales de M05 en remoto. Historia lineal.
+- **S7.6 está CONSTRUIDO, VERDE (37 tests pass, 0 skip, 0 warn) pero SIN
   COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
-  Sin commitear ahora mismo (acotado a S7.5 + 3 índices):
-  - `?? examples/M07-Integracion-MSIX/S7.5-msix-empaquetado-distribucion/` (nuevo)
-  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.5 + "5/9")
-  - ` M examples/README.md` (fila S7.5 + footer "⏳ M07 5/9")
+  Sin commitear ahora mismo (acotado a S7.6 + 3 índices):
+  - `?? examples/M07-Integracion-MSIX/S7.6-msix-auto-update/` (nuevo)
+  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.6 + "6/9")
+  - ` M examples/README.md` (fila S7.6 + footer "⏳ M07 6/9")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo en el
     working tree (varios `M examples/M05-Almacenamiento-BBDD/**` +
@@ -56,16 +57,22 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M07-S7.6` — leer primero
-`doc/M07-Integracion-MSIX/v3-actual/M07-S7.6-msix-auto-update-v3.md`.
-Resto M07: S7.6 auto-update, S7.7 migración, S7.P/S7.P2 prácticas
-MSIX. **Decisión S7.1–S7.5 (patrón M07):** conceptual (lección 9);
-scripts PowerShell para los submódulos desktop (S7.4 inventaría
-`Get-AppxPackage`; S7.5 valida el manifest y comprueba tooling).
-**Para S7.6 (auto-update)** modelar como lógica pura: parser/builder
-del `.appinstaller` (UpdateSettings), política de canary release y
-rollback (qué versión sirve cada cohorte), comparación de versiones
-(forward, blocked). Puerto launchSettings siguiente libre: **5101**.
+**Siguiente tarea concreta:** `M07-S7.7` — leer primero
+`doc/M07-Integracion-MSIX/v3-actual/M07-S7.7-migracion-clickonce-msix-v3.md`.
+Resto M07: S7.7 migración, S7.P/S7.P2 prácticas MSIX. **Decisión
+S7.1–S7.6 (patrón M07):** conceptual (lección 9); scripts PowerShell
+para los submódulos desktop. **Para S7.7 (migración ClickOnce → MSIX)**
+modelar como lógica pura: roadmap por fases (assessment → packaging →
+piloto → rollout), conversión `.application` (ClickOnce) → `Identity`
+(MSIX) preservando nombre/publisher/versión, plan de comunicación al
+usuario (qué cambia: ubicación, atajos, auto-update). Puerto
+launchSettings siguiente libre: **5102**.
+
+> Pista para S7.7: el dominio sigue siendo decisión, pero ahora con
+> "antes/después" — ideal modelar el plan como una pequeña máquina de
+> fases (cada fase con criterios de salida testeables) + un mapper
+> ClickOnce.application XML → AppxManifest mínimo (slide 8 — Publisher
+> debe coincidir con el cert nuevo; nombre con formato Empresa.App).
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

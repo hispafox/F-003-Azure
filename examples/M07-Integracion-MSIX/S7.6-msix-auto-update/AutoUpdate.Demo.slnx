@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/AutoUpdate.Demo.Api/AutoUpdate.Demo.Api.csproj" />
+  <Project Path="tests/AutoUpdate.Demo.Api.Tests/AutoUpdate.Demo.Api.Tests.csproj" />
+</Solution>

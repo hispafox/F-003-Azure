@@ -75,13 +75,14 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.3 — Azure API Management (policies, versionado, tier) | [Apim.Demo.Api](M07-Integracion-MSIX/S7.3-api-management/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.4 — ClickOnce vs MSIX (comparativa, migración, firma) | [Distribution.Demo.Api](M07-Integracion-MSIX/S7.4-clickonce-vs-msix/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.5 — MSIX empaquetado y distribución (manifest, naming, canales) | [Msix.Demo.Api](M07-Integracion-MSIX/S7.5-msix-empaquetado-distribucion/README.md) | ✅ Disponible |
+| [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.6 — MSIX auto-update (.appinstaller, canary, rollback) | [AutoUpdate.Demo.Api](M07-Integracion-MSIX/S7.6-msix-auto-update/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
-⏳ **Módulo M07 en construcción** (5/9 — S7.1–S7.5 disponibles).
+⏳ **Módulo M07 en construcción** (6/9 — S7.1–S7.6 disponibles).
 
 ## Cómo usar un ejemplo
 

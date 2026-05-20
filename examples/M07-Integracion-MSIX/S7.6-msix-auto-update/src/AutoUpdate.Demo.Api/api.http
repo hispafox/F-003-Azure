@@ -1,0 +1,70 @@
+### REST Client — S7.6 MSIX auto-update.
+### Builder del .appinstaller + canary + comparación de versiones.
+
+@host = http://localhost:5101
+
+### Salud
+GET {{host}}/health
+
+### Construir un .appinstaller estándar (slide 3)
+POST {{host}}/update/appinstaller
+Content-Type: application/json
+
+{
+  "appInstallerUri": "https://stventasprod.blob.core.windows.net/msix/MiApp.appinstaller",
+  "version": "2.4.1.0",
+  "mainPackage": {
+    "name": "MiEmpresa.VentasDesktop",
+    "version": "2.4.1.0",
+    "publisher": "CN=MiEmpresa, O=MiOrg, C=ES",
+    "processorArchitecture": "x64",
+    "packageUri": "https://stventasprod.blob.core.windows.net/msix/MiApp_2.4.1.0_x64.msix"
+  },
+  "updateSettings": {
+    "hoursBetweenUpdateChecks": 1,
+    "showPrompt": true,
+    "updateBlocksActivation": false,
+    "automaticBackgroundTask": true,
+    "forceUpdateFromAnyVersion": true
+  }
+}
+
+### URL del .appinstaller por canal (slide 10)
+GET {{host}}/update/canal?canal=Beta&baseUrl=https://stventasprod.blob.core.windows.net
+
+### Canary: ¿este userId entra en el 25%? (slide 20)
+GET {{host}}/update/canary?userId=alice@empresa.com&porcentaje=25
+
+### Siguiente etapa si la salud está OK (slide 20/21)
+GET {{host}}/update/siguiente-etapa?etapaActual=25&saludOk=true
+
+### Salud KO: no avanzar (slide 21)
+GET {{host}}/update/siguiente-etapa?etapaActual=25&saludOk=false
+
+### Comparar versiones — nueva mayor (slide 7)
+GET {{host}}/update/comparar?actual=2.4.1.0&disponible=2.4.2.0
+
+### Comparar versiones — igual: no actualizar
+GET {{host}}/update/comparar?actual=2.4.1.0&disponible=2.4.1.0
+
+### Comparar versiones — menor, sin ForceUpdateFromAnyVersion: bloqueada
+GET {{host}}/update/comparar?actual=2.4.2.0&disponible=2.4.1.0
+
+### Comparar versiones — menor + ForceUpdateFromAnyVersion: permitida
+GET {{host}}/update/comparar?actual=2.4.2.0&disponible=2.4.1.0&forceFromAny=true
+
+### Obligatoria si actual < minimo soportado (slide 13)
+GET {{host}}/update/obligatoria?actual=2.4.1.0&minimoSoportado=2.4.5.0
+
+### Plan de rollback: republicar 2.4.146 con etiqueta 2.4.148 (slide 8)
+POST {{host}}/update/rollback
+Content-Type: application/json
+
+{ "versionMala": "2.4.147.0",
+  "historial": ["2.4.145.0", "2.4.146.0", "2.4.147.0"] }
+
+### Plan + checklist del entregable
+POST {{host}}/update/plan
+Content-Type: application/json
+
+{ "canal": "Stable", "actualizacionCritica": false }
