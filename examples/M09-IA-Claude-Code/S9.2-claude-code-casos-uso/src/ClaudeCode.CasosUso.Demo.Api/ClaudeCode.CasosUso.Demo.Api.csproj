@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S9.2 Claude Code casos de uso. Conceptual (lección 9): los
+       casos son ejemplos pedagógicos de cómo prompt a Claude Code
+       para tareas reales. Lo testeable:
+         - clasificador de caso (15+ casos canónicos por palabras
+           clave + objetivo)
+         - generador de template de prompt para cada caso
+         - evaluador de calidad del prompt del alumno (contexto,
+           constraints, formato salida, criterio éxito)
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ClaudeCode.CasosUso.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

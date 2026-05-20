@@ -1,0 +1,49 @@
+### REST Client — S9.2 Claude Code casos de uso.
+### Clasificador + templates + evaluador de calidad de prompt.
+
+@host = http://localhost:5114
+
+### Salud
+GET {{host}}/health
+
+### Clasificar: migración legacy → caso 2
+POST {{host}}/casos/clasificar
+Content-Type: application/json
+
+{ "descripcion": "Migrar PedidoService de .NET Framework 4.8 a .NET 10 reemplazando WebClient" }
+
+### Clasificar: code review → caso 4
+POST {{host}}/casos/clasificar
+Content-Type: application/json
+
+{ "descripcion": "Revisa los últimos 3 commits y reporta problemas de seguridad" }
+
+### Clasificar: expand-contract → caso 16
+POST {{host}}/casos/clasificar
+Content-Type: application/json
+
+{ "descripcion": "Rename column customer_name en producción sin downtime, 5 servicios consumen" }
+
+### Template para caso PipelineCiCd
+GET {{host}}/casos/template/PipelineCiCd
+
+### Evaluar prompt vago (puntuación baja)
+POST {{host}}/casos/evaluar
+Content-Type: application/json
+
+{ "prompt": "Refactoriza esto" }
+
+### Evaluar prompt bien estructurado (puntuación alta)
+POST {{host}}/casos/evaluar
+Content-Type: application/json
+
+{ "prompt": "Refactoriza PedidoService.cs en este proyecto .NET 10. Mantén la funcionalidad pública (no rompas los tests existentes). Output: archivo modificado en su sitio. Criterio éxito: `dotnet test` sigue verde y sin warnings." }
+
+### Plan + checklist completo
+POST {{host}}/casos/plan
+Content-Type: application/json
+
+{
+  "descripcion": "Optimiza el endpoint GET /api/pedidos: P99 actual 2500ms, objetivo 500ms. Cosmos DB serverless.",
+  "promptDelAlumno": "Analiza GET /api/pedidos en este proyecto .NET 10 con Cosmos DB. No rompas los tests existentes. Output: cambios concretos con estimación de impacto. Criterio éxito: P99 < 500ms."
+}

@@ -17,14 +17,14 @@ APIs externas.
 | Submódulo | Tema | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [S9.1](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.1-claude-code-intro-v3.md) | Claude Code intro (modo, features, settings.json) | [`S9.1-claude-code-intro/`](S9.1-claude-code-intro/README.md) | ✅ Disponible |
-| S9.2 | Casos de uso (refactor, IaC, debugging) | — | ⏳ Pendiente |
+| [S9.2](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.2-claude-code-casos-uso-v3.md) | Casos de uso (clasificador, templates, evaluador de prompts) | [`S9.2-claude-code-casos-uso/`](S9.2-claude-code-casos-uso/README.md) | ✅ Disponible |
 | S9.3 | CC + infraestructura (Bicep, ARM, AVM) | — | ⏳ Pendiente |
 | S9.4 | MCP y herramientas externas | — | ⏳ Pendiente |
 | S9.5 | Buenas prácticas y limitaciones | — | ⏳ Pendiente |
 | S9.P | Práctica — CC + MCP end-to-end | — | ⏳ Pendiente |
 | S9.P2 | Práctica — primer comando con Claude Code | — | ⏳ Pendiente |
 
-⏳ **Módulo M09 en construcción** (1/7).
+⏳ **Módulo M09 en construcción** (2/7).
 
 ## Patrón de tests
 

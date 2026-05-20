@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/ClaudeCode.CasosUso.Demo.Api/ClaudeCode.CasosUso.Demo.Api.csproj" />
+  <Project Path="tests/ClaudeCode.CasosUso.Demo.Api.Tests/ClaudeCode.CasosUso.Demo.Api.Tests.csproj" />
+</Solution>
