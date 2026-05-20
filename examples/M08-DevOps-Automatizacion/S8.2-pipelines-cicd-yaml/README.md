@@ -11,6 +11,8 @@
 > submódulo usa **YamlDotNet 16** porque el YAML es el centro de la
 > lección y un parser hand-rolled sería ruido.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la cadena de montaje como analogía, jerarquía stages→jobs→steps, los seis errores estructurales del validador (dependsOn rotos, deployment sin environment, build sin tests), los tres bloques de trigger estándar (CI+PR+nightly) y secretos en Variable Group con Key Vault.
+
 ## Objetivo
 
 | Concepto | Dónde |

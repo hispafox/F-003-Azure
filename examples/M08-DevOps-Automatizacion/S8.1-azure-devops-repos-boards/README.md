@@ -8,6 +8,8 @@
 > multi-repo, branch policies de `main`, Conventional Commits) más
 > que el setup en sí.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la oficina compartida y sus normas, las tres decisiones de arranque (estrategia de repos, políticas de `main`, Conventional Commits), los 10 tipos de commit canónicos y la jerarquía Boards Epic→Feature→Story→Task.
+
 ## Objetivo
 
 | Concepto | Dónde |

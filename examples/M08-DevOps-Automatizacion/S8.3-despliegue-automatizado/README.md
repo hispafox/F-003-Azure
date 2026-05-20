@@ -8,6 +8,8 @@
 > de app, evaluar el health check post-deploy con retry y planificar
 > el rollback (slide 8) o la alternativa con feature flag (slide 10).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el cambio de neumáticos como analogía, la secuencia deploy→health→swap→smoke→rollback con `condition: failed()`, el plan de rollback ANTES de cada deploy y feature flag como rollback en segundos sin redeploy.
+
 ## Objetivo
 
 | Concepto | Dónde |

@@ -8,6 +8,8 @@
 > test `SkippableFact` (lección 2 del HANDOFF) invoca el CLI si está
 > en PATH; si no, se omite y la suite queda verde.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el plano del arquitecto como analogía, las cuatro reglas del linter (password literal, @secure, targetScope, output sin secreto), el parser de `what-if` con alarma roja en Delete de stateful (Cosmos/Storage/SQL/KV/SB) y el pipeline IaC validate→what-if→deploy con aprobación humana.
+
 ## Objetivo
 
 | Concepto | Dónde |

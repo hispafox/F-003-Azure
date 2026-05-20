@@ -7,6 +7,8 @@
 > desplegar: lo que se enseña es **qué plataforma elegir**, qué
 > equivale a qué en YAML, y cuánto cuesta cada una.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: dos restaurantes del mismo dueño como analogía, las tres salidas posibles (ADO, GitHub, híbrido), la tabla de 16 equivalencias YAML, los costes reales (Test Plans = 52 €/u, GHAS = 49 €/u en ambas) y la lección 20: "antes de migrar, define qué ganas".
+
 ## Objetivo
 
 | Concepto | Dónde |
