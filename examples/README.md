@@ -80,6 +80,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.P — Práctica MSIX end-to-end (8 pasos + cert check) | [PracticaMsix.Demo.Api](M07-Integracion-MSIX/S7.P-practica-msix/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.P2 — Práctica MSIX wizard (CLI equiv. + troubleshooter) | [WizardMsix.Demo.Api](M07-Integracion-MSIX/S7.P2-practica-msix-wizard/README.md) | ✅ Disponible |
 | [M08 — DevOps y Automatización](M08-DevOps-Automatizacion/README.md) | S8.1 — Azure DevOps Repos/Boards/Artifacts (commit, policies, repo) | [Devops.Repos.Demo.Api](M08-DevOps-Automatizacion/S8.1-azure-devops-repos-boards/README.md) | ✅ Disponible |
+| [M08 — DevOps y Automatización](M08-DevOps-Automatizacion/README.md) | S8.2 — Pipelines CI/CD YAML (parser, validador, triggers) | [Pipelines.Demo.Api](M08-DevOps-Automatizacion/S8.2-pipelines-cicd-yaml/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
@@ -87,7 +88,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
-⏳ **Módulo M08 en construcción** (1/8 — S8.1 disponible).
+⏳ **Módulo M08 en construcción** (2/8 — S8.1, S8.2 disponibles).
 
 ## Cómo usar un ejemplo
 

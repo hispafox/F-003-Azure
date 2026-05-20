@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.2 Pipelines CI/CD YAML. Submódulo conceptual: el pipeline
+       real corre en Azure DevOps. Aquí se modela la lógica testeable:
+       parsear el azure-pipelines.yml, validar su estructura y
+       recomendar triggers. Excepción a la regla "sin PackageReference"
+       de M07: YamlDotNet 16 es la herramienta idiomática para parsear
+       YAML — y el YAML ES el centro de este submódulo. -->
+
+  <ItemGroup>
+    <PackageReference Include="YamlDotNet" Version="16.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pipelines.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+### REST Client — S8.2 Pipelines CI/CD YAML.
+### Parser + validador + recomendador de triggers.
+
+@host = http://localhost:5106
+
+### Salud
+GET {{host}}/health
+
+### Parsear un pipeline mínimo (slide 3)
+POST {{host}}/pipeline/parsear
+Content-Type: application/json
+
+{ "yaml": "trigger:\n  branches:\n    include: [main]\npool:\n  vmImage: 'ubuntu-latest'\nstages:\n- stage: Build\n  jobs:\n  - job: BuildAndTest\n    steps:\n    - script: dotnet build\n    - script: dotnet test\n" }
+
+### Validar pipeline OK (slide 5/6)
+POST {{host}}/pipeline/validar
+Content-Type: application/json
+
+{ "yaml": "trigger:\n  branches:\n    include: [main]\npool:\n  vmImage: 'ubuntu-latest'\nstages:\n- stage: Build\n  jobs:\n  - job: B\n    steps:\n    - script: dotnet build\n    - script: dotnet test\n- stage: Deploy\n  dependsOn: Build\n  jobs:\n  - deployment: D\n    environment: 'ventas-production'\n    strategy:\n      runOnce:\n        deploy:\n          steps:\n          - script: echo deploy\n" }
+
+### Validar pipeline con dependsOn roto (slide 5)
+POST {{host}}/pipeline/validar
+Content-Type: application/json
+
+{ "yaml": "stages:\n- stage: A\n  dependsOn: NoExiste\n  jobs:\n  - job: J\n    steps:\n    - script: echo hi\n" }
+
+### Validar pipeline con producción pero sin deployment job (slide 8)
+POST {{host}}/pipeline/validar
+Content-Type: application/json
+
+{ "yaml": "stages:\n- stage: Build\n  jobs:\n  - job: B\n    environment: production\n    steps:\n    - script: dotnet test\n" }
+
+### Trigger recomendado para CI principal (slide 4)
+GET {{host}}/pipeline/trigger/recomendado?escenario=CiPrincipal
+
+### Trigger recomendado para nightly (slide 4)
+GET {{host}}/pipeline/trigger/recomendado?escenario=NightlyBuild
+
+### Recomendación estándar completa (CI + PR + nightly)
+GET {{host}}/pipeline/trigger/estandar
+
+### Plan + checklist del entregable
+POST {{host}}/pipeline/plan
+Content-Type: application/json
+
+{ "yaml": "trigger:\n  branches:\n    include: [main]\npool:\n  vmImage: 'ubuntu-latest'\nstages:\n- stage: Build\n  jobs:\n  - job: B\n    steps:\n    - script: dotnet build\n    - script: dotnet test\n" }
