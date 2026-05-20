@@ -9,6 +9,8 @@
 > mensajes. Ejecuta `./04-cleanup.sh` (o borra el RG desde Portal) en cuanto
 > termines la demo.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la oficina postal con apartado de correos, el patrón MultiResponse para escribir a Queue y Topic en la misma invocación, el peek-lock real con `Complete/Abandon/DeadLetter` y por qué Event Grid resuelve el fan-out por extensión de archivo.
+
 ## Objetivo
 
 Pasamos de **triggers aislados** (M03) a un **sistema asíncrono real**:

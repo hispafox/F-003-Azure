@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 > **Servicios:** Cosmos DB serverless + Azure Storage (Blob + Queue) · coste ~0 €
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la línea de montaje de tres estaciones, multi-output binding en el paso central, idempotencia en dos capas (estado del documento + tracker `TryAdd`) y el endpoint `/api/estado` como observabilidad agregada.
+
 ## Objetivo
 
 Práctica **integradora de M04**: un sistema event-driven de 3 saltos que

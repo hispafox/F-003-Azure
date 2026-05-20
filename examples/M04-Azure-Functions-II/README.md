@@ -22,6 +22,16 @@ testing avanzado.
 
 > ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 
+> 📘 **Manuales del alumno** (módulo M04 completo):
+> [S4.1](S4.1-event-grid-service-bus/MANUAL.md) ·
+> [S4.2](S4.2-durable-functions/MANUAL.md) ·
+> [S4.3](S4.3-errores-reintentos-deadletter/MANUAL.md) ·
+> [S4.4](S4.4-despliegue-versionado/MANUAL.md) ·
+> [S4.5](S4.5-testing-depuracion/MANUAL.md) ·
+> [S4.P](S4.P-practica-flujo-completo/MANUAL.md) ·
+> [S4.P2](S4.P2-practica-durable-hello-world/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
+
 ## Coste a tener en cuenta
 
 A diferencia de M03 (donde casi todo era serverless/scale-to-zero), **M04

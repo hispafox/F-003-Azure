@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 > **Coste:** ~0 € (Durable usa el Storage del Function App; sin Service Bus ni Cosmos)
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la analogía del director de orquesta, la regla del determinismo, los cinco patrones (chaining, retry, human interaction, saga, fan-out/fan-in) y los tres trucos para mockear `TaskOrchestrationContext` con NSubstitute.
+
 ## Objetivo
 
 Convertir Azure Functions en un **motor de workflows**. Un único caso de

@@ -7,6 +7,8 @@
 > ⚠️ **Coste fijo**: Service Bus Standard ~10 €/mes aunque no envíes nada.
 > `./04-cleanup.sh` o borra el RG al acabar.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el triaje de urgencias como analogía, la clasificación transitorio/permanente/desconocido, idempotencia con `TryAdd`, circuit breaker con Polly y el procesador de la dead-letter queue.
+
 ## Objetivo
 
 Materializar la **"estrategia completa de errores"** del submódulo (slide 13):

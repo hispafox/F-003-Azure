@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 > **Coste:** ~0 € (Durable usa el Storage del Function App; sin SB ni Cosmos)
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el director de coro de tres voces, las tres piezas de Durable (Starter, Orchestrator, Activity), la regla del determinismo y por qué este ejemplo deliberadamente no lleva `Thread.Sleep`.
+
 ## Objetivo
 
 La práctica **más corta de M04**: Durable Functions en su forma mínima.

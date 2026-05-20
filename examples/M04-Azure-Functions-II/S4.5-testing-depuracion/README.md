@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 > **Coste:** ~0 € (sin Service Bus ni Cosmos)
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el chef y el ayudante de cocina, la pirámide de tests con un solo `SkippableFact` para integración, la lección dura del DI no ejercitado por los tests y el catálogo contextualizado de patrones de testing.
+
 ## Objetivo
 
 Submódulo **meta**: cómo se testean y depuran Functions. El ejemplo

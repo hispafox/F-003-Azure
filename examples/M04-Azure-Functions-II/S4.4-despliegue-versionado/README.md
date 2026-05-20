@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 > **Coste:** ~0 € (Consumption puro, sin Service Bus ni Cosmos)
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: las dos cocinas del restaurante, versionado por ruta sin acoplar dominio y contrato, health check post-deploy y feature flag como rollback instantáneo sin redeploy.
+
 ## Objetivo
 
 S4.4 es un submódulo **mayormente operacional** (métodos de deploy, slots,
