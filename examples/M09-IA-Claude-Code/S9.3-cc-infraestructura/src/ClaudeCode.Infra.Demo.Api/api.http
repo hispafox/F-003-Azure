@@ -1,0 +1,69 @@
+### REST Client — S9.3 Claude Code para infraestructura.
+### Parser requisitos + prompts canónicos + audit checker.
+
+@host = http://localhost:5115
+
+### Salud
+GET {{host}}/health
+
+### Parsear requisitos: multi-region + GDPR + autoscale + MI
+POST {{host}}/infra/requisitos
+Content-Type: application/json
+
+{ "descripcion": "API REST con App Service (HTTPS only) y Managed Identity, Cosmos DB serverless, Service Bus, Key Vault. Multi-region (West Europe + North Europe). Compliance GDPR. Auto-scale con slots staging y production." }
+
+### Parsear requisitos minimalistas (genera avisos)
+POST {{host}}/infra/requisitos
+Content-Type: application/json
+
+{ "descripcion": "Quiero una web app y storage" }
+
+### Prompt canónico: Bicep desde requirements
+GET {{host}}/infra/prompt/BicepDesdeRequirements
+
+### Prompt canónico: Dockerfile multi-stage
+GET {{host}}/infra/prompt/DockerfileMultiStage
+
+### Prompt canónico: reverse ARM→Bicep
+GET {{host}}/infra/prompt/ReverseArmABicep
+
+### Audit: web app sin HTTPS, storage público, TLS 1.0
+POST {{host}}/infra/audit
+Content-Type: application/json
+
+{
+  "recursos": [
+    {
+      "nombre": "app-ventas-prod",
+      "tipo": "Microsoft.Web/sites",
+      "httpsOnly": false,
+      "tieneManagedIdentity": false,
+      "tieneTags": true,
+      "tlsVersion": "1.0"
+    },
+    {
+      "nombre": "stventasprod",
+      "tipo": "Microsoft.Storage/storageAccounts",
+      "accesoPublico": true,
+      "tieneTags": false
+    }
+  ]
+}
+
+### Plan + checklist completo
+POST {{host}}/infra/plan
+Content-Type: application/json
+
+{
+  "descripcion": "API REST .NET 10 con App Service + Cosmos DB + Service Bus + Key Vault. HTTPS only, Managed Identity, slots, auto-scale. Multi-region UE (GDPR).",
+  "recursos": [
+    {
+      "nombre": "app-ventas-prod",
+      "tipo": "Microsoft.Web/sites",
+      "httpsOnly": true,
+      "tieneManagedIdentity": true,
+      "tieneTags": true,
+      "tlsVersion": "1.2"
+    }
+  ]
+}
