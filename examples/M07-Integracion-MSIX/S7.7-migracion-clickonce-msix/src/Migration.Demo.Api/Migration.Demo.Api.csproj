@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.7 Migración ClickOnce → MSIX. Submódulo conceptual: el plan
+       de migración real exige tocar el sln + Visual Studio. El valor
+       docente es la lógica testeable: mapper .application → manifest,
+       roadmap por fases con criterios de salida, y compatibility check
+       contra los blockers de la slide 3. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Migration.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

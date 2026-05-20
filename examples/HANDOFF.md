@@ -27,26 +27,26 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
-| M07 Integración y MSIX | 🚧 6/9 (S7.1–S7.6 hechos; S7.7 + S7.P + S7.P2 pendientes) |
+| M07 Integración y MSIX | 🚧 7/9 (S7.1–S7.7 hechos; S7.P + S7.P2 pendientes) |
 | M08–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `b6535ac`** = "todos los
-  MANUAL.md de M05 + integración escritura-humana" del OTRO chat,
-  encima de mi `3bf27ec` (S7.5). M02–M06 enteros + M07-S7.1..S7.5 +
-  los manuales de M05 en remoto. Historia lineal.
-- **S7.6 está CONSTRUIDO, VERDE (37 tests pass, 0 skip, 0 warn) pero SIN
+- **`origin/main` = local `main` = commit `9b7fbd1`** = mi push de
+  `M07-S7.6 MSIX auto-update`, encima del `b6535ac` del OTRO chat
+  (manuales M05 + skill escritura-humana). M02–M06 enteros + M07-S7.1
+  ..S7.6 + manuales M05 en remoto. Historia lineal.
+- **S7.7 está CONSTRUIDO, VERDE (32 tests pass, 0 skip, 0 warn) pero SIN
   COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
-  Sin commitear ahora mismo (acotado a S7.6 + 3 índices):
-  - `?? examples/M07-Integracion-MSIX/S7.6-msix-auto-update/` (nuevo)
-  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.6 + "6/9")
-  - ` M examples/README.md` (fila S7.6 + footer "⏳ M07 6/9")
+  Sin commitear ahora mismo (acotado a S7.7 + 3 índices):
+  - `?? examples/M07-Integracion-MSIX/S7.7-migracion-clickonce-msix/` (nuevo)
+  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.7 + "7/9")
+  - ` M examples/README.md` (fila S7.7 + footer "⏳ M07 7/9")
   - ` M examples/HANDOFF.md` (este archivo)
-  - **IMPORTANTE — NO stagear**: el otro chat sigue activo en el
-    working tree (varios `M examples/M05-Almacenamiento-BBDD/**` +
-    nuevos `MANUAL.md` + `.claude/skills/escritura-humana/` +
-    `.claude/skills/documentador-ejemplos/**`). NUNCA `git add -A`.
+  - **IMPORTANTE — NO stagear**: comprobar `git status` antes — si el
+    otro chat sigue activo (skills `.claude/skills/**`, MANUAL.md en
+    M05, etc.), NO entran en el stage. SIEMPRE rutas explícitas, nunca
+    `git add -A`.
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push:
   ```
@@ -57,22 +57,18 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M07-S7.7` — leer primero
-`doc/M07-Integracion-MSIX/v3-actual/M07-S7.7-migracion-clickonce-msix-v3.md`.
-Resto M07: S7.7 migración, S7.P/S7.P2 prácticas MSIX. **Decisión
-S7.1–S7.6 (patrón M07):** conceptual (lección 9); scripts PowerShell
-para los submódulos desktop. **Para S7.7 (migración ClickOnce → MSIX)**
-modelar como lógica pura: roadmap por fases (assessment → packaging →
-piloto → rollout), conversión `.application` (ClickOnce) → `Identity`
-(MSIX) preservando nombre/publisher/versión, plan de comunicación al
-usuario (qué cambia: ubicación, atajos, auto-update). Puerto
-launchSettings siguiente libre: **5102**.
-
-> Pista para S7.7: el dominio sigue siendo decisión, pero ahora con
-> "antes/después" — ideal modelar el plan como una pequeña máquina de
-> fases (cada fase con criterios de salida testeables) + un mapper
-> ClickOnce.application XML → AppxManifest mínimo (slide 8 — Publisher
-> debe coincidir con el cert nuevo; nombre con formato Empresa.App).
+**Siguiente tarea concreta:** `M07-S7.P` — leer primero
+`doc/M07-Integracion-MSIX/v3-actual/M07-S7.P-practica-msix-v3.md`.
+Cierra M07 con dos prácticas (S7.P y S7.P2 MSIX wizard). **Decisión
+S7.1–S7.7 (patrón M07):** conceptual (lección 9); scripts PowerShell
+para los submódulos desktop (S7.4–S7.7); todo verde sin Docker, sin
+emuladores. **Para las prácticas S7.P/S7.P2**: el patrón M06 dice que
+las prácticas integran 2-3 submódulos previos (S6.P = OAuth2+KV,
+S6.P2 = Easy Auth). Probable que S7.P integre empaquetado (S7.5) +
+auto-update (S7.6) + migración (S7.7) en una app de ejemplo guiada;
+S7.P2 wizard probable que sea un asistente paso a paso. Leer el doc
+antes de decidir la arquitectura. Puerto launchSettings siguiente
+libre: **5103** (luego 5104 para S7.P2).
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

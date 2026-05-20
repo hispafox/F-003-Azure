@@ -1,0 +1,64 @@
+### REST Client — S7.7 Migración ClickOnce → MSIX.
+### Mapper, compatibility check, roadmap por fases.
+
+@host = http://localhost:5102
+
+### Salud
+GET {{host}}/health
+
+### Mapear ClickOnce → AppxManifest (slide 6)
+POST {{host}}/migracion/mapear
+Content-Type: application/json
+
+{ "assemblyName": "VentasDesktop", "publisher": "Mi Empresa, S.L.", "version": "2.4.1" }
+
+### Mapear con version corta (1 componente) — completa con ceros
+POST {{host}}/migracion/mapear
+Content-Type: application/json
+
+{ "assemblyName": "MiApp", "publisher": "CN=MiEmpresa", "version": "3" }
+
+### Compatibilidad: WPF + filesystem usuario + HTTP → OK
+POST {{host}}/migracion/compatibilidad
+Content-Type: application/json
+
+{ "comportamientos": ["Wpf", "UsaFilesystemDelUsuario", "LlamadasHttp"] }
+
+### Compatibilidad: HKLM + Windows service → Precaucion + PSF
+POST {{host}}/migracion/compatibilidad
+Content-Type: application/json
+
+{ "comportamientos": ["Wpf", "EscribeHKLM", "WindowsService"] }
+
+### Compatibilidad: driver de kernel → BLOQUEADOR
+POST {{host}}/migracion/compatibilidad
+Content-Type: application/json
+
+{ "comportamientos": ["Wpf", "KernelDriver"] }
+
+### Roadmap: info de la fase Piloto (slide 2/11)
+GET {{host}}/migracion/fase?fase=Piloto
+
+### Siguiente fase: empaquetado con TODOS los criterios OK → Piloto
+POST {{host}}/migracion/siguiente-fase
+Content-Type: application/json
+
+{ "faseActual": "Empaquetado",
+  "criteriosOk": [true, true, true, true, true] }
+
+### Siguiente fase: un criterio falla → no avanza
+POST {{host}}/migracion/siguiente-fase
+Content-Type: application/json
+
+{ "faseActual": "Piloto",
+  "criteriosOk": [true, true, true, false, true] }
+
+### Plan + checklist completo (slides 13/15/16/17/18)
+POST {{host}}/migracion/plan
+Content-Type: application/json
+
+{
+  "clickOnce": { "assemblyName": "VentasDesktop", "publisher": "Mi Empresa, S.L.", "version": "2.4.1" },
+  "comportamientos": ["Wpf", "UsaFilesystemDelUsuario", "EscribeHKLM"],
+  "faseActual": "Empaquetado"
+}
