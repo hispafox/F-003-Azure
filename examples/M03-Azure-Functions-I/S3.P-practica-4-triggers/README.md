@@ -3,6 +3,8 @@
 > **Submódulo de referencia:** [M03-S3.P](../../../doc/M03-Azure-Functions-I/v4-actual/M03-S3.P-practica-4-triggers-v4.md)
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la oficina con cuatro puertas, singletons compartidos por DI, el endpoint `/api/estado` como observabilidad gratuita y la regla del DI con cuatro triggers.
+
 ## Objetivo
 
 Esta es la **práctica integradora del Módulo 3**: una sola Function App con

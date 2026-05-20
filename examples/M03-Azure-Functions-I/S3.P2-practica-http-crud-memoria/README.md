@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption
 > **Dependencias externas:** ninguna — solo Storage Account (lo pide el host)
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el ciclo mínimo viable de Functions, cuándo elegir S3.P2 vs S3.P y la limitación deliberada del singleton in-memory.
+
 ## Objetivo
 
 La práctica **más simple del módulo**: 5 endpoints HTTP CRUD sobre un repositorio

@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption (gratuito)
 > **Cosmos DB:** SQL API · serverless
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el periódico con varios lectores, la regla del lease container distinto, idempotencia por id estable y at-least-once delivery.
+
 ## Objetivo
 
 Demostrar el patrón **un Change Feed → varios consumidores independientes** que el

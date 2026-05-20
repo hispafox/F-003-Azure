@@ -6,6 +6,8 @@
 > ℹ️ El submódulo lectivo está sobre **.NET 8** y `Microsoft.Azure.Functions.Worker 1.x`.
 > Aquí usamos **.NET 10** y **Worker SDK 2.0** (último estable). API casi idéntica.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el taxi vs el coche propio (Consumption vs App Service), el skeleton canónico de Functions isolated y la decisión "patrón de tráfico → hosting".
+
 ## Objetivo
 
 Construir el **skeleton canónico** de Azure Functions isolated worker que se

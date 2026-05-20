@@ -4,6 +4,8 @@
 > **TFM:** `net10.0` · **Tipo:** Azure Functions isolated worker · **Tier:** Consumption (gratuito)
 > **Servicios:** Cosmos DB · Azure Storage (Queue + Blob)
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la mesa con tres salidas (MultiResponse pattern), input bindings sin abrir cliente, binding expressions con fecha y queue trigger anti-pattern aware.
+
 ## Objetivo
 
 Es el submódulo de **consolidación** del bloque de triggers. En vez de un caso de

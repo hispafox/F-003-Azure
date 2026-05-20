@@ -23,6 +23,17 @@ a **Azure Functions isolated worker** sobre plan **Consumption**. Mismo
 
 > ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 
+> 📘 **Manuales del alumno** (módulo M03 completo):
+> [S3.1](S3.1-principios-computo-sin-servidor/MANUAL.md) ·
+> [S3.2](S3.2-trigger-http/MANUAL.md) ·
+> [S3.3](S3.3-trigger-timer/MANUAL.md) ·
+> [S3.4](S3.4-trigger-blob-storage/MANUAL.md) ·
+> [S3.5](S3.5-trigger-cosmosdb-changefeed/MANUAL.md) ·
+> [S3.6](S3.6-bindings-entrada-salida/MANUAL.md) ·
+> [S3.P](S3.P-practica-4-triggers/MANUAL.md) ·
+> [S3.P2](S3.P2-practica-http-crud-memoria/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
+
 ## Hilo conductor
 
 S3.1 establece el **skeleton canónico** (Program.cs, host.json, csproj con

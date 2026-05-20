@@ -6,6 +6,8 @@
 > ℹ️ Reutiliza el skeleton del [S3.1](../S3.1-principios-computo-sin-servidor) y
 > añade un **CRUD completo** sobre `/api/productos`, middlewares y validación.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la equivalencia Functions HTTP / Minimal API, los niveles de autorización, validación con 400 vs 422 + Problem Details y la disciplina del middleware en orden.
+
 ## Objetivo
 
 Construir una API REST CRUD completa con HTTP triggers usando el modelo
