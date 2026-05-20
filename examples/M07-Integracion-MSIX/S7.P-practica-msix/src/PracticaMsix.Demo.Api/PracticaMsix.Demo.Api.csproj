@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.P Práctica MSIX. Integra los tres pilares de M07-desktop:
+       empaquetado (S7.5), auto-update (S7.6) y migración (S7.7) en el
+       flujo guiado de 8 pasos de la slide 15. El proyecto WPF + WAP
+       real se construye en Visual Studio; aquí modelamos la máquina de
+       pasos + el check crítico Publisher↔CertSubject + un builder de
+       los artefactos canónicos (manifest + .appinstaller). Lógica
+       pura, sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="PracticaMsix.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

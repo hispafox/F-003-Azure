@@ -1,0 +1,58 @@
+### REST Client — S7.P Práctica MSIX (slides 4-15).
+### Máquina de 8 pasos + check Publisher↔Cert + artefactos canónicos.
+
+@host = http://localhost:5103
+
+### Salud
+GET {{host}}/health
+
+### Listar los 8 pasos de la práctica (slide 15)
+GET {{host}}/practica/pasos
+
+### Info del paso 3 (configurar manifest, slide 6)
+GET {{host}}/practica/paso?paso=ConfigurarManifest
+
+### Avanzar paso 1 → paso 2 si todos los criterios pasan
+POST {{host}}/practica/avanzar
+Content-Type: application/json
+
+{ "pasoActual": "CrearSolucion", "criteriosOk": [true, true, true] }
+
+### NO avanza si un criterio falla
+POST {{host}}/practica/avanzar
+Content-Type: application/json
+
+{ "pasoActual": "ConfigurarManifest", "criteriosOk": [true, false, true, true] }
+
+### Publisher coincide con Subject del cert (slide 7) → ok
+POST {{host}}/practica/cert-coincide
+Content-Type: application/json
+
+{ "publisherManifest": "CN=MsixDemoCurso", "subjectCertificado": "CN=MsixDemoCurso" }
+
+### Publisher NO coincide → Windows rechaza (error #1 slide 7)
+POST {{host}}/practica/cert-coincide
+Content-Type: application/json
+
+{ "publisherManifest": "CN=MsixDemoCurso", "subjectCertificado": "CN=OtroCurso" }
+
+### Cert sin EKU Code Signing → no firma código
+POST {{host}}/practica/cert-uso
+Content-Type: application/json
+
+{ "ekus": ["1.3.6.1.5.5.7.3.1"] }
+
+### Manifest canónico para comparar (slide 6)
+GET {{host}}/practica/artefactos/manifest?empresa=Empresa&app=MsixDemo&version=1.0.0.0
+
+### .appinstaller canónico para el reto (slide 11)
+GET {{host}}/practica/artefactos/appinstaller?empresa=Empresa&app=MsixDemo&version=1.0.0.0&baseUri=https://stventasprod.blob.core.windows.net/msix
+
+### Plan + checklist + artefactos completos (slide 15)
+POST {{host}}/practica/plan
+Content-Type: application/json
+
+{
+  "parametros": { "empresa": "Empresa", "app": "MsixDemo", "version": "1.0.0.0", "baseUri": "https://x/msix" },
+  "subjectCertificado": "CN=Empresa"
+}

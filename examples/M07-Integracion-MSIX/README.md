@@ -22,10 +22,10 @@ forzar integración cuando no aporta).
 | [S7.5](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.5-msix-empaquetado-distribucion-v3.md) | MSIX empaquetado y distribución (manifest, naming, canales) | [`S7.5-msix-empaquetado-distribucion/`](S7.5-msix-empaquetado-distribucion/README.md) | ✅ Disponible |
 | [S7.6](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.6-msix-auto-update-v3.md) | MSIX auto-update (.appinstaller, canary, rollback) | [`S7.6-msix-auto-update/`](S7.6-msix-auto-update/README.md) | ✅ Disponible |
 | [S7.7](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.7-migracion-clickonce-msix-v3.md) | Migración ClickOnce → MSIX (mapper, roadmap, compat check) | [`S7.7-migracion-clickonce-msix/`](S7.7-migracion-clickonce-msix/README.md) | ✅ Disponible |
-| S7.P | Práctica — MSIX | — | ⏳ Pendiente |
+| [S7.P](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.P-practica-msix-v3.md) | Práctica — MSIX end-to-end (8 pasos + cert check + artefactos) | [`S7.P-practica-msix/`](S7.P-practica-msix/README.md) | ✅ Disponible |
 | S7.P2 | Práctica — MSIX wizard | — | ⏳ Pendiente |
 
-⏳ **Módulo M07 en construcción** (7/9).
+⏳ **Módulo M07 en construcción** (8/9).
 
 ## Patrón de tests
 
