@@ -1,0 +1,81 @@
+### REST Client — S8.6 Application Insights y Azure Monitor.
+### KQL canónico + alertas recomendadas + parser de respuesta JSON.
+
+@host = http://localhost:5110
+
+### Salud
+GET {{host}}/health
+
+### KQL: P95 por endpoint (slide 5/26)
+POST {{host}}/monitor/kql/p95
+Content-Type: application/json
+
+{ "ventana": "24h", "minimo": 100 }
+
+### KQL: tasa de errores por hora (slide 5/26)
+GET {{host}}/monitor/kql/tasa-error?ventana=7d
+
+### KQL: excepciones por tipo (slide 5)
+GET {{host}}/monitor/kql/excepciones?ventana=24h
+
+### KQL: dependencias lentas (slide 5)
+POST {{host}}/monitor/kql/dependencias-lentas
+Content-Type: application/json
+
+{ "ventana": "24h", "umbralMs": 1000 }
+
+### KQL: traza end-to-end por operation Id (slide 5/19)
+POST {{host}}/monitor/kql/correlacion
+Content-Type: application/json
+
+{ "operationId": "abc-123-correlation-id" }
+
+### KQL: coste estimado por tipo (slide 20)
+POST {{host}}/monitor/kql/uso-ingesta
+Content-Type: application/json
+
+{ "ventana": "30d", "eurosPorGb": 2.5 }
+
+### Alertas recomendadas: API pública sin SLA
+POST {{host}}/monitor/alertas/recomendar
+Content-Type: application/json
+
+{ "apiPublica": true, "emailEquipo": "equipo@empresa.com" }
+
+### Alertas recomendadas: producto con SLA + Teams + PagerDuty
+POST {{host}}/monitor/alertas/recomendar
+Content-Type: application/json
+
+{
+  "apiPublica": true,
+  "tiempoRealCritico": true,
+  "productoConSlaContratado": true,
+  "emailEquipo": "oncall@empresa.com",
+  "webhookTeams": "https://hooks.teams.com/xxx",
+  "webhookPagerDuty": "https://events.pagerduty.com/xxx"
+}
+
+### Smart Detection a habilitar (slide 9)
+GET {{host}}/monitor/alertas/smart-detection
+
+### Runbook de incidentes (slide 21)
+GET {{host}}/monitor/alertas/runbook
+
+### Parsear respuesta de `az monitor app-insights query`
+POST {{host}}/monitor/respuesta/parsear
+Content-Type: application/json
+
+{ "json": "{\"tables\":[{\"name\":\"PrimaryResult\",\"columns\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"p95\",\"type\":\"real\"},{\"name\":\"count_\",\"type\":\"long\"}],\"rows\":[[\"GET /api/foo\",450.5,2100],[\"POST /api/bar\",1200.2,580]]}]}" }
+
+### Plan + checklist del entregable
+POST {{host}}/monitor/plan
+Content-Type: application/json
+
+{
+  "escenario": {
+    "apiPublica": true,
+    "productoConSlaContratado": true,
+    "emailEquipo": "equipo@empresa.com"
+  },
+  "ventana": "24h"
+}

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.6 Application Insights y Azure Monitor. Conceptual (lección 9
+       del HANDOFF): App Insights y KQL no se emulan local (no hay
+       ingestión real sin un workspace de Azure). La lógica testeable
+       pura es:
+         - generador de queries KQL canónicas (p95, error rate,
+           exceptions, slow deps, correlation por operation_Id)
+         - recomendador de alertas (slide 8: 5xx, latency, action group)
+         - parser de la respuesta JSON de `az monitor app-insights
+           query` (tablas con columnas/filas)
+       Sin PackageReference externas (mismo enfoque que M07): la lógica
+       es pura .NET y `System.Text.Json`. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Monitor.AppInsights.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
