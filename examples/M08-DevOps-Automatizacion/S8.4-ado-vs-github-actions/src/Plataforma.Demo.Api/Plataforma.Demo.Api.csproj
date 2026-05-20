@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.4 ADO vs GitHub Actions. Submódulo conceptual de DECISIÓN:
+       qué plataforma elegir, tabla de equivalencias YAML, coste
+       comparado. Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Plataforma.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

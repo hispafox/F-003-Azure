@@ -1,0 +1,64 @@
+### REST Client — S8.4 ADO vs GitHub Actions.
+### Decisión + equivalencias YAML + coste comparado.
+
+@host = http://localhost:5108
+
+### Salud
+GET {{host}}/health
+
+### Decisión: ya usas ADO + Boards → quedarse en ADO (slide 4/11)
+POST {{host}}/plataforma/elegir
+Content-Type: application/json
+
+{ "yaUsasAdo": true, "necesitaBoardsCompletos": true, "personas": 8 }
+
+### Decisión: open source + CodeQL → GitHub (slide 5/9)
+POST {{host}}/plataforma/elegir
+Content-Type: application/json
+
+{ "openSource": true, "quiereDependabotCodeQL": true, "personas": 6 }
+
+### Decisión: Boards + Copilot/CodeQL → Híbrido (slide 8)
+POST {{host}}/plataforma/elegir
+Content-Type: application/json
+
+{ "yaUsasAdo": true, "necesitaBoardsCompletos": true, "quiereDependabotCodeQL": true, "personas": 8 }
+
+### Equivalencias completas (slide 6)
+GET {{host}}/plataforma/equivalencias
+
+### Equivalencia exacta por concepto
+GET {{host}}/plataforma/equivalencia?concepto=Setup .NET
+
+### Equivalencia por contención
+GET {{host}}/plataforma/equivalencia?concepto=trigger
+
+### Concepto inexistente → 404
+GET {{host}}/plataforma/equivalencia?concepto=Inventado
+
+### Coste 10 usuarios, sin addons (slide 12)
+POST {{host}}/plataforma/coste
+Content-Type: application/json
+
+{ "usuarios": 10 }
+
+### Coste 10 usuarios + Test Plans (ADO addon, slide 17)
+POST {{host}}/plataforma/coste
+Content-Type: application/json
+
+{ "usuarios": 10, "testPlans": true }
+
+### Coste 50 usuarios + GHAS para ambos
+POST {{host}}/plataforma/coste
+Content-Type: application/json
+
+{ "usuarios": 50, "ghasOAdvancedSecurity": true }
+
+### Plan + checklist del entregable
+POST {{host}}/plataforma/plan
+Content-Type: application/json
+
+{
+  "escenario": { "yaUsasAdo": true, "necesitaBoardsCompletos": true, "personas": 8 },
+  "coste":      { "usuarios": 8 }
+}

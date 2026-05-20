@@ -18,13 +18,13 @@ YAML de pipeline) — se reevalúa por submódulo.
 | [S8.1](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.1-azure-devops-repos-boards-v3.md) | Azure DevOps: Repos, Boards, Artifacts | [`S8.1-azure-devops-repos-boards/`](S8.1-azure-devops-repos-boards/README.md) | ✅ Disponible |
 | [S8.2](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.2-pipelines-cicd-yaml-v3.md) | Pipelines CI/CD YAML (parser, validador, triggers) | [`S8.2-pipelines-cicd-yaml/`](S8.2-pipelines-cicd-yaml/README.md) | ✅ Disponible |
 | [S8.3](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.3-despliegue-automatizado-v3.md) | Despliegue automatizado (estrategia, health, rollback) | [`S8.3-despliegue-automatizado/`](S8.3-despliegue-automatizado/README.md) | ✅ Disponible |
-| S8.4 | ADO vs GitHub Actions | — | ⏳ Pendiente |
+| [S8.4](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.4-ado-vs-github-actions-v3.md) | ADO vs GitHub Actions (decisión, equivalencias YAML, coste) | [`S8.4-ado-vs-github-actions/`](S8.4-ado-vs-github-actions/README.md) | ✅ Disponible |
 | S8.5 | IaC con Bicep | — | ⏳ Pendiente |
 | S8.6 | Application Insights + monitoring | — | ⏳ Pendiente |
 | S8.P | Práctica — Pipeline CI/CD | — | ⏳ Pendiente |
 | S8.P2 | Práctica — GitHub Actions + publish profile | — | ⏳ Pendiente |
 
-⏳ **Módulo M08 en construcción** (3/8).
+⏳ **Módulo M08 en construcción** (4/8).
 
 ## Patrón de tests
 
