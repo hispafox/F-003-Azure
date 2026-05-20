@@ -1,0 +1,64 @@
+### REST Client — S9.4 MCP y herramientas externas.
+### Parser de config + recomendador de servers + security checker.
+
+@host = http://localhost:5116
+
+### Salud
+GET {{host}}/health
+
+### Parsear config con tres servers (filesystem + ADO + GitHub)
+POST {{host}}/mcp/config/parsear
+Content-Type: application/json
+
+{ "json": "{\"mcpServers\": {\"filesystem\": {\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/home/dev/projects\"]}, \"azure-devops\": {\"command\": \"npx\", \"args\": [\"-y\", \"@anthropic/mcp-server-azure-devops\"], \"env\": {\"AZURE_DEVOPS_PAT\": \"${ADO_PAT}\"}}, \"github\": {\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-github\"], \"env\": {\"GITHUB_TOKEN\": \"${GH_TOKEN}\"}}}}" }
+
+### Parsear config inválida (sin clave mcpServers)
+POST {{host}}/mcp/config/parsear
+Content-Type: application/json
+
+{ "json": "{\"otraCosa\": {}}" }
+
+### Recomendar servers: equipo con ADO + GitHub + Cosmos + Notion
+POST {{host}}/mcp/recomendar
+Content-Type: application/json
+
+{
+  "usaAzureDevOps": true,
+  "usaGitHub": true,
+  "usaCosmosDb": true,
+  "usaNotionODocs": true,
+  "usaSlackOTeams": true
+}
+
+### Recomendar servers: equipo minimal (solo filesystem + GitHub)
+POST {{host}}/mcp/recomendar
+Content-Type: application/json
+
+{ "usaGitHub": true }
+
+### Seguridad: config con token GitHub HARDCODED (Critico)
+POST {{host}}/mcp/seguridad
+Content-Type: application/json
+
+{ "json": "{\"mcpServers\": {\"github\": {\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-github\"], \"env\": {\"GITHUB_TOKEN\": \"ghp_abcdefghijklmnopqrstuvwxyz0123456789\"}}}}" }
+
+### Seguridad: filesystem con / (Critico)
+POST {{host}}/mcp/seguridad
+Content-Type: application/json
+
+{ "json": "{\"mcpServers\": {\"filesystem\": {\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/\"]}}}" }
+
+### Plan + checklist completo
+POST {{host}}/mcp/plan
+Content-Type: application/json
+
+{
+  "escenario": {
+    "usaAzureDevOps": true,
+    "usaGitHub": true,
+    "usaCosmosDb": true,
+    "usaNotionODocs": true,
+    "usaSlackOTeams": true
+  },
+  "configJson": "{\"mcpServers\": {\"filesystem\": {\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/home/dev/projects\"]}, \"github\": {\"command\": \"npx\", \"args\": [\"-y\", \"@modelcontextprotocol/server-github\"], \"env\": {\"GITHUB_TOKEN\": \"${GH_TOKEN}\"}}}}"
+}

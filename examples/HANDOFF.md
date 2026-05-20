@@ -29,27 +29,28 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
-| M09 IA Claude Code | 🚧 3/7 (S9.1–S9.3 hechos; S9.4–S9.5 + S9.P + S9.P2 pendientes) |
+| M09 IA Claude Code | 🚧 4/7 (S9.1–S9.4 hechos; S9.5 + S9.P + S9.P2 pendientes) |
 | M10–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `645c0c3`** = mi push previo
-  de `M09-S9.2 Claude Code use cases`. M02–M08 + M09-S9.1..S9.2 en
-  remoto.
-- **S9.3 está CONSTRUIDO, VERDE (36 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. Tercer submódulo de M09.
-  Conceptual sin integración: `InfraRequirementsParser` (recursos +
-  multi-region + GDPR + slots + autoscale + HTTPS + MI con avisos
-  cuando falta lo crítico), `InfraPromptBuilder` (7 prompts canónicos:
-  Bicep desde requirements, Dockerfile multi-stage, GH Actions con
-  OIDC, reverse ARM→Bicep, auditar recursos, runbook ops, ops script),
-  `InfraAuditChecker` (HTTPS + MI + tags + TLS + público + firewall →
-  hallazgos con severidad Critico/Alto/Medio + comando fix). Sin
-  commitear ahora mismo (acotado a S9.3 + M09 README + 2 índices):
-  - `?? examples/M09-IA-Claude-Code/S9.3-cc-infraestructura/` (nuevo)
-  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.3 + "3/7")
-  - ` M examples/README.md` (fila S9.3 + footer "⏳ M09 3/7")
+- **`origin/main` = local `main` = commit `b51067e`** = mi push previo
+  de `M09-S9.3 Claude Code for Azure infrastructure`. M02–M08 +
+  M09-S9.1..S9.3 en remoto.
+- **S9.4 está CONSTRUIDO, VERDE (33 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. Cuarto submódulo de M09.
+  Conceptual sin integración: `McpConfigParser` (lee
+  `claude_desktop_config.json` y extrae servers con command + args +
+  env), `McpServerRecommender` (filesystem siempre; ADO/GitHub/Cosmos/
+  SqlServer/Postgres/Notion/Slack/Linear/Puppeteer/Sentry según los
+  flags del escenario; cada server con permisos mínimos), y
+  `McpSecurityChecker` (tokens hardcoded → Critico; filesystem en `/`
+  o `$HOME` → Critico; env sensible vacío → Alto; recordatorio
+  rotación 90 días en servers de Git → Medio). Sin commitear ahora
+  mismo (acotado a S9.4 + M09 README + 2 índices):
+  - `?? examples/M09-IA-Claude-Code/S9.4-mcp-herramientas/` (nuevo)
+  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.4 + "4/7")
+  - ` M examples/README.md` (fila S9.4 + footer "⏳ M09 4/7")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -57,20 +58,20 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M09-IA-Claude-Code/S9.3-cc-infraestructura \
+  git add examples/M09-IA-Claude-Code/S9.4-mcp-herramientas \
           examples/M09-IA-Claude-Code/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M09-S9.4` — leer primero
-`doc/M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md`.
-MCP y herramientas externas (GitHub, Notion, DBs). **Probable patrón**:
-parser de `mcp.json`/configuración MCP, recomendador de servidores
-MCP por escenario (GitHub para PRs, Notion para docs, etc.),
-validador de permisos por server (least privilege). Puerto
-launchSettings siguiente libre: **5116**.
+**Siguiente tarea concreta:** `M09-S9.5` — leer primero
+`doc/M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md`.
+Buenas prácticas y limitaciones. **Probable patrón**: detector de
+antipatterns (prompts vagos, copy-paste sin revisar, hooks
+inhabilitados, secrets en prompts), recomendador de review process
+(qué revisar de lo que Claude genera), reglas claras sobre cuándo NO
+usar Claude. Puerto launchSettings siguiente libre: **5117**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten

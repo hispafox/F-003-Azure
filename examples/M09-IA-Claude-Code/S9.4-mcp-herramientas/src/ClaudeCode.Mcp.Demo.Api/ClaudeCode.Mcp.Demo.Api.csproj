@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S9.4 MCP (Model Context Protocol) y herramientas externas.
+       Conceptual (lección 9): los MCP servers conectan Claude Code
+       con ADO/GitHub/DBs/Notion/Slack. Lo testeable:
+         - parser del `claude_desktop_config.json` (lista servers,
+           args, env vars, credenciales)
+         - recomendador de servers MCP por escenario del equipo
+         - security checker (credenciales hardcoded vs env vars,
+           write scope vs read-only, paths del filesystem server)
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ClaudeCode.Mcp.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
