@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.3 Despliegue automatizado. Submódulo conceptual: el deploy
+       real corre en Azure DevOps. Lógica testeable: elección de
+       estrategia (slot swap / blue-green / canary), retry con backoff
+       de health checks y plan de rollback. Sin PackageReference. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Deploy.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

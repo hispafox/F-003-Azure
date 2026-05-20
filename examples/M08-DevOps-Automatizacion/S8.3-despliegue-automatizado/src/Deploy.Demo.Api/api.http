@@ -1,0 +1,72 @@
+### REST Client — S8.3 Despliegue automatizado.
+### Estrategia + health check + rollback.
+
+@host = http://localhost:5107
+
+### Salud
+GET {{host}}/health
+
+### Estrategia: App Service con slots → SlotSwap (slide 3)
+GET {{host}}/deploy/estrategia?tipoApp=AppService&tieneSlots=true
+
+### Estrategia: Functions Consumption → DirectDeploy
+GET {{host}}/deploy/estrategia?tipoApp=Functions
+
+### Estrategia: Functions Premium → SlotSwap (slide 3/13)
+GET {{host}}/deploy/estrategia?tipoApp=Functions&planPremium=true
+
+### Estrategia: MSIX → AppInstaller (slide 6)
+GET {{host}}/deploy/estrategia?tipoApp=Msix
+
+### Estrategia: Infra Bicep → WhatIfApprove (slide 7)
+GET {{host}}/deploy/estrategia?tipoApp=Infra
+
+### Health check: pasa al 2º intento (slide 9 — retry 5x10s)
+POST {{host}}/deploy/healthcheck
+Content-Type: application/json
+
+{ "statusEsperado": 200, "maxIntentos": 5, "intentos": [
+  { "intento": 1, "statusObservado": 503 },
+  { "intento": 2, "statusObservado": 200 } ] }
+
+### Health check: falla los 5 intentos
+POST {{host}}/deploy/healthcheck
+Content-Type: application/json
+
+{ "statusEsperado": 200, "maxIntentos": 5, "intentos": [
+  { "intento": 1, "statusObservado": 503 },
+  { "intento": 2, "statusObservado": 503 },
+  { "intento": 3, "statusObservado": 503 },
+  { "intento": 4, "statusObservado": 503 },
+  { "intento": 5, "statusObservado": 502 } ] }
+
+### Smoke test funcional (slide 9)
+POST {{host}}/deploy/smoke
+Content-Type: application/json
+
+{ "requests": [
+  { "endpoint": "/api/productos", "statusObservado": 200 },
+  { "endpoint": "/api/pedidos?limit=1", "statusObservado": 200 } ] }
+
+### Smoke test: un endpoint cae
+POST {{host}}/deploy/smoke
+Content-Type: application/json
+
+{ "requests": [
+  { "endpoint": "/api/productos", "statusObservado": 200 },
+  { "endpoint": "/api/pedidos", "statusObservado": 500 } ] }
+
+### Rollback: App Service con slots → swap inverso ~5s (slide 8)
+GET {{host}}/deploy/rollback?tipoApp=AppService&tieneSlots=true
+
+### Rollback: MSIX → republicar previa con build+1 (slide 8)
+GET {{host}}/deploy/rollback?tipoApp=Msix
+
+### Rollback alternativo: desactivar feature flag (slide 10)
+GET {{host}}/deploy/rollback/feature-flag?flag=FEATURE_NUEVA_BUSQUEDA
+
+### Plan + checklist del entregable
+POST {{host}}/deploy/plan
+Content-Type: application/json
+
+{ "tipoApp": "AppService", "tieneSlots": true, "critico": true }
