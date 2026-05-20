@@ -7,6 +7,8 @@
 > y la auditoría de configuración como lógica pura + grafo DI. Sin CAPA
 > de integración (cifrado/TLS/CMK/CORS es configuración, no emulable).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el almacén y los camiones, qué cifrado at-rest elegir (MMK/CMK/Always Encrypted), TLS 1.2 mínimo con connection strings que lo exigen y la combinación CORS prohibida (`*` + credenciales).
+
 ## Objetivo
 
 | Concepto | Dónde |

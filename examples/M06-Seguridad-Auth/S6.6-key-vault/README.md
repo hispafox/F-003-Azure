@@ -8,6 +8,8 @@
 > El SDK `SecretClient` se documenta pero **no se invoca** (KV no es
 > emulable de forma fiable → sin CAPA de integración).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la caja fuerte del banco y las llaves bajo el felpudo, la regla "MI primero, KV después", la sintaxis de Key Vault Reference y la política de rotación con Event Grid `SecretNearExpiry`.
+
 ## Objetivo
 
 | Concepto | Dónde |

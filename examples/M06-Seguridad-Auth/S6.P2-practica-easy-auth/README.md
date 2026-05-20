@@ -7,6 +7,8 @@
 > App Service Authentication (Easy Auth). Modela la *decisión* de
 > configuración + simula el contrato del middleware (302/401 + cabeceras).
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el conserje del edificio que ya hace todo, sitio web (302) vs API (401), los endpoints integrados `/.auth/*`, la diferencia con S6.P y la métrica clave "cero código de auth en `src/`".
+
 ## Objetivo
 
 | Concepto | Dónde |

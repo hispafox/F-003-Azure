@@ -8,6 +8,8 @@
 > funciones puras + el grafo DI real. Sin CAPA de integración (nada
 > emulable).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la analogía del contrato del hotel, las tres responsabilidades "siempre tuyas" (datos, identidades, dispositivos), el threat modeling con STRIDE y el termómetro del Secure Score.
+
 ## Objetivo
 
 Codificar los principios del modelo de seguridad de la nube:

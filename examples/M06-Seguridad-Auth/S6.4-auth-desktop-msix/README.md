@@ -8,6 +8,8 @@
 > token) como lógica pura + grafo DI. La app desktop real (MSAL +
 > broker WAM) **no se ejecuta aquí** — no es emulable.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: las llaves del piso compartido, WAM frente a system browser frente a embedded, el redirect URI del broker plugin para MSIX y la máquina de estados del ciclo de token (incluyendo el reto de Conditional Access).
+
 ## Objetivo
 
 | Concepto | Dónde |

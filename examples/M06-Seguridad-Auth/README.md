@@ -26,6 +26,17 @@ pueden llevar integración).
 
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
 
+> 📘 **Manuales del alumno** (módulo M06 completo):
+> [S6.1](S6.1-responsabilidad-compartida/MANUAL.md) ·
+> [S6.2](S6.2-entra-id/MANUAL.md) ·
+> [S6.3](S6.3-oauth2-oidc/MANUAL.md) ·
+> [S6.4](S6.4-auth-desktop-msix/MANUAL.md) ·
+> [S6.5](S6.5-seguridad-datos/MANUAL.md) ·
+> [S6.6](S6.6-key-vault/MANUAL.md) ·
+> [S6.P](S6.P-practica-oauth2-keyvault/MANUAL.md) ·
+> [S6.P2](S6.P2-practica-easy-auth/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
+
 ## Patrón de tests
 
 - **CAPA 1 · Unit**: la lógica de decisión de seguridad como funciones

@@ -7,6 +7,8 @@
 > **S6.6** (Key Vault References). Entregable: una API protegida con
 > Entra ID cuyos secretos viven en Key Vault (cero passwords en config).
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el guardia del portal y la oficina dentro, una API desnuda sin código de auth, Easy Auth como middleware, App Settings como Key Vault References y la rúbrica del entregable de seis puntos.
+
 ## Objetivo
 
 | Concepto | Dónde |

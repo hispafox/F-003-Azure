@@ -7,6 +7,8 @@
 > los flujos OAuth2/OIDC como funciones puras + el grafo DI real. Sin
 > CAPA de integración (no se emula un IdP de forma fiable).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el portero y la entrega del paquete, cliente público vs confidencial, los seis flujos OAuth2 con su cuándo, PKCE con el vector RFC 7636 y por qué no implementar OAuth a mano.
+
 ## Objetivo
 
 | Concepto | Dónde |

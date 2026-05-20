@@ -7,6 +7,8 @@
 > decisión de identidad como funciones puras + el grafo DI real. Sin
 > CAPA de integración (Entra ID no es emulable).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el carnet de identidad y los pases del edificio, los tres tipos de identidad (MI, SP, App Reg), por qué los dos sistemas de roles confunden tanto y la regla "tu app nunca valida tokens a mano".
+
 ## Objetivo
 
 | Concepto | Dónde |
