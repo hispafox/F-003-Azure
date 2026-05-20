@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/WizardMsix.Demo.Api/WizardMsix.Demo.Api.csproj" />
+  <Project Path="tests/WizardMsix.Demo.Api.Tests/WizardMsix.Demo.Api.Tests.csproj" />
+</Solution>

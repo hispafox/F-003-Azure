@@ -27,26 +27,25 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M04 Azure Functions II | ✅ completo 7/7 |
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
-| M07 Integración y MSIX | 🚧 8/9 (S7.1–S7.7 + S7.P hechos; S7.P2 pendiente) |
+| M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `5dfe3c9`** = mi push de
-  `M07-S7.7 ClickOnce -> MSIX migration roadmap`, encima del
-  `d086873` del OTRO chat (manuales M01 S1.P + S1.P2). M02–M06 enteros
-  + M07-S7.1..S7.7 + manuales M01/M05 en remoto. Historia lineal.
-- **S7.P está CONSTRUIDO, VERDE (28 tests pass, 0 skip, 0 warn) pero SIN
-  COMMITEAR** en el working tree. Pendiente del "sube" del usuario.
-  Sin commitear ahora mismo (acotado a S7.P + 3 índices):
-  - `?? examples/M07-Integracion-MSIX/S7.P-practica-msix/` (nuevo)
-  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.P + "8/9")
-  - ` M examples/README.md` (fila S7.P + footer "⏳ M07 8/9")
+- **`origin/main` = local `main` = commit `a9fb0af`** = mi push de
+  `M07-S7.P end-to-end MSIX practice`, encima del `cdc9c23` del OTRO
+  chat (manuales M02 S2.1–S2.5 + S2.P/S2.P2). M02–M06 enteros +
+  M07-S7.1..S7.P en remoto + manuales M01/M02/M05. Historia lineal.
+- **S7.P2 está CONSTRUIDO, VERDE (31 tests pass, 0 skip, 0 warn) pero
+  SIN COMMITEAR** en el working tree. Cierra M07 a **9/9 completo** —
+  primer M07 verdaderamente cerrado. Pendiente del "sube" del usuario.
+  Sin commitear ahora mismo (acotado a S7.P2 + 3 índices):
+  - `?? examples/M07-Integracion-MSIX/S7.P2-practica-msix-wizard/` (nuevo)
+  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.P2 + "✅ M07 9/9")
+  - ` M examples/README.md` (fila S7.P2 + footer "✅ M07 completo")
   - ` M examples/HANDOFF.md` (este archivo)
-  - **IMPORTANTE — NO stagear**: comprobar `git status` antes — si el
-    otro chat sigue activo (skills `.claude/skills/**`, MANUAL.md en
-    M01/M02/M05, etc.), NO entran en el stage. SIEMPRE rutas
-    explícitas, nunca `git add -A`.
+  - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
+    `MANUAL.md` y skills (`.claude/skills/**`). NUNCA `git add -A`.
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push:
   ```
@@ -57,19 +56,20 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M07-S7.P2` — leer primero
-`doc/M07-Integracion-MSIX/v3-actual/M07-S7.P2-practica-msix-wizard-v1.md`.
-**Última pieza para cerrar M07 9/9.** El doc se llama "MSIX wizard" —
-probablemente un asistente que automatiza/guía algunos de los pasos de
-S7.P (a confirmar al leer). **Decisión patrón M07** (válida para
-S7.P2): conceptual (lección 9); scripts PowerShell para el dominio
-desktop; sin Docker, sin emuladores. **Hipótesis para S7.P2**: dado
-que S7.P modela la máquina de 8 pasos manual, S7.P2 probablemente
-modele un **wizard programático** (PowerShell o C# CLI) que genera
-manifest + appinstaller + comandos `signtool` / `Add-AppxPackage` a
-partir de un input mínimo (empresa, app, versión). Reutilizar
-`PracticaArtefactosBuilder` style del S7.P. Puerto launchSettings
-siguiente libre: **5104**.
+**Siguiente tarea concreta (arranca M08):** leer el primer doc de
+`doc/M08-DevOps-Automatizacion/v*-actual/` (verificar nombre exacto
+con `ls`). M07 cierra; M08 = **DevOps y Automatización** (Azure DevOps,
+pipelines YAML CI/CD, Bicep/IaC, Application Insights, monitoring
+avanzado). **Crear `examples/M08-DevOps-Automatizacion/` + su README
+de módulo** al empezar el primer submódulo (mirror del de M07).
+Puerto launchSettings siguiente libre: **5105**.
+
+**Decisión patrón M07 (referencia para M08 y siguientes):** conceptual
+(lección 9) ha funcionado bien para los 9 submódulos. Para M08, donde
+hay servicios Azure reales (DevOps API, App Insights), reevaluar: si
+hay algo emulable que aporte valor (p.ej. Bicep `what-if` local, Azure
+CLI parsers, KQL parser para queries de App Insights) → integración.
+Si no → conceptual con scripts `az` o `az pipelines` solo lectura.
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

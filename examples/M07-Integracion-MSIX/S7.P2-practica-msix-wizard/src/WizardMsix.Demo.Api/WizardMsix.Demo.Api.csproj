@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S7.P2 Práctica MSIX wizard. La práctica REAL se hace en Visual
+       Studio (UI). Aquí modelamos la lógica testeable que ayuda al
+       alumno a entender el wizard: qué comandos CLI ejecuta por debajo
+       (slide 15), catálogo de errores comunes (slide 16) y decisión
+       Wizard vs CLI (slide 17). Cierra M07 9/9. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="WizardMsix.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

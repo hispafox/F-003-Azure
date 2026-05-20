@@ -78,13 +78,14 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.6 — MSIX auto-update (.appinstaller, canary, rollback) | [AutoUpdate.Demo.Api](M07-Integracion-MSIX/S7.6-msix-auto-update/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.7 — Migración ClickOnce → MSIX (mapper, roadmap, compat) | [Migration.Demo.Api](M07-Integracion-MSIX/S7.7-migracion-clickonce-msix/README.md) | ✅ Disponible |
 | [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.P — Práctica MSIX end-to-end (8 pasos + cert check) | [PracticaMsix.Demo.Api](M07-Integracion-MSIX/S7.P-practica-msix/README.md) | ✅ Disponible |
+| [M07 — Integración y MSIX](M07-Integracion-MSIX/README.md) | S7.P2 — Práctica MSIX wizard (CLI equiv. + troubleshooter) | [WizardMsix.Demo.Api](M07-Integracion-MSIX/S7.P2-practica-msix-wizard/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M04 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
-⏳ **Módulo M07 en construcción** (8/9 — S7.1–S7.7 + S7.P disponibles; falta S7.P2).
+✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
 
 ## Cómo usar un ejemplo
 

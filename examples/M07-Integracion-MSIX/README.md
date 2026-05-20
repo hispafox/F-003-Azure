@@ -23,9 +23,9 @@ forzar integración cuando no aporta).
 | [S7.6](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.6-msix-auto-update-v3.md) | MSIX auto-update (.appinstaller, canary, rollback) | [`S7.6-msix-auto-update/`](S7.6-msix-auto-update/README.md) | ✅ Disponible |
 | [S7.7](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.7-migracion-clickonce-msix-v3.md) | Migración ClickOnce → MSIX (mapper, roadmap, compat check) | [`S7.7-migracion-clickonce-msix/`](S7.7-migracion-clickonce-msix/README.md) | ✅ Disponible |
 | [S7.P](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.P-practica-msix-v3.md) | Práctica — MSIX end-to-end (8 pasos + cert check + artefactos) | [`S7.P-practica-msix/`](S7.P-practica-msix/README.md) | ✅ Disponible |
-| S7.P2 | Práctica — MSIX wizard | — | ⏳ Pendiente |
+| [S7.P2](../../doc/M07-Integracion-MSIX/v3-actual/M07-S7.P2-practica-msix-wizard-v1.md) | Práctica — MSIX wizard (CLI equivalente, troubleshooter, Wizard vs CLI) | [`S7.P2-practica-msix-wizard/`](S7.P2-practica-msix-wizard/README.md) | ✅ Disponible |
 
-⏳ **Módulo M07 en construcción** (8/9).
+✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
 
 ## Patrón de tests
 

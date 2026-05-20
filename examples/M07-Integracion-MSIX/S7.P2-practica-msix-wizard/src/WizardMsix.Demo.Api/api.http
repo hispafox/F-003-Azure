@@ -1,0 +1,64 @@
+### REST Client — S7.P2 Práctica MSIX wizard (slides 15-17, 19).
+### Lo que el wizard hace por debajo + catálogo de errores + decisión
+### Wizard vs CLI.
+
+@host = http://localhost:5104
+
+### Salud
+GET {{host}}/health
+
+### Expandir el wizard a CLI equivalente (slide 15)
+POST {{host}}/wizard/expandir
+Content-Type: application/json
+
+{
+  "empresa": "MiEmpresa",
+  "app": "MiPrimeraMSIX",
+  "version": "1.0.0.0",
+  "buildOutputDir": "C:\\src\\bin\\Release\\net10.0-windows10.0.19041.0\\win10-x64",
+  "certPfx": "C:\\src\\MiPrimeraMSIX.Package_TemporaryKey.pfx",
+  "outputMsix": "C:\\src\\AppPackages\\MiPrimeraMSIX.Package_1.0.0.0_x64.msix"
+}
+
+### Wizard o CLI: aprendizaje + app simple → Wizard (slide 15)
+POST {{host}}/wizard/elegir
+Content-Type: application/json
+
+{ "aprendizajeInicial": true, "appSimpleSingleArch": true }
+
+### Wizard o CLI: CI/CD + Key Vault → CLI (slide 15/17)
+POST {{host}}/wizard/elegir
+Content-Type: application/json
+
+{ "pipelineCiCd": true, "certDesdeKeyVault": true }
+
+### Limitaciones del wizard (slide 17)
+GET {{host}}/wizard/limitaciones
+
+### Troubleshoot por HRESULT (slide 16.1)
+GET {{host}}/wizard/troubleshoot?codigoOMensaje=0x80073CFD
+
+### Troubleshoot por mensaje contenedor (slide 16.4)
+GET {{host}}/wizard/troubleshoot?codigoOMensaje=The file is NotSigned warning
+
+### Troubleshoot código no encontrado → 404
+GET {{host}}/wizard/troubleshoot?codigoOMensaje=0xDEADBEEF
+
+### Catálogo completo de errores (slide 16)
+GET {{host}}/wizard/errores
+
+### Plan + checklist + comandos + limitaciones (slide 19)
+POST {{host}}/wizard/plan
+Content-Type: application/json
+
+{
+  "contexto": { "aprendizajeInicial": true, "appSimpleSingleArch": true },
+  "parametros": {
+    "empresa": "MiEmpresa",
+    "app": "MiPrimeraMSIX",
+    "version": "1.0.0.0",
+    "buildOutputDir": "C:\\bin\\Release\\x64",
+    "certPfx": "C:\\src\\cert.pfx",
+    "outputMsix": "C:\\out\\MiPrimeraMSIX_1.0.0.0_x64.msix"
+  }
+}
