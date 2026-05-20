@@ -28,21 +28,22 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
-| M08–M11 | pendientes |
+| M08 DevOps y Automatización | 🚧 1/8 (S8.1 hecho; S8.2–S8.6 + S8.P + S8.P2 pendientes) |
+| M09–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `a9fb0af`** = mi push de
-  `M07-S7.P end-to-end MSIX practice`, encima del `cdc9c23` del OTRO
-  chat (manuales M02 S2.1–S2.5 + S2.P/S2.P2). M02–M06 enteros +
-  M07-S7.1..S7.P en remoto + manuales M01/M02/M05. Historia lineal.
-- **S7.P2 está CONSTRUIDO, VERDE (31 tests pass, 0 skip, 0 warn) pero
-  SIN COMMITEAR** en el working tree. Cierra M07 a **9/9 completo** —
-  primer M07 verdaderamente cerrado. Pendiente del "sube" del usuario.
-  Sin commitear ahora mismo (acotado a S7.P2 + 3 índices):
-  - `?? examples/M07-Integracion-MSIX/S7.P2-practica-msix-wizard/` (nuevo)
-  - ` M examples/M07-Integracion-MSIX/README.md` (fila S7.P2 + "✅ M07 9/9")
-  - ` M examples/README.md` (fila S7.P2 + footer "✅ M07 completo")
+- **`origin/main` = local `main` = commit `c605918`** = mi push de
+  `M07-S7.P2 wizard practice (M07 9/9 complete)`, encima del `d50646a`
+  del OTRO chat (manuales M03 S3.1–S3.6 + S3.P/S3.P2). M02–M07 enteros
+  en remoto + manuales M01/M02/M03/M05. Historia lineal.
+- **S8.1 está CONSTRUIDO, VERDE (34 tests pass, 0 skip, 0 warn) pero
+  SIN COMMITEAR** en el working tree. Arranca M08. Pendiente del
+  "sube" del usuario. Sin commitear ahora mismo (acotado a M08 nuevo
+  + 2 índices + HANDOFF):
+  - `?? examples/M08-DevOps-Automatizacion/` (nuevo: README de módulo +
+    `S8.1-azure-devops-repos-boards/` completo)
+  - ` M examples/README.md` (fila S8.1 + footer "⏳ M08 1/8")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y skills (`.claude/skills/**`). NUNCA `git add -A`.
@@ -50,19 +51,24 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M07-Integracion-MSIX \
+  git add examples/M08-DevOps-Automatizacion \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta (arranca M08):** leer el primer doc de
-`doc/M08-DevOps-Automatizacion/v*-actual/` (verificar nombre exacto
-con `ls`). M07 cierra; M08 = **DevOps y Automatización** (Azure DevOps,
-pipelines YAML CI/CD, Bicep/IaC, Application Insights, monitoring
-avanzado). **Crear `examples/M08-DevOps-Automatizacion/` + su README
-de módulo** al empezar el primer submódulo (mirror del de M07).
-Puerto launchSettings siguiente libre: **5105**.
+**Siguiente tarea concreta:** `M08-S8.2` — leer primero
+`doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.2-pipelines-cicd-yaml-v3.md`.
+Resto M08: S8.2 pipelines YAML, S8.3 despliegue automatizado, S8.4
+ADO vs GitHub Actions, S8.5 IaC Bicep, S8.6 App Insights, S8.P
+práctica pipeline, S8.P2 práctica GitHub Actions. **Decisión patrón
+M07 (válida también para M08):** conceptual (lección 9) cuando el
+servicio no es emulable o el valor está en la decisión. Para S8.5
+(Bicep) **reevaluar integración** — `bicep build` + `az deployment
+sub what-if` son herramientas locales que sí aportan; podría ser el
+primer M08 con CAPA de integración. Para S8.6 (App Insights), un
+parser KQL pure podría aportar. Puerto launchSettings siguiente libre:
+**5106**.
 
 **Decisión patrón M07 (referencia para M08 y siguientes):** conceptual
 (lección 9) ha funcionado bien para los 9 submódulos. Para M08, donde

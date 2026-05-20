@@ -1,0 +1,2 @@
+# Variables locales con datos del alumno (org URL, project, etc.)
+.env.demo

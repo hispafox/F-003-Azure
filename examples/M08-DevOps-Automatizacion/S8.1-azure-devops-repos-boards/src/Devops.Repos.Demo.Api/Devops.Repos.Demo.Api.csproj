@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.1 Azure DevOps Repos/Boards/Artifacts. Arranca M08. Submódulo
+       conceptual: lo que se enseña son decisiones (estrategia de repo,
+       branch policies, conventional commits, jerarquía de work items).
+       Sin PackageReference externas — parsing + tablas de decisión. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Devops.Repos.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

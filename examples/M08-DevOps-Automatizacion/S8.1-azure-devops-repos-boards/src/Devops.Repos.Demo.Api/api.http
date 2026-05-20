@@ -1,0 +1,64 @@
+### REST Client — S8.1 Azure DevOps Repos/Boards/Artifacts.
+### Conventional Commits + branch policies + estrategia de repo.
+
+@host = http://localhost:5105
+
+### Salud
+GET {{host}}/health
+
+### Tipos válidos de commit (slide 7)
+GET {{host}}/devops/commit/tipos
+
+### Parsear commit OK con scope + work item (slide 7/12)
+POST {{host}}/devops/commit/parsear
+Content-Type: application/json
+
+{ "mensaje": "feat(pedidos): implementar búsqueda por fecha #1234" }
+
+### Parsear commit con breaking change (slide 7)
+POST {{host}}/devops/commit/parsear
+Content-Type: application/json
+
+{ "mensaje": "feat!: cambia el contrato de PedidoController.Buscar #5678\n\nBREAKING CHANGE: nueva firma." }
+
+### Parsear commit con tipo inválido → problemas
+POST {{host}}/devops/commit/parsear
+Content-Type: application/json
+
+{ "mensaje": "wip: jugando con cosas" }
+
+### Parsear formato inválido (sin tipo:)
+POST {{host}}/devops/commit/parsear
+Content-Type: application/json
+
+{ "mensaje": "implemented some stuff" }
+
+### Branch policies mínimas (slide 5)
+GET {{host}}/devops/branch-policy/minimas
+
+### Branch policies recomendadas (slide 5/12/20)
+GET {{host}}/devops/branch-policy/recomendadas
+
+### Evaluar policies actuales → faltantes (slide 5)
+POST {{host}}/devops/branch-policy/evaluar
+Content-Type: application/json
+
+{ "configuradas": ["RequiredReviewers", "BuildExitoso"] }
+
+### Estrategia repo: equipo 7 personas + 5 servicios → MultiRepo (slide 3)
+POST {{host}}/devops/repo/estrategia
+Content-Type: application/json
+
+{ "personas": 7, "servicios": 5, "ciCdIndependiente": true }
+
+### Estrategia repo: equipo 3 personas + 2 servicios + shared → Monorepo
+POST {{host}}/devops/repo/estrategia
+Content-Type: application/json
+
+{ "personas": 3, "servicios": 2, "muchaSharedCode": true }
+
+### Plan + checklist del entregable
+POST {{host}}/devops/plan
+Content-Type: application/json
+
+{ "personas": 7, "servicios": 5, "ciCdIndependiente": true }
