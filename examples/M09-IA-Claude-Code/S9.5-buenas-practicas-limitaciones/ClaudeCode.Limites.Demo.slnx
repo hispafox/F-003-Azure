@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/ClaudeCode.Limites.Demo.Api/ClaudeCode.Limites.Demo.Api.csproj" />
+  <Project Path="tests/ClaudeCode.Limites.Demo.Api.Tests/ClaudeCode.Limites.Demo.Api.Tests.csproj" />
+</Solution>

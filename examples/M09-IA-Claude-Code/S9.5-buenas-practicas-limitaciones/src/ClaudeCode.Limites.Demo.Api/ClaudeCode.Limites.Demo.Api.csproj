@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S9.5 Buenas prácticas y limitaciones de IA. Conceptual:
+       cubre las 7 reglas de oro (slide 2), los 10 anti-patterns
+       (slide 13) y la frontera "acelera vs frena" (slide 5).
+       Lo testeable:
+         - detector de anti-patterns en descripciones de uso
+         - validador del template de 7 secciones (slide 12) —
+           complementa al de 4 ingredientes del S9.2
+         - clasificador "acelera vs frena" por tipo de tarea
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ClaudeCode.Limites.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

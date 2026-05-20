@@ -1,0 +1,53 @@
+### REST Client — S9.5 Buenas prácticas y limitaciones.
+### Anti-patterns + validador de estructura + acelera vs frena.
+
+@host = http://localhost:5117
+
+### Salud
+GET {{host}}/health
+
+### Reglas de oro (slide 2)
+GET {{host}}/limites/reglas
+
+### Anti-patterns: workflow con secretos + sin tests + Claude commitea
+POST {{host}}/limites/antipatterns
+Content-Type: application/json
+
+{ "descripcion": "Le paso la connection string real y le digo: hazme todo el sistema. Sin tests. Claude mergea directamente a main." }
+
+### Anti-patterns: workflow limpio (sin matches)
+POST {{host}}/limites/antipatterns
+Content-Type: application/json
+
+{ "descripcion": "Uso Claude Code en chunks pequeños, reviso cada línea, tengo CLAUDE.md con convenciones." }
+
+### Estructura del prompt: vago (puntuación baja)
+POST {{host}}/limites/estructura
+Content-Type: application/json
+
+{ "prompt": "Crea un endpoint para crear pedidos" }
+
+### Estructura del prompt: bien construido (puntuación alta)
+POST {{host}}/limites/estructura
+Content-Type: application/json
+
+{ "prompt": "CONTEXTO: API REST .NET 10 con MediatR y EF Core. OBJETIVO: crea endpoint POST /api/orders. CONSTRAINTS: no añadir dependencias, mantener Order aggregate estable. INPUT: src/Domain/Orders/Order.cs. OUTPUT: archivos en src/Application/Orders/Commands/ + tests. EJEMPLO: como en UpdateOrderHandler.cs. Criterio éxito: tests verdes y sin warnings." }
+
+### Clasificador: boilerplate → Acelera
+GET {{host}}/limites/acelera-o-frena/Boilerplate
+
+### Clasificador: lógica de negocio compleja → Frena
+GET {{host}}/limites/acelera-o-frena/LogicaNegocioCompleja
+
+### Clasificador: seguridad crítica → Frena
+GET {{host}}/limites/acelera-o-frena/SeguridadCritica
+
+### Plan completo: descripción + prompt + tarea
+POST {{host}}/limites/plan
+Content-Type: application/json
+
+{
+  "descripcionUso": "Uso Claude Code para generar tests. Sin revisar mucho. El primer output suele estar bien.",
+  "promptDelAlumno": "CONTEXTO: API .NET 10. OBJETIVO: genera tests para PedidoService. OUTPUT: archivo tests. Criterio éxito: cobertura 100%.",
+  "tipoTarea": "Boilerplate"
+}

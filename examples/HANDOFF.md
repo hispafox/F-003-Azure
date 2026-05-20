@@ -29,28 +29,28 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
-| M09 IA Claude Code | 🚧 4/7 (S9.1–S9.4 hechos; S9.5 + S9.P + S9.P2 pendientes) |
+| M09 IA Claude Code | 🚧 5/7 (S9.1–S9.5 hechos; S9.P + S9.P2 pendientes) |
 | M10–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `b51067e`** = mi push previo
-  de `M09-S9.3 Claude Code for Azure infrastructure`. M02–M08 +
-  M09-S9.1..S9.3 en remoto.
-- **S9.4 está CONSTRUIDO, VERDE (33 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. Cuarto submódulo de M09.
-  Conceptual sin integración: `McpConfigParser` (lee
-  `claude_desktop_config.json` y extrae servers con command + args +
-  env), `McpServerRecommender` (filesystem siempre; ADO/GitHub/Cosmos/
-  SqlServer/Postgres/Notion/Slack/Linear/Puppeteer/Sentry según los
-  flags del escenario; cada server con permisos mínimos), y
-  `McpSecurityChecker` (tokens hardcoded → Critico; filesystem en `/`
-  o `$HOME` → Critico; env sensible vacío → Alto; recordatorio
-  rotación 90 días en servers de Git → Medio). Sin commitear ahora
-  mismo (acotado a S9.4 + M09 README + 2 índices):
-  - `?? examples/M09-IA-Claude-Code/S9.4-mcp-herramientas/` (nuevo)
-  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.4 + "4/7")
-  - ` M examples/README.md` (fila S9.4 + footer "⏳ M09 4/7")
+- **`origin/main` = local `main` = commit `f3d5e88`** = mi push previo
+  de `M09-S9.4 MCP and external tools`. M02–M08 + M09-S9.1..S9.4 en
+  remoto.
+- **S9.5 está CONSTRUIDO, VERDE (44 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. Quinto submódulo de M09; cierra
+  los 5 submódulos teóricos. Conceptual sin integración:
+  `AntiPatternDetector` (los 10 anti-patterns del slide 13 detectados
+  por frases canónicas), `PromptStructureValidator` (las 7 secciones
+  del slide 12: contexto/objetivo/constraints/input/output/examples/DoD
+  con pesos ponderados — complementa al de 4 ingredientes del S9.2),
+  `AceleraOFrenaClassifier` (slide 5: boilerplate/IaC/refactor mecánico
+  → Acelera; lógica negocio compleja/arquitectura/perf/seguridad/race
+  conditions → Frena). Sin commitear ahora mismo (acotado a S9.5 + M09
+  README + 2 índices):
+  - `?? examples/M09-IA-Claude-Code/S9.5-buenas-practicas-limitaciones/` (nuevo)
+  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.5 + "5/7")
+  - ` M examples/README.md` (fila S9.5 + footer "⏳ M09 5/7")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -58,20 +58,21 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M09-IA-Claude-Code/S9.4-mcp-herramientas \
+  git add examples/M09-IA-Claude-Code/S9.5-buenas-practicas-limitaciones \
           examples/M09-IA-Claude-Code/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M09-S9.5` — leer primero
-`doc/M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md`.
-Buenas prácticas y limitaciones. **Probable patrón**: detector de
-antipatterns (prompts vagos, copy-paste sin revisar, hooks
-inhabilitados, secrets en prompts), recomendador de review process
-(qué revisar de lo que Claude genera), reglas claras sobre cuándo NO
-usar Claude. Puerto launchSettings siguiente libre: **5117**.
+**Siguiente tarea concreta:** `M09-S9.P` — leer primero
+`doc/M09-IA-Claude-Code/v3-actual/M09-S9.P-practica-cc-mcp-v3.md`.
+Práctica: montar workflow completo CC + MCP a ADO o GitHub.
+**Probable patrón**: preflight (CC instalado + API key + token MCP +
+permisos), generador del workflow (lee work item → genera código →
+ejecuta tests → crea PR → actualiza work item), checker del log de
+acciones (slide 10/12 de S9.4). Puerto launchSettings siguiente
+libre: **5118**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten
