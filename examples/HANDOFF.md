@@ -28,28 +28,25 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
-| M08 DevOps y Automatización | 🚧 4/8 (S8.1–S8.4 hechos; S8.5, S8.6 + S8.P + S8.P2 pendientes) |
+| M08 DevOps y Automatización | 🚧 5/8 (S8.1–S8.5 hechos; S8.6 + S8.P + S8.P2 pendientes) |
 | M09–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `1ef1774`** = mi push de
-  `M08-S8.3 deployment strategies, health, rollback`. M02–M07 enteros
-  + M08-S8.1/S8.2/S8.3 en remoto. Historia lineal.
-- **S8.4 está CONSTRUIDO, VERDE (28 tests pass, 0 skip, 0 warn) pero
-  SIN COMMITEAR** en el working tree. Pendiente del "sube" del
-  usuario. Sin commitear ahora mismo (acotado a S8.4 + 3 índices):
-  - `?? examples/M08-DevOps-Automatizacion/S8.4-ado-vs-github-actions/` (nuevo)
-  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.4 + "4/8")
-  - ` M examples/README.md` (fila S8.4 + footer "⏳ M08 4/8")
+- **`origin/main` = local `main` = commit `81410c5`** = mi push de
+  `M08-S8.4 ADO vs GitHub Actions decision` (encima del `5070507` del
+  otro chat con manuales M06). M02–M07 + M08-S8.1..S8.4 en remoto.
+- **S8.5 está CONSTRUIDO, VERDE (24 tests pass + 1 skip + 0 warn) pero
+  SIN COMMITEAR** en el working tree. **Primer M08 con CAPA de
+  integración** real: `SkippableFact` invoca `bicep build` si está en
+  PATH; el skip es esperado en CI sin bicep. Sin commitear ahora
+  mismo (acotado a S8.5 + 3 índices):
+  - `?? examples/M08-DevOps-Automatizacion/S8.5-iac-bicep/` (nuevo)
+  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.5 + "5/8")
+  - ` M examples/README.md` (fila S8.5 + footer "⏳ M08 5/8")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y skills (`.claude/skills/**`). NUNCA `git add -A`.
-  - **Lección S8.4 (naming gotcha)**: el enum `Plataforma` chocaba con
-    el segmento de namespace `Plataforma`; resuelto renombrando a
-    `TipoPlataforma`. Apuntar en HANDOFF como precedente para
-    futuros submódulos cuyo dominio coincida con el segmento de
-    namespace.
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push:
   ```
@@ -60,14 +57,16 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M08-S8.5` — leer primero
-`doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.5-iac-bicep-v3.md`.
-**Reevaluar integración** — `bicep build` local + `az deployment sub
-what-if` son herramientas locales que sí aportan; podría ser el
-**primer M08 con CAPA de integración** (lección 2 del HANDOFF:
-SkippableFact si `bicep` no está en PATH). Para S8.6 (App Insights)
-parser KQL puro probablemente. Puerto launchSettings siguiente
-libre: **5109**.
+**Siguiente tarea concreta:** `M08-S8.6` — leer primero
+`doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.6-app-insights-monitor-v3.md`.
+**Reevaluar integración** — KQL no tiene CLI estándar trivial; el
+paquete `Microsoft.Azure.Kusto.Language` permite parser/validador
+puro de queries KQL (sin Azure), aporta valor pedagógico parecido a
+YamlDotNet en S8.2. **Pista para S8.6**: KQL parser + builder
+(queries comunes como request duration p95, exceptions per type),
+recomendador de alertas (slide N), parser del response shape de
+`az monitor app-insights query`. Puerto launchSettings siguiente
+libre: **5110**.
 
 > **Regla de proceso (memoria `feedback-esperar-confirmacion-push`)**:
 > en este repo **NUNCA `git push` sin un "sube" explícito** del usuario.

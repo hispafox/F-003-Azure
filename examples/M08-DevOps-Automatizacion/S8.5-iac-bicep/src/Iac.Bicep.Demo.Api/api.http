@@ -1,0 +1,50 @@
+### REST Client — S8.5 IaC con Bicep.
+### Comparativa + linter de .bicep + parser what-if.
+
+@host = http://localhost:5109
+
+### Salud
+GET {{host}}/health
+
+### Comparativa Bicep / ARM / Terraform (slide 3)
+GET {{host}}/iac/comparativa
+
+### Recomendar: solo Azure + sin Terraform → Bicep
+POST {{host}}/iac/recomendar
+Content-Type: application/json
+
+{ "soloAzure": true }
+
+### Recomendar: multi-cloud → Terraform
+POST {{host}}/iac/recomendar
+Content-Type: application/json
+
+{ "multiCloud": true }
+
+### Validar bicep OK (slide 6/11)
+POST {{host}}/iac/validar
+Content-Type: application/json
+
+{ "bicep": "targetScope = 'resourceGroup'\n\n@secure()\nparam cosmosConnectionString string\n\nparam appName string = 'app-ventas'\n\nresource plan 'Microsoft.Web/serverfarms@2023-12-01' = {\n  name: 'plan-ventas'\n  location: resourceGroup().location\n  sku: { name: 'S1' }\n}\n" }
+
+### Validar bicep con problemas: secreto literal + param sin @secure (slide 11)
+POST {{host}}/iac/validar
+Content-Type: application/json
+
+{ "bicep": "param dbPassword string\nparam appName string\n\nvar connection = 'Server=tcp:sql.db;Password=p@ssword123;User=admin'\n\nresource a 'Microsoft.Web/sites@2023-12-01' = {\n  name: appName\n}\n\noutput connectionString string = connection\n" }
+
+### Parsear what-if con Delete de Cosmos (riesgo alto, slide 14)
+POST {{host}}/iac/whatif/parsear
+Content-Type: application/json
+
+{ "output": "Note: The result may contain false positives.\n\n  - /subscriptions/x/resourceGroups/rg-ventas/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-ventas [Microsoft.DocumentDB/databaseAccounts]\n  + /subscriptions/x/resourceGroups/rg-ventas/providers/Microsoft.Web/sites/app-ventas [Microsoft.Web/sites]\n  ~ /subscriptions/x/resourceGroups/rg-ventas/providers/Microsoft.Web/serverfarms/plan-ventas [Microsoft.Web/serverfarms]\n  = /subscriptions/x/resourceGroups/rg-ventas/providers/Microsoft.Storage/storageAccounts/stventas [Microsoft.Storage/storageAccounts]\n" }
+
+### Plan + checklist del entregable
+POST {{host}}/iac/plan
+Content-Type: application/json
+
+{
+  "escenario": { "soloAzure": true },
+  "bicep": "targetScope = 'resourceGroup'\n@secure()\nparam connectionString string\n\nparam appName string\n\nresource a 'Microsoft.Web/sites@2023-12-01' = {\n  name: appName\n  location: resourceGroup().location\n}\n",
+  "whatIfOutput": "+ resource1 [Microsoft.Web/sites]"
+}

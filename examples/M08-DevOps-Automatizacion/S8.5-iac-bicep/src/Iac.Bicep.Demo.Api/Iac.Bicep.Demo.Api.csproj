@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.5 IaC con Bicep. PRIMER M08 con CAPA de integración:
+       `bicep build` es local + idempotente + sin Azure → el test de
+       integración invoca el CLI con SkippableFact (lección 2 del
+       HANDOFF). La lógica testeable principal es:
+         - linter de archivos .bicep (parámetros @secure, secretos
+           hardcoded, existing modifier, naming conventions)
+         - parser del output de `az deployment what-if` con riesgo
+           HIGH si se borra un recurso stateful
+         - comparativa Bicep vs ARM vs Terraform -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Iac.Bicep.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
