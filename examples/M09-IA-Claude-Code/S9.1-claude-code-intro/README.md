@@ -11,6 +11,8 @@
 >
 > 🧱 **Primer submódulo de M09**: cambio de dominio respecto a M01–M08.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el contratista de obras vs el manitas como analogía (Claude Code vs Copilot), los 4 modos de ejecución según la tarea, el `settings.json` como contrato firmado antes de dejar entrar al agente, hooks `PreToolUse`/`PostToolUse` y la checklist de onboarding de 10 puntos.
+
 ## Objetivo
 
 | Concepto | Dónde |
