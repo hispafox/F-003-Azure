@@ -29,22 +29,25 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
-| M09–M11 | pendientes |
+| M09 IA Claude Code | 🚧 1/7 (S9.1 hecho; S9.2–S9.5 + S9.P + S9.P2 pendientes) |
+| M10–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `4422b96`** = mi push previo
-  de `M08-S8.P Pipeline CI/CD practice`. M02–M07 + M08-S8.1..S8.P en
-  remoto.
-- **S8.P2 está CONSTRUIDO, VERDE (32 tests pass + 0 fail + 0 warn)
-  pero SIN COMMITEAR** en el working tree. Conceptual (lección 9): el
-  workflow real corre en GHA; lo testeable son el parser del publish
-  profile XML, el builder del workflow YAML y el recomendador
-  PublishProfile vs OIDC. Cierra M08 (8/8). Sin commitear ahora mismo
-  (acotado a S8.P2 + 3 índices):
-  - `?? examples/M08-DevOps-Automatizacion/S8.P2-practica-github-actions-publish-profile/` (nuevo)
-  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.P2 + "M08 completo 8/8")
-  - ` M examples/README.md` (fila S8.P2 + footer "M08 completo 8/8")
+- **`origin/main` = local `main` = commit `927d1c5`** = mi push previo
+  de `M08-S8.P2 GitHub Actions practice` (cierre M08 8/8). M02–M08
+  completos en remoto.
+- **S9.1 está CONSTRUIDO, VERDE (32 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. **Primer submódulo de M09**.
+  Cambio de dominio: Claude Code es la **herramienta** que el alumno
+  aprende, no algo que se despliega. Conceptual sin integración:
+  `FeatureRecommender` (modo + extended thinking + subagent + skill +
+  hook por tipo de tarea), `ToolComparison` (CC vs Copilot), y
+  `ProjectConfigBuilder` (`settings.json` recomendado del equipo).
+  Sin commitear ahora mismo (acotado a S9.1 + M09 README + 2 índices):
+  - `?? examples/M09-IA-Claude-Code/S9.1-claude-code-intro/` (nuevo)
+  - `?? examples/M09-IA-Claude-Code/README.md` (nuevo — primer M09)
+  - ` M examples/README.md` (fila S9.1 + footer "⏳ M09 1/7")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -52,19 +55,28 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M08-DevOps-Automatizacion/S8.P2-practica-github-actions-publish-profile \
-          examples/M08-DevOps-Automatizacion/README.md \
+  git add examples/M09-IA-Claude-Code \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M09` — primer submódulo de IA como
-herramienta de desarrollo (Claude Code, Copilot, MCP). Aún sin leer.
-Probable que tenga estructura distinta a los módulos previos
-(menos infra Azure, más workflow developer). **Reevaluar la receta
-en lectura del primer doc**. Puerto launchSettings siguiente libre:
-**5113**.
+**Siguiente tarea concreta:** `M09-S9.2` — leer primero
+`doc/M09-IA-Claude-Code/v3-actual/M09-S9.2-claude-code-casos-uso-v3.md`.
+Casos de uso (refactor, IaC, debugging). **Probable patrón**:
+clasificador de tareas (qué case se aplica), recomendador de prompts
+según objetivo, evaluador de calidad de prompt (vago vs específico).
+Puerto launchSettings siguiente libre: **5114**.
+
+**Lección S9.1 (dominio conceptual M09)**: a partir de M09 los
+ejemplos ya no tienen sus equivalentes "deployables a Azure". El
+patrón conceptual (3 clases puras + planner + CAPA 1/0/E2E) sigue
+funcionando perfectamente — solo cambia el *qué se modela*. En vez de
+"infraestructura Azure" modelamos "decisiones sobre la herramienta de
+IA": qué modo de ejecución para qué tarea, qué features activar
+(extended thinking, subagent, skill, hook), qué exclude patterns son
+obligatorios. Aporta valor pedagógico porque el alumno ve las
+heurísticas en código testeable, no solo en slides.
 
 **Lección S8.P2 (XML `<` en atributos)**: un test inicial pasó
 `userPWD="<password-larguisima>"` como literal en el XML. C# admite el

@@ -1,0 +1,77 @@
+### REST Client — S9.1 Claude Code intro.
+### Comparativa + feature recommender + settings.json builder.
+
+@host = http://localhost:5113
+
+### Salud
+GET {{host}}/health
+
+### Comparativa Claude Code vs GitHub Copilot (slide 5)
+GET {{host}}/cc/comparativa
+
+### Recomendar: necesita agente + MCP + multi-archivo + IDE → Combinacion
+POST {{host}}/cc/recomendar
+Content-Type: application/json
+
+{
+  "quieresAutocompletadoEnIde": true,
+  "necesitasAgenteQueEjecuta": true,
+  "proyectoMultiArchivo": true,
+  "necesitasMcp": true
+}
+
+### Recomendar: solo autocompletado → Copilot
+POST {{host}}/cc/recomendar
+Content-Type: application/json
+
+{ "quieresAutocompletadoEnIde": true, "tienesPresupuestoFijo": true }
+
+### Feature: análisis de logs → Pipe + log-analyst subagent (slide 12/18)
+POST {{host}}/cc/feature
+Content-Type: application/json
+
+{ "tarea": "AnalisisLogs" }
+
+### Feature: arquitectura compleja → Interactive + Extended Thinking (slide 15)
+POST {{host}}/cc/feature
+Content-Type: application/json
+
+{ "tarea": "Arquitectura", "esCompleja": true }
+
+### Feature: code review en CI/CD → Headless + PreToolUse hook (slide 16/19)
+POST {{host}}/cc/feature
+Content-Type: application/json
+
+{ "tarea": "CodeReview", "enPipelineCiCd": true }
+
+### Settings: equipo .NET 10 con infraestructura y compliance
+POST {{host}}/cc/settings
+Content-Type: application/json
+
+{
+  "lenguajePrincipal": "csharp",
+  "framework": "net10.0",
+  "cursoEnProduccion": true,
+  "requiereCompliance": true,
+  "tocaInfraestructura": true
+}
+
+### Plan + checklist completo
+POST {{host}}/cc/plan
+Content-Type: application/json
+
+{
+  "herramienta": {
+    "quieresAutocompletadoEnIde": true,
+    "necesitasAgenteQueEjecuta": true,
+    "necesitasMcp": true
+  },
+  "equipo": {
+    "lenguajePrincipal": "csharp",
+    "framework": "net10.0",
+    "cursoEnProduccion": true,
+    "requiereCompliance": true,
+    "tocaInfraestructura": true
+  },
+  "tareaConcreta": { "tarea": "GenerarIac", "esRecurrente": true }
+}

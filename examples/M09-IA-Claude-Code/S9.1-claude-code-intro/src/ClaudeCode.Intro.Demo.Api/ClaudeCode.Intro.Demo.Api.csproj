@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S9.1 Claude Code intro. Conceptual (lección 9 del HANDOFF):
+       Claude Code es la herramienta que el alumno aprende a usar; no
+       se "despliega". Lo testeable son las heurísticas pedagógicas:
+         - recomendador de modo de ejecución (interactive/one-shot/
+           pipe/headless) y features (extended thinking, subagent,
+           skill, hook) según el tipo de tarea
+         - comparativa Claude Code vs Copilot (slide 5) + decisión
+           por escenario
+         - builder del settings.json del equipo (allowed tools,
+           exclude patterns, system prompt, hooks recomendados)
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ClaudeCode.Intro.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
