@@ -10,6 +10,8 @@
 > heurísticas: clasificador de caso, generador de template y
 > evaluador de calidad del prompt del alumno.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el recetario del chef profesional como analogía (15 recetas + 4 ingredientes fundamentales), el clasificador de los 15 casos de uso, los cuatro ingredientes del prompt (contexto, constraints, formato de salida, criterio de éxito) y la evolución prompts personales → templates en `.claude/templates/` → skills versionados.
+
 ## Objetivo
 
 | Concepto | Dónde |
