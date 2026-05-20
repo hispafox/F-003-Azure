@@ -9,6 +9,8 @@
 > de migración (slide 18) y elección de certificado de firma (slide 8).
 > Lógica pura, sin instaladores reales — el empaquetado real va en S7.5.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la mudanza de oficina como analogía, MSIX como sustituto oficial de ClickOnce, los tres caminos A/B/C de migración y el certificado correcto por escenario (Enterprise CA en el 80% de casos).
+
 ## Objetivo
 
 | Concepto | Dónde |

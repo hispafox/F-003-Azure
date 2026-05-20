@@ -9,6 +9,8 @@
 > nombre final del `.msix`, elegir el canal de distribución y la
 > política de auto-update.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el pasaporte y el embarque como analogía, el manifest como identidad legal del paquete, naming determinista del `.msix`, los cuatro canales (Store/AppInstaller/Intune/winget) y la clave privada viviendo en Key Vault con `AzureSignTool`.
+
 ## Objetivo
 
 | Concepto | Dónde |

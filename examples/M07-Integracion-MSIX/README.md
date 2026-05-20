@@ -27,6 +27,18 @@ forzar integración cuando no aporta).
 
 ✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
 
+> 📘 **Manuales del alumno** (módulo M07 completo):
+> [S7.1](S7.1-service-bus-event-grid-avanzado/MANUAL.md) ·
+> [S7.2](S7.2-diseno-event-driven/MANUAL.md) ·
+> [S7.3](S7.3-api-management/MANUAL.md) ·
+> [S7.4](S7.4-clickonce-vs-msix/MANUAL.md) ·
+> [S7.5](S7.5-msix-empaquetado-distribucion/MANUAL.md) ·
+> [S7.6](S7.6-msix-auto-update/MANUAL.md) ·
+> [S7.7](S7.7-migracion-clickonce-msix/MANUAL.md) ·
+> [S7.P](S7.P-practica-msix/MANUAL.md) ·
+> [S7.P2](S7.P2-practica-msix-wizard/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
+
 ## Patrón de tests
 
 - **CAPA 1 · Unit**: la lógica de decisión de mensajería como funciones

@@ -8,6 +8,8 @@
 > (patrón de evento, cuándo aplicarlo, Saga, anti-patterns) y un **Event
 > Store en memoria con replay + snapshot** — lógica pura, sin Azure.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el coro y la sinfónica (choreography vs orchestration), los tres patrones de evento (Notification/Carried-State/Sourcing), los cuatro anti-patterns del slide 20 y por qué los eventos describen pasado, no comandos.
+
 ## Objetivo
 
 | Concepto | Dónde |

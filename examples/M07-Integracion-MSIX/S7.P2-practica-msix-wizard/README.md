@@ -10,6 +10,8 @@
 > (2) **catálogo de errores comunes** con código + causa + fix (slide 16),
 > (3) **decisión Wizard vs CLI** según el contexto (slide 17).
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el cambio automático vs manual como analogía, los cuatro comandos CLI que el wizard ejecuta por debajo, el catálogo de los 6 errores típicos (con `0x80073CFD` a la cabeza) y la decisión Wizard vs CLI según el escenario.
+
 ## Objetivo
 
 | Concepto | Dónde |

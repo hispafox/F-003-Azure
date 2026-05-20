@@ -11,6 +11,8 @@
 > se construye en Visual Studio; aquí modelamos la **máquina de
 > pasos + el check Publisher↔Cert + los artefactos canónicos**.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la receta de cocina con tiempos como analogía, los 8 pasos con criterios de validación, el error #1 (Publisher↔Cert ordinal exacto), los artefactos canónicos para comparar y la checklist de 11 ítems del entregable.
+
 ## Objetivo
 
 | Concepto | Dónde |

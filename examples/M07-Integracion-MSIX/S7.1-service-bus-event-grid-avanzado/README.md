@@ -9,6 +9,8 @@
 > deduplicación, elección de servicio, workflow de DLQ) — lógica pura
 > testeable **sin broker**.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la centralita de cartas certificadas como analogía, los filtros SQL evaluados en el broker, deduplicación por MessageId con ventana, el árbol de decisión de servicio con sus costes y los anti-patterns del slide 31.
+
 ## Objetivo
 
 | Concepto | Dónde |

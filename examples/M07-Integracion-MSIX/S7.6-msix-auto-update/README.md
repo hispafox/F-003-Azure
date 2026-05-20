@@ -9,6 +9,8 @@
 > comparación de versiones (incluido rollback al estilo "republicar la
 > previa con build+1", slide 8).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: las actualizaciones del coche conectado como analogía, el `.appinstaller` como contrato del auto-update, canary con cohortes deterministas y monotónicas por SHA-256, staged rollout 5/25/50/100 y el rollback "build+1" del slide 8.
+
 ## Objetivo
 
 | Concepto | Dónde |

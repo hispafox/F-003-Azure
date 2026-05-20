@@ -9,6 +9,8 @@
 > Portal; aquí se materializa el *cómo razona el gateway* en cada
 > petición.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el control de aduanas como analogía, el orden de las policies inbound (401/403/429), los tres esquemas de versionado (Segment como recomendación firme) y el árbol de decisión de tier (0 € a 2200 €/mes).
+
 ## Objetivo
 
 | Concepto | Dónde |

@@ -10,6 +10,8 @@
 > fases con criterios de salida testeables** (solo se avanza si todos
 > los criterios pasan).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la mudanza por fases como analogía, mapper ClickOnce → MSIX con normalización de versión, evaluador de compatibilidad (bloqueador/precaución/OK + PSF) y plan de coexistencia ClickOnce ≥ 4 semanas con rollback build+1.
+
 ## Objetivo
 
 | Concepto | Dónde |
