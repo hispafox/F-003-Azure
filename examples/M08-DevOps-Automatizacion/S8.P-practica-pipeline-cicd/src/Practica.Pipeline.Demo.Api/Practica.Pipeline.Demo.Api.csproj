@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S8.P Práctica Pipeline CI/CD. Conceptual (lección 9 del HANDOFF):
+       el pipeline en sí se monta en ADO o GitHub Actions; aquí
+       extraemos la lógica testeable que sustenta la práctica:
+         - preflight de requisitos (OIDC, plan S1+, slot staging, etc.)
+         - generador del esqueleto de stages (build/test/deploy/smoke/
+           approval/swap/auto-rollback) por plataforma + opciones
+         - evaluador de smoke tests (http code + latencia + error rate)
+           que decide deploy OK / rollback necesario
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Practica.Pipeline.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

@@ -21,10 +21,18 @@ YAML de pipeline) — se reevalúa por submódulo.
 | [S8.4](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.4-ado-vs-github-actions-v3.md) | ADO vs GitHub Actions (decisión, equivalencias YAML, coste) | [`S8.4-ado-vs-github-actions/`](S8.4-ado-vs-github-actions/README.md) | ✅ Disponible |
 | [S8.5](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.5-iac-bicep-v3.md) | IaC con Bicep (linter, what-if, integración `bicep build`) | [`S8.5-iac-bicep/`](S8.5-iac-bicep/README.md) | ✅ Disponible |
 | [S8.6](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.6-app-insights-monitor-v3.md) | Application Insights + monitoring (KQL, alertas, parser de respuesta) | [`S8.6-app-insights-monitor/`](S8.6-app-insights-monitor/README.md) | ✅ Disponible |
-| S8.P | Práctica — Pipeline CI/CD | — | ⏳ Pendiente |
+| [S8.P](../../doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.P-practica-pipeline-cicd-v3.md) | Práctica — Pipeline CI/CD (preflight, stages, smoke + auto-rollback) | [`S8.P-practica-pipeline-cicd/`](S8.P-practica-pipeline-cicd/README.md) | ✅ Disponible |
 | S8.P2 | Práctica — GitHub Actions + publish profile | — | ⏳ Pendiente |
 
-⏳ **Módulo M08 en construcción** (6/8).
+⏳ **Módulo M08 en construcción** (7/8).
+
+> 📘 **Manuales del alumno disponibles** (S8.1–S8.5):
+> [S8.1](S8.1-azure-devops-repos-boards/MANUAL.md) ·
+> [S8.2](S8.2-pipelines-cicd-yaml/MANUAL.md) ·
+> [S8.3](S8.3-despliegue-automatizado/MANUAL.md) ·
+> [S8.4](S8.4-ado-vs-github-actions/MANUAL.md) ·
+> [S8.5](S8.5-iac-bicep/MANUAL.md).
+> S8.6, S8.P y S8.P2 pendientes. Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
 
 ## Patrón de tests
 

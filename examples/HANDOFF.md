@@ -28,43 +28,45 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M05 Almacenamiento y BBDD | ✅ completo 7/7 |
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
-| M08 DevOps y Automatización | 🚧 6/8 (S8.1–S8.6 hechos; S8.P + S8.P2 pendientes) |
+| M08 DevOps y Automatización | 🚧 7/8 (S8.1–S8.6 + S8.P hechos; S8.P2 pendiente) |
 | M09–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `1f3ee90`** = mi push previo
-  de `M08-S8.5 IaC con Bicep (con CAPA integración)`. M02–M07 +
-  M08-S8.1..S8.5 en remoto.
-- **S8.6 está CONSTRUIDO, VERDE (35 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. **Conceptual sin integración**
-  (lección 9 del HANDOFF): App Insights no se emula local, así que la
-  receta es CAPA 1 + CAPA 0 + CAPA E2E, sin `SkippableFact` forzado.
-  Sin commitear ahora mismo (acotado a S8.6 + 3 índices):
-  - `?? examples/M08-DevOps-Automatizacion/S8.6-app-insights-monitor/` (nuevo)
-  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.6 + "6/8")
-  - ` M examples/README.md` (fila S8.6 + footer "⏳ M08 6/8")
+- **`origin/main` = local `main` = commit `539473c`** = mi push previo
+  de `M08-S8.6 App Insights y Azure Monitor`. M02–M07 + M08-S8.1..S8.6
+  en remoto.
+- **S8.P está CONSTRUIDO, VERDE (32 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. Conceptual (lección 9 del
+  HANDOFF): el pipeline real corre en ADO/GHA, lo testeable son las
+  piezas decisorias (preflight, stages, smoke evaluator). Sin
+  commitear ahora mismo (acotado a S8.P + 3 índices):
+  - `?? examples/M08-DevOps-Automatizacion/S8.P-practica-pipeline-cicd/` (nuevo)
+  - ` M examples/M08-DevOps-Automatizacion/README.md` (fila S8.P + "7/8")
+  - ` M examples/README.md` (fila S8.P + footer "⏳ M08 7/8")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
-    `MANUAL.md` de M07 (S7.1–S7.7 + S7.P/S7.P2) y mods a sus READMEs.
-    También tocan `.claude/skills/**`. NUNCA `git add -A`.
+    `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M08-DevOps-Automatizacion/S8.6-app-insights-monitor \
+  git add examples/M08-DevOps-Automatizacion/S8.P-practica-pipeline-cicd \
           examples/M08-DevOps-Automatizacion/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M08-S8.P` — leer primero
-`doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.P-practica-pipeline-cicd-v3.md`.
-Es práctica → pipeline CI/CD end-to-end. **Probable patrón**:
-generador de YAML de pipeline (build/test/deploy/smoke), validador de
-gates (manual approval, environment), evaluador de smoke tests post-
-deploy. Puerto launchSettings siguiente libre: **5111**.
+**Siguiente tarea concreta:** `M08-S8.P2` — leer primero
+`doc/M08-DevOps-Automatizacion/v3-actual/M08-S8.P2-practica-github-actions-publish-profile-v1.md`.
+Es práctica → GitHub Actions con publish profile (sin OIDC, para
+repos personales o forks). **Probable patrón**: validador del
+secreto `AZURE_WEBAPP_PUBLISH_PROFILE`, generador del workflow
+`.github/workflows/deploy.yml`, parser del XML del publish profile
+(extrae app name + slot, detecta credenciales rotadas), recomendador
+de qué pasar a OIDC vs cuándo mantener publish profile. Puerto
+launchSettings siguiente libre: **5112**.
 
 **Lección S8.6 (Coercer JSON → object?)**: en un `switch` expression
 con `JsonValueKind.Number`, una rama ternaria `TryGetInt64(out i) ? i

@@ -1,0 +1,99 @@
+### REST Client — S8.P Práctica Pipeline CI/CD.
+### Preflight + esqueleto de stages + smoke + plan.
+
+@host = http://localhost:5111
+
+### Salud
+GET {{host}}/health
+
+### Preflight: escenario ideal (todo OK, listo para empezar)
+POST {{host}}/pipeline/preflight
+Content-Type: application/json
+
+{
+  "tieneOrgADO": true,
+  "tieneRepoConPushAccess": true,
+  "tieneSuscripcionAzure": true,
+  "esAdminProyectoADO": true,
+  "esOwnerOUserAccessAdmin": true,
+  "planS1OSuperior": true,
+  "slotStagingExiste": true,
+  "tieneServiceConnectionOidc": true,
+  "tieneAppRegistration": true,
+  "tieneAzCliInstalado": true
+}
+
+### Preflight: alumno bloqueado (sin slot staging + sin plan S1)
+POST {{host}}/pipeline/preflight
+Content-Type: application/json
+
+{
+  "tieneOrgADO": true,
+  "tieneRepoConPushAccess": true,
+  "tieneSuscripcionAzure": true,
+  "esAdminProyectoADO": true,
+  "esOwnerOUserAccessAdmin": true,
+  "planS1OSuperior": false,
+  "slotStagingExiste": false
+}
+
+### Esqueleto: ADO + OIDC + aprobación + auto-rollback (recomendado)
+POST {{host}}/pipeline/etapas
+Content-Type: application/json
+
+{
+  "plataforma": "AzureDevOps",
+  "usarOidc": true,
+  "aprobacionEnProduccion": true,
+  "autoRollbackEnFallo": true,
+  "notificarTeamsEnFallo": true,
+  "escanearVulnerables": true
+}
+
+### Esqueleto: GitHub Actions + OIDC + auto-rollback
+POST {{host}}/pipeline/etapas
+Content-Type: application/json
+
+{
+  "plataforma": "GitHubActions",
+  "usarOidc": true,
+  "aprobacionEnProduccion": true,
+  "autoRollbackEnFallo": true
+}
+
+### Smoke test: deploy OK
+POST {{host}}/pipeline/smoke
+Content-Type: application/json
+
+{
+  "medidas": { "httpCode": 200, "latenciaMediaSegundos": 0.4, "errorRatePorcentaje": 0.1 }
+}
+
+### Smoke test: rollback necesario (HTTP 503 + latencia 3s)
+POST {{host}}/pipeline/smoke
+Content-Type: application/json
+
+{
+  "medidas": { "httpCode": 503, "latenciaMediaSegundos": 3.5, "errorRatePorcentaje": 12.4 }
+}
+
+### Plan completo + checklist
+POST {{host}}/pipeline/plan
+Content-Type: application/json
+
+{
+  "preflight": {
+    "tieneOrgADO": true, "tieneRepoConPushAccess": true,
+    "tieneSuscripcionAzure": true, "esAdminProyectoADO": true,
+    "esOwnerOUserAccessAdmin": true, "planS1OSuperior": true,
+    "slotStagingExiste": true, "tieneServiceConnectionOidc": true,
+    "tieneAppRegistration": true, "tieneAzCliInstalado": true
+  },
+  "opciones": {
+    "plataforma": "AzureDevOps", "usarOidc": true,
+    "aprobacionEnProduccion": true, "autoRollbackEnFallo": true
+  },
+  "simulacionSmoke": {
+    "httpCode": 200, "latenciaMediaSegundos": 0.6, "errorRatePorcentaje": 0.2
+  }
+}
