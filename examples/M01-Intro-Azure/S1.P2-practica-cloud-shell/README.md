@@ -9,6 +9,8 @@
 > no hay código .NET. La validación se hace con `06-smoke-tests.sh`, que
 > reemplaza al `dotnet test` que verías en el resto de ejemplos.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: por qué Cloud Shell es prerrequisito mental del curso, las cuatro herramientas que ganas (RG con tags, RBAC, JMESPath, costes) y cuándo elegir Cloud Shell vs `az` local.
+
 ## Qué vas a hacer
 
 Esta es la **práctica más simple del curso**: un primer contacto con Azure

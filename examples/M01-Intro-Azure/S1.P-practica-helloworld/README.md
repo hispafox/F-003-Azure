@@ -7,6 +7,8 @@
 > ℹ️ La práctica está redactada sobre **.NET 8** (`dotnet:8` en runtime). Aquí
 > usamos **.NET 10 LTS** (`DOTNETCORE:10.0`) siguiendo la convención del repo.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: por qué esta es la primera práctica del curso, el modelo mental Suscripción → RG → Plan → App, y la idea de App Settings sin redesplegar.
+
 ## Qué vas a hacer
 
 Esta es la **primera práctica del curso** y cubre el ciclo completo end-to-end:

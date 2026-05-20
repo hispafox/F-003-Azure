@@ -1,8 +1,14 @@
 # M01 — Intro Azure · ejemplos
 
 Ejemplos de código que acompañan al [Módulo 1 — Intro Azure](../../doc/M01-Intro-Azure).
-Por ahora solo está la práctica. Los submódulos teóricos (S1.1-S1.5) son
+Por ahora solo están las dos prácticas. Los submódulos teóricos (S1.1-S1.5) son
 conceptuales y no llevan ejemplo de código asociado.
+
+> 📘 **Manuales del alumno**:
+> [S1.P](S1.P-practica-helloworld/MANUAL.md) ·
+> [S1.P2](S1.P2-practica-cloud-shell/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico de la práctica explicando
+> el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
 
 ## Submódulos cubiertos
 
