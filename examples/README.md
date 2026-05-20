@@ -92,6 +92,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.3 — CC + infraestructura (parser requirements, prompts, audit) | [ClaudeCode.Infra.Demo.Api](M09-IA-Claude-Code/S9.3-cc-infraestructura/README.md) | ✅ Disponible |
 | [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.4 — MCP y herramientas externas (parser config, recomendador, seguridad) | [ClaudeCode.Mcp.Demo.Api](M09-IA-Claude-Code/S9.4-mcp-herramientas/README.md) | ✅ Disponible |
 | [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.5 — Buenas prácticas y limitaciones (anti-patterns, 7 secciones, acelera vs frena) | [ClaudeCode.Limites.Demo.Api](M09-IA-Claude-Code/S9.5-buenas-practicas-limitaciones/README.md) | ✅ Disponible |
+| [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.P — Práctica CC + MCP end-to-end (preflight, evaluador, comparativa) | [Practica.CcMcp.Demo.Api](M09-IA-Claude-Code/S9.P-practica-cc-mcp/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
@@ -100,7 +101,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 ✅ **Módulo M06 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
 ✅ **Módulo M08 completo** (6 submódulos + 2 prácticas, 8/8).
-⏳ **Módulo M09 en construcción** (5/7 — S9.1–S9.5 disponibles).
+⏳ **Módulo M09 en construcción** (6/7 — S9.1–S9.5 + S9.P disponibles).
 
 ## Cómo usar un ejemplo
 

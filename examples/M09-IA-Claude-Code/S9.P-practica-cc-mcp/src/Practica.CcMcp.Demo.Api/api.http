@@ -1,0 +1,96 @@
+### REST Client — S9.P Práctica Claude Code + MCP.
+### Preflight + evaluador de ejercicios + comparativa de prompts.
+
+@host = http://localhost:5118
+
+### Salud
+GET {{host}}/health
+
+### Preflight: alumno listo
+POST {{host}}/practica/preflight
+Content-Type: application/json
+
+{
+  "tieneNode18OSuperior": true,
+  "claudeInstaladoYAutenticado": true,
+  "tieneApiKey": true,
+  "tieneAzCli": true,
+  "tieneGhCli": true,
+  "tieneAccesoAdo": true,
+  "tieneRepoLocal": true,
+  "claudeMdConfigurado": true
+}
+
+### Preflight: alumno bloqueado (sin Node, sin claude)
+POST {{host}}/practica/preflight
+Content-Type: application/json
+
+{
+  "tieneRepoLocal": true,
+  "tieneAzCli": true
+}
+
+### Evaluar ejercicio 1: servicio compila + tests verdes + convenciones
+POST {{host}}/practica/ejercicio
+Content-Type: application/json
+
+{
+  "ejercicio": "GenerarServicioCompleto",
+  "compilaOLintOk": true,
+  "testsOValidatePasa": true,
+  "outputAplicaConvenciones": true
+}
+
+### Evaluar ejercicio 2: Bicep compila pero validate falla
+POST {{host}}/practica/ejercicio
+Content-Type: application/json
+
+{
+  "ejercicio": "GenerarBicep",
+  "compilaOLintOk": true,
+  "testsOValidatePasa": false,
+  "outputAplicaConvenciones": true,
+  "comentario": "validate falla por managed identity sin asignar"
+}
+
+### Comparativa de prompts (slide 12)
+POST {{host}}/practica/comparativa
+Content-Type: application/json
+
+{
+  "vago": "Crea un servicio de pedidos",
+  "medio": "Crea un PedidoService con CRUD para Cosmos DB en .NET 10",
+  "detallado": "Crea un PedidoService.cs para .NET 10 con Cosmos DB. Mantén las convenciones del proyecto. Output: archivos en src/Application/Orders. Criterio éxito: tests verdes y sin warnings."
+}
+
+### Plan completo + checklist
+POST {{host}}/practica/plan
+Content-Type: application/json
+
+{
+  "preflight": {
+    "tieneNode18OSuperior": true,
+    "claudeInstaladoYAutenticado": true,
+    "tieneApiKey": true,
+    "tieneAzCli": true,
+    "tieneRepoLocal": true,
+    "claudeMdConfigurado": true
+  },
+  "evidencias": [
+    {
+      "ejercicio": "GenerarServicioCompleto",
+      "compilaOLintOk": true,
+      "testsOValidatePasa": true,
+      "outputAplicaConvenciones": true
+    },
+    {
+      "ejercicio": "GenerarBicep",
+      "compilaOLintOk": true,
+      "testsOValidatePasa": false,
+      "outputAplicaConvenciones": true
+    }
+  ],
+  "promptVago": "Crea un servicio",
+  "promptMedio": "Crea un PedidoService con CRUD para Cosmos DB en .NET 10",
+  "promptDetallado": "Crea un PedidoService.cs para .NET 10 con Cosmos DB. Mantén las convenciones del proyecto. Output: archivos en src/Application/Orders. Criterio éxito: tests verdes y sin warnings."
+}

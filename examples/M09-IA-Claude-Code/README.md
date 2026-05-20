@@ -21,10 +21,10 @@ APIs externas.
 | [S9.3](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.3-cc-infraestructura-v3.md) | CC + infraestructura (parser requirements, prompts canónicos, audit) | [`S9.3-cc-infraestructura/`](S9.3-cc-infraestructura/README.md) | ✅ Disponible |
 | [S9.4](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md) | MCP y herramientas externas (parser config, recomendador, seguridad) | [`S9.4-mcp-herramientas/`](S9.4-mcp-herramientas/README.md) | ✅ Disponible |
 | [S9.5](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md) | Buenas prácticas y limitaciones (anti-patterns, 7 secciones, acelera vs frena) | [`S9.5-buenas-practicas-limitaciones/`](S9.5-buenas-practicas-limitaciones/README.md) | ✅ Disponible |
-| S9.P | Práctica — CC + MCP end-to-end | — | ⏳ Pendiente |
+| [S9.P](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.P-practica-cc-mcp-v3.md) | Práctica — CC + MCP end-to-end (preflight, evaluador, comparativa) | [`S9.P-practica-cc-mcp/`](S9.P-practica-cc-mcp/README.md) | ✅ Disponible |
 | S9.P2 | Práctica — primer comando con Claude Code | — | ⏳ Pendiente |
 
-⏳ **Módulo M09 en construcción** (5/7).
+⏳ **Módulo M09 en construcción** (6/7).
 
 ## Patrón de tests
 

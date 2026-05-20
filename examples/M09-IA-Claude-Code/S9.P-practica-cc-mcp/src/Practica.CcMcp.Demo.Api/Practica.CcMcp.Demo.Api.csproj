@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S9.P Práctica Claude Code + MCP. Conceptual (lección 9):
+       el alumno ejecuta los 8 ejercicios en su terminal. Aquí
+       extraemos la lógica testeable que sustenta la práctica:
+         - preflight (Node 18+, claude version, API key, az/gh CLI)
+         - evaluador de ejercicios (resultados booleanos + sugerencias)
+         - comparador de prompts (vago vs medio vs detallado del
+           slide 12) reutilizando la idea de scoring del S9.2/S9.5
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Practica.CcMcp.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

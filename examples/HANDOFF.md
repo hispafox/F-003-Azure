@@ -29,28 +29,27 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
-| M09 IA Claude Code | 🚧 5/7 (S9.1–S9.5 hechos; S9.P + S9.P2 pendientes) |
+| M09 IA Claude Code | 🚧 6/7 (S9.1–S9.5 + S9.P hechos; S9.P2 pendiente) |
 | M10–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `f3d5e88`** = mi push previo
-  de `M09-S9.4 MCP and external tools`. M02–M08 + M09-S9.1..S9.4 en
-  remoto.
-- **S9.5 está CONSTRUIDO, VERDE (44 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. Quinto submódulo de M09; cierra
-  los 5 submódulos teóricos. Conceptual sin integración:
-  `AntiPatternDetector` (los 10 anti-patterns del slide 13 detectados
-  por frases canónicas), `PromptStructureValidator` (las 7 secciones
-  del slide 12: contexto/objetivo/constraints/input/output/examples/DoD
-  con pesos ponderados — complementa al de 4 ingredientes del S9.2),
-  `AceleraOFrenaClassifier` (slide 5: boilerplate/IaC/refactor mecánico
-  → Acelera; lógica negocio compleja/arquitectura/perf/seguridad/race
-  conditions → Frena). Sin commitear ahora mismo (acotado a S9.5 + M09
-  README + 2 índices):
-  - `?? examples/M09-IA-Claude-Code/S9.5-buenas-practicas-limitaciones/` (nuevo)
-  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.5 + "5/7")
-  - ` M examples/README.md` (fila S9.5 + footer "⏳ M09 5/7")
+- **`origin/main` = local `main` = commit `759e037`** = mi push previo
+  de `M09-S9.5 best practices and limitations`. M02–M08 + M09-S9.1..S9.5
+  en remoto.
+- **S9.P está CONSTRUIDO, VERDE (34 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. Primera práctica de M09.
+  Conceptual sin integración: `PracticaPreflight` (Node 18+, claude
+  autenticado, API key, repo local como bloqueantes; az/gh CLI y
+  CLAUDE.md como avisos), `EjercicioEvaluator` (8 ejercicios del slide
+  3-7/11-13 evaluados por compila + tests + convenciones; cada uno con
+  sugerencia específica de fix), `PromptComparison` (3 niveles del
+  slide 12 puntuados sobre 100 con los 4 ingredientes canónicos; delta
+  vago→detallado como métrica clave). Sin commitear ahora mismo
+  (acotado a S9.P + M09 README + 2 índices):
+  - `?? examples/M09-IA-Claude-Code/S9.P-practica-cc-mcp/` (nuevo)
+  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.P + "6/7")
+  - ` M examples/README.md` (fila S9.P + footer "⏳ M09 6/7")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -58,21 +57,21 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M09-IA-Claude-Code/S9.5-buenas-practicas-limitaciones \
+  git add examples/M09-IA-Claude-Code/S9.P-practica-cc-mcp \
           examples/M09-IA-Claude-Code/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M09-S9.P` — leer primero
-`doc/M09-IA-Claude-Code/v3-actual/M09-S9.P-practica-cc-mcp-v3.md`.
-Práctica: montar workflow completo CC + MCP a ADO o GitHub.
-**Probable patrón**: preflight (CC instalado + API key + token MCP +
-permisos), generador del workflow (lee work item → genera código →
-ejecuta tests → crea PR → actualiza work item), checker del log de
-acciones (slide 10/12 de S9.4). Puerto launchSettings siguiente
-libre: **5118**.
+**Siguiente tarea concreta:** `M09-S9.P2` — leer primero
+`doc/M09-IA-Claude-Code/v3-actual/M09-S9.P2-practica-claude-code-primer-comando-v1.md`.
+Práctica simplificada (primer comando con Claude Code, versión
+introductoria). **Probable patrón**: preflight más ligero,
+recomendador del primer comando según objetivo del alumno, evaluador
+del primer output (¿genera código? ¿hace falta iterar?). Cierra M09
+con 7/7. Puerto launchSettings siguiente
+libre: **5119**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten
