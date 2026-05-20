@@ -24,6 +24,18 @@ Cosmos DB) desde sus SDKs. El patrón de tests vuelve al de M02
 
 ✅ **Módulo M05 completo** (5 submódulos + 2 prácticas, 7/7).
 
+> 📘 **Manuales del alumno** (módulo M05 completo):
+> [S5.1](S5.1-azure-storage/MANUAL.md) ·
+> [S5.2](S5.2-azure-sql-database/MANUAL.md) ·
+> [S5.3](S5.3-cosmosdb/MANUAL.md) ·
+> [S5.4](S5.4-managed-identity/MANUAL.md) ·
+> [S5.5](S5.5-backups-dr/MANUAL.md) ·
+> [S5.P](S5.P-practica-cosmos-managed-identity/MANUAL.md) ·
+> [S5.P2](S5.P2-practica-table-storage-crud/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo
+> explicando el *para qué*, las decisiones y la puesta en marcha guiada
+> para el alumno.
+
 ## Coste
 
 Casi todo es **~0 €**: Storage Account guarda pocos KB en las demos,

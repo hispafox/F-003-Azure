@@ -7,6 +7,11 @@
 > nuevo. El valor es la **lógica de decisión** de backup/DR/retención y
 > el walkthrough de recuperación con soft delete.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: cómo diseñar un plan de DR (RPO/RTO, criticidad,
+> compliance), qué trae cada servicio "de fábrica" y por qué probar el
+> backup es lo que separa un plan de una esperanza.
+
 ## Objetivo
 
 Codificar las tres decisiones de DR y poder generar un plan:

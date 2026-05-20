@@ -5,6 +5,10 @@ por casilla y corrige cualquier FALTA. No entregues con FALTAs.
 
 ## A. Reglas duras de formato
 
+- [ ] **Línea de fecha de creación** presente en la cabecera, formato
+      `*Creado: YYYY-MM-DD HH:MM ±ZZZZ*`, capturada con `date` real
+      (no inventada). En reescrituras, `· Actualizado: …` añadido sin
+      borrar el `Creado:`.
 - [ ] **Headings en texto plano** — ningún `#`/`##`/`###` contiene
       cursiva (`_x_`/`*x*`), código (`` `x` ``) ni enlaces. Si lo lleva,
       muévelo al cuerpo.
@@ -105,3 +109,91 @@ por casilla y corrige cualquier FALTA. No entregues con FALTAs.
 - [ ] No se han ejecutado apps (`dotnet run`/`func start`/`npm run`).
 - [ ] El manual nuevo (y los enlaces añadidos) no tienen *junk*
       (BOMs, CRLF si el repo es LF — `.gitattributes` fija `eol=lf`).
+
+## J. escritura-humana (OBLIGATORIO — bloquea entrega si falla)
+
+> Si falla cualquier casilla de este bloque, **no entregues**: reescribe
+> la sección afectada y vuelve a pasar. Es la diferencia entre
+> "documentación que enseña" y "documentación que rellena espacio".
+
+### J.1 Aperturas y cierres
+
+- [ ] §1 **no abre** con callout-tesis-cápsula. Abre con afirmación de
+      voz de formador o mini-historia.
+- [ ] §2 abre con una **historia real o plausible** (desastre, alumno,
+      descubrimiento, antes/después) que ancla el submódulo.
+- [ ] Cero aperturas con "Imagina que…", "En este capítulo veremos…",
+      "Quédate con esta imagen…", "Aquí está la idea clave…",
+      "Si tengo que resumir esto en una idea:", "Vamos al lío:".
+- [ ] §15 cierra con **gancho** al siguiente submódulo / pregunta /
+      provocación. **Sin** "Si solo te llevas una frase…", "Hemos visto…",
+      "En conclusión…".
+
+### J.2 Estructura y ritmo
+
+- [ ] Cero **tripletes simétricos** ("Tres cosas a entender" con tres
+      bullets de longitud similar). Asimetría deliberada: dos cosas y
+      un matiz, uno largo y otro corto y un aparte.
+- [ ] Cero **frase-cápsula como entrega por defecto** ("No es A: es B.",
+      "Esto es Y. Punto.", "La respuesta corta es X."). Una cápsula en
+      su clímax sí; una por sección no.
+- [ ] Cero **aforismos en bucle**: más de dos "no es X, es Y" por
+      página → desármalos.
+- [ ] **Guion largo `—`** controlado: máximo ~12-15 en todo el documento.
+      Sustituye la mitad por `:`, `.` o coma.
+- [ ] **Párrafos asimétricos**: nunca 3 párrafos seguidos de la misma
+      longitud. Mezcla largo denso + corto + frase suelta.
+- [ ] **Negritas con moderación** y sin abuso decorativo en cada bullet.
+
+### J.3 Voz y storytelling
+
+- [ ] **Tutear** en todo el manual.
+- [ ] **3-6 historias** distribuidas (al menos una "del desastre" o
+      "del alumno" en §1-§2 que ancle el tema).
+- [ ] **1 analogía vertebradora desarrollada** (≥3 párrafos con detalle
+      sensorial) en §4 + retorno a esa analogía en otra sección.
+- [ ] **3-5 analogías** totales (la vertebradora + puntuales).
+- [ ] **6-10 toques de humor** distribuidos *asimétricamente* (ironía
+      seca, autocrítica, understatement, hipérbole calculada). No uno
+      por sección como un metrónomo.
+- [ ] **Opinión con matiz** en cada decisión importante ("Yo iría con
+      X. Aunque si tu caso es Y, Z puede ser mejor.").
+
+### J.4 Calcos, jerga y muletillas — grep obligatorio
+
+Pasa `grep -niE` contra el archivo con estos patrones. Si alguno
+aparece, reescribe:
+
+```
+con esteroides|estado del arte|modelos frontera
+abrir la caja|abrimos la caja|throughline
+ideas metidas|limpiar (las )?ideas|aguanta toda la frase
+caso de uso|casos de uso|en cristiano
+gotcha|gotchas
+Tres cosas (a |que )entender
+Imagina que|Quédate con|Vamos al lío
+Como hemos visto|En conclusión|En resumen|En definitiva
+Sin lugar a dudas|Indudablemente|Resulta evidente
+revolucionario|innovador|disruptivo|holístico|integral
+impulsar|fomentar|potenciar|orquestar|catalizar
+es importante destacar|cabe mencionar|en este sentido
+radicalmente|absolutamente|completamente (distinto|nuevo|clave)
+La respuesta corta es|Versión corta|Spoiler:
+deck|paper|deadline|target|insight
+```
+
+(`slides` se permite cuando se refiere a la presentación del submódulo del propio curso, p. ej. *"Slide 5"*; en cambio "diapositiva" en prosa general también vale.)
+
+- [ ] grep de lista-negra **vacío** (sin matches en prosa; los términos
+      técnicos consolidados en inglés —deploy, commit, endpoint…— se
+      mantienen, igual los nombres de archivo o herramientas).
+
+### J.5 Test del café (relectura final)
+
+- [ ] Cada apertura y cada cierre de sección: ¿se lo dirías a un alumno
+      tomando un café después de clase? Si no, reescribe.
+- [ ] Las secciones finales (§11-§15) **no son** más robóticas que las
+      primeras (en textos largos la IA se degrada hacia el final;
+      revísalas con especial cuidado).
+- [ ] Si tuvieras que distinguir esto de algo escrito por un formador
+      humano experimentado, ¿podrías?

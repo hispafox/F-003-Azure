@@ -8,6 +8,10 @@
 > patrón de tests vuelve al de M02 (`WebApplicationFactory`) + integración
 > real con **Testcontainers.Azurite**.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: el para qué, el porqué (decisión Blob/Table/Queue/File,
+> coste, durabilidad, seguridad) y cómo ponerlo en marcha y probarlo.
+
 ## Objetivo
 
 Dominar los 4 servicios que viven dentro de un Storage Account (slide 3):

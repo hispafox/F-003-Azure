@@ -7,6 +7,10 @@
 > CRUD con `Azure.Data.Tables` y connection string (sin RBAC). Reutiliza
 > el patrón Table/Azurite de **S5.1**.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: las tres trampas reales de Table (sin `decimal`,
+> caracteres prohibidos en claves, OData a mano) y cómo evitarlas.
+
 ## Objetivo
 
 | Concepto | Dónde |

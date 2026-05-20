@@ -7,6 +7,11 @@
 > RU) + **S5.4** (Managed Identity: keyless). Entregable: una app que lee
 > y escribe en Cosmos **sin una sola key ni password**.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: el entregable, la prueba definitiva (regenerar la
+> key y ver que la app sigue funcionando) y cómo justificar el diseño
+> de partition key.
+
 ## Objetivo
 
 | Concepto | Dónde |

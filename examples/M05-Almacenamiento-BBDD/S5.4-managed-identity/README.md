@@ -7,6 +7,11 @@
 > nuevo, cambia *cómo* la app se conecta a los de S5.1–S5.3 — **sin
 > keys ni passwords**, con la identidad del recurso.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: por qué Managed Identity, los tres niveles de
+> seguridad, el patrón del `TokenCredential` singleton y cómo demostrar
+> que tu app es realmente keyless.
+
 ## Objetivo
 
 Mostrar el patrón keyless completo y la lógica que lo respalda:

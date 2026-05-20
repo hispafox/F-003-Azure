@@ -7,6 +7,11 @@
 > ahora el servicio de datos es **relacional**: EF Core sobre Azure SQL,
 > con migraciones, retry de errores transitorios y connection pooling.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: el para qué, el porqué (ACID, EF Core, pool, retry,
+> Managed Identity, no migrar al arrancar) y cómo ponerlo en marcha y
+> probarlo.
+
 ## Objetivo
 
 Una API de ventas (`Producto` 1—N `Pedido`) que muestra el ciclo

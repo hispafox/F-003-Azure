@@ -1,22 +1,27 @@
 # Plantilla de MANUAL.md — guía sección por sección
 
-Esqueleto fijo. Las secciones marcadas **[ADAPTAR]** cambian según el
-tema del submódulo; el resto es estructura estable. Ejemplo vivo de
-referencia: `examples/M05-Almacenamiento-BBDD/S5.1-azure-storage/MANUAL.md`.
-Numera las secciones con `## N. Título` (texto plano, sin markup).
+Esqueleto fijo. Las secciones marcadas **[ADAPTAR]** cambian según el tema del submódulo; el resto es estructura estable. Ejemplo vivo de referencia: `examples/M05-Almacenamiento-BBDD/S5.1-azure-storage/MANUAL.md`. Numera las secciones con `## N. Título` (texto plano, sin markup).
+
+**Convención de formato del fuente.** Cada párrafo de prosa va en **una sola línea**, sin saltos intermedios. Los saltos visuales los pone el editor/preview. Solo van en su propia línea las filas de tabla, los ítems de lista, los headings, las líneas de bloque de código y los `>` que abren un blockquote (la prosa dentro del blockquote también va en una línea continua, precedida por `> ` solo al inicio del párrafo).
 
 ---
 
 ## Cabecera (antes de §1)
 
 - `# Manual del alumno — SY.Z · <Tema>`
-- Un callout `>` que explique **qué es este documento** (no es el README;
-  el README = ficha técnica; el manual = el para qué + porqué + puesta en
-  marcha), con una mini-tabla README vs MANUAL si ayuda.
-- Línea de meta: tiempo de lectura estimado · enlace a la teoría
-  (`../../../doc/MXX-*/v*-actual/MXX-SY.Z-*.md`, indicando nº de slides) ·
-  "cómo leerlo" (qué secciones son marco mental, cuáles técnicas, cuáles
+- Un párrafo (sin callout-tesis-cápsula) que explique **qué es este
+  documento** y qué no: el README sigue siendo la ficha técnica; el
+  manual va antes y explica el para qué, el porqué y la puesta en
+  marcha.
+- Línea de meta en prosa o lista compacta: tiempo de lectura · enlace a
+  la teoría (`../../../doc/MXX-*/v*-actual/MXX-SY.Z-*.md`, con nº de
+  slides) · cómo leerlo (qué secciones son marco mental, técnicas o
   práctica).
+- **Línea de fecha de creación** en cursiva, justo bajo el bloque
+  meta-doc:
+  `*Creado: YYYY-MM-DD HH:MM ±ZZZZ*`
+  capturada con `date "+%Y-%m-%d %H:%M %z"`. Si reescribes el manual,
+  añade detrás `· Actualizado: YYYY-MM-DD HH:MM` sin borrar el `Creado`.
 
 ## §1. La idea en una frase
 

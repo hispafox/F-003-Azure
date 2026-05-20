@@ -7,6 +7,10 @@
 > pero el servicio es **NoSQL documental**: `Microsoft.Azure.Cosmos`,
 > partition key, Request Units y niveles de consistencia.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) —
+> manual del alumno: el para qué, las tres decisiones de diseño de
+> Cosmos (partición, modelo, consistencia) y cómo ponerlo en marcha.
+
 ## Objetivo
 
 Una API de pedidos sobre Cosmos DB que materializa las **tres
