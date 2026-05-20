@@ -8,6 +8,8 @@
 > testeables** que sustentan la práctica: preflight, esqueleto de
 > stages, y evaluador de smoke test con auto-rollback.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: la entrega de un producto en una tienda como analogía, las tres puertas del pipeline (build verde, smoke staging, aprobación humana), preflight con 10 comprobaciones (bloqueantes vs avisos), OIDC vs Service Principal con secret, smoke con tres umbrales y auto-rollback con `condition: failed()`.
+
 ## Objetivo
 
 | Concepto | Dónde |

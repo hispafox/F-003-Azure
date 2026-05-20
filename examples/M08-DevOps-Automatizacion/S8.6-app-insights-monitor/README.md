@@ -8,6 +8,8 @@
 > Por eso queda CAPA 1 (lógica pura) + CAPA 0 (contenedor DI) + CAPA E2E
 > (Minimal API vía `WebApplicationFactory`), sin CAPA de integración.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el monitor de constantes vitales como analogía, las cinco queries KQL canónicas (P95, error rate, excepciones, dependencias, traza por operation_Id), la batería de alertas mínima, el runbook de 5 pasos y control de coste con sampling + daily cap.
+
 ## Objetivo
 
 | Concepto | Dónde |

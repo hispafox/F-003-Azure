@@ -26,13 +26,16 @@ YAML de pipeline) — se reevalúa por submódulo.
 
 ✅ **Módulo M08 completo** (6 submódulos + 2 prácticas, 8/8).
 
-> 📘 **Manuales del alumno disponibles** (S8.1–S8.5):
+> 📘 **Manuales del alumno** (módulo M08 completo):
 > [S8.1](S8.1-azure-devops-repos-boards/MANUAL.md) ·
 > [S8.2](S8.2-pipelines-cicd-yaml/MANUAL.md) ·
 > [S8.3](S8.3-despliegue-automatizado/MANUAL.md) ·
 > [S8.4](S8.4-ado-vs-github-actions/MANUAL.md) ·
-> [S8.5](S8.5-iac-bicep/MANUAL.md).
-> S8.6, S8.P y S8.P2 pendientes. Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
+> [S8.5](S8.5-iac-bicep/MANUAL.md) ·
+> [S8.6](S8.6-app-insights-monitor/MANUAL.md) ·
+> [S8.P](S8.P-practica-pipeline-cicd/MANUAL.md) ·
+> [S8.P2](S8.P2-practica-github-actions-publish-profile/MANUAL.md).
+> Cada `MANUAL.md` complementa al `README.md` técnico del ejemplo explicando el *para qué*, las decisiones y la puesta en marcha guiada para el alumno.
 
 ## Patrón de tests
 

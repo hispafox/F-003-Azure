@@ -10,6 +10,8 @@
 >
 > 🧱 **Cierra M08 (8/8)**: última práctica del módulo de DevOps.
 
+> 📘 **¿Primera vez con esta práctica?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: las dos llaves de la casa como analogía (Publish Profile vs OIDC), parser del XML con detección de placeholders, tres niveles de workflow (minimal, con tests, con environment+smoke), recomendador con tres salidas y rotación obligatoria del publish profile cada 90 días.
+
 ## Objetivo
 
 | Concepto | Dónde |
