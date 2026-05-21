@@ -30,26 +30,28 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
 | M09 IA Claude Code | ✅ completo 7/7 (S9.1–S9.5 + S9.P + S9.P2) |
-| M10–M11 | pendientes |
+| M10 Proyecto Integrador | 🚧 1/2 (S10.1 hecho; S10.P2 pendiente) |
+| M11 | pendiente |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `73065ca`** = mi push previo
-  de `M09-S9.P Claude Code + MCP practice`. M02–M08 + M09-S9.1..S9.P
-  en remoto.
-- **S9.P2 está CONSTRUIDO, VERDE (39 tests pass + 0 fail + 0 warn)
-  pero SIN COMMITEAR** en el working tree. Cierra M09 (7/7).
-  Conceptual sin integración: `PrimerComandoPreflight` (más ligero
-  que S9.P: Node, cuenta Anthropic, auth, repo como bloqueantes;
-  terminal/git como avisos), `PasoEvaluator` (8 pasos del slide 4-11
-  con `ComandoEjecutado` + `OutputEsperadoVisible` → Pasa/Falla/
-  Pendiente con sugerencias específicas por paso), `PromptPatronDetector`
-  (3 anti-patterns del slide 12: vago, adivinar, todo de golpe; 2
-  positivos: confirmación previa, rubber duck; puntuación 0-100 base 50).
-  Sin commitear ahora mismo (acotado a S9.P2 + M09 README + 2 índices):
-  - `?? examples/M09-IA-Claude-Code/S9.P2-practica-claude-code-primer-comando/` (nuevo)
-  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.P2 + "M09 completo 7/7")
-  - ` M examples/README.md` (fila S9.P2 + footer "M09 completo 7/7")
+- **`origin/main` = local `main` = commit `8e8ab33`** = mi push previo
+  de `M09-S9.P2 first command with Claude Code practice` (cierre M09
+  7/7). M02–M09 completos en remoto.
+- **S10.1 está CONSTRUIDO, VERDE (27 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. **Primer submódulo de M10**
+  (Proyecto Integrador). M10 solo tiene 2 submódulos en v3-actual:
+  S10.1 (diseño y arquitectura) y S10.P2 (mini-proyecto notas).
+  Conceptual sin integración: `ArquitecturaChecklist` (10 componentes
+  del slide 3/4 con `EstadoComponente.Pendiente/EnProgreso/Desplegado`
+  + porcentaje), `BloqueRecommender` (slide 5: A→B→C→D según progreso,
+  con tareas concretas y justificación), `EntregaEvaluator` (slide 11:
+  8 criterios pesados 15/15/10/10/15/10/15/10 = 100%; umbral aprobado
+  70%). Sin commitear ahora mismo (acotado a S10.1 + M10 README + 2
+  índices):
+  - `?? examples/M10-Proyecto-Integrador/S10.1-diseno-arquitectura/` (nuevo)
+  - `?? examples/M10-Proyecto-Integrador/README.md` (nuevo — primer M10)
+  - ` M examples/README.md` (fila S10.1 + footer "⏳ M10 1/2")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -57,20 +59,20 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M09-IA-Claude-Code/S9.P2-practica-claude-code-primer-comando \
-          examples/M09-IA-Claude-Code/README.md \
+  git add examples/M10-Proyecto-Integrador \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M10 — Proyecto Integrador`. Leer primero
-los docs en `doc/M10-Proyecto-Integrador/v*-actual/`. Es el módulo
-final donde se monta TODO lo aprendido en una app real (API +
-Functions + Cosmos + Auth + Key Vault + Pipeline + Monitoring).
-**Probable patrón**: scaffold del proyecto, checklist por cada
-componente, smoke tests cross-cutting. Puerto launchSettings siguiente
-libre: **5120**.
+**Siguiente tarea concreta:** `M10-S10.P2` — leer primero
+`doc/M10-Proyecto-Integrador/v3-actual/M10-S10.P2-practica-mini-proyecto-notas-v1.md`.
+Práctica mini-proyecto notas: versión reducida del proyecto
+integrador. **Probable patrón**: scaffold de un sistema mínimo de
+notas (CRUD + auth + pipeline simple), checklist de las decisiones
+clave (qué cortar respecto al proyecto completo), evaluador del
+mini-entregable. Cierra M10 con 2/2. Puerto launchSettings siguiente
+libre: **5121**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten

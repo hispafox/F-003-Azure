@@ -1,0 +1,105 @@
+### REST Client — S10.1 Proyecto Integrador: diseño y arquitectura.
+### Checklist + recomendador de bloque + evaluador de entrega.
+
+@host = http://localhost:5120
+
+### Salud
+GET {{host}}/health
+
+### Arquitectura: estado todo en pendiente
+POST {{host}}/diseno/arquitectura
+Content-Type: application/json
+
+{}
+
+### Arquitectura: con Bicep + App Service desplegados
+POST {{host}}/diseno/arquitectura
+Content-Type: application/json
+
+{
+  "bicep": "Desplegado",
+  "appService": "Desplegado",
+  "cosmos": "EnProgreso"
+}
+
+### Porcentaje desplegado
+POST {{host}}/diseno/arquitectura/porcentaje
+Content-Type: application/json
+
+{
+  "bicep": "Desplegado",
+  "appService": "Desplegado",
+  "cosmos": "Desplegado",
+  "managedIdentity": "Desplegado"
+}
+
+### Bloque siguiente: sin Bicep → A
+POST {{host}}/diseno/bloque-siguiente
+Content-Type: application/json
+
+{}
+
+### Bloque siguiente: con Bicep → B
+POST {{host}}/diseno/bloque-siguiente
+Content-Type: application/json
+
+{ "bicep": "Desplegado" }
+
+### Bloque siguiente: A y B completos → C
+POST {{host}}/diseno/bloque-siguiente
+Content-Type: application/json
+
+{
+  "bicep": "Desplegado",
+  "appService": "Desplegado",
+  "cosmos": "Desplegado",
+  "entra": "Desplegado",
+  "keyVault": "Desplegado",
+  "managedIdentity": "Desplegado"
+}
+
+### Evaluar entrega: solo Bicep + API → 30%
+POST {{host}}/diseno/entrega
+Content-Type: application/json
+
+{
+  "bicepDesplegadoConWhatIf": true,
+  "apiCrudDevuelve2xx": true
+}
+
+### Evaluar entrega: todo cumplido → 100%
+POST {{host}}/diseno/entrega
+Content-Type: application/json
+
+{
+  "bicepDesplegadoConWhatIf": true,
+  "apiCrudDevuelve2xx": true,
+  "jwtValidaConEntra": true,
+  "datosPersistenEnCosmos": true,
+  "changeFeedTriggerFunctions": true,
+  "sinConnectionStringConPassword": true,
+  "pipelineDesplegaAStaging": true,
+  "appInsightsTieneTelemetryYAlertas": true
+}
+
+### Retos opcionales (slide 12)
+GET {{host}}/diseno/retos
+
+### Plan completo
+POST {{host}}/diseno/plan
+Content-Type: application/json
+
+{
+  "sistema": {
+    "bicep": "Desplegado",
+    "appService": "Desplegado",
+    "cosmos": "Desplegado",
+    "managedIdentity": "Desplegado"
+  },
+  "entrega": {
+    "bicepDesplegadoConWhatIf": true,
+    "apiCrudDevuelve2xx": true,
+    "datosPersistenEnCosmos": true,
+    "sinConnectionStringConPassword": true
+  }
+}

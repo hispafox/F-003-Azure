@@ -94,6 +94,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.5 — Buenas prácticas y limitaciones (anti-patterns, 7 secciones, acelera vs frena) | [ClaudeCode.Limites.Demo.Api](M09-IA-Claude-Code/S9.5-buenas-practicas-limitaciones/README.md) | ✅ Disponible |
 | [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.P — Práctica CC + MCP end-to-end (preflight, evaluador, comparativa) | [Practica.CcMcp.Demo.Api](M09-IA-Claude-Code/S9.P-practica-cc-mcp/README.md) | ✅ Disponible |
 | [M09 — IA Claude Code](M09-IA-Claude-Code/README.md) | S9.P2 — Práctica primer comando con CC (preflight ligero, 8 pasos, patterns) | [Practica.PrimerComando.Demo.Api](M09-IA-Claude-Code/S9.P2-practica-claude-code-primer-comando/README.md) | ✅ Disponible |
+| [M10 — Proyecto Integrador](M10-Proyecto-Integrador/README.md) | S10.1 — Diseño y arquitectura (checklist, bloques A-D, entrega) | [ProyectoIntegrador.Diseno.Demo.Api](M10-Proyecto-Integrador/S10.1-diseno-arquitectura/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
@@ -103,6 +104,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 ✅ **Módulo M07 completo** (7 submódulos + 2 prácticas, 9/9).
 ✅ **Módulo M08 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M09 completo** (5 submódulos + 2 prácticas, 7/7).
+⏳ **Módulo M10 en construcción** (1/2 — S10.1 disponible).
 
 ## Cómo usar un ejemplo
 

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S10.1 Proyecto Integrador: diseño y arquitectura. Conceptual:
+       el alumno construye el sistema completo en 4 bloques (A: Bicep,
+       B: API, C: Functions, D: Pipeline). Lo testeable:
+         - checklist de los 10 componentes del slide 4 (App Service,
+           Functions, Cosmos, SB, Entra, KV, MI, App Insights, Bicep,
+           Pipeline) con estado por componente
+         - recomendador de bloque siguiente (A/B/C/D) según progreso
+         - evaluador de entrega con los 8 criterios pesados del slide
+           11 → porcentaje final
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ProyectoIntegrador.Diseno.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

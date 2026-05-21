@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/ProyectoIntegrador.Diseno.Demo.Api/ProyectoIntegrador.Diseno.Demo.Api.csproj" />
+  <Project Path="tests/ProyectoIntegrador.Diseno.Demo.Api.Tests/ProyectoIntegrador.Diseno.Demo.Api.Tests.csproj" />
+</Solution>
