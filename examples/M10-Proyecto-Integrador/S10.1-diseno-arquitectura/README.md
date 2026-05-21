@@ -11,6 +11,8 @@
 > siguiente y evaluador de la entrega con los 8 criterios pesados
 > del slide 11.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: las pruebas de mar de un barco recién construido como analogía (10 sistemas críticos del buque = 10 componentes Azure, 4 fases de pruebas = bloques A→B→C→D, informe del inspector de Lloyd's con 8 criterios pesados = entrega del slide 11). Cubre la aritmética del 70% como umbral, los 4 criterios de 15% como pilares estructurales y los retos del slide 12 como nota extra solo a partir del 80%.
+
 ## Objetivo
 
 | Concepto | Dónde |
