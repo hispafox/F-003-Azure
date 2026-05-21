@@ -9,6 +9,8 @@
 > requisitos, generador de los 7 prompts canónicos de IaC y audit
 > checker contra reglas mínimas (HTTPS, MI, tags, TLS).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el aparejador que te dibuja los planos del chalet como analogía, parser de requisitos con avisos automáticos (HTTPS/MI/Private Endpoint), 7 prompts canónicos (Bicep, Dockerfile, GH Actions, reverse ARM, audit, runbook, ops scripts) y el audit checker como gate determinístico en el pipeline IaC.
+
 ## Objetivo
 
 | Concepto | Dónde |
