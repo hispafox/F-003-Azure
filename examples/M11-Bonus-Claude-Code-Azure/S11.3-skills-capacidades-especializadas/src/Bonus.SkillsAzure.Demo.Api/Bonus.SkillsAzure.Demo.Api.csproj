@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S11.3 Skills: capacidades especializadas para Azure (BONUS).
+       Conceptual: el estándar abierto SKILL.md + frontmatter +
+       progressive disclosure + Azure Skills Plugin. Lo testeable:
+         - scorer de la `description` del skill (slide 16/24): el
+           campo que decide si Claude carga el skill
+         - validador del frontmatter del SKILL.md (slide 6): campos
+           obligatorios + consistencia context/agent + tools
+         - detector de anti-patrones (slide 17): skill enorme,
+           credenciales, tools sin restringir
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Bonus.SkillsAzure.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

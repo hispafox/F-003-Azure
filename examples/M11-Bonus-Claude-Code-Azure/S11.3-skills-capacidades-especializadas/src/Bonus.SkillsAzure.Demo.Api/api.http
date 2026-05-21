@@ -1,0 +1,64 @@
+### REST Client — S11.3 Skills: capacidades especializadas para Azure (BONUS).
+### Estándar SKILL.md + frontmatter + description + anti-patrones + Azure Skills Plugin.
+
+@host = http://localhost:5124
+
+### Salud
+GET {{host}}/health
+
+### Frontmatter bien formado (slide 3/6)
+POST {{host}}/skills/frontmatter
+Content-Type: application/json
+
+{ "skillMd": "---\nname: deploy-to-azure\ndescription: \"Deploy a .NET app to Azure App Service with validation, what-if, and smoke tests\"\nallowed-tools: Bash(az *), Read\n---\n\n# Deploy to Azure\n\n1. Run dotnet test first\n2. Run az bicep build" }
+
+### Frontmatter incompleto: sin name ni description (Error)
+POST {{host}}/skills/frontmatter
+Content-Type: application/json
+
+{ "skillMd": "---\nallowed-tools: Read\n---\n\n# Algo\n\nHace cosas." }
+
+### Frontmatter context: fork sin agent (Advertencia, slide 14)
+POST {{host}}/skills/frontmatter
+Content-Type: application/json
+
+{ "skillMd": "---\nname: deep-research\ndescription: \"Research Azure architecture options in depth\"\ncontext: fork\nallowed-tools: WebFetch, WebSearch, Read\n---\n\nInvestiga." }
+
+### Description vaga (puntuación baja, slide 16)
+POST {{host}}/skills/description
+Content-Type: application/json
+
+{ "description": "Helps with deployments and maybe other things" }
+
+### Description específica con keywords (puntuación alta, slide 16)
+POST {{host}}/skills/description
+Content-Type: application/json
+
+{ "description": "Deploy a .NET 8 application to Azure App Service including Bicep validation, what-if preview, slot swap, and post-deploy smoke tests" }
+
+### Anti-patrón: skill con credencial literal (Error, slide 17 #3)
+POST {{host}}/skills/antipatterns
+Content-Type: application/json
+
+{ "skillMd": "---\nname: deploy\ndescription: \"Deploy to Azure\"\nallowed-tools: Bash\n---\n\nUsa connection string: Server=tcp:sql;Password=secret123;" }
+
+### Anti-patrón: tools demasiado amplios (Advertencia, slide 17 #5)
+POST {{host}}/skills/antipatterns
+Content-Type: application/json
+
+{ "skillMd": "---\nname: deploy\ndescription: \"Deploy a .NET app to Azure App Service\"\nallowed-tools: Bash(*), Write(**)\n---\n\nDespliega." }
+
+### Los 8 skills de Microsoft más usados (slide 18)
+GET {{host}}/skills/microsoft
+
+### Plan completo a partir de un SKILL.md
+POST {{host}}/skills/plan
+Content-Type: application/json
+
+{ "skillMd": "---\nname: convenciones-equipo\ndescription: \"Apply our team .NET and Azure coding conventions when generating or reviewing code\"\nallowed-tools: Read\n---\n\n# Convenciones del equipo\n\n- async/await obligatorio\n- records para DTOs\n- Managed Identity siempre" }
+
+### Plan sin SKILL.md (solo catálogo + roadmap + checklist)
+POST {{host}}/skills/plan
+Content-Type: application/json
+
+{}

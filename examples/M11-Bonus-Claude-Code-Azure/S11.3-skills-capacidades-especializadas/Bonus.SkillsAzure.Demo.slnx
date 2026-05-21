@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Bonus.SkillsAzure.Demo.Api/Bonus.SkillsAzure.Demo.Api.csproj" />
+  <Project Path="tests/Bonus.SkillsAzure.Demo.Api.Tests/Bonus.SkillsAzure.Demo.Api.Tests.csproj" />
+</Solution>
