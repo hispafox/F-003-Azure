@@ -1,0 +1,93 @@
+### REST Client — S9.P2 Práctica primer comando con Claude Code.
+### Preflight ligero + evaluador de pasos + detector de patterns.
+
+@host = http://localhost:5119
+
+### Salud
+GET {{host}}/health
+
+### Preflight: alumno listo
+POST {{host}}/primercomando/preflight
+Content-Type: application/json
+
+{
+  "tieneNode18OSuperior": true,
+  "tieneCuentaAnthropic": true,
+  "auth": "ClaudeAi",
+  "tieneTerminalModerna": true,
+  "tieneGit": true,
+  "tieneRepoPracticar": true
+}
+
+### Preflight: alumno sin Node ni auth
+POST {{host}}/primercomando/preflight
+Content-Type: application/json
+
+{ "tieneRepoPracticar": true }
+
+### Evaluar paso 1: instalación
+POST {{host}}/primercomando/paso
+Content-Type: application/json
+
+{
+  "paso": "InstalarCli",
+  "comandoEjecutado": true,
+  "outputEsperadoVisible": true
+}
+
+### Evaluar paso 5: /init falla
+POST {{host}}/primercomando/paso
+Content-Type: application/json
+
+{
+  "paso": "CrearClaudeMd",
+  "comandoEjecutado": true,
+  "outputEsperadoVisible": false,
+  "comentario": "/init genera pero el CLAUDE.md sale sin Common Tasks"
+}
+
+### Slash commands esenciales (slide 9)
+GET {{host}}/primercomando/slash-commands
+
+### Detectar patterns: prompt vago + adivinanza (anti-patterns)
+POST {{host}}/primercomando/prompt
+Content-Type: application/json
+
+{ "prompt": "Mejora el código y arregla los bugs" }
+
+### Detectar patterns: prompt con confirmación previa (positivo)
+POST {{host}}/primercomando/prompt
+Content-Type: application/json
+
+{ "prompt": "Antes de implementar, dime cómo lo harías y por qué" }
+
+### Detectar patterns: prompt rubber duck (positivo)
+POST {{host}}/primercomando/prompt
+Content-Type: application/json
+
+{ "prompt": "Estoy intentando hacer X pero me da Y error. Mi enfoque es Z. ¿Me explico mal en algo?" }
+
+### Plan completo + checklist
+POST {{host}}/primercomando/plan
+Content-Type: application/json
+
+{
+  "preflight": {
+    "tieneNode18OSuperior": true,
+    "tieneCuentaAnthropic": true,
+    "auth": "ClaudeAi",
+    "tieneTerminalModerna": true,
+    "tieneGit": true,
+    "tieneRepoPracticar": true
+  },
+  "evidencias": [
+    { "paso": "InstalarCli", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "LoginYPrimeraSesion", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "PedirAlgoMasConcreto", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "EjecutarComandos", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "SlashCommands", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "CrearClaudeMd", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "PedirUnTest", "comandoEjecutado": true, "outputEsperadoVisible": true }
+  ],
+  "promptDelAlumno": "Antes de implementar, dime cómo lo harías"
+}

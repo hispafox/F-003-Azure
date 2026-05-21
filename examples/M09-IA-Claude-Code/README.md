@@ -22,9 +22,9 @@ APIs externas.
 | [S9.4](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.4-mcp-herramientas-v3.md) | MCP y herramientas externas (parser config, recomendador, seguridad) | [`S9.4-mcp-herramientas/`](S9.4-mcp-herramientas/README.md) | ✅ Disponible |
 | [S9.5](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.5-buenas-practicas-limitaciones-v3.md) | Buenas prácticas y limitaciones (anti-patterns, 7 secciones, acelera vs frena) | [`S9.5-buenas-practicas-limitaciones/`](S9.5-buenas-practicas-limitaciones/README.md) | ✅ Disponible |
 | [S9.P](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.P-practica-cc-mcp-v3.md) | Práctica — CC + MCP end-to-end (preflight, evaluador, comparativa) | [`S9.P-practica-cc-mcp/`](S9.P-practica-cc-mcp/README.md) | ✅ Disponible |
-| S9.P2 | Práctica — primer comando con Claude Code | — | ⏳ Pendiente |
+| [S9.P2](../../doc/M09-IA-Claude-Code/v3-actual/M09-S9.P2-practica-claude-code-primer-comando-v1.md) | Práctica — primer comando con CC (preflight ligero, 8 pasos, patterns) | [`S9.P2-practica-claude-code-primer-comando/`](S9.P2-practica-claude-code-primer-comando/README.md) | ✅ Disponible |
 
-⏳ **Módulo M09 en construcción** (6/7).
+✅ **Módulo M09 completo** (5 submódulos + 2 prácticas, 7/7).
 
 ## Patrón de tests
 

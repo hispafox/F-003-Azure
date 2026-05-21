@@ -29,27 +29,27 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M06 Seguridad y Auth | ✅ completo 8/8 (S6.1–S6.6 + S6.P + S6.P2) |
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
-| M09 IA Claude Code | 🚧 6/7 (S9.1–S9.5 + S9.P hechos; S9.P2 pendiente) |
+| M09 IA Claude Code | ✅ completo 7/7 (S9.1–S9.5 + S9.P + S9.P2) |
 | M10–M11 | pendientes |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `759e037`** = mi push previo
-  de `M09-S9.5 best practices and limitations`. M02–M08 + M09-S9.1..S9.5
+- **`origin/main` = local `main` = commit `73065ca`** = mi push previo
+  de `M09-S9.P Claude Code + MCP practice`. M02–M08 + M09-S9.1..S9.P
   en remoto.
-- **S9.P está CONSTRUIDO, VERDE (34 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. Primera práctica de M09.
-  Conceptual sin integración: `PracticaPreflight` (Node 18+, claude
-  autenticado, API key, repo local como bloqueantes; az/gh CLI y
-  CLAUDE.md como avisos), `EjercicioEvaluator` (8 ejercicios del slide
-  3-7/11-13 evaluados por compila + tests + convenciones; cada uno con
-  sugerencia específica de fix), `PromptComparison` (3 niveles del
-  slide 12 puntuados sobre 100 con los 4 ingredientes canónicos; delta
-  vago→detallado como métrica clave). Sin commitear ahora mismo
-  (acotado a S9.P + M09 README + 2 índices):
-  - `?? examples/M09-IA-Claude-Code/S9.P-practica-cc-mcp/` (nuevo)
-  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.P + "6/7")
-  - ` M examples/README.md` (fila S9.P + footer "⏳ M09 6/7")
+- **S9.P2 está CONSTRUIDO, VERDE (39 tests pass + 0 fail + 0 warn)
+  pero SIN COMMITEAR** en el working tree. Cierra M09 (7/7).
+  Conceptual sin integración: `PrimerComandoPreflight` (más ligero
+  que S9.P: Node, cuenta Anthropic, auth, repo como bloqueantes;
+  terminal/git como avisos), `PasoEvaluator` (8 pasos del slide 4-11
+  con `ComandoEjecutado` + `OutputEsperadoVisible` → Pasa/Falla/
+  Pendiente con sugerencias específicas por paso), `PromptPatronDetector`
+  (3 anti-patterns del slide 12: vago, adivinar, todo de golpe; 2
+  positivos: confirmación previa, rubber duck; puntuación 0-100 base 50).
+  Sin commitear ahora mismo (acotado a S9.P2 + M09 README + 2 índices):
+  - `?? examples/M09-IA-Claude-Code/S9.P2-practica-claude-code-primer-comando/` (nuevo)
+  - ` M examples/M09-IA-Claude-Code/README.md` (fila S9.P2 + "M09 completo 7/7")
+  - ` M examples/README.md` (fila S9.P2 + footer "M09 completo 7/7")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -57,21 +57,20 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M09-IA-Claude-Code/S9.P-practica-cc-mcp \
+  git add examples/M09-IA-Claude-Code/S9.P2-practica-claude-code-primer-comando \
           examples/M09-IA-Claude-Code/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M09-S9.P2` — leer primero
-`doc/M09-IA-Claude-Code/v3-actual/M09-S9.P2-practica-claude-code-primer-comando-v1.md`.
-Práctica simplificada (primer comando con Claude Code, versión
-introductoria). **Probable patrón**: preflight más ligero,
-recomendador del primer comando según objetivo del alumno, evaluador
-del primer output (¿genera código? ¿hace falta iterar?). Cierra M09
-con 7/7. Puerto launchSettings siguiente
-libre: **5119**.
+**Siguiente tarea concreta:** `M10 — Proyecto Integrador`. Leer primero
+los docs en `doc/M10-Proyecto-Integrador/v*-actual/`. Es el módulo
+final donde se monta TODO lo aprendido en una app real (API +
+Functions + Cosmos + Auth + Key Vault + Pipeline + Monitoring).
+**Probable patrón**: scaffold del proyecto, checklist por cada
+componente, smoke tests cross-cutting. Puerto launchSettings siguiente
+libre: **5120**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten

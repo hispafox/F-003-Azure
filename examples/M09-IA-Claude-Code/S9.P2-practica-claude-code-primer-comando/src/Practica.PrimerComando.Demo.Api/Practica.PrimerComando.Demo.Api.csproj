@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S9.P2 Practica: primer comando con Claude Code. Conceptual:
+       practica introductoria simplificada. Lo testeable:
+         - preflight ligero (Node, cuenta Anthropic, repo local)
+         - evaluador de los 8 pasos del slide 2 (instalar, login,
+           primera sesion, modificar, /init CLAUDE.md, ejecutar,
+           slash commands, salir limpio)
+         - detector de patterns de prompt (slide 12): 3 anti-patterns
+           ("mejora el codigo", "arregla bugs", "todo a la vez") y 2
+           patterns positivos ("confirmacion previa", "rubber duck")
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Practica.PrimerComando.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
