@@ -9,6 +9,8 @@
 >
 > 🧱 **Cierra M09 (7/7)**: última práctica del módulo de IA.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el primer día del aprendiz en el bar de toda la vida como analogía (preflight de barra antes de abrir, 8 oficios básicos del primer día, vocabulario del oficio = 8 slash commands), evaluador con dos flags por paso (ComandoEjecutado + OutputEsperadoVisible) y detector con scoring 0-100 base 50 ±25 por hallazgo del slide 12.
+
 ## Objetivo
 
 | Concepto | Dónde |
