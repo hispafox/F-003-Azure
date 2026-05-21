@@ -1,0 +1,103 @@
+### REST Client — S11.2 Claude Code setup avanzado para Azure (BONUS).
+### Estructura `.claude/` + permissions + CLAUDE.md + Azure skills.
+
+@host = http://localhost:5123
+
+### Salud
+GET {{host}}/health
+
+### Estructura mínima: solo el core
+POST {{host}}/setup/estructura
+Content-Type: application/json
+
+{}
+
+### Estructura completa: equipo con agents + skills + MCP
+POST {{host}}/setup/estructura
+Content-Type: application/json
+
+{
+  "tieneAgentsCustom": true,
+  "tieneSkillsPropios": true,
+  "tieneSlashCommandsCustom": true,
+  "quiereHooks": true,
+  "usaMcpServers": true
+}
+
+### Settings con allow amplio (Critico) + sin deny destructivos (Alto)
+POST {{host}}/setup/settings
+Content-Type: application/json
+
+{
+  "allow": ["Bash(*)", "Write(**)"],
+  "deny": [],
+  "model": "claude-sonnet-4-6"
+}
+
+### Settings bien configurados
+POST {{host}}/setup/settings
+Content-Type: application/json
+
+{
+  "allow": ["Bash(dotnet *)", "Bash(az *)", "Read(**)", "Write(src/**)"],
+  "deny": [
+    "Bash(rm -rf *)",
+    "Bash(az group delete *)",
+    "Bash(az resource delete *)",
+    "Bash(drop database *)",
+    "Read(**/*.env)",
+    "Read(**/*.pfx)",
+    "Read(**/*.key)",
+    "Read(**/local.settings.json)"
+  ],
+  "model": "claude-sonnet-4-6"
+}
+
+### CLAUDE.md vago (puntuación baja)
+POST {{host}}/setup/claudemd
+Content-Type: application/json
+
+{ "contenido": "# Mi proyecto\n\nUna app." }
+
+### CLAUDE.md bien estructurado (puntuación alta)
+POST {{host}}/setup/claudemd
+Content-Type: application/json
+
+{ "contenido": "# Proyecto Ventas\n\n## Stack\n- .NET 8 con Cosmos DB y Azure Functions\n- Service Bus y Key Vault\n\n## Convenciones\n- async/await siempre\n- ILogger con logging estructurado\n- Records para DTOs\n\n## Comandos\n- dotnet build\n- dotnet test\n- az deployment group create\n\n## Arquitectura\nVer docs/architecture.md.\n\n## No tocar sin preguntar\n- infrastructure/modules/rbac.bicep (requiere review del lead)" }
+
+### CLAUDE.md con anti-pattern: secreto literal
+POST {{host}}/setup/claudemd
+Content-Type: application/json
+
+{ "contenido": "# Proyecto\n\n## Stack\n.NET 8.\n\nConnection string: Server=tcp:sql.db;Password=secret123;" }
+
+### Los 20 skills del Azure Skills Plugin (slide 16)
+GET {{host}}/setup/azure-skills
+
+### Plan completo
+POST {{host}}/setup/plan
+Content-Type: application/json
+
+{
+  "equipo": {
+    "tieneAgentsCustom": true,
+    "tieneSkillsPropios": true,
+    "quiereHooks": true,
+    "usaMcpServers": true
+  },
+  "settings": {
+    "allow": ["Bash(dotnet *)", "Read(**)", "Write(src/**)"],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(az group delete *)",
+      "Bash(az resource delete *)",
+      "Bash(drop database *)",
+      "Read(**/*.env)",
+      "Read(**/*.pfx)",
+      "Read(**/*.key)",
+      "Read(**/local.settings.json)"
+    ],
+    "model": "claude-sonnet-4-6"
+  },
+  "claudeMdContenido": "# Proyecto\n## Stack\n.NET 8 con Cosmos DB\n## Convenciones\nasync/await + ILogger\n## Comandos\ndotnet build\n## No tocar sin preguntar\nrbac.bicep"
+}

@@ -31,45 +31,47 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
 | M09 IA Claude Code | ✅ completo 7/7 (S9.1–S9.5 + S9.P + S9.P2) |
 | M10 Proyecto Integrador | ✅ completo 2/2 (S10.1 + S10.P2) |
-| M11 Bonus Claude Code en Azure | 🚧 1/10 (S11.1 hecho; S11.2–S11.8 + S11.P + S11.P2 pendientes) |
+| M11 Bonus Claude Code en Azure | 🚧 2/10 (S11.1, S11.2 hechos; S11.3–S11.8 + S11.P + S11.P2 pendientes) |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `01bb526`** = mi push previo
-  de `M10-S10.P2 mini-proyecto Notas practice` (cierre M10 2/2).
-  M02–M10 completos en remoto.
-- **S11.1 está CONSTRUIDO, VERDE (33 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. **Primer submódulo de M11** (bonus
-  Claude Code en Azure, 10 submódulos en total). Conceptual sin
-  integración: `GeneracionIaClassifier` (Gen1 autocompletado / Gen2 chat
-  / Gen3 agente según palabras clave del slide 3), `CcVsCoworkRecommender`
-  (tabla canónica + recomendación dev/PM/mixto del slide 9),
-  `NivelUsoEvaluator` (Nivel 1/2/3 del slide 10 + 4 principios del slide
-  18). Sin commitear ahora mismo (acotado a S11.1 + M11 README + 2
-  índices):
-  - `?? examples/M11-Bonus-Claude-Code-Azure/S11.1-introduccion-ia-agentica-azure/` (nuevo)
-  - `?? examples/M11-Bonus-Claude-Code-Azure/README.md` (nuevo — primer M11)
-  - ` M examples/README.md` (fila S11.1 + footer "⏳ M11 1/10")
+- **`origin/main` = local `main` = commit `23b17e3`** = el otro chat
+  va por delante subiendo `MANUAL.md` de alumnos. S11.1 (`ea02441`)
+  ya está en remoto. M02–M10 completos.
+- **S11.2 está CONSTRUIDO, VERDE (43 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. **Segundo submódulo de M11**.
+  Conceptual sin integración: `CarpetaClaudeStructurer` (estructura del
+  directorio `.claude/` según flags del equipo, slide 4),
+  `SettingsPermissionsValidator` (permissions allow/deny: `Bash(*)`/
+  `Write(**)` → Critico, falta deny destructivos/exclude sensibles →
+  Alto, sin model → Medio, slide 7/9), `ClaudeMdQualityEvaluator`
+  (6 secciones ponderadas 25/25/20/15/10/5, anti-patrones de secretos,
+  aviso > 80 líneas, slide 5/6) + `SetupAzurePlanner` con los 20 Azure
+  Skills (slide 16) y checklist de 9 puntos. Cambios SIN commitear
+  (acotado a S11.2 + M11 README + 2 índices):
+  - `?? examples/M11-Bonus-Claude-Code-Azure/S11.2-claude-code-setup-azure/` (nuevo)
+  - ` M examples/M11-Bonus-Claude-Code-Azure/README.md` (fila S11.2 + "2/10")
+  - ` M examples/README.md` (fila S11.2 + footer "⏳ M11 2/10")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
-    `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
+    `MANUAL.md` (p. ej. `S10.1-diseno-arquitectura/MANUAL.md` y su
+    README modificado) y `.claude/skills/**`. NUNCA `git add -A`.
 - Cuando el usuario diga **"sube"**: `git fetch`, comprobar
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M11-Bonus-Claude-Code-Azure \
+  git add examples/M11-Bonus-Claude-Code-Azure/S11.2-claude-code-setup-azure \
+          examples/M11-Bonus-Claude-Code-Azure/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M11-S11.2` — leer primero
-`doc/M11-Bonus-Claude-Code-Azure/v1-actual/M11-S11.2-claude-code-setup-azure.md`.
-Setup de Claude Code para Azure (azure-skills plugin, Azure MCP,
-Bicep MCP, ADO MCP). **Probable patrón**: preflight de setup, parser
-del `claude_desktop_config.json` con servers de Azure, recomendador
-de configuración por escenario. Puerto launchSettings siguiente
-libre: **5123**.
+**Siguiente tarea concreta:** `M11-S11.3` — leer primero
+`doc/M11-Bonus-Claude-Code-Azure/v1-actual/M11-S11.3-skills-capacidades-especializadas.md`.
+Skills: capacidades especializadas (skills oficiales + propios,
+combinación con Azure Skills Plugin, escribir un SKILL.md propio).
+Puerto launchSettings siguiente libre: **5124**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten

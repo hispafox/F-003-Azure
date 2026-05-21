@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S11.2 Claude Code setup avanzado para Azure (BONUS).
+       Conceptual: setup del directorio `.claude/` + CLAUDE.md +
+       settings.json + permissions + .mcp.json. Lo testeable:
+         - estructurador del directorio `.claude/` segun necesidades
+           del equipo (slide 4)
+         - validador de permissions del settings.json: detecta deny
+           de comandos destructivos + exclude de archivos sensibles
+           (slide 7/9)
+         - evaluador de calidad del CLAUDE.md contra DOs/DON'Ts del
+           slide 6
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Bonus.SetupAzure.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

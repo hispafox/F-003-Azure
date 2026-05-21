@@ -20,7 +20,7 @@ reales.
 | Submódulo | Tema | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [S11.1](../../doc/M11-Bonus-Claude-Code-Azure/v1-actual/M11-S11.1-introduccion-ia-agentica-azure.md) | Intro IA agéntica (generación, CC vs Cowork, nivel madurez) | [`S11.1-introduccion-ia-agentica-azure/`](S11.1-introduccion-ia-agentica-azure/README.md) | ✅ Disponible |
-| S11.2 | Claude Code: setup para Azure | — | ⏳ Pendiente |
+| [S11.2](../../doc/M11-Bonus-Claude-Code-Azure/v1-actual/M11-S11.2-claude-code-setup-azure.md) | Claude Code: setup avanzado para Azure (`.claude/`, `CLAUDE.md`, `permissions`, skills) | [`S11.2-claude-code-setup-azure/`](S11.2-claude-code-setup-azure/README.md) | ✅ Disponible |
 | S11.3 | Skills: capacidades especializadas | — | ⏳ Pendiente |
 | S11.4 | Agentes y subagentes | — | ⏳ Pendiente |
 | S11.5 | MCP con servicios Azure | — | ⏳ Pendiente |
@@ -30,7 +30,7 @@ reales.
 | S11.P | Práctica — solución end-to-end | — | ⏳ Pendiente |
 | S11.P2 | Práctica — Claude Code + Azure light | — | ⏳ Pendiente |
 
-⏳ **Módulo M11 en construcción** (1/10).
+⏳ **Módulo M11 en construcción** (2/10).
 
 ## Patrón de tests
 

@@ -97,6 +97,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 | [M10 — Proyecto Integrador](M10-Proyecto-Integrador/README.md) | S10.1 — Diseño y arquitectura (checklist, bloques A-D, entrega) | [ProyectoIntegrador.Diseno.Demo.Api](M10-Proyecto-Integrador/S10.1-diseno-arquitectura/README.md) | ✅ Disponible |
 | [M10 — Proyecto Integrador](M10-Proyecto-Integrador/README.md) | S10.P2 — Práctica mini-proyecto Notas (preflight, 11 pasos, alcance) | [Practica.MiniNotas.Demo.Api](M10-Proyecto-Integrador/S10.P2-practica-mini-proyecto-notas/README.md) | ✅ Disponible |
 | [M11 — Bonus Claude Code en Azure](M11-Bonus-Claude-Code-Azure/README.md) | S11.1 — Intro IA agéntica (generación, CC vs Cowork, nivel madurez) | [Bonus.IntroIaAgentica.Demo.Api](M11-Bonus-Claude-Code-Azure/S11.1-introduccion-ia-agentica-azure/README.md) | ✅ Disponible |
+| [M11 — Bonus Claude Code en Azure](M11-Bonus-Claude-Code-Azure/README.md) | S11.2 — Claude Code setup avanzado para Azure (`.claude/`, `CLAUDE.md`, `permissions`, skills) | [Bonus.SetupAzure.Demo.Api](M11-Bonus-Claude-Code-Azure/S11.2-claude-code-setup-azure/README.md) | ✅ Disponible |
 
 ✅ **Módulo M02 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M03 completo** (6 submódulos + 2 prácticas, 8/8).
@@ -107,7 +108,7 @@ mapea a un submódulo concreto de [`doc/`](../doc).
 ✅ **Módulo M08 completo** (6 submódulos + 2 prácticas, 8/8).
 ✅ **Módulo M09 completo** (5 submódulos + 2 prácticas, 7/7).
 ✅ **Módulo M10 completo** (1 submódulo + 1 práctica, 2/2).
-⏳ **Módulo M11 (bonus) en construcción** (1/10 — S11.1 disponible).
+⏳ **Módulo M11 (bonus) en construcción** (2/10 — S11.1, S11.2 disponibles).
 
 ## Cómo usar un ejemplo
 
