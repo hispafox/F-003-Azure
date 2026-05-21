@@ -10,6 +10,8 @@
 >
 > 🧱 **Cierra M10 (2/2)** y, con S10.1, **cierra el curso F-003-Azure**.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el cortometraje antes del largometraje como analogía (Azure real a escala reducida, 11 fases del rodaje = 11 pasos, desmontar el set = cleanup `az group delete`). Cubre la decisión de alcance Mini/Completo/EmpezarPorMini, las 5 features incluidas vs las 9 que cubre S10.1 y el camino de 7 pasos para escalar al proyecto integrador grande.
+
 ## Objetivo
 
 | Concepto | Dónde |
