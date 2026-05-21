@@ -8,6 +8,8 @@
 > detectar anti-patterns de uso, validar la estructura de 7 secciones
 > del prompt (slide 12) y clasificar cuándo la IA acelera o frena.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el auditor financiero externo como analogía (cuaderno de 10 banderas rojas + plantilla de 7 capítulos del informe + catálogo de riesgos por tipo de operación), las 7 reglas de oro como ADN del equipo que adopta Claude Code bien, y los tres mecanismos voluntarios (detector quincenal, validador para la biblioteca de prompts, matriz Acelera/Frena en planning) para introducirlo sin paternalismo.
+
 ## Objetivo
 
 | Concepto | Dónde |
