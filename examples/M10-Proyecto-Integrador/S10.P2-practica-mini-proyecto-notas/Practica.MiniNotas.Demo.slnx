@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Practica.MiniNotas.Demo.Api/Practica.MiniNotas.Demo.Api.csproj" />
+  <Project Path="tests/Practica.MiniNotas.Demo.Api.Tests/Practica.MiniNotas.Demo.Api.Tests.csproj" />
+</Solution>

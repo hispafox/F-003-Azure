@@ -1,0 +1,95 @@
+### REST Client — S10.P2 Mini-proyecto notas.
+### Preflight + evaluador de los 11 pasos + comparador de alcance.
+
+@host = http://localhost:5121
+
+### Salud
+GET {{host}}/health
+
+### Preflight: alumno listo
+POST {{host}}/mininotas/preflight
+Content-Type: application/json
+
+{
+  "tieneDotNet8SDK": true,
+  "tieneAzCli": true,
+  "tieneCurl": true,
+  "tieneJq": true,
+  "tieneGit": true,
+  "hizoM01": true,
+  "hizoM02": true,
+  "hizoM05": true
+}
+
+### Preflight: sin .NET ni az
+POST {{host}}/mininotas/preflight
+Content-Type: application/json
+
+{ "tieneCurl": true }
+
+### Evaluar paso 5: crear solución compila
+POST {{host}}/mininotas/paso
+Content-Type: application/json
+
+{
+  "paso": "CrearSolucion",
+  "comandoEjecutado": true,
+  "outputEsperadoVisible": true
+}
+
+### Evaluar paso 12: deploy con fallo de output
+POST {{host}}/mininotas/paso
+Content-Type: application/json
+
+{
+  "paso": "DesplegarApp",
+  "comandoEjecutado": true,
+  "outputEsperadoVisible": false,
+  "comentario": "tarda en arrancar, no responde aún"
+}
+
+### Alcance: quiero end-to-end mínimo en 1 hora → Mini
+POST {{host}}/mininotas/alcance
+Content-Type: application/json
+
+{ "quieresUnEndToEndMinimo": true, "tienesMenosDeUnaHora": true }
+
+### Alcance: necesito auth + functions + pipeline → Completo
+POST {{host}}/mininotas/alcance
+Content-Type: application/json
+
+{
+  "necesitasAuthEntra": true,
+  "necesitasFunctionsYSb": true,
+  "necesitasPipelineCompleto": true,
+  "quieresProyectoDeProduccion": true
+}
+
+### Alcance: caso intermedio → empezar por mini
+POST {{host}}/mininotas/alcance
+Content-Type: application/json
+
+{ "yaConocesM01M02M05": true }
+
+### Camino de extensión hacia S10.1
+GET {{host}}/mininotas/camino-s101
+
+### Plan completo + checklist
+POST {{host}}/mininotas/plan
+Content-Type: application/json
+
+{
+  "preflight": {
+    "tieneDotNet8SDK": true,
+    "tieneAzCli": true,
+    "tieneCurl": true,
+    "hizoM02": true,
+    "hizoM05": true
+  },
+  "evidencias": [
+    { "paso": "CrearSolucion", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "ImplementarModelo", "comandoEjecutado": true, "outputEsperadoVisible": true },
+    { "paso": "EndpointsCrud", "comandoEjecutado": true, "outputEsperadoVisible": false }
+  ],
+  "objetivo": { "quieresUnEndToEndMinimo": true }
+}

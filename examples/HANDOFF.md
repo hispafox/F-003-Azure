@@ -30,28 +30,27 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M07 Integración y MSIX | ✅ completo 9/9 (S7.1–S7.7 + S7.P + S7.P2) |
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
 | M09 IA Claude Code | ✅ completo 7/7 (S9.1–S9.5 + S9.P + S9.P2) |
-| M10 Proyecto Integrador | 🚧 1/2 (S10.1 hecho; S10.P2 pendiente) |
+| M10 Proyecto Integrador | ✅ completo 2/2 (S10.1 + S10.P2) |
 | M11 | pendiente |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `8e8ab33`** = mi push previo
-  de `M09-S9.P2 first command with Claude Code practice` (cierre M09
-  7/7). M02–M09 completos en remoto.
-- **S10.1 está CONSTRUIDO, VERDE (27 tests pass + 0 fail + 0 warn) pero
-  SIN COMMITEAR** en el working tree. **Primer submódulo de M10**
-  (Proyecto Integrador). M10 solo tiene 2 submódulos en v3-actual:
-  S10.1 (diseño y arquitectura) y S10.P2 (mini-proyecto notas).
-  Conceptual sin integración: `ArquitecturaChecklist` (10 componentes
-  del slide 3/4 con `EstadoComponente.Pendiente/EnProgreso/Desplegado`
-  + porcentaje), `BloqueRecommender` (slide 5: A→B→C→D según progreso,
-  con tareas concretas y justificación), `EntregaEvaluator` (slide 11:
-  8 criterios pesados 15/15/10/10/15/10/15/10 = 100%; umbral aprobado
-  70%). Sin commitear ahora mismo (acotado a S10.1 + M10 README + 2
-  índices):
-  - `?? examples/M10-Proyecto-Integrador/S10.1-diseno-arquitectura/` (nuevo)
-  - `?? examples/M10-Proyecto-Integrador/README.md` (nuevo — primer M10)
-  - ` M examples/README.md` (fila S10.1 + footer "⏳ M10 1/2")
+- **`origin/main` = local `main` = commit `01e9dae`** = mi push previo
+  de `M10-S10.1 Proyecto Integrador architecture`. M02–M09 completos +
+  M10-S10.1 en remoto.
+- **S10.P2 está CONSTRUIDO, VERDE (42 tests pass + 0 fail + 0 warn)
+  pero SIN COMMITEAR** en el working tree. **Cierra M10 (2/2)** y con
+  M01–M09 ya cerrados también **cierra el curso F-003-Azure (excepto
+  M11 bonus opcional)**. Conceptual sin integración: `MiniNotasPreflight`
+  (.NET 8 SDK + az + curl como bloqueantes; jq/git/módulos previos
+  como avisos), `PasoChecker` (11 pasos del slide 4-14 con sugerencias
+  específicas por paso), `AlcanceComparator` (slide 2: si necesita
+  auth/Functions/SB/pipeline/producción → Completo; si quiere
+  end-to-end mínimo → Mini; sin señales → EmpezarPorMini). Sin
+  commitear ahora mismo (acotado a S10.P2 + M10 README + 2 índices):
+  - `?? examples/M10-Proyecto-Integrador/S10.P2-practica-mini-proyecto-notas/` (nuevo)
+  - ` M examples/M10-Proyecto-Integrador/README.md` (fila S10.P2 + "M10 completo 2/2")
+  - ` M examples/README.md` (fila S10.P2 + footer "M10 completo 2/2")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -59,20 +58,19 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M10-Proyecto-Integrador \
+  git add examples/M10-Proyecto-Integrador/S10.P2-practica-mini-proyecto-notas \
+          examples/M10-Proyecto-Integrador/README.md \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M10-S10.P2` — leer primero
-`doc/M10-Proyecto-Integrador/v3-actual/M10-S10.P2-practica-mini-proyecto-notas-v1.md`.
-Práctica mini-proyecto notas: versión reducida del proyecto
-integrador. **Probable patrón**: scaffold de un sistema mínimo de
-notas (CRUD + auth + pipeline simple), checklist de las decisiones
-clave (qué cortar respecto al proyecto completo), evaluador del
-mini-entregable. Cierra M10 con 2/2. Puerto launchSettings siguiente
-libre: **5121**.
+**Siguiente tarea concreta:** `M11 — Bonus Claude Code en Azure`.
+Submódulo bonus opcional. Leer primero `doc/M11-*/v*-actual/`.
+Probablemente extiende M09 con casos de Claude Code aplicados a
+Azure (Bicep, App Service, Cosmos, Functions). Si la receta del
+conceptual sigue funcionando, espero patrón similar. Puerto
+launchSettings siguiente libre: **5122**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten

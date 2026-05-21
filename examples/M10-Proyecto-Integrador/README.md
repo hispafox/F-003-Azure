@@ -18,9 +18,9 @@ bloque, evaluador de entrega).
 | Submódulo | Tema | Ejemplo | Estado |
 | --- | --- | --- | --- |
 | [S10.1](../../doc/M10-Proyecto-Integrador/v3-actual/M10-S10.1-diseno-arquitectura-v3.md) | Diseño y arquitectura (checklist, bloques A-D, entrega) | [`S10.1-diseno-arquitectura/`](S10.1-diseno-arquitectura/README.md) | ✅ Disponible |
-| [S10.P2](../../doc/M10-Proyecto-Integrador/v3-actual/M10-S10.P2-practica-mini-proyecto-notas-v1.md) | Práctica — mini-proyecto notas | — | ⏳ Pendiente |
+| [S10.P2](../../doc/M10-Proyecto-Integrador/v3-actual/M10-S10.P2-practica-mini-proyecto-notas-v1.md) | Práctica — mini-proyecto Notas (preflight, 11 pasos, alcance) | [`S10.P2-practica-mini-proyecto-notas/`](S10.P2-practica-mini-proyecto-notas/README.md) | ✅ Disponible |
 
-⏳ **Módulo M10 en construcción** (1/2).
+✅ **Módulo M10 completo** (1 submódulo + 1 práctica, 2/2).
 
 ## Patrón de tests
 

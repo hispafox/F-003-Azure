@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S10.P2 Practica mini-proyecto notas. Conceptual: version
+       recortada del proyecto integrador (S10.1). El alumno monta
+       Web App F1 + Table Storage + 5 endpoints CRUD en 60-75 min.
+       Lo testeable aqui:
+         - preflight ligero (.NET 8 SDK, az CLI, curl, conocimiento
+           previo M01/M02/M05)
+         - evaluador de los 11 pasos del slide 2
+         - comparador de alcance (que tiene/no tiene la mini-app)
+           con sugerencias de extension hacia S10.1
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Practica.MiniNotas.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>
