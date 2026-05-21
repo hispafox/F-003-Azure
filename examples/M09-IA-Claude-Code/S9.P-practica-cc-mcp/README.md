@@ -9,6 +9,8 @@
 > completó bien: preflight, evaluador de ejercicios y comparador de
 > prompts (slide 12 con 3 niveles de detalle).
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el primer vuelo en solitario del aprendiz de piloto como analogía (preflight literal, 8 maniobras evaluadas, comunicación radio = comparativa de prompts), evaluador con tres niveles Pasa / Pendiente / Falla y acciones concretas por ejercicio, comparador del slide 12 con el cap a 25 puntos si el prompt mide menos de 40 caracteres.
+
 ## Objetivo
 
 | Concepto | Dónde |
