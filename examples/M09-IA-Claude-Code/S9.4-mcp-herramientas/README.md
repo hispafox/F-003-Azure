@@ -9,6 +9,8 @@
 > `claude_desktop_config.json`, recomendador de servers por escenario
 > del equipo y security checker contra los riesgos del slide 9.
 
+> 📘 **¿Primera vez con este ejemplo?** Lee el [MANUAL.md](MANUAL.md) — manual del alumno: el cinturón de llaves del técnico de mantenimiento como analogía (cada MCP server es una llave etiquetada con su alcance), recomendador de servers por escenario del equipo con permisos mínimos escritos, security checker contra los tres anti-patterns del slide 9 (tokens hardcoded, `filesystem` en `/`, servers de Git sin rotación) y el config versionado como template con `${VAR}` por defecto.
+
 ## Objetivo
 
 | Concepto | Dónde |
