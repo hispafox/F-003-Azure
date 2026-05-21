@@ -1,0 +1,97 @@
+### REST Client — S11.1 Intro IA agéntica para Azure (BONUS).
+### Generación + comparativa CC vs Cowork + nivel de madurez.
+
+@host = http://localhost:5122
+
+### Salud
+GET {{host}}/health
+
+### Generación: Claude Code → Gen3 Agente
+POST {{host}}/intro/generacion
+Content-Type: application/json
+
+{ "descripcion": "Uso Claude Code en terminal para que lea el repo y ejecuta comandos" }
+
+### Generación: Copilot → Gen1 Autocompletado
+POST {{host}}/intro/generacion
+Content-Type: application/json
+
+{ "descripcion": "GitHub Copilot inline en VS Code, sugerencias línea a línea" }
+
+### Generación: ChatGPT → Gen2 Chat
+POST {{host}}/intro/generacion
+Content-Type: application/json
+
+{ "descripcion": "Copy paste de mi código a ChatGPT para que genere bloques" }
+
+### Comparativa Claude Code vs Cowork (slide 9)
+GET {{host}}/intro/comparativa
+
+### Recomendar: dev en terminal + Bicep → Claude Code
+POST {{host}}/intro/recomendar
+Content-Type: application/json
+
+{ "trabajaEnTerminal": true, "editaCodigo": true, "ejecutaBicepDeploy": true, "esDeveloper": true }
+
+### Recomendar: PM con informes + scheduled tasks → Cowork
+POST {{host}}/intro/recomendar
+Content-Type: application/json
+
+{ "generaInformes": true, "necesitaScheduledTasks": true, "esKnowledgeWorker": true }
+
+### Recomendar: equipo mixto → Ambas
+POST {{host}}/intro/recomendar
+Content-Type: application/json
+
+{
+  "editaCodigo": true,
+  "esDeveloper": true,
+  "generaInformes": true,
+  "necesitaScheduledTasks": true,
+  "esKnowledgeWorker": true
+}
+
+### Nivel: Solo prompts concretos → Nivel 1
+POST {{host}}/intro/nivel
+Content-Type: application/json
+
+{ "usaPromptsConcretos": true }
+
+### Nivel: Skills + MCP → Nivel 2
+POST {{host}}/intro/nivel
+Content-Type: application/json
+
+{
+  "configuraSkills": true,
+  "configuraMcp": true,
+  "skillsEnGit": true,
+  "humanoEnLoopAccionesConImpacto": true
+}
+
+### Nivel: Agents + workflows + 4 principios → Nivel 3
+POST {{host}}/intro/nivel
+Content-Type: application/json
+
+{
+  "configuraSkills": true,
+  "configuraMcp": true,
+  "tieneAgentsPropios": true,
+  "ejecutaWorkflowsAutomaticos": true,
+  "skillsEnGit": true,
+  "agentsConPermisosMinimos": true,
+  "humanoEnLoopAccionesConImpacto": true,
+  "auditaElUsoDeIa": true
+}
+
+### Objetivos del módulo M11 (slide 7)
+GET {{host}}/intro/objetivos
+
+### Plan completo
+POST {{host}}/intro/plan
+Content-Type: application/json
+
+{
+  "uso": { "editaCodigo": true, "ejecutaAzCli": true, "esDeveloper": true },
+  "equipo": { "configuraSkills": true, "configuraMcp": true, "skillsEnGit": true },
+  "descripcionHerramientaActual": "Uso Claude Code para refactorizar el proyecto"
+}

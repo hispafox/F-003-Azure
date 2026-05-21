@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <!-- S11.1 Introduccion IA agentica para Azure (BONUS).
+       Conceptual: M11 es el bonus track sobre Claude Code + Azure.
+       Lo testeable de la intro:
+         - clasificador de herramienta IA por generacion (slide 3:
+           autocompletado vs chat vs agentes)
+         - comparador Claude Code vs Cowork por escenario (slide 9)
+         - evaluador del nivel de madurez en IA agentica del equipo
+           (slide 10 + 18: Nivel 1/2/3 + 4 principios)
+       Sin PackageReference externas. -->
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Bonus.IntroIaAgentica.Demo.Api.Tests" />
+  </ItemGroup>
+
+</Project>

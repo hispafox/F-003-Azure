@@ -31,26 +31,25 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
 | M08 DevOps y Automatización | ✅ completo 8/8 (S8.1–S8.6 + S8.P + S8.P2) |
 | M09 IA Claude Code | ✅ completo 7/7 (S9.1–S9.5 + S9.P + S9.P2) |
 | M10 Proyecto Integrador | ✅ completo 2/2 (S10.1 + S10.P2) |
-| M11 | pendiente |
+| M11 Bonus Claude Code en Azure | 🚧 1/10 (S11.1 hecho; S11.2–S11.8 + S11.P + S11.P2 pendientes) |
 
 ### Estado git EXACTO (verificar con `git fetch` + `git status`)
 
-- **`origin/main` = local `main` = commit `01e9dae`** = mi push previo
-  de `M10-S10.1 Proyecto Integrador architecture`. M02–M09 completos +
-  M10-S10.1 en remoto.
-- **S10.P2 está CONSTRUIDO, VERDE (42 tests pass + 0 fail + 0 warn)
-  pero SIN COMMITEAR** en el working tree. **Cierra M10 (2/2)** y con
-  M01–M09 ya cerrados también **cierra el curso F-003-Azure (excepto
-  M11 bonus opcional)**. Conceptual sin integración: `MiniNotasPreflight`
-  (.NET 8 SDK + az + curl como bloqueantes; jq/git/módulos previos
-  como avisos), `PasoChecker` (11 pasos del slide 4-14 con sugerencias
-  específicas por paso), `AlcanceComparator` (slide 2: si necesita
-  auth/Functions/SB/pipeline/producción → Completo; si quiere
-  end-to-end mínimo → Mini; sin señales → EmpezarPorMini). Sin
-  commitear ahora mismo (acotado a S10.P2 + M10 README + 2 índices):
-  - `?? examples/M10-Proyecto-Integrador/S10.P2-practica-mini-proyecto-notas/` (nuevo)
-  - ` M examples/M10-Proyecto-Integrador/README.md` (fila S10.P2 + "M10 completo 2/2")
-  - ` M examples/README.md` (fila S10.P2 + footer "M10 completo 2/2")
+- **`origin/main` = local `main` = commit `01bb526`** = mi push previo
+  de `M10-S10.P2 mini-proyecto Notas practice` (cierre M10 2/2).
+  M02–M10 completos en remoto.
+- **S11.1 está CONSTRUIDO, VERDE (33 tests pass + 0 fail + 0 warn) pero
+  SIN COMMITEAR** en el working tree. **Primer submódulo de M11** (bonus
+  Claude Code en Azure, 10 submódulos en total). Conceptual sin
+  integración: `GeneracionIaClassifier` (Gen1 autocompletado / Gen2 chat
+  / Gen3 agente según palabras clave del slide 3), `CcVsCoworkRecommender`
+  (tabla canónica + recomendación dev/PM/mixto del slide 9),
+  `NivelUsoEvaluator` (Nivel 1/2/3 del slide 10 + 4 principios del slide
+  18). Sin commitear ahora mismo (acotado a S11.1 + M11 README + 2
+  índices):
+  - `?? examples/M11-Bonus-Claude-Code-Azure/S11.1-introduccion-ia-agentica-azure/` (nuevo)
+  - `?? examples/M11-Bonus-Claude-Code-Azure/README.md` (nuevo — primer M11)
+  - ` M examples/README.md` (fila S11.1 + footer "⏳ M11 1/10")
   - ` M examples/HANDOFF.md` (este archivo)
   - **IMPORTANTE — NO stagear**: el otro chat sigue activo con
     `MANUAL.md` y `.claude/skills/**`. NUNCA `git add -A`.
@@ -58,19 +57,19 @@ arquitectura no obvia (entonces se propone en 1 párrafo y se ejecuta).
   ahead/behind, y commit ACOTADO + push:
   ```
   cd c:/w/repos/F-003-Azure
-  git add examples/M10-Proyecto-Integrador/S10.P2-practica-mini-proyecto-notas \
-          examples/M10-Proyecto-Integrador/README.md \
+  git add examples/M11-Bonus-Claude-Code-Azure \
           examples/README.md examples/HANDOFF.md
   # commit -F - con cuerpo en inglés + trailer Co-Authored-By (ver paso 10)
   git push origin main
   ```
 
-**Siguiente tarea concreta:** `M11 — Bonus Claude Code en Azure`.
-Submódulo bonus opcional. Leer primero `doc/M11-*/v*-actual/`.
-Probablemente extiende M09 con casos de Claude Code aplicados a
-Azure (Bicep, App Service, Cosmos, Functions). Si la receta del
-conceptual sigue funcionando, espero patrón similar. Puerto
-launchSettings siguiente libre: **5122**.
+**Siguiente tarea concreta:** `M11-S11.2` — leer primero
+`doc/M11-Bonus-Claude-Code-Azure/v1-actual/M11-S11.2-claude-code-setup-azure.md`.
+Setup de Claude Code para Azure (azure-skills plugin, Azure MCP,
+Bicep MCP, ADO MCP). **Probable patrón**: preflight de setup, parser
+del `claude_desktop_config.json` con servers de Azure, recomendador
+de configuración por escenario. Puerto launchSettings siguiente
+libre: **5123**.
 
 **Lección S9.2 (orden de reglas de clasificación)**: en
 `CaseClassifier`, el primer match gana. Si dos casos comparten
