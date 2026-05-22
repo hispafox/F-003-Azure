@@ -29,8 +29,24 @@ else
     builder.Services.AddSingleton(new BlobServiceClient(cs));
     builder.Services.AddSingleton(new QueueServiceClient(cs));
     builder.Services.AddSingleton(new TableServiceClient(cs));
-    builder.Services.AddSingleton(new ShareServiceClient(cs));
+    // Azurite no emula Azure Files y el atajo "UseDevelopmentStorage=true" no
+    // expande FileEndpoint → ShareServiceClient(cs) lanza NullReferenceException
+    // al construirse. Le damos un FileEndpoint explícito para que el cliente se
+    // cree (el contrato existe para ver el SDK; el File real va contra un
+    // Storage real — ver README).
+    builder.Services.AddSingleton(new ShareServiceClient(DevFileConnectionString(cs)));
 }
+
+// El atajo de Azurite no define FileEndpoint; lo añadimos para Azure Files.
+static string DevFileConnectionString(string cs) =>
+    cs == "UseDevelopmentStorage=true"
+        ? "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;"
+          + "AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;"
+          + "BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;"
+          + "QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;"
+          + "TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;"
+          + "FileEndpoint=http://127.0.0.1:10004/devstoreaccount1;"
+        : cs;
 
 builder.Services.AddSingleton<IBlobRepository, BlobRepository>();
 builder.Services.AddSingleton<ITableRepository, TableRepository>();
